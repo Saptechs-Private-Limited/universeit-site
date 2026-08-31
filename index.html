@@ -7,7 +7,7 @@
 <meta name="description" content="UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#0A1A2F">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9IiMwQzQ0N0MiLz48dGV4dCB4PSIzMiIgeT0iNDYiIGZvbnQtZmFtaWx5PSJHZW9yZ2lhLHNlcmlmIiBmb250LXNpemU9IjQwIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5VPC90ZXh0Pjwvc3ZnPg==">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlVuaXZlcnNlSVQiPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEzIiBmaWxsPSIjMkE0QjhEIi8+CiAgPCEtLSBib2xkIG1vcnRhcmJvYXJkLCBzaXplZCB0byByZWFkIGF0IGZhdmljb24gc2NhbGUgLS0+CiAgPHBhdGggZD0iTTMyIDEzIEw1NyAyNCBMMzIgMzUgTDcgMjQgWiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxwYXRoIGQ9Ik0xNyAyOS41IEwzMiAzNiBMNDcgMjkuNSB2OC41IGMwIDUuMiAtMzAgNS4yIC0zMCAwIFoiIGZpbGw9IiNjZmUwZmYiLz4KICA8cGF0aCBkPSJNNTcgMjQgdjExLjUiIHN0cm9rZT0iI0YyQTQxMyIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI1NyIgY3k9IjM4IiByPSIzLjYiIGZpbGw9IiNGMkE0MTMiLz4KPC9zdmc+Cg==">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="UniverseIT — institutional ERP for schools, colleges and universities">
@@ -30,6 +30,10 @@
   --brand-lift: #1A6BB8;
   --gold:       #B8791A;
   --gold-bright:#F2A413;
+
+  /* the logo's own colours, from app/launchpad/logo.svg */
+  --logo-ink:   #2A4B8D;
+  --logo-gold:  #F2A413;
 
   --bg:      #F4F6F9;
   --surface: #FFFFFF;
@@ -71,6 +75,7 @@
     --brand-lift: #6FB2EE;
     --gold:       #E2A13B;
     --gold-bright:#F5B942;
+    --logo-ink:   #E9EFF6;
 
     --bg:      #0E1620;
     --surface: #172230;
@@ -98,6 +103,7 @@
   --brand-lift: #6FB2EE;
   --gold:       #E2A13B;
   --gold-bright:#F5B942;
+  --logo-ink:   #E9EFF6;
 
   --bg:      #0E1620;
   --surface: #172230;
@@ -168,16 +174,13 @@ a { color: inherit; }
 }
 .nav-in { max-width: var(--wide); margin: 0 auto; padding: 0 28px;
   height: 62px; display: flex; align-items: center; gap: 28px; }
-.logo { display: flex; align-items: center; gap: 10px; font-family: var(--serif);
-  font-size: 20px; font-weight: 600; letter-spacing: -.02em; text-decoration: none; }
-.logo .mark {
-  width: 30px; height: 30px; border-radius: 8px; flex: none;
-  background: linear-gradient(150deg, var(--brand), var(--ink-2));
-  color: #fff; font-family: var(--mono); font-size: 15px; font-weight: 600;
-  display: grid; place-items: center;
-  box-shadow: inset 0 0 0 1px rgba(242,164,19,.55);
+.logo {
+  display: flex; align-items: center; gap: 9px; font-family: var(--sans);
+  font-size: 19.5px; font-weight: 700; letter-spacing: .017em;
+  text-decoration: none; color: var(--logo-ink);
 }
-.logo .it { color: var(--gold); }
+.logo .mark { width: 30px; height: 30px; flex: none; display: block; }
+.logo .it { color: var(--logo-gold); }
 .nav-links { display: flex; gap: 4px; margin-left: auto; align-items: center; }
 .nav-links a {
   font-size: 13.5px; font-weight: 500; color: var(--muted);
@@ -1075,6 +1078,8 @@ body.proto-open { overflow: hidden; }
 
 /* ================= DEMO & CONTACT ================= */
 .demo-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 46px; align-items: start; }
+.demo-open { font-size: 15px; padding: 14px 24px; }
+.demo-open::after { content: " \2193"; opacity: .8; }
 @media (max-width: 920px) { .demo-grid { grid-template-columns: 1fr; gap: 36px; } }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
@@ -1182,7 +1187,14 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 <!-- ============================ NAV ============================ -->
 <nav class="nav">
   <div class="nav-in">
-    <a class="logo" href="#top"><span class="mark">U</span>Universe<span class="it">IT</span></a>
+    <a class="logo" href="#top" aria-label="UniverseIT — home">
+      <svg class="mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
+        <rect width="64" height="64" rx="13" fill="#2A4B8D"/>
+        <path d="M32 13 L57 24 L32 35 L7 24 Z" fill="#ffffff"/>
+        <path d="M17 29.5 L32 36 L47 29.5 v8.5 c0 5.2 -30 5.2 -30 0 Z" fill="#cfe0ff"/>
+        <path d="M57 24 v11.5" stroke="#F2A413" stroke-width="3" fill="none" stroke-linecap="round"/>
+        <circle cx="57" cy="38" r="3.6" fill="#F2A413"/>
+      </svg><span>Universe<span class="it">IT</span></span></a>
     <div class="nav-links">
       <a href="#hierarchy">Hierarchy</a>
       <a href="#modules">Modules</a>
@@ -1194,7 +1206,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       <a href="#setup">Setup</a>
       <a href="#mobile">Mobile</a>
       <a href="#governance">Governance</a>
-      <a href="#demo">Book a demo</a>
+      <a href="#demo" data-open-demo>Book a demo</a>
     </div>
     <button class="theme-btn" id="themeBtn" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
   </div>
@@ -1740,7 +1752,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
   <div class="wrap">
     <div class="sec-head rv">
       <div class="eyebrow">Book a demo</div>
-      <h2>Bring the requirement you think nobody covers.</h2>
+      <h2>Tell us what to show you.</h2>
       <p class="lede">
         A demo here is not a slide deck. Tell us the thing your current system makes you do on paper —
         the staggered lunch sitting, the no-dues signature you chase across five desks, the return you
@@ -1751,6 +1763,10 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 
     <div class="demo-grid">
       <div class="rv">
+        <button class="btn btn-solid demo-open" type="button" id="demoReveal" data-open-demo>
+          Book a demo
+        </button>
+        <div id="demoPanel" hidden>
         <form id="demoForm" novalidate>
           <div class="form-row">
             <div class="field" id="f-name">
@@ -1830,6 +1846,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
             <button class="btn btn-line" type="button" id="demoAgain">Start again</button>
           </div>
         </div>
+        </div>
       </div>
 
       <div class="rv">
@@ -1877,7 +1894,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       do on paper, and see whether it is already here.
     </p>
     <div class="hero-cta">
-      <a class="btn btn-gold" href="#demo">Book a demo</a>
+      <a class="btn btn-gold" href="#demo" data-open-demo>Book a demo</a>
       <a class="btn btn-ghost" href="#modules">Browse the module catalogue</a>
     </div>
   </div>
@@ -5185,6 +5202,27 @@ var WANTS = [
 (function () {
   var form = document.getElementById("demoForm");
   if (!form) return;
+  var panel = document.getElementById("demoPanel"),
+      reveal = document.getElementById("demoReveal");
+
+  function openDemo(scroll) {
+    var wasShut = panel.hidden;
+    panel.hidden = false;
+    reveal.hidden = true;
+    if (scroll) {
+      document.getElementById("demo").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+    if (wasShut) {
+      /* focus after the scroll settles, so the browser does not fight it */
+      setTimeout(function () { document.getElementById("d-name").focus({ preventScroll: true }); }, scroll ? 520 : 0);
+    }
+  }
+  document.querySelectorAll("[data-open-demo]").forEach(function (el) {
+    el.addEventListener("click", function () { openDemo(el !== reveal); });
+  });
+  /* arriving on #demo from a link elsewhere should also open it */
+  if (location.hash === "#demo") openDemo(false);
+  window.addEventListener("hashchange", function () { if (location.hash === "#demo") openDemo(false); });
   var wantRow = document.getElementById("demoWant"),
       sent = document.getElementById("demoSent"),
       sentLead = document.getElementById("sentLead"),
