@@ -1077,10 +1077,9 @@ body.proto-open { overflow: hidden; }
 .road-item p { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.55; }
 
 /* ================= DEMO & CONTACT ================= */
-.demo-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 46px; align-items: start; }
-.demo-open { font-size: 15px; padding: 14px 24px; }
+.demo-hold { max-width: 780px; }
+.demo-open { font-size: 15px; padding: 14px 26px; }
 .demo-open::after { content: " \2193"; opacity: .8; }
-@media (max-width: 920px) { .demo-grid { grid-template-columns: 1fr; gap: 36px; } }
 
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
@@ -1129,42 +1128,30 @@ body.proto-open { overflow: hidden; }
 }
 .sent .form-foot { margin-top: 16px; }
 
-.contact-card {
-  background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-  padding: 24px 24px 26px;
+.co-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(224px, 1fr)); gap: 1px; background: var(--ink-rule);
+  border: 1px solid var(--ink-rule); border-radius: 12px; overflow: hidden; }
+.co-item { background: var(--ink); padding: 20px 22px 22px; }
+.co-k {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-accent); margin-bottom: 9px;
 }
-.contact-card h3 { font-size: 21px; margin-bottom: 4px; }
-.contact-card .co-legal { font-family: var(--mono); font-size: 10.5px; color: var(--gold); letter-spacing: .06em; }
-.contact-line { display: flex; gap: 12px; padding: 13px 0; border-top: 1px solid var(--border); }
-.contact-line:first-of-type { margin-top: 16px; }
-.contact-line .cl-k {
-  font-family: var(--mono); font-size: 10px; letter-spacing: .11em; text-transform: uppercase;
-  color: var(--faint); width: 74px; flex: none; padding-top: 3px;
-}
-.contact-line .cl-v { font-size: 14.5px; color: var(--text); line-height: 1.45; }
-.contact-line .cl-v small { display: block; font-size: 12.5px; color: var(--muted); margin-top: 2px; }
+.co-v { font-size: 15.5px; color: #fff; font-weight: 600; line-height: 1.4; display: block; word-break: break-word; }
+.co-v.mail { text-decoration: none; border-bottom: 1px solid rgba(242,164,19,.4); }
+.co-v.mail:hover { border-bottom-color: var(--ink-accent); }
+.co-s { font-size: 13px; color: var(--ink-muted); line-height: 1.55; margin-top: 8px; }
+.co-item .fillme { border-color: var(--ink-rule); color: var(--ink-faint); }
+
+.mail-link, .mail-inline { color: var(--brand); font-weight: 600; word-break: break-all; }
+.mail-link { text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--brand) 35%, transparent); }
+.mail-link:hover { border-bottom-color: var(--brand); }
 .fillme {
   font-family: var(--mono); font-size: 12.5px; color: var(--faint);
   border: 1px dashed var(--rule); border-radius: 6px; padding: 2px 8px; display: inline-block;
 }
-.mail-link, .mail-inline { color: var(--brand); font-weight: 600; word-break: break-all; }
-.mail-link { text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--brand) 35%, transparent); }
-.mail-link:hover { border-bottom-color: var(--brand); }
 .btn-solid { background: var(--brand); color: #fff; }
 .btn-solid:hover { background: var(--brand-lift); }
 .btn-line { border-color: var(--border); color: var(--text); background: var(--surface); }
 .btn-line:hover { border-color: var(--brand-lift); color: var(--brand); }
-
-/* ================= CLOSER ================= */
-.closer { background: var(--ink); color: var(--ink-text); position: relative; overflow: hidden; }
-.closer::before {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(760px 380px at 50% 128%, rgba(242,164,19,.16), transparent 62%);
-}
-.closer-in { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; padding: 88px 28px 92px; text-align: center; }
-.closer h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.1; font-weight: 400; letter-spacing: -.024em; color: #fff; }
-.closer p { margin-top: 18px; font-size: 17px; color: var(--ink-muted); line-height: 1.62; }
-.closer .hero-cta { justify-content: center; }
 
 footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px solid var(--ink-rule); }
 .foot-in {
@@ -1207,6 +1194,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       <a href="#mobile">Mobile</a>
       <a href="#governance">Governance</a>
       <a href="#demo" data-open-demo>Book a demo</a>
+      <a href="#contact">Contact</a>
     </div>
     <button class="theme-btn" id="themeBtn" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
   </div>
@@ -1747,26 +1735,23 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
   </div>
 </section>
 
-<!-- ============================ DEMO & CONTACT ============================ -->
+<!-- ============================ BOOK A DEMO ============================ -->
 <section id="demo">
   <div class="wrap">
-    <div class="sec-head rv">
+    <div class="sec-head rv" style="max-width:820px">
       <div class="eyebrow">Book a demo</div>
-      <h2>Tell us what to show you.</h2>
+      <h2>Bring the requirement you think nobody covers.</h2>
       <p class="lede">
-        A demo here is not a slide deck. Tell us the thing your current system makes you do on paper —
-        the staggered lunch sitting, the no-dues signature you chase across five desks, the return you
-        assemble by hand every quarter — and we will show you where it already lives, or say plainly
-        that it does not.
+        The fastest way to judge whether this fits is to name the thing your current system makes
+        you do on paper, and see whether it is already here.
       </p>
     </div>
 
-    <div class="demo-grid">
-      <div class="rv">
-        <button class="btn btn-solid demo-open" type="button" id="demoReveal" data-open-demo>
-          Book a demo
-        </button>
-        <div id="demoPanel" hidden>
+    <div class="demo-hold rv">
+      <button class="btn btn-solid demo-open" type="button" id="demoReveal" data-open-demo>
+        Book a demo
+      </button>
+      <div id="demoPanel" hidden>
         <form id="demoForm" novalidate>
           <div class="form-row">
             <div class="field" id="f-name">
@@ -1846,56 +1831,44 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
             <button class="btn btn-line" type="button" id="demoAgain">Start again</button>
           </div>
         </div>
-        </div>
-      </div>
-
-      <div class="rv">
-        <div class="contact-card">
-          <h3>Contact us</h3>
-          <div class="co-legal">SAPTECHS Private Limited</div>
-          <div class="contact-line">
-            <div class="cl-k">Email</div>
-            <div class="cl-v"><a class="mail-link" id="coEmail" href="mailto:just.universe.it@saptechs.co.in">just.universe.it@saptechs.co.in</a>
-              <small>Demo requests and enquiries land here.</small></div>
-          </div>
-          <div class="contact-line">
-            <div class="cl-k">Phone</div>
-            <div class="cl-v"><span class="fillme">your number</span>
-              <small>Monday to Saturday, during working hours.</small></div>
-          </div>
-          <div class="contact-line">
-            <div class="cl-k">Office</div>
-            <div class="cl-v"><span class="fillme">registered office address</span></div>
-          </div>
-          <div class="contact-line">
-            <div class="cl-k">Support</div>
-            <div class="cl-v">Existing institutions raise tickets from inside the app
-              <small>Every signed-in user can open one from the app menu; your administrators
-              answer them, and can escalate to us.</small></div>
-          </div>
-        </div>
-        <p class="hero-note rv" style="margin-top:18px;max-width:none">
-          Phone and office are the only fields left to fill in. The form validates, composes the
-          enquiry and addresses it to that mailbox today; point <code>ENQUIRY_ENDPOINT</code> at your
-          own service and it will post there directly instead.
-        </p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============================ CLOSER ============================ -->
-<section class="closer">
-  <div class="closer-in">
-    <div class="eyebrow on-ink" style="justify-content:center"><span>See it against your own structure</span></div>
-    <h2>Bring the requirement you think nobody covers.</h2>
-    <p>
-      The fastest way to judge whether this fits is to name the thing your current system makes you
-      do on paper, and see whether it is already here.
-    </p>
-    <div class="hero-cta">
-      <a class="btn btn-gold" href="#demo" data-open-demo>Book a demo</a>
-      <a class="btn btn-ghost" href="#modules">Browse the module catalogue</a>
+<!-- ============================ CONTACT ============================ -->
+<section id="contact" class="band-ink">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow on-ink">Contact us</div>
+      <h2>SAPTECHS Private Limited</h2>
+      <p class="lede">
+        UniverseIT is built and supported by SAPTECHS. Write to us about a demo, a requirement you
+        want checked against the product, or anything already running at your institution.
+      </p>
+    </div>
+    <div class="co-grid rv">
+      <div class="co-item">
+        <div class="co-k">Email</div>
+        <a class="co-v mail" id="coEmail" href="mailto:just.universe.it@saptechs.co.in">just.universe.it@saptechs.co.in</a>
+        <p class="co-s">Demo requests and enquiries land here.</p>
+      </div>
+      <div class="co-item">
+        <div class="co-k">Phone</div>
+        <div class="co-v"><span class="fillme">your number</span></div>
+        <p class="co-s">Monday to Saturday, during working hours.</p>
+      </div>
+      <div class="co-item">
+        <div class="co-k">Office</div>
+        <div class="co-v"><span class="fillme">registered office address</span></div>
+        <p class="co-s">SAPTECHS Private Limited.</p>
+      </div>
+      <div class="co-item">
+        <div class="co-k">Support</div>
+        <div class="co-v">Raised from inside the app</div>
+        <p class="co-s">Every signed-in user can open a ticket from the app menu; your
+          administrators answer them, and can escalate to us.</p>
+      </div>
     </div>
   </div>
 </section>
