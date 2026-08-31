@@ -1111,6 +1111,9 @@ body.proto-open { overflow: hidden; }
 .want button:hover { border-color: var(--rule); color: var(--text); }
 .want button[aria-pressed="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
 
+/* honeypot: off-screen rather than display:none, which some bots skip */
+.field.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.sent.warn { border-color: var(--warn); background: color-mix(in srgb, var(--warn) 8%, var(--surface)); }
 .form-foot { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; margin-top: 6px; }
 .form-note { font-size: 12.5px; color: var(--faint); line-height: 1.5; flex: 1 1 220px; }
 
@@ -1207,11 +1210,11 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       <div class="eyebrow on-ink">Institutional ERP · SAP BTP · Multi-tenant</div>
       <h1>Built around all the <em>necessities</em>, not just the basics.</h1>
       <p class="hero-sub">
-        Any campus system will take an admission and collect a fee. This one also carries
-        <strong>no-dues clearance across every department that can hold a student back</strong>,
-        invigilators who are not your employees, both income-tax regimes, bed-level hostel
-        allocation, and a rest hour on the pre-primary timetable — because the necessities are
-        where an institution actually loses its time.
+        <strong>Every requirement looks small until the day you need it and it is not there.</strong>
+        Any campus system will take an admission and collect a fee. This one also knows that a
+        hostel is allocated by bed and not by room, that an invigilator may not be your employee,
+        that payroll answers to two tax regimes, that a POSH register is not a ticket category —
+        and that a play group's afternoon needs an hour to sleep.
       </p>
       <div class="hero-cta">
         <a class="btn btn-gold" href="#modules">Explore what it covers</a>
@@ -1808,6 +1811,11 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
             <div class="want" id="demoWant" role="group" aria-label="What to cover in the demo"></div>
           </div>
 
+          <div class="field hp" aria-hidden="true">
+            <label for="d-company">Company</label>
+            <input id="d-company" name="company" type="text" tabindex="-1" autocomplete="off">
+          </div>
+
           <div class="field">
             <label for="d-msg">The requirement you think nobody covers</label>
             <textarea id="d-msg" name="message" placeholder="The thing you still do on paper, or in a spreadsheet nobody else can open."></textarea>
@@ -1822,7 +1830,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
         </form>
 
         <div class="sent" id="demoSent" hidden>
-          <h3>That is everything we need</h3>
+          <h3 id="sentTitle">That is everything we need</h3>
           <p id="sentLead"></p>
           <pre id="sentBody"></pre>
           <div class="form-foot">
@@ -5162,7 +5170,13 @@ var ROAD = [
    JSON instead of composing it locally. Leave it null and nothing leaves the
    page: the enquiry is shown back, copyable, with a mail link as the fallback.
    Set CONTACT_EMAIL to the address that should receive them.                */
-var ENQUIRY_ENDPOINT = null;          // e.g. "/enquiry/submit"
+/* Point this at EnquiryService.submit once the CAP app is reachable:
+     https://<your-approuter-host>/enquiry/submit
+   The payload below is already that action's parameter list, so nothing else
+   changes. srv/server.js allows this origin for /enquiry and nothing else.
+   Leave it null and the form falls back to the visitor's mail app. */
+var ENQUIRY_ENDPOINT = null;
+var ENQUIRY_KEY = "";                 // only for third-party services that want a key
 var CONTACT_EMAIL = "just.universe.it@saptechs.co.in";
 /* ────────────────────────────────────────────────────────────────────────── */
 
@@ -5175,6 +5189,7 @@ var WANTS = [
 (function () {
   var form = document.getElementById("demoForm");
   if (!form) return;
+  var sentTitle = document.getElementById("sentTitle");
   var panel = document.getElementById("demoPanel"),
       reveal = document.getElementById("demoReveal");
 
@@ -5259,27 +5274,61 @@ var WANTS = [
       return;
     }
 
+    var honeypot = val("d-company");
+    /* With no endpoint there is nobody to tell, so a bot is simply ignored.
+       With one, it is sent on: the service records it as SPAM rather than
+       refusing, and a refusal is feedback a script learns from. */
+    if (honeypot && !ENQUIRY_ENDPOINT) return;
+
     var text = compose(d);
-    if (ENQUIRY_ENDPOINT) {
-      /* Your own service. Nothing here depends on it being reachable. */
-      fetch(ENQUIRY_ENDPOINT, {
-        method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(d)
-      }).catch(function () { /* the enquiry is still shown, and still copyable */ });
-    }
-
-    sentLead.textContent = ENQUIRY_ENDPOINT
-      ? "Thank you, " + d.name.split(" ")[0] + ". Your request is with us and we will be in touch."
-      : "Thank you, " + d.name.split(" ")[0] + ". Nothing has left this page on its own \u2014 open it in your mail app, or copy it across to " +
-        (CONTACT_EMAIL || "us") + ", and it reaches us.";
-    sentBody.textContent = text;
-
+    var first = d.name.split(" ")[0];
+    var subject = "Demo request \u2014 " + d.institution;
     var mail = document.getElementById("demoMail");
-    var to = CONTACT_EMAIL || "";
-    mail.href = "mailto:" + to + "?subject=" + encodeURIComponent("Demo request \u2014 " + d.institution) +
+    mail.href = "mailto:" + (CONTACT_EMAIL || "") + "?subject=" + encodeURIComponent(subject) +
                 "&body=" + encodeURIComponent(text);
 
-    form.hidden = true; sent.hidden = false;
-    sent.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    function done(state) {
+      sentTitle.textContent = state === "sent" ? "Your request is with us"
+                            : state === "failed" ? "That did not send"
+                            : "That is everything we need";
+      sent.classList.toggle("warn", state === "failed");
+      sentLead.textContent =
+        state === "sent"   ? "Thank you, " + first + ". It has reached " + (CONTACT_EMAIL || "us") +
+                             " and we will be in touch. A copy is below for your own records."
+      : state === "failed" ? "Something went wrong on the way, " + first +
+                             ". Nothing is lost \u2014 send it yourself with either button below and it reaches us just the same."
+      :                      "Thank you, " + first + ". Nothing has left this page on its own \u2014 open it in your mail app, " +
+                             "or copy it across to " + (CONTACT_EMAIL || "us") + ", and it reaches us.";
+      sentBody.textContent = text;
+      form.hidden = true; sent.hidden = false;
+      sent.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    }
+
+    if (!ENQUIRY_ENDPOINT) { done("local"); return; }
+
+    var btn = form.querySelector('button[type="submit"]');
+    var label = btn.textContent;
+    btn.disabled = true; btn.textContent = "Sending\u2026";
+
+    /* exactly EnquiryService.submit's parameters, in its order */
+    var payload = {
+      name: d.name, institution: d.institution, email: d.email, phone: d.phone,
+      kind: d.kind, role: d.role, wants: d.wants.join(", "), message: d.message,
+      company: honeypot
+    };
+    if (ENQUIRY_KEY) payload.access_key = ENQUIRY_KEY;
+
+    fetch(ENQUIRY_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    }).then(function (r) {
+      btn.disabled = false; btn.textContent = label;
+      done(r.ok ? "sent" : "failed");
+    }).catch(function () {
+      btn.disabled = false; btn.textContent = label;
+      done("failed");
+    });
   });
 
   document.getElementById("demoCopy").addEventListener("click", function (b) {
