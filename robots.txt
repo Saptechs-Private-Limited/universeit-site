@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://universeit.co.in/sitemap.xml
