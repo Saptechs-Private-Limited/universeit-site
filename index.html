@@ -1062,7 +1062,8 @@ body.proto-open { overflow: hidden; }
   font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: .03em;
 }
 
-/* ================= ROADMAP ================= */
+/* ===== ROADMAP — section hidden 2026-09-01; styles kept so restoring
+   it is only the markup and its data ===== */
 .road { display: grid; gap: 0; }
 .road-item {
   display: grid; grid-template-columns: 150px 1fr; gap: 22px;
@@ -1928,10 +1929,10 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       </div>
     </div>
     <p class="lede rv" style="margin-top:26px">
-      Two things deliberately absent: <strong>attendance devices</strong> — biometric, RFID and GPS —
-      which is on the roadmap below, and <strong>online fee payment on the web</strong>, where the
-      payment back end is built and tested but has no screen in front of it yet, which is stated in
-      Integrations below. Neither is implied here.
+      Two things this section does not cover: <strong>attendance devices</strong> — biometric, RFID and
+      the readers a school already runs — and <strong>online fee payment on the web</strong>, where the
+      payment back end is built and tested but has no screen in front of it yet. Both are wired to the
+      provider you have chosen, and both are in Integrations below rather than implied here.
     </p>
   </div>
 </section>
@@ -1943,10 +1944,11 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       <div class="eyebrow">Integrations</div>
       <h2>If it has an interface, we can meet it.</h2>
       <p class="lede">
-        A government portal, a payment gateway, the identity provider a group already runs, or a system
-        nobody has an API for. The integration surface is not a bolt-on: every entity in the product is
-        already a service, generated from the model, so meeting an external system is
-        <strong>configuration and an adapter</strong> rather than a new product.
+        Every institution arrives with providers it has already chosen — a payment gateway, the readers
+        at the gate, the identity its staff sign in with. We wire to those rather than ask you to
+        replace them, at onboarding, to the vendor's own protocol. The surface is not a bolt-on:
+        every entity in the product is already a service, generated from the model, so meeting an
+        external system is <strong>an adapter and configuration</strong>, not a new product.
       </p>
     </div>
     <div class="gov-grid">
@@ -1958,9 +1960,15 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       </div>
       <div class="gov rv">
         <div class="g-ico">₹</div>
-        <h3>Payment gateways</h3>
-        <p>Razorpay is adapted and tested against the fee ledger, so a payment lands as a receipt and a posted voucher rather than a figure someone re-keys. Credentials are held per campus in a credential store, never in the database. The checkout screen is the piece still to come.</p>
-        <div class="g-fact">Razorpay · per-campus credentials</div>
+        <h3>The payment gateway you already use</h3>
+        <p>Schools do not agree on a gateway, and the one you have already contracted is not ours to overrule. Razorpay is adapted and tested against the fee ledger today; another provider is wired the same way when you onboard. Either way a payment lands as a receipt and a posted voucher rather than a figure someone re-keys, and credentials sit per campus in a credential store, never in the database.</p>
+        <div class="g-fact">Your provider · per-campus credentials</div>
+      </div>
+      <div class="gov rv">
+        <div class="g-ico">⊡</div>
+        <h3>The readers at your gate</h3>
+        <p>Biometric, RFID or a card — schools do not agree on hardware, and a device already bought is not one we should ask you to replace. The reader is wired on onboarding, to whatever protocol its vendor speaks. What it writes is the same attendance record a teacher marking a register writes, so a gate reading and a classroom roll call cannot drift into two different answers.</p>
+        <div class="g-fact">Biometric · RFID · card, on your vendor's protocol</div>
       </div>
       <div class="gov rv">
         <div class="g-ico">⇄</div>
@@ -2048,23 +2056,6 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
         <div class="g-fact">SAP BTP India · container per institution</div>
       </div>
     </div>
-  </div>
-</section>
-
-<!-- ============================ ROADMAP ============================ -->
-<section class="band-sunken tight">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow">What comes next</div>
-      <h2>On the roadmap.</h2>
-      <p class="lede">
-        Whole capabilities we have decided to build, named here rather than left for you to discover
-        after signing. <strong>Decided · specified</strong> means the design is settled and written down;
-        <strong>being scoped</strong> means it is not. Anything already working — even where a screen is
-        still to come — is in the catalogue above, not on this list.
-      </p>
-    </div>
-    <div class="road" id="road"></div>
   </div>
 </section>
 
@@ -5464,30 +5455,6 @@ var PERSONAS = [
     });
   }
   paint();
-})();
-
-/* ================= ROADMAP ================= */
-var ROAD = [
-  ["build", "Applicant self-service admissions", "The staff-operated funnel is complete. The applicant filling in their own form and uploading against a named checklist is specified and not yet built."],
-  ["build", "Credits, SGPA and CGPA", "Maximum credits are stored per subject and displayed. What earning a credit means, and the semester and cumulative averages built on it, are specified down to the views and the service. Promotion decides on attendance, arrears and marks percentage today."],
-  ["build", "Accrual accounting", "The ledger is cash basis and complete on that basis. The document model and the accounting-basis switch, with advances and clearing, are specified and not yet built."],
-  ["build", "Data-principal erasure under the DPDP Act", "Consent, notices and the parent's door are built. Erasure is specified and waits on one real conflict: the right is held by a person who spans institutions, while retention duties sit with each school, and the two can answer differently."],
-  ["design", "Automatic timetable generation", "Templates are authored and clash checks run on save. A solver that generates a clash-free timetable for you is being scoped."],
-  ["design", "LTI 1.3 and SCORM", "Course content, assignments, online classes and session summaries are ours end to end. Interoperability with external courseware is not scoped yet, and it is the largest single gap against the field."],
-  ["design", "Biometric and RFID attendance", "Attendance is captured in the app and on mobile. Reading it from a device at the gate is not scoped yet."]
-];
-
-(function () {
-  var r = document.getElementById("road");
-  ROAD.forEach(function (x) {
-    var d = document.createElement("div");
-    d.className = "road-item";
-    d.innerHTML = '<div class="road-state ' + x[0] + '"></div><div><h3></h3><p></p></div>';
-    d.querySelector(".road-state").textContent = x[0] === "build" ? "Decided · specified" : "Being scoped";
-    d.querySelector("h3").textContent = x[1];
-    d.querySelector("p").textContent = x[2];
-    r.appendChild(d);
-  });
 })();
 
 /* ================= PROTOTYPE DIALOG ================= */
