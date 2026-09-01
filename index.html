@@ -1071,47 +1071,48 @@ body.proto-open { overflow: hidden; }
 }
 
 /* ===== PLATFORM DIAGRAM =====
-   Labels sit OUTSIDE the ring: between the core edge (r=118) and the rim
-   (r=210) there are 92px of radial room, and "Encryption at rest" needs 112,
-   so an inside label would run into the core. Its own tokens rather than the
-   page's, because a disc this size wants a calmer blue in dark than --brand. */
-.plat {
-  margin: 30px 0 0;
-  --plat-ring: #0C447C; --plat-core: #B5610F;
-  --plat-guide: rgba(255,255,255,.09); --plat-dot: #F2A413;
+   Labels sit INSIDE the ring, which sets the proportions rather than the other
+   way round: the widest line is "Encryption at rest" at ~117 units, so the band
+   between the core (r=132) and the rim (r=290) has to clear that plus margins.
+   It does, by 20 units at the tightest point. No guide rings — with the labels
+   inside, a circle drawn through them reads as a strike-through.
+   Own tokens, not the page's: a disc this size wants a calmer blue in dark
+   than --brand is. */
+.plat-wrap {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 44px; align-items: center; margin-top: 30px;
+  --plat-ring: #0C447C; --plat-core: #B5610F; --plat-dot: #F2A413;
 }
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) .plat {
-    --plat-ring: #123C6B; --plat-core: #A55B10; --plat-guide: rgba(255,255,255,.07);
-  }
+  :root:not([data-theme="light"]) .plat-wrap { --plat-ring: #123C6B; --plat-core: #A55B10; }
 }
-:root[data-theme="dark"] .plat {
-  --plat-ring: #123C6B; --plat-core: #A55B10; --plat-guide: rgba(255,255,255,.07);
-}
-.plat-svg { display: block; width: 100%; height: auto; max-width: 900px; margin: 0 auto; }
+:root[data-theme="dark"] .plat-wrap { --plat-ring: #123C6B; --plat-core: #A55B10; }
+.plat { margin: 0; }
+.plat-svg { display: block; width: 100%; height: auto; max-width: 560px; margin: 0 auto; }
 .p-ring { fill: var(--plat-ring); }
-.p-guide { fill: none; stroke: var(--plat-guide); stroke-width: 1; }
 .p-core { fill: var(--plat-core); }
-.p-dot { fill: var(--plat-dot); }
-.p-core-h { fill: #fff; font-family: var(--sans); font-size: 21px; font-weight: 700; letter-spacing: -.01em; }
+.p-dot  { fill: var(--plat-dot); }
+.p-core-h { fill: #fff; font-family: var(--sans); font-size: 22px; font-weight: 700; letter-spacing: -.01em; }
 .p-core-s { fill: rgba(255,255,255,.93); font-family: var(--sans); font-size: 13px; font-weight: 600; }
 .p-core-l { fill: rgba(255,255,255,.74); font-family: var(--mono); font-size: 10.5px; letter-spacing: .02em; }
-.p-lbl { fill: var(--muted); font-family: var(--sans); font-size: 13px; font-weight: 500; }
-.plat-key { display: flex; flex-wrap: wrap; gap: 10px 26px; margin-top: 18px; font-size: 13px; color: var(--muted); }
+.p-lbl { fill: rgba(255,255,255,.90); font-family: var(--sans); font-size: 13px; font-weight: 500; }
+.plat-side p { font-size: 15px; line-height: 1.65; color: var(--muted); }
+.plat-side p + p { margin-top: 13px; }
+.plat-side p strong { color: var(--text); font-weight: 600; }
+.plat-key { display: flex; flex-direction: column; gap: 9px; margin-top: 22px; font-size: 12.5px; color: var(--muted); }
 .plat-key b { color: var(--text); font-weight: 600; }
-.plat-key i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 7px; vertical-align: -1px; }
+.plat-key i { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 8px; vertical-align: -1px; }
 .plat-key .k-ring { background: var(--plat-ring); }
 .plat-key .k-core { background: var(--plat-core); }
 .plat-list { display: none; }
-.plat-say { margin-top: 26px; }
-/* Under 720px the rim labels would render near 5px, so drop them and give the
-   same twelve as real text. The two discs still carry the argument on their own. */
-@media (max-width: 719px) {
+@media (max-width: 900px) { .plat-wrap { grid-template-columns: 1fr; gap: 28px; } }
+/* Under 560px the ring text renders below 8px. Drop it and give the same twelve
+   as real text; the two discs still carry the argument on their own. */
+@media (max-width: 559px) {
   .plat-rim { display: none; }
-  .plat-svg { max-width: 430px; }
   .plat-list {
     display: grid; grid-template-columns: repeat(auto-fit, minmax(148px, 1fr)); gap: 5px 18px;
-    margin-top: 16px; padding: 0; list-style: none; font-size: 13px; color: var(--muted);
+    margin-top: 20px; padding: 0; list-style: none; font-size: 13px; color: var(--muted);
   }
   .plat-list li { padding-left: 14px; position: relative; }
   .plat-list li::before {
@@ -1119,24 +1120,6 @@ body.proto-open { overflow: hidden; }
     border-radius: 50%; background: var(--plat-dot);
   }
 }
-
-/* ===== ROADMAP — section hidden 2026-09-01; styles kept so restoring
-   it is only the markup and its data ===== */
-.road { display: grid; gap: 0; }
-.road-item {
-  display: grid; grid-template-columns: 150px 1fr; gap: 22px;
-  padding: 18px 0; border-top: 1px solid var(--border); align-items: start;
-}
-@media (max-width: 620px) { .road-item { grid-template-columns: 1fr; gap: 6px; } }
-.road-item:last-child { border-bottom: 1px solid var(--border); }
-.road-state {
-  font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase;
-  padding-top: 4px;
-}
-.road-state.build { color: var(--brand); }
-.road-state.design { color: var(--faint); }
-.road-item h3 { font-size: 17.5px; font-family: var(--sans); font-weight: 600; letter-spacing: -.005em; }
-.road-item p { font-size: 14px; color: var(--muted); margin-top: 4px; line-height: 1.55; }
 
 /* ================= DEMO & CONTACT ================= */
 .demo-hold { max-width: 780px; }
@@ -1912,73 +1895,78 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       <div class="rq-src">The question a trustee is actually weighing</div>
     </div>
 
-    <figure class="plat rv">
-      <svg viewBox="0 0 900 680" role="img" aria-labelledby="platTitle platDesc" class="plat-svg">
-        <title id="platTitle">What SAP provides, and what UniverseIT builds inside it</title>
-        <desc id="platDesc">A large disc labelled SAP Business Technology Platform carries twelve
-          platform responsibilities around its rim — tenant isolation, identity and single sign-on,
-          roles and scopes, encryption at rest and in transit, session handling, the deployment
-          pipeline, scaling and availability, platform patching, audit infrastructure, data centre
-          and residency, backup and recovery, and certifications and compliance. Inside it sits a
-          smaller disc, what UniverseIT builds: fees, exams, attendance, payroll, hostel, transport,
-          attainment and approvals.</desc>
-        <circle cx="450" cy="340" r="210" class="p-ring"/>
-        <circle cx="450" cy="340" r="172" class="p-guide"/>
-        <circle cx="450" cy="340" r="145" class="p-guide"/>
-        <circle cx="450" cy="340" r="118" class="p-core"/>
-        <text x="450" y="316" text-anchor="middle" class="p-core-h">What we build</text>
-        <text x="450" y="338" text-anchor="middle" class="p-core-s">Your institution&#8217;s actual work</text>
-        <text x="450" y="364" text-anchor="middle" class="p-core-l">Fees &#183; Exams &#183; Attendance</text>
-        <text x="450" y="379" text-anchor="middle" class="p-core-l">Payroll &#183; Hostel &#183; Transport</text>
-        <text x="450" y="394" text-anchor="middle" class="p-core-l">Attainment &#183; Approvals</text>
-      <g class="plat-rim">
-      <circle cx="450.0" cy="130.0" r="4.5" class="p-dot"/>
-      <text x="450.0" y="96.5" text-anchor="middle" class="p-lbl"><tspan x="450.0" dy="0">Tenant isolation</tspan></text>
-      <circle cx="555.0" cy="158.1" r="4.5" class="p-dot"/>
-      <text x="573.0" y="133.5" text-anchor="start" class="p-lbl"><tspan x="573.0" dy="0">Identity and</tspan><tspan x="573.0" dy="15">single sign-on</tspan></text>
-      <circle cx="631.9" cy="235.0" r="4.5" class="p-dot"/>
-      <text x="656.5" y="230.5" text-anchor="start" class="p-lbl"><tspan x="656.5" dy="0">Roles and scopes</tspan></text>
-      <circle cx="660.0" cy="340.0" r="4.5" class="p-dot"/>
-      <text x="687.0" y="337.0" text-anchor="start" class="p-lbl"><tspan x="687.0" dy="0">Encryption at rest</tspan><tspan x="687.0" dy="15">and in transit</tspan></text>
-      <circle cx="631.9" cy="445.0" r="4.5" class="p-dot"/>
-      <text x="656.5" y="458.5" text-anchor="start" class="p-lbl"><tspan x="656.5" dy="0">Session handling</tspan></text>
-      <circle cx="555.0" cy="521.9" r="4.5" class="p-dot"/>
-      <text x="573.0" y="548.0" text-anchor="start" class="p-lbl"><tspan x="573.0" dy="0">Deployment pipeline</tspan></text>
-      <circle cx="450.0" cy="550.0" r="4.5" class="p-dot"/>
-      <text x="450.0" y="585.0" text-anchor="middle" class="p-lbl"><tspan x="450.0" dy="0">Scaling and</tspan><tspan x="450.0" dy="15">availability</tspan></text>
-      <circle cx="345.0" cy="521.9" r="4.5" class="p-dot"/>
-      <text x="327.0" y="548.0" text-anchor="end" class="p-lbl"><tspan x="327.0" dy="0">Platform patching</tspan></text>
-      <circle cx="268.1" cy="445.0" r="4.5" class="p-dot"/>
-      <text x="243.5" y="458.5" text-anchor="end" class="p-lbl"><tspan x="243.5" dy="0">Audit infrastructure</tspan></text>
-      <circle cx="240.0" cy="340.0" r="4.5" class="p-dot"/>
-      <text x="213.0" y="337.0" text-anchor="end" class="p-lbl"><tspan x="213.0" dy="0">Data centre</tspan><tspan x="213.0" dy="15">and residency</tspan></text>
-      <circle cx="268.1" cy="235.0" r="4.5" class="p-dot"/>
-      <text x="243.5" y="230.5" text-anchor="end" class="p-lbl"><tspan x="243.5" dy="0">Backup and recovery</tspan></text>
-      <circle cx="345.0" cy="158.1" r="4.5" class="p-dot"/>
-      <text x="327.0" y="133.5" text-anchor="end" class="p-lbl"><tspan x="327.0" dy="0">Certifications</tspan><tspan x="327.0" dy="15">and compliance</tspan></text>
-      </g>
-      </svg>
-      <figcaption class="plat-key">
-        <span><i class="k-ring"></i><b>SAP Business Technology Platform</b> — maintained and improved by SAP&#8217;s engineering organisation</span>
-        <span><i class="k-core"></i><b>UniverseIT, by SAPTECHS</b> — the business logic of a school or college</span>
-      </figcaption>
-      <ul class="plat-list">
-        <li>Tenant isolation</li><li>Identity and single sign-on</li><li>Roles and scopes</li>
-        <li>Encryption at rest and in transit</li><li>Session handling</li><li>Deployment pipeline</li>
-        <li>Scaling and availability</li><li>Platform patching</li><li>Audit infrastructure</li>
-        <li>Data centre and residency</li><li>Backup and recovery</li><li>Certifications and compliance</li>
-      </ul>
-    </figure>
+    <div class="plat-wrap rv">
+      <figure class="plat">
+        <svg viewBox="0 0 620 620" role="img" aria-labelledby="platTitle platDesc" class="plat-svg">
+          <title id="platTitle">What SAP provides, and what UniverseIT builds inside it</title>
+          <desc id="platDesc">A large disc labelled SAP Business Technology Platform carries twelve
+            platform responsibilities — tenant isolation, identity and single sign-on, roles and
+            scopes, encryption at rest and in transit, session handling, the deployment pipeline,
+            scaling and availability, platform patching, audit infrastructure, data centre and
+            residency, backup and recovery, and certifications and compliance. Inside it sits a
+            smaller disc, what UniverseIT builds: fees, exams, attendance, payroll, hostel,
+            transport, attainment and approvals.</desc>
+          <circle cx="310" cy="310" r="290" class="p-ring"/>
+          <circle cx="310" cy="310" r="132" class="p-core"/>
+          <text x="310" y="284" text-anchor="middle" class="p-core-h">What we build</text>
+          <text x="310" y="306" text-anchor="middle" class="p-core-s">Your institution&#8217;s actual work</text>
+          <text x="310" y="332" text-anchor="middle" class="p-core-l">Fees &#183; Exams &#183; Attendance</text>
+          <text x="310" y="347" text-anchor="middle" class="p-core-l">Payroll &#183; Hostel &#183; Transport</text>
+          <text x="310" y="362" text-anchor="middle" class="p-core-l">Attainment &#183; Approvals</text>
+        <g class="plat-rim">
+      <circle cx="310.0" cy="30.0" r="5" class="p-dot"/>
+      <text x="310.0" y="67.5" text-anchor="middle" class="p-lbl"><tspan x="310.0" dy="0">Tenant isolation</tspan></text>
+      <circle cx="450.0" cy="67.5" r="5" class="p-dot"/>
+      <text x="443.0" y="69.1" text-anchor="end" class="p-lbl"><tspan x="443.0" dy="0">Identity and</tspan><tspan x="443.0" dy="16">single sign-on</tspan></text>
+      <circle cx="552.5" cy="170.0" r="5" class="p-dot"/>
+      <text x="540.4" y="181.5" text-anchor="end" class="p-lbl"><tspan x="540.4" dy="0">Roles and scopes</tspan></text>
+      <circle cx="590.0" cy="310.0" r="5" class="p-dot"/>
+      <text x="576.0" y="306.5" text-anchor="end" class="p-lbl"><tspan x="576.0" dy="0">Encryption at rest</tspan><tspan x="576.0" dy="16">and in transit</tspan></text>
+      <circle cx="552.5" cy="450.0" r="5" class="p-dot"/>
+      <text x="540.4" y="447.5" text-anchor="end" class="p-lbl"><tspan x="540.4" dy="0">Session handling</tspan></text>
+      <circle cx="450.0" cy="552.5" r="5" class="p-dot"/>
+      <text x="443.0" y="543.9" text-anchor="end" class="p-lbl"><tspan x="443.0" dy="0">Deployment</tspan><tspan x="443.0" dy="16">pipeline</tspan></text>
+      <circle cx="310.0" cy="590.0" r="5" class="p-dot"/>
+      <text x="310.0" y="553.5" text-anchor="middle" class="p-lbl"><tspan x="310.0" dy="0">Scaling and</tspan><tspan x="310.0" dy="16">availability</tspan></text>
+      <circle cx="170.0" cy="552.5" r="5" class="p-dot"/>
+      <text x="177.0" y="551.9" text-anchor="start" class="p-lbl"><tspan x="177.0" dy="0">Platform patching</tspan></text>
+      <circle cx="67.5" cy="450.0" r="5" class="p-dot"/>
+      <text x="79.6" y="447.5" text-anchor="start" class="p-lbl"><tspan x="79.6" dy="0">Audit infrastructure</tspan></text>
+      <circle cx="30.0" cy="310.0" r="5" class="p-dot"/>
+      <text x="44.0" y="306.5" text-anchor="start" class="p-lbl"><tspan x="44.0" dy="0">Data centre</tspan><tspan x="44.0" dy="16">and residency</tspan></text>
+      <circle cx="67.5" cy="170.0" r="5" class="p-dot"/>
+      <text x="79.6" y="181.5" text-anchor="start" class="p-lbl"><tspan x="79.6" dy="0">Backup and recovery</tspan></text>
+      <circle cx="170.0" cy="67.5" r="5" class="p-dot"/>
+      <text x="177.0" y="69.1" text-anchor="start" class="p-lbl"><tspan x="177.0" dy="0">Certifications</tspan><tspan x="177.0" dy="16">and compliance</tspan></text>
+        </g>
+        </svg>
+      </figure>
 
-    <p class="lede rv plat-say">
-      Read it from the outside in. Everything on the ring is a problem someone has to solve before a
-      single fee is collected, and every one of them is <strong>SAP&#8217;s</strong> — built once for
-      their whole customer base, patched by their engineers, audited under their certifications. None
-      of it is ours to get wrong. The disc inside is the part we wrote: what a bursar, a class teacher
-      and a warden actually do all day. A small team can carry that circle precisely because it is not
-      also carrying the one around it — and when the outer ring improves, your institution gets the
-      improvement without a project.
-    </p>
+      <div class="plat-side">
+        <p>
+          Read it from the outside in. Everything on the ring is a problem someone has to solve before
+          a single fee is collected, and every one of them is <strong>SAP&#8217;s</strong> — built once
+          for their whole customer base, patched by their engineers, audited under their certifications.
+          None of it is ours to get wrong.
+        </p>
+        <p>
+          The disc in the middle is the part we wrote: what a bursar, a class teacher and a warden
+          actually do all day. A small team can carry that circle <strong>precisely because it is not
+          also carrying the one around it</strong> — and when the outer ring improves, your institution
+          gets the improvement without a project and without an invoice.
+        </p>
+        <div class="plat-key">
+          <span><i class="k-ring"></i><b>SAP Business Technology Platform</b> — maintained and improved by SAP&#8217;s engineering organisation</span>
+          <span><i class="k-core"></i><b>UniverseIT, by SAPTECHS</b> — the business logic of a school or college</span>
+        </div>
+        <ul class="plat-list">
+          <li>Tenant isolation</li><li>Identity and single sign-on</li><li>Roles and scopes</li>
+          <li>Encryption at rest and in transit</li><li>Session handling</li><li>Deployment pipeline</li>
+          <li>Scaling and availability</li><li>Platform patching</li><li>Audit infrastructure</li>
+          <li>Data centre and residency</li><li>Backup and recovery</li><li>Certifications and compliance</li>
+        </ul>
+      </div>
+    </div>
   </div>
 </section>
 
