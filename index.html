@@ -2059,8 +2059,9 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       <h2>On the roadmap.</h2>
       <p class="lede">
         Whole capabilities we have decided to build, named here rather than left for you to discover
-        after signing. Anything already working — even where a screen is still to come — is in the
-        catalogue above, not on this list.
+        after signing. <strong>Decided · specified</strong> means the design is settled and written down;
+        <strong>being scoped</strong> means it is not. Anything already working — even where a screen is
+        still to come — is in the catalogue above, not on this list.
       </p>
     </div>
     <div class="road" id="road"></div>
@@ -5467,13 +5468,13 @@ var PERSONAS = [
 
 /* ================= ROADMAP ================= */
 var ROAD = [
-  ["build", "Applicant self-service admissions", "The staff-operated funnel is complete. Next is the applicant filling in their own form and uploading against a named checklist, without an office keying it in for them."],
-  ["build", "Credits, SGPA and CGPA", "Maximum credits are stored per subject and displayed. Computing with them — grade points, semester and cumulative averages — comes next. Promotion decides on attendance, arrears and marks percentage today."],
-  ["build", "LTI 1.3 and SCORM", "Course content, assignments, online classes and session summaries are ours end to end. Interoperability with external courseware is the next step, and the largest single gap against the field."],
-  ["design", "Automatic timetable generation", "Templates are authored and clash checks run on save. A solver that generates a clash-free timetable for you is designed and not yet built."],
-  ["design", "Accrual accounting", "The ledger is cash basis and complete on that basis. An accounting-basis switch, with advances and clearing, is the next piece of finance."],
-  ["design", "Biometric and RFID attendance", "Attendance is captured in the app and on mobile. Reading it from a device at the gate is designed and not yet built."],
-  ["design", "Data-principal erasure", "Erasure is a right held by the person, who spans institutions, while retention obligations sit with each school. The two can give opposite answers, so they are being designed together rather than shipped separately."]
+  ["build", "Applicant self-service admissions", "The staff-operated funnel is complete. The applicant filling in their own form and uploading against a named checklist is specified and not yet built."],
+  ["build", "Credits, SGPA and CGPA", "Maximum credits are stored per subject and displayed. What earning a credit means, and the semester and cumulative averages built on it, are specified down to the views and the service. Promotion decides on attendance, arrears and marks percentage today."],
+  ["build", "Accrual accounting", "The ledger is cash basis and complete on that basis. The document model and the accounting-basis switch, with advances and clearing, are specified and not yet built."],
+  ["build", "Data-principal erasure under the DPDP Act", "Consent, notices and the parent's door are built. Erasure is specified and waits on one real conflict: the right is held by a person who spans institutions, while retention duties sit with each school, and the two can answer differently."],
+  ["design", "Automatic timetable generation", "Templates are authored and clash checks run on save. A solver that generates a clash-free timetable for you is being scoped."],
+  ["design", "LTI 1.3 and SCORM", "Course content, assignments, online classes and session summaries are ours end to end. Interoperability with external courseware is not scoped yet, and it is the largest single gap against the field."],
+  ["design", "Biometric and RFID attendance", "Attendance is captured in the app and on mobile. Reading it from a device at the gate is not scoped yet."]
 ];
 
 (function () {
@@ -5482,7 +5483,7 @@ var ROAD = [
     var d = document.createElement("div");
     d.className = "road-item";
     d.innerHTML = '<div class="road-state ' + x[0] + '"></div><div><h3></h3><p></p></div>';
-    d.querySelector(".road-state").textContent = x[0] === "build" ? "Groundwork in place" : "In design";
+    d.querySelector(".road-state").textContent = x[0] === "build" ? "Decided · specified" : "Being scoped";
     d.querySelector("h3").textContent = x[1];
     d.querySelector("p").textContent = x[2];
     r.appendChild(d);
