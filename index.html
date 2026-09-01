@@ -1048,6 +1048,7 @@ body.proto-open { overflow: hidden; }
 .gov {
   background: var(--surface); border: 1px solid var(--border);
   border-radius: 12px; padding: 22px 22px 24px;
+  display: flex; flex-direction: column;
 }
 .gov .g-ico {
   width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center;
@@ -1055,9 +1056,9 @@ body.proto-open { overflow: hidden; }
   color: var(--brand); margin-bottom: 14px;
 }
 .gov h3 { font-size: 19.5px; margin-bottom: 7px; }
-.gov p { font-size: 14px; color: var(--muted); line-height: 1.6; }
+.gov p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-bottom: 13px; }
 .gov .g-fact {
-  margin-top: 13px; padding-top: 12px; border-top: 1px solid var(--border);
+  margin-top: auto; padding-top: 12px; border-top: 1px solid var(--border);
   font-family: var(--mono); font-size: 11px; color: var(--gold); letter-spacing: .03em;
 }
 
@@ -1856,7 +1857,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
         <div class="g-ico">▣</div>
         <h3>The hard part was already solved</h3>
         <p>Tenant isolation, identity, roles, encrypted sessions and the deployment pipeline are SAP's, running beneath UniverseIT unmodified. They were built and hardened against hundreds of thousands of customers long before your institution was quoted for.</p>
-        <div class="g-fact">XSUAA identity · HDI containers · Cloud Foundry</div>
+        <div class="g-fact">XSUAA · HDI containers · Cloud Foundry</div>
       </div>
       <div class="gov rv">
         <div class="g-ico">⌁</div>
