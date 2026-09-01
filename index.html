@@ -1879,7 +1879,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 <section id="integrations" class="band-sunken">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Channels and integrations</div>
+      <div class="eyebrow">Channels</div>
       <h2>Ready to integrate, on your accounts rather than ours.</h2>
       <p class="lede">
         Every institution already has a WhatsApp Business number, an SMS gateway and a mail provider,
@@ -1935,6 +1935,62 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
     </p>
   </div>
 </section>
+
+<!-- ============================ INTEROP ============================ -->
+<section id="interop">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Integrations</div>
+      <h2>If it has an interface, we can meet it.</h2>
+      <p class="lede">
+        A government portal, a payment gateway, the identity provider a group already runs, or a system
+        nobody has an API for. The integration surface is not a bolt-on: every entity in the product is
+        already a service, generated from the model, so meeting an external system is
+        <strong>configuration and an adapter</strong> rather than a new product.
+      </p>
+    </div>
+    <div class="gov-grid">
+      <div class="gov rv">
+        <div class="g-ico">▤</div>
+        <h3>Government portals</h3>
+        <p>A catalogue of what each portal expects field by field, a parser for the file it returns, and a reconciler that names the rows which disagree — built and tested against the portal's own rules rather than a spreadsheet. The screens that put this in front of an office are still arriving.</p>
+        <div class="g-fact">UDISE+ · AISHE · SATS · UUCMS · APAAR</div>
+      </div>
+      <div class="gov rv">
+        <div class="g-ico">₹</div>
+        <h3>Payment gateways</h3>
+        <p>Razorpay is adapted and tested against the fee ledger, so a payment lands as a receipt and a posted voucher rather than a figure someone re-keys. Credentials are held per campus in a credential store, never in the database. The checkout screen is the piece still to come.</p>
+        <div class="g-fact">Razorpay · per-campus credentials</div>
+      </div>
+      <div class="gov rv">
+        <div class="g-ico">⇄</div>
+        <h3>Your own systems</h3>
+        <p>Every entity is an OData V4 service, generated from the data model rather than hand-written for the occasion. An external system reads and writes through the same interface the apps themselves use, authenticating the same way — so there is no second, weaker door built for integrations.</p>
+        <div class="g-fact">OData V4 · OAuth2 · generated, not hand-written</div>
+      </div>
+      <div class="gov rv">
+        <div class="g-ico">⊘</div>
+        <h3>An integration sees only what its role sees</h3>
+        <p>An integration authenticates as a user of the institution, so campus scope and field-level rules apply to it exactly as they apply to a person. A vendor wired into one campus cannot read another, and nothing is exempted from scoping to make an integration easier to build.</p>
+        <div class="g-fact">Same scope rules as a person</div>
+      </div>
+      <div class="gov rv">
+        <div class="g-ico">⚿</div>
+        <h3>The sign-in you already have</h3>
+        <p>Identity sits with SAP's identity service, which federates to whatever a group already runs, so staff are not issued a second password to forget. The mobile client signs in against it and exchanges for a platform token bound to that install.</p>
+        <div class="g-fact">SAP IAS · XSUAA · token exchange</div>
+      </div>
+      <div class="gov rv">
+        <div class="g-ico">▦</div>
+        <h3>Systems with no interface at all</h3>
+        <p>Not everything an institution runs can be called. A catalogued load brings that data in — a trial run puts your files through the same checks the real load uses and then rolls back, so errors surface before anything is kept — and any list you have filtered leaves again as PDF or a spreadsheet.</p>
+        <div class="g-fact">Catalogued load in · PDF and Excel out</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="seal-rule">
 
 <!-- ============================ GOVERNANCE ============================ -->
 <section id="governance">
@@ -1999,11 +2055,12 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 <section class="band-sunken tight">
   <div class="wrap">
     <div class="sec-head rv">
-      <div class="eyebrow">Honest roadmap</div>
-      <h2>What is not built yet.</h2>
+      <div class="eyebrow">What comes next</div>
+      <h2>On the roadmap.</h2>
       <p class="lede">
-        A capability list is only worth reading if it also says where it stops. These are in the model
-        or in the back end and are <strong>not</strong> available to your users today.
+        Whole capabilities we have decided to build, named here rather than left for you to discover
+        after signing. Anything already working — even where a screen is still to come — is in the
+        catalogue above, not on this list.
       </p>
     </div>
     <div class="road" id="road"></div>
@@ -5410,20 +5467,13 @@ var PERSONAS = [
 
 /* ================= ROADMAP ================= */
 var ROAD = [
-  ["build", "Applicant self-service admissions", "The staff-operated funnel is complete. An applicant filling in their own form and uploading against a named checklist is not built."],
-  ["build", "LTI 1.3 and SCORM", "Course content, assignments, online classes and session summaries exist. Interoperability with external courseware does not — this is the largest single gap against the field."],
-  ["build", "Credits, SGPA and CGPA", "Maximum credits are stored per subject and displayed. Nothing computes with them. Promotion decides on attendance, arrears and marks percentage only."],
-  ["build", "Online fee payment on the web", "The Razorpay back end is built and tested. There is no web payment screen, and the in-app switch ships off."],
-  ["build", "Government portal reconciliation screens", "The model, the parsers and the reconciler against UDISE+, AISHE, SATS and UUCMS are built. There is no user interface yet."],
-  ["build", "Production mobile authentication", "The React Native client runs on a development sign-in. It is not shippable to end users until a real identity service replaces it."],
-  ["design", "Accrual accounting", "The ledger is cash basis. Revenue is recognised on collection; there is no accounting-basis switch and no advances or clearing."],
-  ["design", "Consent administration screens", "The DPDP model, the service and a mobile screen exist. Managing purposes and notices, and data-principal access and erasure, are not built."],
-  ["design", "Automatic timetable generation", "Templates are authored and clash checks run on save. There is no solver that generates a clash-free timetable for you."],
-  ["design", "Biometric and RFID attendance", "Attendance is captured in the app and on mobile. No device integration exists."],
-  ["build", "Per-institution identity groups", "Role groups are still shared across institutions until each tenant switches on its own group prefix. Row scoping already contains this for ordinary roles; the administrator roles exempt from scoping are why it is being finished before a second institution goes live."],
-  ["build", "Stale-save protection everywhere", "Version tokens and record locks cover the masters where two people collide most often. The sweep across the remaining transactional screens is staged, service by service."],
-  ["design", "Unfinished invitations go unnoticed", "An invitation that is never completed sits quietly until it expires. Nothing yet tells the school office, and the failure mode is a parent who simply never gets in."],
-  ["design", "Data-principal erasure", "Erasure is a right held by the person, who spans institutions, while retention obligations sit with each school. The two can give opposite answers, so they have to be designed together rather than shipped separately."]
+  ["build", "Applicant self-service admissions", "The staff-operated funnel is complete. Next is the applicant filling in their own form and uploading against a named checklist, without an office keying it in for them."],
+  ["build", "Credits, SGPA and CGPA", "Maximum credits are stored per subject and displayed. Computing with them — grade points, semester and cumulative averages — comes next. Promotion decides on attendance, arrears and marks percentage today."],
+  ["build", "LTI 1.3 and SCORM", "Course content, assignments, online classes and session summaries are ours end to end. Interoperability with external courseware is the next step, and the largest single gap against the field."],
+  ["design", "Automatic timetable generation", "Templates are authored and clash checks run on save. A solver that generates a clash-free timetable for you is designed and not yet built."],
+  ["design", "Accrual accounting", "The ledger is cash basis and complete on that basis. An accounting-basis switch, with advances and clearing, is the next piece of finance."],
+  ["design", "Biometric and RFID attendance", "Attendance is captured in the app and on mobile. Reading it from a device at the gate is designed and not yet built."],
+  ["design", "Data-principal erasure", "Erasure is a right held by the person, who spans institutions, while retention obligations sit with each school. The two can give opposite answers, so they are being designed together rather than shipped separately."]
 ];
 
 (function () {
@@ -5432,7 +5482,7 @@ var ROAD = [
     var d = document.createElement("div");
     d.className = "road-item";
     d.innerHTML = '<div class="road-state ' + x[0] + '"></div><div><h3></h3><p></p></div>';
-    d.querySelector(".road-state").textContent = x[0] === "build" ? "Back end built" : "Designed only";
+    d.querySelector(".road-state").textContent = x[0] === "build" ? "Groundwork in place" : "In design";
     d.querySelector("h3").textContent = x[1];
     d.querySelector("p").textContent = x[2];
     r.appendChild(d);
