@@ -1184,8 +1184,8 @@ body.proto-open { overflow: hidden; }
   color: var(--ink-accent); margin-bottom: 9px;
 }
 .co-v { font-size: 15.5px; color: #fff; font-weight: 600; line-height: 1.4; display: block; word-break: break-word; }
-.co-v.mail { text-decoration: none; border-bottom: 1px solid rgba(242,164,19,.4); }
-.co-v.mail:hover { border-bottom-color: var(--ink-accent); }
+.co-v.mail, .co-v.tel { text-decoration: none; border-bottom: 1px solid rgba(242,164,19,.4); }
+.co-v.mail:hover, .co-v.tel:hover { border-bottom-color: var(--ink-accent); }
 .co-s { font-size: 13px; color: var(--ink-muted); line-height: 1.55; margin-top: 8px; }
 .co-item .fillme { border-color: var(--ink-rule); color: var(--ink-faint); }
 
@@ -2276,12 +2276,12 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
       </div>
       <div class="co-item">
         <div class="co-k">Phone</div>
-        <div class="co-v"><span class="fillme">your number</span></div>
+        <a class="co-v tel" href="tel:+918497877767">+91-84 97 87 77 67</a>
         <p class="co-s">Monday to Saturday, during working hours.</p>
       </div>
       <div class="co-item">
         <div class="co-k">Office</div>
-        <div class="co-v"><span class="fillme">registered office address</span></div>
+        <div class="co-v">1st Cross, 5th Main, Sarvabhouma Nagar,<br>Chikkalasandra, Bengaluru - 560061</div>
         <p class="co-s">SAPTECHS Private Limited.</p>
       </div>
       <div class="co-item">
