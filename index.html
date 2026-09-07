@@ -7,14 +7,20 @@
 <meta name="description" content="UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#0A1A2F">
-<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgdmlld0JveD0iMCAwIDY0IDY0IiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlVuaXZlcnNlSVQiPgogIDxyZWN0IHdpZHRoPSI2NCIgaGVpZ2h0PSI2NCIgcng9IjEzIiBmaWxsPSIjMkE0QjhEIi8+CiAgPCEtLSBib2xkIG1vcnRhcmJvYXJkLCBzaXplZCB0byByZWFkIGF0IGZhdmljb24gc2NhbGUgLS0+CiAgPHBhdGggZD0iTTMyIDEzIEw1NyAyNCBMMzIgMzUgTDcgMjQgWiIgZmlsbD0iI2ZmZmZmZiIvPgogIDxwYXRoIGQ9Ik0xNyAyOS41IEwzMiAzNiBMNDcgMjkuNSB2OC41IGMwIDUuMiAtMzAgNS4yIC0zMCAwIFoiIGZpbGw9IiNjZmUwZmYiLz4KICA8cGF0aCBkPSJNNTcgMjQgdjExLjUiIHN0cm9rZT0iI0YyQTQxMyIgc3Ryb2tlLXdpZHRoPSIzIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8Y2lyY2xlIGN4PSI1NyIgY3k9IjM4IiByPSIzLjYiIGZpbGw9IiNGMkE0MTMiLz4KPC9zdmc+Cg==">
+<link rel="icon" href="data:image/svg+xml;base64,PHN2ZyByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlVuaXZlcnNlSVQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHdpZHRoPSI1MTIiIGhlaWdodD0iNTEyIj4KICA8IS0tIEJyYW5kIHBhY2sgdjMgKG1hcmsgSCksIFVuaXZlcnNlSVRfRmF2aWNvbl9CbHVlRmllbGRfNTEyeDUxMi5zdmcsIEMyUEEKICAgICAgIG1ldGFkYXRhIHN0cmlwcGVkLiBUaGUgZnVsbCBtYXJrIG9uIGEgIzBDNDQ3QyByb3VuZGVkIHNxdWFyZSAtIG5vdGhpbmcKICAgICAgIGlzIHNpbXBsaWZpZWQgZm9yIHNtYWxsIHNpemVzOyBhdCAxNiBweCB0aGUgY2FwIGFuZCBqb2ludHMgc29mdGVuIGludG8KICAgICAgIHRoZSBzaWxob3VldHRlLiBUaGUgYmx1ZSBmaWVsZCBpcyB3aGF0IGtlZXBzIGl0IGxlZ2libGUgb24gYSBkYXJrIHRhYgogICAgICAgYmFyLCB3aGljaCBhIHRyYW5zcGFyZW50IG1hcmsgZG9lcyBub3QuIC0tPgo8dGl0bGU+VW5pdmVyc2VJVF9GYXZpY29uX0JsdWVGaWVsZF81MTJ4NTEyPC90aXRsZT4KPHBhdGggZD0iTTEwMi40IDBMNDA5LjYgMEM0NjYuMTUgMCA1MTIgNDUuODUgNTEyIDEwMi40TDUxMiA0MDkuNkM1MTIgNDY2LjE1IDQ2Ni4xNSA1MTIgNDA5LjYgNTEyTDEwMi40IDUxMkM0NS44NSA1MTIgMCA0NjYuMTUgMCA0MDkuNkwwIDEwMi40QzAgNDUuODUgNDUuODUgMCAxMDIuNCAwWiIgZmlsbD0iIzBDNDQ3QyI+PC9wYXRoPgo8cGF0aCBkPSJNMTA1Ljg3IDExOC40NkwyMzMuNDggMTE4LjQ2TDIzMy40OCAxNDQuNzNMMTA1Ljg3IDE0NC43M1oiIGZpbGw9IiNGRkZGRkYiPjwvcGF0aD4KPHBhdGggZD0iTTEzOS42NSAxMTguNDZMMTk5LjcgMTE4LjQ2TDE5OS43IDE3OC41MUwxMzkuNjUgMTc4LjUxWiIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgo8cGF0aCBkPSJNMTM5LjY1IDE4Ni4wMkMxMzkuNjUgMTU5Ljc1IDExNy4xMyAxNDQuNzMgMTA1Ljg3IDE0NC43M0wxMDUuODcgMTQyLjg2TDE0MS41MiAxNDIuODZMMTQxLjUyIDE4Ni4wMloiIGZpbGw9IiNGRkZGRkYiPjwvcGF0aD4KPHBhdGggZD0iTTE5OS43IDE4Ni4wMkMxOTkuNyAxNTkuNzUgMjIyLjIyIDE0NC43MyAyMzMuNDggMTQ0LjczTDIzMy40OCAxNDIuODZMMTk3LjgyIDE0Mi44NkwxOTcuODIgMTg2LjAyWiIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgo8cGF0aCBkPSJNMTM5LjY1IDE3Ni42NEwxMzkuNjUgMzIxLjE0QzEzOS42NSA0MDMuNzEgMTkyLjE5IDQ0NSAyNTYgNDQ1QzMxOS44MSA0NDUgMzcyLjM1IDQwMy43MSAzNzIuMzUgMzIxLjE0TDM3Mi4zNSAyOTEuMTFMMzMxLjA3IDMxMy42M0MzMzEuMDcgMzc3LjQ0IDMwMS4wNCA0MDMuNzEgMjU2IDQwMy43MUMyMTAuOTYgNDAzLjcxIDE5OS43IDM3Ny40NCAxOTkuNyAzMjEuMTRMMTk5LjcgMTc2LjY0WiIgZmlsbD0iI0ZGRkZGRiI+PC9wYXRoPgo8cGF0aCBkPSJNMzc5Ljg2IDExOC40NkMzNzkuODYgMTM1LjA0IDM2Ni40MiAxNDguNDkgMzQ5LjgzIDE0OC40OUMzMzMuMjUgMTQ4LjQ5IDMxOS44MSAxMzUuMDQgMzE5LjgxIDExOC40NkMzMTkuODEgMTAxLjg4IDMzMy4yNSA4OC40MyAzNDkuODMgODguNDNDMzY2LjQyIDg4LjQzIDM3OS44NiAxMDEuODggMzc5Ljg2IDExOC40NloiIGZpbGw9IiNFRTc2MjMiPjwvcGF0aD4KPHBhdGggZD0iTTM1MS41MiA2N0wzODkgODcuMDRMMzg5LjI0IDg3LjIxTDM4OS4yMiA4Ny42N0wzNTEuNTcgNjcuNUwzMDcuNTIgODcuMTlMMzA2Ljg1IDg3LjQ5TDMwNi42MSA4Ny41MUwzMDYuNjkgODcuMTNMMzA3LjE5IDg2LjgyWk0zNTEuNDQgNjguMjZMMzUyLjI0IDY4LjYyTDM4OS4yNCA4OC40N0wzODkuMjQgODkuMDNMMzg4Ljc3IDg5LjMxTDM4OC40MiA4OS42NkwzODguMDkgOTAuMzNMMzg4LjAxIDkxLjI2TDM4OC4yNyA5Mi4xOUwzODguMDUgOTIuNzhMMzg3LjY0IDkzLjU2TDM4Ni41NiA5NS4xMkwzODYuMTMgOTUuNEwzNzkuOTkgOTguMTlMMzgwLjAxIDk2LjQyTDM4MS40OCA5NS42MkwzODIuNiA5NC44MUwzODMuNDQgOTMuODZMMzgzLjg0IDkyLjkzTDM4My44OCA5MkwzODMuNyA5MS4zTDM4My4yMSA5MC40NEwzODIuMjYgODkuNDZMMzgwLjkyIDg4LjQ5TDM3OS4yNSA4Ny42TDM3Ni44MyA4Ni42TDM3NC4zOCA4NS43OEwzNzEuMDMgODQuODlMMzY4LjUgODQuMzNMMzYyLjE0IDgzLjI5TDM1Ny4zIDgyLjc3TDM1Mi4wOSA4Mi40NEwzNDguMjYgODIuMzJMMzQxLjYgODIuNEwzMzYuOTUgODIuN0wzMzIuMDQgODMuMjVMMzI3Ljg3IDg0TDMyNC4zOCA4NC44OUwzMjEuNTUgODUuOTNMMzE5LjYxIDg2Ljk3TDMxOC44MyA4Ny41NkwzMTguMjIgODguMTdMMzE3Ljg1IDg4LjY5TDMxNy41NSA4OS4zNkwzMTcuNDggOTAuNTlMMzE3LjY2IDkxLjI2TDMxOC4wNyA5MS45NkwzMTkuMjQgOTMuMTNMMzIxLjAxIDk0LjNMMzIwLjk1IDk2LjAzTDMwNi42NSA4OC4zMlpNMzc4LjY0IDc5LjUyTDM4MC4yOSA3OS41TDM4MS4yMiA3OS42MUwzODIuNjcgNzkuOTFMMzgzLjk0IDgwLjMyTDM4Ni4yNCA4MS40TDM4Ny40NyA4Mi4xNEwzODguNTEgODIuOTJMMzg5LjUgODMuOTRMMzkwLjAyIDg0Ljg3TDM5MC4yMSA4NS4zOUwzOTAuNDMgODYuNThMMzkwLjQzIDg4Ljk5TDM4OS44MyA4OC45OUwzODkuOCA4Ni43M0wzODkuNjUgODUuNzZMMzg5LjM5IDg0Ljk4TDM4OC44NyA4NC4xNkwzODcuODggODMuMjJMMzg1LjgzIDgxLjg4TDM4NC4zMSA4MS4xNEwzODMuMDggODAuNjlMMzgyIDgwLjM5TDM4MC40NCA4MC4xM0wzNzkuMTggODAuMDlMMzc3LjggODAuMjRMMzc3LjA5IDc5LjgzTDM3Ny4xMyA3OS43NlpNMzQzLjIyIDgzLjA1TDM1MC44NiA4My4wN0wzNTcuMjMgODMuNDRMMzYxLjM2IDgzLjg4TDM2NS4wNCA4NC40TDM3MC44OCA4NS41NkwzNzQuMjMgODYuNDVMMzc2LjUgODcuMTlMMzc4LjM2IDg3LjkzTDM4MC40OCA4OS4wMUwzODEuNzEgODkuODZMMzgyLjYyIDkwLjc4TDM4My4xNCA5MS43NEwzODMuMjEgOTIuNjNMMzgyLjkxIDkzLjQxTDM4Mi4wNCA5NC40TDM4MS4yMiA5NC45OUwzODAuMDcgOTUuNjJMMzgwLjIgOTIuMTVMMzgwLjA5IDkxLjY3TDM3OS43OSA5MS4xNUwzNzkuMSA5MC40NkwzNzcuOCA4OS42NEwzNzYuMjQgODguOTRMMzc0LjA0IDg4LjE5TDM3MC44OCA4Ny4zOEwzNjcuNzIgODYuNzRMMzYzLjk2IDg2LjE1TDM2MC4yIDg1LjdMMzUyLjcyIDg1LjE1TDM0Ny45MyA4NUwzNDMuMjggODVMMzM2LjY1IDg1LjNMMzMxLjYzIDg1LjgyTDMyNy4yOCA4Ni42TDMyNC4wOCA4Ny41NkwzMjMgODguMDRMMzIyLjE4IDg4LjU2TDMyMS40MiA4OS4zNkwzMjEuMjMgODkuNzdMMzIxLjE2IDkwLjI1TDMyMS4wMyA5My41NEwzMTkuNTQgOTIuNUwzMTguNyA5MS42N0wzMTguMjIgOTAuODFMMzE4LjExIDkwLjAzTDMxOC4yMiA4OS41MUwzMTguNDggODguOTlMMzE5LjMyIDg4LjA0TDMyMC4yNSA4Ny4zOEwzMjEuNjYgODYuNjNMMzIzLjgyIDg1Ljc4TDMyNS41NyA4NS4yNkwzMjguMTcgODQuNjNMMzMxIDg0LjExTDMzNy40NyA4My4zM1pNMzQzLjY3IDg1LjY5TDM0Ny43IDg1LjY3TDM1My45OSA4NS44OUwzNjAuMDUgODYuMzdMMzY0LjExIDg2Ljg2TDM2OC45OCA4Ny42N0wzNzIuNTkgODguNDlMMzc1Ljc5IDg5LjQ5TDM3OC4wMiA5MC41M0wzNzguNzcgOTEuMDVMMzc5LjIzIDkxLjUyTDM3OS41MyA5Mi4xOUwzNzguOTcgMTA3LjEyTDM3Ny44NCAxMDYuNEwzNzYuNzkgMTA1Ljk1TDM3NC4yMyAxMDUuMzlMMzcyLjYzIDEwNS4yNEwzNzAuNCAxMDUuMjFMMzY2LjM4IDEwNS41TDM2My40IDEwNS45NUwzNjAuOTUgMTA2LjQzTDM1Ni4zMyAxMDcuNjJMMzUyLjY1IDEwOUwzNTEuMiAxMDkuNzhMMzQ5LjkzIDExMC43MUwzNDkuMTIgMTA5LjkzTDM0OC4wNyAxMDkuMThMMzQ2LjA3IDEwOC4xTDM0NC41IDEwNy40NEwzNDEuNjggMTA2LjRMMzM5LjU2IDEwNS43M0wzMzYuNzcgMTA0Ljk4TDMzMy45IDEwNC4zNUwzMjkuNzMgMTAzLjc2TDMyNy45NSAxMDMuNjVMMzI1LjkgMTAzLjY4TDMyNC40MSAxMDMuODdMMzIzLjI2IDEwNC4xM0wzMjIuNDQgMTA0LjQzTDMyMS4zNiAxMDUuMDZMMzIxLjgzIDkwLjE0TDMyMS45OCA4OS43M0wzMjIuNTIgODkuMTZMMzIzLjg5IDg4LjM4TDMyNS4yNyA4Ny44NkwzMjguMSA4Ny4xMkwzMzAuNTIgODYuNjdMMzM2LjMyIDg2TDMzOS45NiA4NS43OFpNMzkwLjk5IDg4LjE3TDM5NC44NCA5MC4yTDM5NC44NiA5MC42NkwzOTQuNTQgOTAuNTdMMzkxLjA0IDg4LjY4Wk0zODkuODcgODkuNTVMMzkwLjQ5IDg5LjU3TDM5MC44NiA4OS43NUwzOTEuMjkgOTAuMjJMMzkxLjQ3IDkwLjdMMzkxLjQ3IDkxLjNMMzkxLjMyIDkxLjc0TDM5MS4wMSA5Mi4xM0wzOTAuNDkgOTIuMzVMMzg5Ljc0IDkyLjMyTDM4OS4yMiA5Mi4xM0wzODguOTQgOTEuODlMMzg4LjcyIDkxLjQ0TDM4OC42OCA5MC43NEwzODguOSA5MC4xOEwzODkuMzcgODkuNzJaTTM5MS44OCA4OS45NkwzOTIuNTcgOTAuMjRMMzk0Ljc4IDkxLjQ4TDM5MS40MiA5My4wMkwzOTEuNCA5Mi42N0wzOTEuODggOTIuMTFMMzkyLjE0IDkxLjM3TDM5Mi4xNCA5MC41OVpNMzg4LjgzIDkyLjZMMzkwLjA0IDkyLjg3TDM5MC43MyA5Mi45M0wzOTAuNzYgOTMuOTdMMzkwLjk5IDk1LjM0TDM5MS4wMiA5Ni4zMUwzOTAuOTEgOTcuMTZMMzkwLjAyIDk5Ljc3TDM4OS43NiAxMDAuODhMMzg5LjcyIDEwMi4zM0wzODkuOTEgMTAzLjE4TDM4OS44NSAxMDMuMzFMMzg4LjgxIDEwMy4yNEwzODguMTQgMTAzLjA1TDM4OC4wNSAxMDIuODFMMzg4LjIyIDEwMi4wNUwzODcuMjkgMTAyLjgzTDM4Ni44NCAxMDIuNjhMMzg2LjYzIDEwMi4zN0wzODYuNjkgMTAxLjMxTDM4NS44MyAxMDIuMDVMMzg1LjcyIDEwMS42TDM4NS4zMSAxMDEuODZMMzg1LjE1IDEwMS42NkwzODUuMTggMTAwLjU4TDM4NC43NiAxMDAuOUwzODQuNjYgMTAwLjY2TDM4NC42NiAxMDAuMDZMMzg0LjgxIDk5LjMyTDM4NS40NCA5Ny44M0wzODcuOSA5NC4zOEwzODguNDkgOTMuMzhaTTMyNi4yMiAxMDQuODlMMzI4LjUxIDEwNC44N0wzMzEuNzQgMTA1LjIxTDMzNS4yOCAxMDUuODhMMzM5LjY3IDEwNy4wM0wzNDMuMDUgMTA4LjE4TDM0NS40IDEwOS4xNUwzNDcuOTMgMTEwLjUyTDM0OC43OCAxMTEuMTlMMzQ5LjMgMTExLjc1TDM0OS44MiAxMTIuMDFMMzUwLjQ2IDExMS44OUwzNTEuNDIgMTExLjA4TDM1My4xMyAxMTAuMTFMMzU1LjE0IDEwOS4yOUwzNTcuNDkgMTA4LjU1TDM2MC4yIDEwNy44NEwzNjMuNCAxMDcuMThMMzY2LjQ1IDEwNi43M0wzNjguOTEgMTA2LjUxTDM3MC42NiAxMDYuNDNMMzczLjE5IDEwNi41MUwzNzQuNzEgMTA2LjY5TDM3Ni41NyAxMDcuMThMMzc3Ljc2IDEwNy43N0wzNzguNjcgMTA4LjYxTDM3OC45IDEwOC45OEwzNzguODYgMTEwLjMyTDM3Ny43NiAxMDkuNTJMMzc2Ljk4IDEwOS4xMUwzNzUuOTQgMTA4Ljc0TDM3NC40MSAxMDguNEwzNzIuMTggMTA4LjE4TDM2OS41OCAxMDguMThMMzY2LjQyIDEwOC40NEwzNjMuNTUgMTA4Ljg1TDM2MC42NSAxMDkuNDFMMzU2LjI2IDExMC41NkwzNTMuMzkgMTExLjZMMzUxLjgzIDExMi4zNEwzNTAuNzIgMTEzLjA1TDM0OS44NiAxMTMuNzlMMzQ5LjI3IDExMy4xMkwzNDcuNzggMTEyLjA0TDM0Ni41OSAxMTEuMzdMMzQ0LjU4IDExMC40NUwzNDEuOTQgMTA5LjQ0TDMzOS4yNiAxMDguNTlMMzM2Ljc3IDEwNy45MkwzMzQuMDUgMTA3LjMyTDMyOS42NiAxMDYuNjlMMzI4LjU4IDEwNi42MkwzMjUuOTQgMTA2LjY2TDMyNC4zIDEwNi44OEwzMjIuOTMgMTA3LjI5TDMyMS44MSAxMDcuODRMMzIxLjIxIDEwOC4yNUwzMjEuMjcgMTA2LjkzTDMyMS40NiAxMDYuNkwzMjIuMTQgMTA1Ljk5TDMyMy4wNCAxMDUuNUwzMjMuNjcgMTA1LjI4TDMyNS4xMiAxMDQuOThaIiBmaWxsPSIjRkZGRkZGIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjwvcGF0aD4KPHBhdGggZD0iTTI5Ny4yOSAxNTUuOTlMMzIzLjU2IDE4OS43N0MzMjcuMzEgMjE5LjggMzMxLjA3IDI0OS44MyAzMzEuMDcgMjcyLjM1TDMzMS4wNyAyOTguNjJMMzcyLjM1IDI3Ni4xTDM3Mi4zNSAyNzIuMzVDMzcyLjM1IDI0OS44MyAzNzYuMTEgMjE5LjggMzc5Ljg2IDE4OS43N0w0MDYuMTMgMTU1Ljk5TDM5MyAxNDYuNjFDMzc2LjExIDE1Ny44NyAzNjQuODUgMTU5Ljc1IDM0OS44MyAxNTkuNzVDMzM0LjgyIDE1OS43NSAzMjMuNTYgMTU3Ljg3IDMxMC40MiAxNDYuNjFaIiBmaWxsPSIjRUU3NjIzIj48L3BhdGg+Cjwvc3ZnPgo=">
+<link rel="apple-touch-icon" href="https://universeit.co.in/apple-touch-icon.png">
 <link rel="canonical" href="https://universeit.co.in/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://universeit.co.in/">
 <meta property="og:title" content="UniverseIT — institutional ERP for schools, colleges and universities">
 <meta property="og:description" content="UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.">
+<meta property="og:image" content="https://universeit.co.in/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="UniverseIT — Every Campus, One University">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://universeit.co.in/og.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +40,9 @@
   --gold-bright:#F2A413;
 
   /* the logo's own colours, from app/launchpad/logo.svg */
-  --logo-ink:   #2A4B8D;
-  --logo-gold:  #F2A413;
+  --logo-ink:   #0C447C;
+  --logo-gold:  #EE7623;
+  --logo-rule:  #7FA8D6;
 
   --bg:      #F4F6F9;
   --surface: #FFFFFF;
@@ -78,6 +85,7 @@
     --gold:       #E2A13B;
     --gold-bright:#F5B942;
     --logo-ink:   #E9EFF6;
+  --logo-rule:  #5E7C9C;
 
     --bg:      #0E1620;
     --surface: #172230;
@@ -106,6 +114,7 @@
   --gold:       #E2A13B;
   --gold-bright:#F5B942;
   --logo-ink:   #E9EFF6;
+  --logo-rule:  #5E7C9C;
 
   --bg:      #0E1620;
   --surface: #172230;
@@ -176,20 +185,15 @@ a { color: inherit; }
 }
 .nav-in { max-width: var(--wide); margin: 0 auto; padding: 0 28px;
   height: 62px; display: flex; align-items: center; gap: 28px; }
-.logo {
-  display: flex; align-items: center; gap: 9px; font-family: var(--sans);
-  font-size: 19.5px; font-weight: 700; letter-spacing: .017em;
-  text-decoration: none; color: var(--logo-ink);
-}
-.logo .mark { width: 30px; height: 30px; flex: none; display: block; }
-.logo .it { color: var(--logo-gold); }
+.logo { display: flex; align-items: center; text-decoration: none; }
+.logo .lockup { height: 22px; width: auto; flex: none; display: block; }
 /* Fourteen links in a row that does not wrap: the tighter gap and padding buy
    back more width than the fourteenth costs, so the bar is no wider than it
    was at thirteen. */
 .nav-links { display: flex; gap: 2px; margin-left: auto; align-items: center; }
 .nav-links a {
   font-size: 13.5px; font-weight: 500; color: var(--muted);
-  text-decoration: none; padding: 7px 8px; border-radius: 7px; white-space: nowrap;
+  text-decoration: none; padding: 7px 6px; border-radius: 7px; white-space: nowrap;
 }
 .nav-links a:hover { color: var(--text); background: var(--sunken); }
 /* the section you are currently in */
@@ -423,7 +427,6 @@ section.tight { padding: 68px 0; }
 }
 .sub-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 .sub-name { font-size: 16px; font-weight: 700; letter-spacing: -.005em; }
-.sub-flags { display: flex; align-items: center; gap: 9px; flex: none; }
 .sub-d { font-size: 13.5px; color: var(--muted); line-height: 1.55; margin-top: 6px; }
 
 .sub-inst { display: flex; gap: 4px; margin-top: 11px; }
@@ -1208,6 +1211,71 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
   font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
 }
 
+/* ================= WORKFLOWS ================= */
+.wf-rail { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 20px; }
+.wf-rail .filt { display: inline-flex; align-items: baseline; gap: 7px; }
+.wf-rail .filt b { font-family: var(--mono); font-size: 9.5px; font-weight: 600; letter-spacing: .07em; opacity: .55; }
+.wf-rail .filt[aria-selected="true"] { background: var(--brand); border-color: var(--brand); color: #fff; }
+.wf-rail .filt[aria-selected="true"] b { opacity: .8; }
+
+.wf {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.wf-bar {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 11px 13px; background: var(--sunken); border-bottom: 1px solid var(--border);
+}
+.wf-nav {
+  flex: none; width: 34px; height: 34px; border-radius: 9px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  font-size: 17px; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
+}
+.wf-nav:hover { border-color: var(--brand-lift); color: var(--brand); }
+.wf-nav:active { transform: translateY(1px); }
+.wf-count { font-family: var(--mono); font-size: 11.5px; letter-spacing: .06em; color: var(--muted); }
+.wf-count b { color: var(--text); font-weight: 600; }
+.wf-gap { flex: 1 1 auto; }
+.wf-zoom { display: flex; border: 1px solid var(--border); border-radius: 9px; overflow: hidden; background: var(--surface); }
+.wf-zoom button {
+  border: 0; background: none; cursor: pointer; color: var(--muted);
+  font-family: var(--mono); font-size: 11px; letter-spacing: .05em; padding: 8px 10px;
+}
+.wf-zoom button + button { border-left: 1px solid var(--border); }
+.wf-zoom button:hover { color: var(--brand); background: var(--sunken); }
+
+.wf-body { padding: 20px 20px 22px; }
+.wf-deck.live .wf-slide { display: none; }
+.wf-deck.live .wf-slide.on { display: block; }
+.wf-slide + .wf-slide { margin-top: 30px; }
+.wf-deck.live .wf-slide + .wf-slide { margin-top: 0; }
+.wf-kicker {
+  font-family: var(--mono); font-size: 10px; letter-spacing: .11em; text-transform: uppercase;
+  color: var(--brand); display: flex; align-items: center; gap: 9px;
+}
+.wf-kicker span { color: var(--faint); }
+.wf-slide h3 { font-size: 20px; letter-spacing: -.015em; margin: 7px 0 0; }
+.wf-lede { font-size: 14.5px; color: var(--muted); line-height: 1.62; max-width: var(--read); margin: 9px 0 0; }
+.wf-scroll {
+  margin-top: 17px; overflow: auto; background: var(--bg);
+  border: 1px solid var(--border); border-radius: 10px; padding: 16px; max-height: 76vh;
+}
+.wf-fig { width: 100%; margin: 0 auto; }
+.wf-fig svg { display: block; width: 100%; max-width: none; height: auto; }
+.wf-wait, .wf-fail {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em; color: var(--faint); padding: 26px 2px;
+}
+.wf-fail pre {
+  margin: 12px 0 0; white-space: pre; overflow-x: auto; color: var(--muted);
+  font-family: var(--mono); font-size: 11px; line-height: 1.65;
+}
+.wf-note { margin-top: 13px; font-size: 12.5px; color: var(--faint); line-height: 1.6; }
+@media (max-width: 620px) {
+  .wf-body { padding: 16px 13px 18px; }
+  .wf-scroll { padding: 10px; }
+  .wf-gap { display: none; }
+}
+
 /* ================= REVEAL ================= */
 .rv { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s cubic-bezier(.22,.8,.3,1); }
 .rv.in { opacity: 1; transform: none; }
@@ -1223,23 +1291,37 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 <nav class="nav">
   <div class="nav-in">
     <a class="logo" href="#top" aria-label="UniverseIT — home">
-      <svg class="mark" viewBox="0 0 64 64" role="img" aria-hidden="true">
-        <rect width="64" height="64" rx="13" fill="#2A4B8D"/>
-        <path d="M32 13 L57 24 L32 35 L7 24 Z" fill="#ffffff"/>
-        <path d="M17 29.5 L32 36 L47 29.5 v8.5 c0 5.2 -30 5.2 -30 0 Z" fill="#cfe0ff"/>
-        <path d="M57 24 v11.5" stroke="#F2A413" stroke-width="3" fill="none" stroke-linecap="round"/>
-        <circle cx="57" cy="38" r="3.6" fill="#F2A413"/>
-      </svg><span>Universe<span class="it">IT</span></span></a>
+      <!-- Brand pack v3 (mark H) — the official horizontal lockup,
+           UniverseIT_Logo_Horizontal_NoTagline_OnWhite_1800x520.svg, inlined as a
+           derivative per docs/logos/README.md: metadata stripped, viewBox tightened
+           to the artwork (the master is a 1800x520 print canvas, two-thirds padding),
+           and the three brand fills swapped for the page's own logo tokens so the
+           mark follows the theme instead of carrying a second palette. The wordmark
+           is now the pack's own letterforms, not type set to look like them. -->
+      <svg class="lockup" viewBox="80 161.69 1638.75 199.92" role="img" aria-hidden="true">
+        <path d="M80 188.46L146.38 188.46L146.38 202.12L80 202.12Z" fill="var(--logo-ink)"></path/>
+        <path d="M97.57 188.46L128.81 188.46L128.81 219.7L97.57 219.7Z" fill="var(--logo-ink)"></path/>
+        <path d="M97.57 223.6C97.57 209.93 85.86 202.12 80 202.12L80 201.15L98.55 201.15L98.55 223.6Z" fill="var(--logo-ink)"></path/>
+        <path d="M128.81 223.6C128.81 209.93 140.52 202.12 146.38 202.12L146.38 201.15L127.83 201.15L127.83 223.6Z" fill="var(--logo-ink)"></path/>
+        <path d="M97.57 218.72L97.57 293.88C97.57 336.83 124.9 358.31 158.09 358.31C191.28 358.31 218.61 336.83 218.61 293.88L218.61 278.26L197.14 289.98C197.14 323.17 181.52 336.83 158.09 336.83C134.66 336.83 128.81 323.17 128.81 293.88L128.81 218.72Z" fill="var(--logo-ink)"></path/>
+        <path d="M222.52 188.46C222.52 197.08 215.52 204.08 206.9 204.08C198.27 204.08 191.28 197.08 191.28 188.46C191.28 179.83 198.27 172.84 206.9 172.84C215.52 172.84 222.52 179.83 222.52 188.46Z" fill="var(--logo-gold)"></path/>
+        <path d="M207.77 161.69L227.27 172.12L227.4 172.2L227.39 172.45L207.8 161.95L184.89 172.19L184.54 172.35L184.42 172.36L184.46 172.16L184.72 172ZM207.74 162.35L208.15 162.53L227.4 172.86L227.4 173.15L227.15 173.3L226.97 173.48L226.8 173.83L226.76 174.31L226.89 174.79L226.78 175.1L226.56 175.51L226 176.32L225.78 176.46L222.59 177.91L222.6 177L223.36 176.58L223.94 176.16L224.38 175.66L224.59 175.18L224.61 174.7L224.51 174.33L224.26 173.88L223.77 173.37L223.07 172.87L222.2 172.41L220.94 171.88L219.66 171.46L217.92 171L216.61 170.71L213.3 170.17L210.78 169.89L208.07 169.72L206.08 169.66L202.62 169.7L200.2 169.86L197.64 170.15L195.48 170.53L193.66 171L192.19 171.54L191.18 172.08L190.77 172.39L190.46 172.71L190.26 172.98L190.11 173.32L190.07 173.96L190.16 174.31L190.38 174.68L190.99 175.29L191.91 175.89L191.88 176.79L184.44 172.78ZM221.88 168.2L222.74 168.19L223.23 168.25L223.98 168.41L224.64 168.62L225.84 169.18L226.48 169.57L227.02 169.97L227.53 170.5L227.8 170.99L227.9 171.26L228.01 171.88L228.01 173.13L227.71 173.13L227.69 171.95L227.61 171.45L227.47 171.04L227.2 170.62L226.69 170.13L225.63 169.43L224.83 169.04L224.19 168.81L223.63 168.66L222.82 168.52L222.16 168.5L221.45 168.58L221.08 168.37L221.1 168.33ZM203.46 170.04L207.44 170.05L210.74 170.24L212.89 170.47L214.81 170.74L217.85 171.34L219.59 171.81L220.77 172.19L221.74 172.58L222.84 173.14L223.48 173.59L223.95 174.06L224.22 174.56L224.26 175.02L224.11 175.43L223.65 175.94L223.23 176.25L222.63 176.58L222.69 174.77L222.64 174.52L222.48 174.25L222.12 173.89L221.45 173.47L220.63 173.1L219.49 172.72L217.85 172.29L216.2 171.96L214.25 171.65L212.29 171.42L208.4 171.13L205.91 171.05L203.49 171.05L200.04 171.21L197.43 171.48L195.17 171.88L193.5 172.39L192.94 172.64L192.52 172.91L192.12 173.32L192.02 173.54L191.98 173.79L191.92 175.5L191.14 174.96L190.71 174.52L190.46 174.08L190.4 173.67L190.46 173.4L190.59 173.13L191.03 172.64L191.51 172.29L192.25 171.9L193.37 171.46L194.28 171.19L195.63 170.86L197.1 170.59L200.47 170.18ZM203.69 171.41L205.79 171.4L209.06 171.52L212.21 171.77L214.32 172.02L216.86 172.45L218.74 172.87L220.4 173.39L221.56 173.93L221.95 174.2L222.19 174.45L222.35 174.79L222.05 182.56L221.46 182.18L220.92 181.95L219.59 181.66L218.76 181.58L217.59 181.57L215.5 181.72L213.96 181.95L212.68 182.2L210.28 182.82L208.36 183.54L207.61 183.94L206.95 184.43L206.53 184.02L205.98 183.63L204.94 183.07L204.13 182.72L202.66 182.18L201.55 181.84L200.1 181.45L198.61 181.12L196.44 180.81L195.52 180.75L194.45 180.77L193.68 180.87L193.08 181.01L192.65 181.16L192.09 181.49L192.33 173.73L192.41 173.52L192.69 173.22L193.41 172.81L194.12 172.54L195.59 172.16L196.85 171.92L199.87 171.58L201.77 171.46ZM228.31 172.71L230.31 173.76L230.32 174L230.15 173.95L228.33 172.97ZM227.72 173.42L228.04 173.43L228.24 173.53L228.46 173.77L228.56 174.02L228.56 174.33L228.48 174.56L228.31 174.76L228.04 174.88L227.66 174.86L227.39 174.76L227.24 174.64L227.12 174.41L227.11 174.04L227.22 173.75L227.46 173.51ZM228.77 173.63L229.13 173.78L230.28 174.43L228.53 175.23L228.52 175.04L228.77 174.75L228.9 174.37L228.9 173.96ZM227.18 175.01L227.81 175.15L228.17 175.18L228.19 175.72L228.31 176.44L228.32 176.94L228.27 177.38L227.8 178.73L227.67 179.31L227.65 180.07L227.74 180.51L227.71 180.58L227.17 180.54L226.82 180.44L226.78 180.32L226.86 179.92L226.38 180.33L226.15 180.25L226.04 180.09L226.07 179.54L225.63 179.92L225.57 179.69L225.35 179.83L225.27 179.72L225.29 179.16L225.06 179.32L225.02 179.2L225.02 178.89L225.09 178.5L225.42 177.73L226.7 175.93L227.01 175.41ZM194.62 181.4L195.81 181.39L197.49 181.57L199.33 181.91L201.61 182.51L203.37 183.11L204.59 183.61L205.91 184.33L206.35 184.68L206.62 184.97L206.89 185.1L207.22 185.04L207.73 184.62L208.62 184.12L209.66 183.69L210.88 183.3L212.29 182.94L213.96 182.59L215.54 182.36L216.82 182.24L217.73 182.2L219.05 182.24L219.84 182.34L220.81 182.59L221.43 182.9L221.9 183.33L222.02 183.53L222 184.22L221.43 183.81L221.02 183.59L220.48 183.4L219.68 183.23L218.52 183.11L217.17 183.11L215.52 183.25L214.03 183.46L212.52 183.75L210.24 184.35L208.75 184.89L207.94 185.28L207.36 185.64L206.91 186.03L206.6 185.68L205.83 185.12L205.21 184.77L204.17 184.29L202.79 183.77L201.4 183.32L200.1 182.98L198.69 182.67L196.41 182.34L195.84 182.3L194.47 182.32L193.62 182.43L192.9 182.65L192.32 182.94L192.01 183.15L192.04 182.46L192.14 182.29L192.5 181.97L192.96 181.72L193.29 181.6L194.04 181.45Z" fill="var(--logo-ink)" fill-rule="evenodd"></path/>
+        <path d="M179.57 207.98L193.23 225.55C195.19 241.17 197.14 256.79 197.14 268.5L197.14 282.17L218.61 270.45L218.61 268.5C218.61 256.79 220.56 241.17 222.52 225.55L236.18 207.98L229.35 203.1C220.56 208.96 214.71 209.93 206.9 209.93C199.09 209.93 193.23 208.96 186.4 203.1Z" fill="var(--logo-gold)"></path/>
+        <path d="M275.51 188.46L278.65 188.46L278.65 358.31L275.51 358.31Z" fill="var(--logo-rule)"></path/>
+        <path d="M339.36 188.46L383.16 188.46L383.16 290.28Q383.16 311.32 390.04 320.37Q396.93 329.41 412.51 329.41Q428.21 329.41 435.1 320.37Q441.98 311.32 441.98 290.28L441.98 188.46L485.78 188.46L485.78 290.28Q485.78 326.34 467.69 343.97Q449.6 361.61 412.51 361.61Q375.54 361.61 357.45 343.97Q339.36 326.34 339.36 290.28L339.36 188.46ZM654.83 280.72L654.83 358.31L613.88 358.31L613.88 345.68L613.88 298.92Q613.88 282.43 613.14 276.17Q612.4 269.91 610.58 266.96Q608.19 262.97 604.09 260.76Q600 258.54 594.76 258.54Q582.02 258.54 574.74 268.38Q567.46 278.22 567.46 295.62L567.46 358.31L526.73 358.31L526.73 230.89L567.46 230.89L567.46 249.55Q576.67 238.4 587.03 233.11Q597.38 227.82 609.89 227.82Q631.96 227.82 643.4 241.36Q654.83 254.9 654.83 280.72ZM692.6 230.89L733.33 230.89L733.33 358.31L692.6 358.31L692.6 230.89ZM692.6 181.29L733.33 181.29L733.33 214.51L692.6 214.51L692.6 181.29ZM756.42 230.89L797.15 230.89L828.89 318.95L860.51 230.89L901.36 230.89L851.19 358.31L806.48 358.31L756.42 230.89ZM1051.52 294.26L1051.52 305.86L956.3 305.86Q957.78 320.2 966.66 327.36Q975.53 334.53 991.46 334.53Q1004.31 334.53 1017.79 330.72Q1031.27 326.91 1045.49 319.17L1045.49 350.57Q1031.05 356.03 1016.6 358.82Q1002.15 361.61 987.7 361.61Q953.12 361.61 933.95 344.03Q914.78 326.45 914.78 294.71Q914.78 263.54 933.61 245.68Q952.44 227.82 985.43 227.82Q1015.46 227.82 1033.49 245.91Q1051.52 264 1051.52 294.26ZM1009.66 280.72Q1009.66 269.12 1002.89 262.01Q996.12 254.9 985.2 254.9Q973.37 254.9 965.97 261.55Q958.58 268.21 956.76 280.72L1009.66 280.72ZM1177.01 265.59Q1171.66 263.09 1166.37 261.89Q1161.08 260.7 1155.73 260.7Q1140.03 260.7 1131.56 270.77Q1123.08 280.83 1123.08 299.61L1123.08 358.31L1082.35 358.31L1082.35 230.89L1123.08 230.89L1123.08 251.83Q1130.93 239.31 1141.11 233.57Q1151.29 227.82 1165.52 227.82Q1167.56 227.82 1169.95 227.99Q1172.34 228.16 1176.89 228.73L1177.01 265.59ZM1296.8 234.87L1296.8 265.82Q1283.72 260.36 1271.54 257.63Q1259.37 254.9 1248.56 254.9Q1236.96 254.9 1231.33 257.8Q1225.7 260.7 1225.7 266.73Q1225.7 271.62 1229.96 274.24Q1234.23 276.85 1245.26 278.1L1252.43 279.13Q1283.72 283.11 1294.52 292.21Q1305.33 301.31 1305.33 320.77Q1305.33 341.13 1290.31 351.37Q1275.3 361.61 1245.49 361.61Q1232.86 361.61 1219.38 359.62Q1205.9 357.63 1191.68 353.64L1191.68 322.7Q1203.85 328.62 1216.65 331.57Q1229.45 334.53 1242.65 334.53Q1254.59 334.53 1260.62 331.23Q1266.65 327.93 1266.65 321.45Q1266.65 315.99 1262.5 313.31Q1258.35 310.64 1245.95 309.16L1238.78 308.25Q1211.59 304.84 1200.67 295.62Q1189.75 286.41 1189.75 267.64Q1189.75 247.39 1203.63 237.6Q1217.51 227.82 1246.17 227.82Q1257.44 227.82 1269.84 229.53Q1282.24 231.23 1296.8 234.87ZM1463.12 294.26L1463.12 305.86L1367.9 305.86Q1369.38 320.2 1378.25 327.36Q1387.13 334.53 1403.05 334.53Q1415.91 334.53 1429.39 330.72Q1442.87 326.91 1457.09 319.17L1457.09 350.57Q1442.64 356.03 1428.2 358.82Q1413.75 361.61 1399.3 361.61Q1364.72 361.61 1345.55 344.03Q1326.38 326.45 1326.38 294.71Q1326.38 263.54 1345.21 245.68Q1364.03 227.82 1397.02 227.82Q1427.06 227.82 1445.09 245.91Q1463.12 264 1463.12 294.26ZM1421.26 280.72Q1421.26 269.12 1414.49 262.01Q1407.72 254.9 1396.8 254.9Q1384.97 254.9 1377.57 261.55Q1370.18 268.21 1368.36 280.72L1421.26 280.72Z" fill="var(--logo-ink)"></path/>
+        <path d="M1495.77 188.46L1539.57 188.46L1539.57 358.31L1495.77 358.31L1495.77 188.46ZM1562.21 188.46L1718.75 188.46L1718.75 221.56L1662.44 221.56L1662.44 358.31L1618.64 358.31L1618.64 221.56L1562.21 221.56L1562.21 188.46Z" fill="var(--logo-gold)"></path/>
+      </svg></a>
     <div class="nav-links">
       <a href="#hierarchy">Hierarchy</a>
       <a href="#modules">Modules</a>
+      <a href="#workflows">Workflows</a>
       <a href="#timetable">Timetable</a>
       <a href="#calendar">Calendar</a>
       <a href="#enrolment">Enrolment</a>
+      <a href="#mobile">Mobile</a>
       <a href="#identity">Identity</a>
       <a href="#difference">Difference</a>
       <a href="#setup">Setup</a>
-      <a href="#mobile">Mobile</a>
       <a href="#integrations">Channels</a>
       <a href="#interop">Integrations</a>
       <a href="#governance">Governance</a>
@@ -1362,163 +1444,590 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Institution &amp; Trust</span><span class="m-meta">Institution Setup</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Institution Setup</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The legal owner, its campuses, its departments and its physical estate — the spine every other module hangs from.</p><ul class="fn-list"><li>Trust or society record with settlors named on the deed</li><li>Trustee and office-bearer register with trustee roles</li><li>Statutory identity — registration numbers, PAN, TAN</li><li>Deed amendments, recorded and dated</li><li>Documents filed against the trust</li><li>Campus (branch) master — the data-isolation unit</li><li>Board and university affiliations held per campus</li><li>Mediums of instruction permitted under each affiliation</li><li>Self-nesting department tree inside a campus</li><li>Space types and physical spaces with measured dimensions</li><li>Area derived in metres or feet, by unit switch</li><li>Reusable off-campus external venues</li><li>Space reservation with clash detection across clubs, meetings and exams</li><li>Academic year lifecycle: planning → active → in review → concluded</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Institution Setup</span></div><p class="sub-d">The legal owner, its campuses, its departments and its physical estate — the spine every other module hangs from.</p><ul class="fn-list"><li>Trust or society record with settlors named on the deed</li><li>Trustee and office-bearer register with trustee roles</li><li>Statutory identity — registration numbers, PAN, TAN</li><li>Deed amendments, recorded and dated</li><li>Documents filed against the trust</li><li>Campus (branch) master — the data-isolation unit</li><li>Board and university affiliations held per campus</li><li>Mediums of instruction permitted under each affiliation</li><li>Self-nesting department tree inside a campus</li><li>Space types and physical spaces with measured dimensions</li><li>Area derived in metres or feet, by unit switch</li><li>Reusable off-campus external venues</li><li>Space reservation with clash detection across clubs, meetings and exams</li><li>Academic year lifecycle: planning → active → in review → concluded</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Academic Operations</span><span class="m-meta">Curriculum &amp; Timetable  ·  Subject Syllabus</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Curriculum &amp; Timetable</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The widest module in the product: catalogue, year plan, sections, timetable, attendance and promotion.</p><ul class="fn-list"><li>Course catalogue flat (school) or stepped (stream → step)</li><li>Streams chosen at enrolment, spanning the whole programme</li><li>Steps — the year or semester rung inside a stream</li><li>Subjects, labs and projects under a course or step</li><li>Per-campus, per-year take-up of a catalogue course</li><li>Planned streams and steps with the numbers the planner edits</li><li>Year commencement checklist, gating what the year may do</li><li>Year closure checklist</li><li>Reusable section names and section creation</li><li>Weekly period and break blocks laid on a section&#x27;s day</li><li>Reusable timetable templates applied per section</li><li>Assigned slots by day, period and subject</li><li>Teacher assigned to subject and section with periods per week</li><li>Attendance capture per day, twice a day or per hour</li><li>Session and per-student attendance records</li><li>Promotion runs with per-student lines</li><li>Promotion decided on attendance %, arrears count and marks %</li><li>Academic calendar with targeted audiences</li><li>Recurring holiday and weekly-off rules</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Subject Syllabus</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The syllabus authored against a subject so teacher, student and parent read the same document.</p><ul class="fn-list"><li>Chapters under a subject</li><li>Sections within a chapter</li><li>Topics within a section</li><li>Reference resources attached per topic</li><li>Published to the teacher and parent view</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Curriculum &amp; Timetable</span></div><p class="sub-d">The widest module in the product: catalogue, year plan, sections, timetable, attendance and promotion.</p><ul class="fn-list"><li>Course catalogue flat (school) or stepped (stream → step)</li><li>Streams chosen at enrolment, spanning the whole programme</li><li>Steps — the year or semester rung inside a stream</li><li>Subjects, labs and projects under a course or step</li><li>Per-campus, per-year take-up of a catalogue course</li><li>Planned streams and steps with the numbers the planner edits</li><li>Year commencement checklist, gating what the year may do</li><li>Year closure checklist</li><li>Reusable section names and section creation</li><li>Weekly period and break blocks laid on a section&#x27;s day</li><li>Reusable timetable templates applied per section</li><li>Assigned slots by day, period and subject</li><li>Teacher assigned to subject and section with periods per week</li><li>Attendance capture per day, twice a day or per hour</li><li>Session and per-student attendance records</li><li>Promotion runs with per-student lines</li><li>Promotion decided on attendance %, arrears count and marks %</li><li>Academic calendar with targeted audiences</li><li>Recurring holiday and weekly-off rules</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Subject Syllabus</span></div><p class="sub-d">The syllabus authored against a subject so teacher, student and parent read the same document.</p><ul class="fn-list"><li>Chapters under a subject</li><li>Sections within a chapter</li><li>Topics within a section</li><li>Reference resources attached per topic</li><li>Published to the teacher and parent view</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Student Records</span><span class="m-meta">Student Master &amp; 360°</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Student Master &amp; 360°</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">One record per student and one screen that pulls the whole history together.</p><ul class="fn-list"><li>Student master with admission number allocation</li><li>Admission record and category</li><li>Previous school or institution history</li><li>Attachments and scanned documents</li><li>Addresses, phones and emails through shared contact data</li><li>Guardian records shared with the staff model</li><li>Bank details for refunds and scholarships</li><li>360° view — enrolment, attendance, marks, fees, transport, hostel, documents</li><li>Filter value lists scoped to the viewer&#x27;s campus</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Student Master &amp; 360°</span></div><p class="sub-d">One record per student and one screen that pulls the whole history together.</p><ul class="fn-list"><li>Student master with admission number allocation</li><li>Admission record and category</li><li>Previous school or institution history</li><li>Attachments and scanned documents</li><li>Addresses, phones and emails through shared contact data</li><li>Guardian records shared with the staff model</li><li>Bank details for refunds and scholarships</li><li>360° view — enrolment, attendance, marks, fees, transport, hostel, documents</li><li>Filter value lists scoped to the viewer&#x27;s campus</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Admissions &amp; Prospects</span><span class="m-meta">Admissions  ·  Prospects</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Admissions</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Enquiry to application to admitted student, operated by your front office across a five-view flow.</p><ul class="fn-list"><li>Enquiry capture with source and follow-up</li><li>Application against a named document checklist</li><li>Per-document receipt and verification state</li><li>Application payment recording</li><li>Entrance exam definition and applicant roster</li><li>Interview roster on the same shared mechanism</li><li>Follow-up log and activity trail per applicant</li><li>Per-year admission settings and quotas</li><li>Convert an application into a student record</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Prospects</span><span class="sub-flags"><span class="flag-txt partial">Demo-ready</span></span></div><p class="sub-d">A lightweight prospect register for enquiries not yet became applications.</p><ul class="fn-list"><li>Prospect register with contact and source</li><li>Assignment to a counsellor</li><li>Status tracking</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Admissions</span></div><p class="sub-d">Enquiry to application to admitted student, operated by your front office across a five-view flow.</p><ul class="fn-list"><li>Enquiry capture with source and follow-up</li><li>Application against a named document checklist</li><li>Per-document receipt and verification state</li><li>Application payment recording</li><li>Entrance exam definition and applicant roster</li><li>Interview roster on the same shared mechanism</li><li>Follow-up log and activity trail per applicant</li><li>Per-year admission settings and quotas</li><li>Convert an application into a student record</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Prospects</span></div><p class="sub-d">A lightweight prospect register for enquiries not yet became applications.</p><ul class="fn-list"><li>Prospect register with contact and source</li><li>Assignment to a counsellor</li><li>Status tracking</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Examinations</span><span class="m-meta">Exam Cycle  ·  Exam Duty  ·  Hosted Exams  ·  Report Cards</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Exam Cycle</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Configuration, scheduling, conduct, marks and results — defaults set once, overridden per grade level.</p><ul class="fn-list"><li>Exam type masters, assigned per grade level</li><li>Per-subject exam configuration</li><li>Exam splits — components within one exam</li><li>Exam headers and per-subject items</li><li>Tests within a split</li><li>Exam timetable with date, slot and venue</li><li>Hall ticket issue and reprint</li><li>Seating in normal or jumbled mode</li><li>Per-student exam attendance</li><li>Marks capture per student per subject</li><li>Named grading schemes with percentage bands and grade points</li><li>Percentage → band → grade → grade points</li><li>Re-evaluation requests and outcomes</li><li>Supplementary exam windows and applications</li><li>Exam content scope — what is examinable</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Exam Duty</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Invigilation, observers and flying squads — including people who are not your employees.</p><ul class="fn-list"><li>Invigilation allocation per slot and hall</li><li>External invigilators modelled outside the HR tree</li><li>Deputed observers</li><li>Flying-squad definition and members</li><li>Inspection visits recorded per squad</li><li>Malpractice inspection trail</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Hosted Exams</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Letting your campus to an external examining body as a revenue line.</p><ul class="fn-list"><li>Hosted exam sessions with multiple shifts</li><li>Hall allocation per session</li><li>Candidate register kept structurally separate from your students</li><li>Session-level conduct records</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Report Cards</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Generation, approval and publication of the term report card.</p><ul class="fn-list"><li>Academic terms</li><li>Report card templates</li><li>Components on a template</li><li>Generation runs across a section or cohort</li><li>Per-subject lines with grade points</li><li>Approval before publication</li><li>Publish to student and parent</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Exam Cycle</span></div><p class="sub-d">Configuration, scheduling, conduct, marks and results — defaults set once, overridden per grade level.</p><ul class="fn-list"><li>Exam type masters, assigned per grade level</li><li>Per-subject exam configuration</li><li>Exam splits — components within one exam</li><li>Exam headers and per-subject items</li><li>Tests within a split</li><li>Exam timetable with date, slot and venue</li><li>Hall ticket issue and reprint</li><li>Seating in normal or jumbled mode</li><li>Per-student exam attendance</li><li>Marks capture per student per subject</li><li>Named grading schemes with percentage bands and grade points</li><li>Percentage → band → grade → grade points</li><li>Re-evaluation requests and outcomes</li><li>Supplementary exam windows and applications</li><li>Exam content scope — what is examinable</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Exam Duty</span></div><p class="sub-d">Invigilation, observers and flying squads — including people who are not your employees.</p><ul class="fn-list"><li>Invigilation allocation per slot and hall</li><li>External invigilators modelled outside the HR tree</li><li>Deputed observers</li><li>Flying-squad definition and members</li><li>Inspection visits recorded per squad</li><li>Malpractice inspection trail</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Hosted Exams</span></div><p class="sub-d">Letting your campus to an external examining body as a revenue line.</p><ul class="fn-list"><li>Hosted exam sessions with multiple shifts</li><li>Hall allocation per session</li><li>Candidate register kept structurally separate from your students</li><li>Session-level conduct records</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Report Cards</span></div><p class="sub-d">Generation, approval and publication of the term report card.</p><ul class="fn-list"><li>Academic terms</li><li>Report card templates</li><li>Components on a template</li><li>Generation runs across a section or cohort</li><li>Per-subject lines with grade points</li><li>Approval before publication</li><li>Publish to student and parent</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Outcomes &amp; Accreditation</span><span class="m-meta">Outcome Attainment  ·  Compliance &amp; Accreditation</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Outcome Attainment</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Attainment computed at question grain, not assumed from a subject average.</p><ul class="fn-list"><li>Programme outcomes and programme-specific outcomes</li><li>Course outcomes with Bloom&#x27;s level</li><li>CO to PO/PSO mapping</li><li>Questions defined per test, with Bloom&#x27;s level</li><li>Per-student, per-question marks</li><li>Assessment map — which questions assess which outcome</li><li>Attainment configuration and thresholds</li><li>Attainment runs</li><li>Computed CO attainment</li><li>Computed PO and PSO attainment</li><li>Action taken against a shortfall</li><li>Publish attainment into NAAC data points</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Compliance &amp; Accreditation</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Regulatory obligations tracked as a calendar, and statutory registers modelled by the statute that requires them.</p><ul class="fn-list"><li>Regulatory body register</li><li>Compliance requirements per body</li><li>Submissions against a requirement</li><li>Compliance calendar with due dates</li><li>Supporting documents per submission</li><li>NAAC data points, fed by outcome attainment</li><li>Anti-ragging register with investigation lifecycle</li><li>POSH register with investigation lifecycle</li><li>RTI register with investigation lifecycle</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Outcome Attainment</span></div><p class="sub-d">Attainment computed at question grain, not assumed from a subject average.</p><ul class="fn-list"><li>Programme outcomes and programme-specific outcomes</li><li>Course outcomes with Bloom&#x27;s level</li><li>CO to PO/PSO mapping</li><li>Questions defined per test, with Bloom&#x27;s level</li><li>Per-student, per-question marks</li><li>Assessment map — which questions assess which outcome</li><li>Attainment configuration and thresholds</li><li>Attainment runs</li><li>Computed CO attainment</li><li>Computed PO and PSO attainment</li><li>Action taken against a shortfall</li><li>Publish attainment into NAAC data points</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Compliance &amp; Accreditation</span></div><p class="sub-d">Regulatory obligations tracked as a calendar, and statutory registers modelled by the statute that requires them.</p><ul class="fn-list"><li>Regulatory body register</li><li>Compliance requirements per body</li><li>Submissions against a requirement</li><li>Compliance calendar with due dates</li><li>Supporting documents per submission</li><li>NAAC data points, fed by outcome attainment</li><li>Anti-ragging register with investigation lifecycle</li><li>POSH register with investigation lifecycle</li><li>RTI register with investigation lifecycle</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Teaching &amp; Learning</span><span class="m-meta">Learning  ·  Lab Management</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Learning</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Content, assignments, online classes and the session record — phase one of the LMS.</p><ul class="fn-list"><li>Course content library per subject</li><li>Assignment definition with due date</li><li>Student submissions against an assignment</li><li>Coaching sessions and their attendance</li><li>Online class scheduling and joining</li><li>Session summary closed by the teacher</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Lab Management</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The laboratory as a scheduled, staffed, consumable-consuming place.</p><ul class="fn-list"><li>Lab staff assignment</li><li>Experiment catalogue per lab</li><li>Item requirements per experiment</li><li>Lab sessions scheduled against a section</li><li>Per-student lab session attendance</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Learning</span></div><p class="sub-d">Content, assignments, online classes and the session record — phase one of the LMS.</p><ul class="fn-list"><li>Course content library per subject</li><li>Assignment definition with due date</li><li>Student submissions against an assignment</li><li>Coaching sessions and their attendance</li><li>Online class scheduling and joining</li><li>Session summary closed by the teacher</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Lab Management</span></div><p class="sub-d">The laboratory as a scheduled, staffed, consumable-consuming place.</p><ul class="fn-list"><li>Lab staff assignment</li><li>Experiment catalogue per lab</li><li>Item requirements per experiment</li><li>Lab sessions scheduled against a section</li><li>Per-student lab session attendance</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Human Resources &amp; Payroll</span><span class="m-meta">Human Resources  ·  Staff Roles &amp; Hierarchy  ·  Payroll &amp; Statutory</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Human Resources</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Employee master, service record, leave and the salary structure behind payroll.</p><ul class="fn-list"><li>Employee master with service history</li><li>Qualifications and prior experience</li><li>Attachments and verified documents</li><li>Campus and role assignment per employee</li><li>Department staff mapping</li><li>Employment history and transfers</li><li>Employee salary with component detail</li><li>Salary templates and their components</li><li>Salary revisions, dated</li><li>Employee separation and exit</li><li>Leave balance per leave type</li><li>Leave applications and decisions</li><li>Staff attendance capture</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Staff Roles &amp; Hierarchy</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Who reports to whom, and what each designation is allowed to open.</p><ul class="fn-list"><li>Access role catalogue</li><li>Designation master</li><li>Designation to role mapping</li><li>Reports-to hierarchy feeding HR, exam approval and the approval matrix</li><li>Support-role flag that excludes staff from internal chat</li><li>Per-campus role map</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Payroll &amp; Statutory</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The full chain from dated rate tables to Form 16 Part B — sharing the payroll desk with HR.</p><ul class="fn-list"><li>Statutory schemes with dated rates and slabs</li><li>Employee statutory profile</li><li>Payroll components and their calculation</li><li>Payroll runs with per-employee detail</li><li>Run exceptions surfaced before posting</li><li>Ad-hoc payroll adjustments</li><li>Employee advances and recovery</li><li>Final settlement with per-line detail</li><li>Bank file formats authored as data — delimited or fixed-width</li><li>Per-column source and alignment on a bank file</li><li>Statutory return formats, likewise authored as data</li><li>Old and new income-tax regimes, each with its own slabs</li><li>Surcharge bands per regime</li><li>Tax deduction types and employee declarations</li><li>Tax computation per employee</li><li>TDS deductor, challans and challan-deductee lines</li><li>PF ECR return</li><li>ESI return</li><li>Form 24Q</li><li>Form 16 Part B</li><li>Statutory gratuity</li><li>One compound GL voucher per run, not a document per credit</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Human Resources</span></div><p class="sub-d">Employee master, service record, leave and the salary structure behind payroll.</p><ul class="fn-list"><li>Employee master with service history</li><li>Qualifications and prior experience</li><li>Attachments and verified documents</li><li>Campus and role assignment per employee</li><li>Department staff mapping</li><li>Employment history and transfers</li><li>Employee salary with component detail</li><li>Salary templates and their components</li><li>Salary revisions, dated</li><li>Employee separation and exit</li><li>Leave balance per leave type</li><li>Leave applications and decisions</li><li>Staff attendance capture</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Staff Roles &amp; Hierarchy</span></div><p class="sub-d">Who reports to whom, and what each designation is allowed to open.</p><ul class="fn-list"><li>Access role catalogue</li><li>Designation master</li><li>Designation to role mapping</li><li>Reports-to hierarchy feeding HR, exam approval and the approval matrix</li><li>Support-role flag that excludes staff from internal chat</li><li>Per-campus role map</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Payroll &amp; Statutory</span></div><p class="sub-d">The full chain from dated rate tables to Form 16 Part B — sharing the payroll desk with HR.</p><ul class="fn-list"><li>Statutory schemes with dated rates and slabs</li><li>Employee statutory profile</li><li>Payroll components and their calculation</li><li>Payroll runs with per-employee detail</li><li>Run exceptions surfaced before posting</li><li>Ad-hoc payroll adjustments</li><li>Employee advances and recovery</li><li>Final settlement with per-line detail</li><li>Bank file formats authored as data — delimited or fixed-width</li><li>Per-column source and alignment on a bank file</li><li>Statutory return formats, likewise authored as data</li><li>Old and new income-tax regimes, each with its own slabs</li><li>Surcharge bands per regime</li><li>Tax deduction types and employee declarations</li><li>Tax computation per employee</li><li>TDS deductor, challans and challan-deductee lines</li><li>PF ECR return</li><li>ESI return</li><li>Form 24Q</li><li>Form 16 Part B</li><li>Statutory gratuity</li><li>One compound GL voucher per run, not a document per credit</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Finance &amp; Accounting</span><span class="m-meta">Finance</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Finance</span><span class="sub-flags"><span class="flag-txt partial">Demo-ready</span></span></div><p class="sub-d">A real double-entry ledger with cost and profit centres. Cash basis — revenue recognised on collection.</p><ul class="fn-list"><li>Chart of accounts, auto-creating accounts by code on first posting</li><li>Payment mode to account mapping</li><li>Cost centres</li><li>Profit centres</li><li>Financial periods with an open/closed gate</li><li>Budgets and budget lines</li><li>Vouchers with multiple lines</li><li>General ledger entries</li><li>Institution bank accounts</li><li>Bank reconciliation against a statement</li><li>Financial reports — trial balance, ledger, day book</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Finance</span></div><p class="sub-d">A real double-entry ledger with cost and profit centres. Cash basis — revenue recognised on collection.</p><ul class="fn-list"><li>Chart of accounts, auto-creating accounts by code on first posting</li><li>Payment mode to account mapping</li><li>Cost centres</li><li>Profit centres</li><li>Financial periods with an open/closed gate</li><li>Budgets and budget lines</li><li>Vouchers with multiple lines</li><li>General ledger entries</li><li>Institution bank accounts</li><li>Bank reconciliation against a statement</li><li>Financial reports — trial balance, ledger, day book</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Fees &amp; Dues</span><span class="m-meta">Fee Management  ·  Dues Register</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Fee Management</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Heads, assignment, collection, concession and refund — with GST treatment and four concession combinations.</p><ul class="fn-list"><li>Fee variants per course, step and year</li><li>Fee particulars (heads) within a variant</li><li>Profit-centre split per particular, validated to account for the whole amount</li><li>Variant terms and instalment shape</li><li>Concession and scholarship definitions</li><li>Tax and GST configuration per particular</li><li>Student assigned to a fee variant</li><li>Instalment schedule per student</li><li>Student concessions applied, in every combination</li><li>Fee payments across payment modes</li><li>Fee refunds</li><li>Course-step-year fee override</li><li>Fine modes on overdue instalments</li><li>Defaulters list and collection follow-up</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Dues Register</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">One clearance sheet instead of five signatures.</p><ul class="fn-list"><li>No-dues certificate per student or employee</li><li>Per-department clearance lines — library, hostel, transport, lab, finance</li><li>Department-wise hold and release</li><li>Dues reminder log</li><li>Certificate issue on full clearance</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Fee Management</span></div><p class="sub-d">Heads, assignment, collection, concession and refund — with GST treatment and four concession combinations.</p><ul class="fn-list"><li>Fee variants per course, step and year</li><li>Fee particulars (heads) within a variant</li><li>Profit-centre split per particular, validated to account for the whole amount</li><li>Variant terms and instalment shape</li><li>Concession and scholarship definitions</li><li>Tax and GST configuration per particular</li><li>Student assigned to a fee variant</li><li>Instalment schedule per student</li><li>Student concessions applied, in every combination</li><li>Fee payments across payment modes</li><li>Fee refunds</li><li>Course-step-year fee override</li><li>Fine modes on overdue instalments</li><li>Defaulters list and collection follow-up</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Dues Register</span></div><p class="sub-d">One clearance sheet instead of five signatures.</p><ul class="fn-list"><li>No-dues certificate per student or employee</li><li>Per-department clearance lines — library, hostel, transport, lab, finance</li><li>Department-wise hold and release</li><li>Dues reminder log</li><li>Certificate issue on full clearance</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Fundraising &amp; Entitlements</span><span class="m-meta">Trust Donations  ·  Entitlements</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Trust Donations</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Donors, what they gave, and the voucher it posted.</p><ul class="fn-list"><li>Donation item catalogue — cash and in-kind</li><li>Donor register with contact and history</li><li>Donations recorded against a donor</li><li>Receipt generation</li><li>Double-entry voucher posted per donation</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Entitlements</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">What a fee actually buys, so a package is one configured object.</p><ul class="fn-list"><li>Entitlement categories</li><li>Subscription offerings across library, transport, hostel and food</li><li>Entitlement attached to a fee variant</li><li>Issued entitlement per person</li><li>Asset entitlements, free or on rental</li><li>Inventory item entitlements</li><li>Serves students and staff through one polymorphic owner</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Trust Donations</span></div><p class="sub-d">Donors, what they gave, and the voucher it posted.</p><ul class="fn-list"><li>Donation item catalogue — cash and in-kind</li><li>Donor register with contact and history</li><li>Donations recorded against a donor</li><li>Receipt generation</li><li>Double-entry voucher posted per donation</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Entitlements</span></div><p class="sub-d">What a fee actually buys, so a package is one configured object.</p><ul class="fn-list"><li>Entitlement categories</li><li>Subscription offerings across library, transport, hostel and food</li><li>Entitlement attached to a fee variant</li><li>Issued entitlement per person</li><li>Asset entitlements, free or on rental</li><li>Inventory item entitlements</li><li>Serves students and staff through one polymorphic owner</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Transport</span><span class="m-meta">Fleet &amp; Routes</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Fleet &amp; Routes</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Vehicles, routes, trips and per-student boarding at a named stop.</p><ul class="fn-list"><li>Vehicle master</li><li>Vehicle documents with expiry tracking</li><li>Vehicle expenses</li><li>Vehicle incidents</li><li>Transport routes</li><li>Route points (stops) in sequence</li><li>Transport calendar — which days run</li><li>Trips per route per day</li><li>Driver allocation per trip</li><li>Attendant and staff allocation per trip</li><li>Student transport registration at a named stop</li><li>Daily transport pass for ad-hoc travel</li><li>Trip logs and per-point logs</li><li>Per-student boarding capture</li><li>Vehicle GPS log records</li><li>Transport reports</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Fleet &amp; Routes</span></div><p class="sub-d">Vehicles, routes, trips and per-student boarding at a named stop.</p><ul class="fn-list"><li>Vehicle master</li><li>Vehicle documents with expiry tracking</li><li>Vehicle expenses</li><li>Vehicle incidents</li><li>Transport routes</li><li>Route points (stops) in sequence</li><li>Transport calendar — which days run</li><li>Trips per route per day</li><li>Driver allocation per trip</li><li>Attendant and staff allocation per trip</li><li>Student transport registration at a named stop</li><li>Daily transport pass for ad-hoc travel</li><li>Trip logs and per-point logs</li><li>Per-student boarding capture</li><li>Vehicle GPS log records</li><li>Transport reports</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Hostel &amp; Mess</span><span class="m-meta">Residential Operations</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Residential Operations</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Allocation down to the bed, and the mess plan attached to it.</p><ul class="fn-list"><li>Hostel master</li><li>Hostel space types</li><li>Hostel spaces and rooms</li><li>Individual beds</li><li>Hostel applications</li><li>Bed-level allocation, not room-level</li><li>Mess definition</li><li>Mess menus by day</li><li>Mess subscription across the plans you define</li><li>Mess attendance</li><li>Hostel gate and visitor logs</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Residential Operations</span></div><p class="sub-d">Allocation down to the bed, and the mess plan attached to it.</p><ul class="fn-list"><li>Hostel master</li><li>Hostel space types</li><li>Hostel spaces and rooms</li><li>Individual beds</li><li>Hostel applications</li><li>Bed-level allocation, not room-level</li><li>Mess definition</li><li>Mess menus by day</li><li>Mess subscription across the plans you define</li><li>Mess attendance</li><li>Hostel gate and visitor logs</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Library</span><span class="m-meta">Library</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Library</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Catalogue, copies, circulation and fines across multiple libraries and locations.</p><ul class="fn-list"><li>Library master — more than one per campus</li><li>Location types and physical locations (racks, sections)</li><li>Book categories</li><li>Book catalogue</li><li>Individual copies with accession numbers</li><li>Library membership for students and staff</li><li>Book issue and return</li><li>Reservation and renewal</li><li>Fines on overdue returns</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Library</span></div><p class="sub-d">Catalogue, copies, circulation and fines across multiple libraries and locations.</p><ul class="fn-list"><li>Library master — more than one per campus</li><li>Location types and physical locations (racks, sections)</li><li>Book categories</li><li>Book catalogue</li><li>Individual copies with accession numbers</li><li>Library membership for students and staff</li><li>Book issue and return</li><li>Reservation and renewal</li><li>Fines on overdue returns</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Inventory &amp; Procurement</span><span class="m-meta">Inventory</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Inventory</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Both halves — the supply side and the demand side that most systems leave out.</p><ul class="fn-list"><li>Vendor master</li><li>Vendor modification requests with approval</li><li>Inventory items and their variants</li><li>Stock locations</li><li>Stock on hand per item per location</li><li>Inventory documents and lines (receipt, transfer, issue)</li><li>Inventory transactions</li><li>Issue to a person or a department</li><li>Requests raised by a student or staff member</li><li>Request lines, individually approvable</li><li>Part-approval, closing a request as partially fulfilled</li><li>Exam inventory needs, drawn from the exam plan</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Inventory</span></div><p class="sub-d">Both halves — the supply side and the demand side that most systems leave out.</p><ul class="fn-list"><li>Vendor master</li><li>Vendor modification requests with approval</li><li>Inventory items and their variants</li><li>Stock locations</li><li>Stock on hand per item per location</li><li>Inventory documents and lines (receipt, transfer, issue)</li><li>Inventory transactions</li><li>Issue to a person or a department</li><li>Requests raised by a student or staff member</li><li>Request lines, individually approvable</li><li>Part-approval, closing a request as partially fulfilled</li><li>Exam inventory needs, drawn from the exam plan</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Assets &amp; Maintenance</span><span class="m-meta">Asset Management  ·  Maintenance</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Asset Management</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The fixed-asset register and the physical verification round that proves it.</p><ul class="fn-list"><li>Asset categories</li><li>Asset register with acquisition detail</li><li>The depreciation methods your auditor expects</li><li>Assignment of an asset to a person or a space</li><li>Verification rounds</li><li>Per-asset verification lines</li><li>Photographic attachments on verification</li><li>Exam asset requirements, drawn from the exam plan</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Maintenance</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">A single-entity module, deliberately simple: request, assign, resolve.</p><ul class="fn-list"><li>Maintenance task raised against a space or an asset</li><li>Assignment to a person</li><li>Priority and due date</li><li>Resolution and closure</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Asset Management</span></div><p class="sub-d">The fixed-asset register and the physical verification round that proves it.</p><ul class="fn-list"><li>Asset categories</li><li>Asset register with acquisition detail</li><li>The depreciation methods your auditor expects</li><li>Assignment of an asset to a person or a space</li><li>Verification rounds</li><li>Per-asset verification lines</li><li>Photographic attachments on verification</li><li>Exam asset requirements, drawn from the exam plan</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Maintenance</span></div><p class="sub-d">A single-entity module, deliberately simple: request, assign, resolve.</p><ul class="fn-list"><li>Maintenance task raised against a space or an asset</li><li>Assignment to a person</li><li>Priority and due date</li><li>Resolution and closure</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Front Office &amp; Security</span><span class="m-meta">Front Office  ·  Security Management</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Front Office</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Who came in, who let them, and who is allowed out.</p><ul class="fn-list"><li>Visitor register with purpose and host</li><li>Visitor check-in and check-out</li><li>Gate pass for students and staff</li><li>Gate pass authorisation trail</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Security Management</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Required coverage declared separately from the roster, so the gap is a number.</p><ul class="fn-list"><li>Security points with a criticality weight</li><li>Security shifts</li><li>Security personnel register</li><li>Required coverage per point per shift</li><li>Actual assignment against a shift</li><li>Computable staffing gap, weighted by criticality</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Front Office</span></div><p class="sub-d">Who came in, who let them, and who is allowed out.</p><ul class="fn-list"><li>Visitor register with purpose and host</li><li>Visitor check-in and check-out</li><li>Gate pass for students and staff</li><li>Gate pass authorisation trail</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Security Management</span></div><p class="sub-d">Required coverage declared separately from the roster, so the gap is a number.</p><ul class="fn-list"><li>Security points with a criticality weight</li><li>Security shifts</li><li>Security personnel register</li><li>Required coverage per point per shift</li><li>Actual assignment against a shift</li><li>Computable staffing gap, weighted by criticality</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Communications</span><span class="m-meta">Communication Platform  ·  Notifications, Circulars &amp; Grievances</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Communication Platform</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">A layered platform — channels, providers, templates, audiences and runs — with a log per recipient.</p><ul class="fn-list"><li>Channel types and message channels</li><li>Channel providers with credentials held separately</li><li>Provider failover by validity window and priority</li><li>Placeholder catalogue — what a template may reference</li><li>Alert events and their variables</li><li>Alert templates, bound to an event</li><li>Paragraphs composing a template</li><li>Per-channel template registration with DLT and WhatsApp ids</li><li>Templates that cannot reference an unresolvable token</li><li>Recipient groups by dynamic criteria</li><li>Static recipient lists</li><li>Composite groups where include unions and exclude subtracts</li><li>Communications and their per-channel dispatch</li><li>Communication runs</li><li>Delivery log per recipient, per channel, per run</li><li>Sensitivity classification on a communication</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Notifications, Circulars &amp; Grievances</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The day-to-day traffic: in-app notices, circulars, grievances and sellable alert streams.</p><ul class="fn-list"><li>Notification templates</li><li>In-app notifications</li><li>Circulars with a circular type</li><li>Circular targeting by audience</li><li>Circular dispatch per channel</li><li>Circular attachments</li><li>Grievance desk with lifecycle</li><li>Alert rules and generated instances</li><li>Alert subscriptions carrying pending-payment, active and expired</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Communication Platform</span></div><p class="sub-d">A layered platform — channels, providers, templates, audiences and runs — with a log per recipient.</p><ul class="fn-list"><li>Channel types and message channels</li><li>Channel providers with credentials held separately</li><li>Provider failover by validity window and priority</li><li>Placeholder catalogue — what a template may reference</li><li>Alert events and their variables</li><li>Alert templates, bound to an event</li><li>Paragraphs composing a template</li><li>Per-channel template registration with DLT and WhatsApp ids</li><li>Templates that cannot reference an unresolvable token</li><li>Recipient groups by dynamic criteria</li><li>Static recipient lists</li><li>Composite groups where include unions and exclude subtracts</li><li>Communications and their per-channel dispatch</li><li>Communication runs</li><li>Delivery log per recipient, per channel, per run</li><li>Sensitivity classification on a communication</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Notifications, Circulars &amp; Grievances</span></div><p class="sub-d">The day-to-day traffic: in-app notices, circulars, grievances and sellable alert streams.</p><ul class="fn-list"><li>Notification templates</li><li>In-app notifications</li><li>Circulars with a circular type</li><li>Circular targeting by audience</li><li>Circular dispatch per channel</li><li>Circular attachments</li><li>Grievance desk with lifecycle</li><li>Alert rules and generated instances</li><li>Alert subscriptions carrying pending-payment, active and expired</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Collaboration</span><span class="m-meta">Tasks &amp; Chat  ·  Meetings</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Tasks &amp; Chat</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Staff task lists and internal chat. Flat tasks — no sub-task hierarchy.</p><ul class="fn-list"><li>Staff tasks with due date and priority</li><li>Multiple assignees per task</li><li>Task activity log</li><li>Files attached to a task</li><li>Conversations, direct and group</li><li>Conversation participants</li><li>Messages with reactions</li><li>Files shared in a conversation</li><li>Support-role staff excluded by designation flag</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Meetings</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Meetings that book a real room and clash against everything else using it.</p><ul class="fn-list"><li>Meeting definition with agenda</li><li>Attendee list and responses</li><li>Space booking for the meeting</li><li>Clash detection against clubs, exams and reservations</li><li>Minutes recorded against the meeting</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Tasks &amp; Chat</span></div><p class="sub-d">Staff task lists and internal chat. Flat tasks — no sub-task hierarchy.</p><ul class="fn-list"><li>Staff tasks with due date and priority</li><li>Multiple assignees per task</li><li>Task activity log</li><li>Files attached to a task</li><li>Conversations, direct and group</li><li>Conversation participants</li><li>Messages with reactions</li><li>Files shared in a conversation</li><li>Support-role staff excluded by designation flag</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Meetings</span></div><p class="sub-d">Meetings that book a real room and clash against everything else using it.</p><ul class="fn-list"><li>Meeting definition with agenda</li><li>Attendee list and responses</li><li>Space booking for the meeting</li><li>Clash detection against clubs, exams and reservations</li><li>Minutes recorded against the meeting</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Engagement &amp; Student Life</span><span class="m-meta">Clubs  ·  Blogs  ·  Surveys &amp; Feedback</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Clubs</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Clubs with real logistics and real money.</p><ul class="fn-list"><li>Club definition and category</li><li>Club membership</li><li>Club events</li><li>Event organisers</li><li>Event space booking</li><li>Event transport arrangement</li><li>Club expenses posting a voucher to the club&#x27;s cost centre</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Blogs</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Institutional writing, with authoring and moderation.</p><ul class="fn-list"><li>Blog posts with author and publication state</li><li>Comments</li><li>Likes</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Surveys &amp; Feedback</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Anonymity enforced by the service, not promised by the form.</p><ul class="fn-list"><li>Survey definition with a window</li><li>Survey audience selection</li><li>Questions of several types</li><li>Options on a choice question</li><li>Responses</li><li>Individual answers and selected options</li><li>Service-enforced anonymity</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Clubs</span></div><p class="sub-d">Clubs with real logistics and real money.</p><ul class="fn-list"><li>Club definition and category</li><li>Club membership</li><li>Club events</li><li>Event organisers</li><li>Event space booking</li><li>Event transport arrangement</li><li>Club expenses posting a voucher to the club&#x27;s cost centre</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Blogs</span></div><p class="sub-d">Institutional writing, with authoring and moderation.</p><ul class="fn-list"><li>Blog posts with author and publication state</li><li>Comments</li><li>Likes</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Surveys &amp; Feedback</span></div><p class="sub-d">Anonymity enforced by the service, not promised by the form.</p><ul class="fn-list"><li>Survey definition with a window</li><li>Survey audience selection</li><li>Questions of several types</li><li>Options on a choice question</li><li>Responses</li><li>Individual answers and selected options</li><li>Service-enforced anonymity</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Welfare &amp; Records</span><span class="m-meta">Student Welfare  ·  Certificates &amp; Documents</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Student Welfare</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Discipline, counselling and the infirmary. Record-keeping only.</p><ul class="fn-list"><li>Discipline records</li><li>Counselling sessions</li><li>Infirmary visits, serving students and staff alike</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Certificates &amp; Documents</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">What you issue, and what you hold.</p><ul class="fn-list"><li>Certificate types and their templates</li><li>Certificate issuance with a serial</li><li>Document vault records</li><li>Serves students and staff through one polymorphic owner</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Student Welfare</span></div><p class="sub-d">Discipline, counselling and the infirmary. Record-keeping only.</p><ul class="fn-list"><li>Discipline records</li><li>Counselling sessions</li><li>Infirmary visits, serving students and staff alike</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Certificates &amp; Documents</span></div><p class="sub-d">What you issue, and what you hold.</p><ul class="fn-list"><li>Certificate types and their templates</li><li>Certificate issuance with a serial</li><li>Document vault records</li><li>Serves students and staff through one polymorphic owner</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Careers &amp; Alumni</span><span class="m-meta">Placements &amp; Internships  ·  Alumni</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Placements &amp; Internships</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">A register of who came, who applied and who was placed.</p><ul class="fn-list"><li>Company register</li><li>Placement drives</li><li>Job applications per drive</li><li>Internships</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Alumni</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The directory and the events that keep it current.</p><ul class="fn-list"><li>Alumnus register</li><li>Alumni events</li><li>Event registration</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Placements &amp; Internships</span></div><p class="sub-d">A register of who came, who applied and who was placed.</p><ul class="fn-list"><li>Company register</li><li>Placement drives</li><li>Job applications per drive</li><li>Internships</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Alumni</span></div><p class="sub-d">The directory and the events that keep it current.</p><ul class="fn-list"><li>Alumnus register</li><li>Alumni events</li><li>Event registration</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Analytics &amp; Controls</span><span class="m-meta">Analytics  ·  Approval Matrix  ·  Audit &amp; Change Documents</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Analytics</span><span class="sub-flags"><span class="flag-txt partial">Demo-ready</span></span></div><p class="sub-d">Reports and KPI dashboards, configured rather than coded.</p><ul class="fn-list"><li>Report configurations</li><li>Analytics snapshots</li><li>Dashboard configurations</li><li>Report schedules</li><li>Report execution log</li><li>KPI targets</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Approval Matrix</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">One engine behind every approval in the product.</p><ul class="fn-list"><li>A catalogued approval point for every decision that needs one</li><li>Each point switchable automatic or manual</li><li>Approval steps in sequence</li><li>AND/OR gates within a step</li><li>Approvers named by person</li><li>Approvers named by role</li><li>Two reject policies</li><li>Approval requests and routed tasks</li><li>Recall of a submitted request</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Audit &amp; Change Documents</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">An audit posture rather than an audit log.</p><ul class="fn-list"><li>Action log across services</li><li>Field-level change log — from what, to what, by whom</li><li>Application session records</li><li>Status change log</li><li>Personal-data access log with a stated reason</li><li>Daily record-count snapshots</li><li>Data-loss watchdog on a shrinking table</li><li>Hard deletes impossible platform-wide</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Analytics</span></div><p class="sub-d">Reports and KPI dashboards, configured rather than coded.</p><ul class="fn-list"><li>Report configurations</li><li>Analytics snapshots</li><li>Dashboard configurations</li><li>Report schedules</li><li>Report execution log</li><li>KPI targets</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Approval Matrix</span></div><p class="sub-d">One engine behind every approval in the product.</p><ul class="fn-list"><li>A catalogued approval point for every decision that needs one</li><li>Each point switchable automatic or manual</li><li>Approval steps in sequence</li><li>AND/OR gates within a step</li><li>Approvers named by person</li><li>Approvers named by role</li><li>Two reject policies</li><li>Approval requests and routed tasks</li><li>Recall of a submitted request</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Audit &amp; Change Documents</span></div><p class="sub-d">An audit posture rather than an audit log.</p><ul class="fn-list"><li>Action log across services</li><li>Field-level change log — from what, to what, by whom</li><li>Application session records</li><li>Status change log</li><li>Personal-data access log with a stated reason</li><li>Daily record-count snapshots</li><li>Data-loss watchdog on a shrinking table</li><li>Hard deletes impossible platform-wide</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Data Migration</span><span class="m-meta">Migration Cockpit  ·  Rehearsal &amp; Promotion</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Migration Cockpit</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Where an institution&#x27;s legacy data actually arrives. A catalogue of loadable objects in dependency order, a pipeline per file, and a permanent record of what every legacy id became. Run by the implementation team, not by the institution&#x27;s own administrators — several of its actions are destructive.</p><ul class="fn-list"><li>Catalogue of loadable objects, delivered in code rather than authored per tenant</li><li>Objects ordered by dependency, grouped the same way as the rollout milestones</li><li>One active migration run per institution</li><li>Milestone → step → object tree showing staged, valid, errored and loaded state</li><li>A \u2018blocked by\u2019 column naming exactly what an object is waiting for</li><li>Blocked rows dimmed rather than hidden — the screen exists to answer what is blocking you</li><li>Cutover profiles: before the year opens, at a term or exam boundary, or an arbitrary date</li><li>The cutover date stamps every migrated row\u2019s creation timestamp</li><li>A term-boundary migration asks separately which day the term closed</li><li>Payroll already paid this financial year comes across under every profile</li><li>Download a template per object, or a whole milestone as one workbook</li><li>Every workbook opens on a read-me sheet written for the person filling it in</li><li>Objects left out of a workbook are listed by name, never merely counted</li><li>Upload a legacy extract instead, through the same pipeline</li><li>Parse, map, convert, validate, migrate — the five steps per file</li><li>Column-to-field mapping proposed automatically, then corrected by hand</li><li>Reusable column mappings, per object per source system</li><li>Value mapping raised from the error that reported it, not a screen filled in beforehand</li><li>Value maps keyed per entity and field, so one legacy code can mean different things</li><li>Delivered value maps seeded per tenant; an institution overrides by authoring its own, never by editing yours</li><li>Export and import value maps between environments</li><li>Validation runs through the real service handlers, inside a transaction that always rolls back</li><li>Sample validation, or full validation including the cross-object checks</li><li>Row worklist with findings as inline chips</li><li>Filter by errors, warnings, or already migrated</li><li>Skip rows with a recorded reason</li><li>Waive an object with a recorded reason</li><li>Every load reversible through unmigrate</li><li>Preview an unmigrate before running it</li><li>Delta runs that change an already-loaded row — and take the change back</li><li>A superseded row restores its prior image rather than being deleted</li><li>Permanent key map answering which platform record a legacy id became, years later</li><li>Reconcile a run at any point</li><li>Export a batch result, or the key map alone</li><li>Complete or abort a run, with a report</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Rehearsal &amp; Promotion</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The environment half of the same cockpit: rehearse the whole load somewhere safe, then promote it. Two of these actions are the only ones in the platform that are not undoable — and both say so before they run.</p><ul class="fn-list"><li>Trusts marked as production, migration or test environments</li><li>Create a rehearsal environment with a purpose and an expiry date</li><li>Clone a record into a test environment</li><li>Preview a promotion before running it</li><li>Promote a rehearsed trust into production</li><li>Promotion recorded permanently in a log</li><li>Preview a refresh before running it</li><li>Refresh a rehearsal — emptying it so it can be loaded again</li><li>Retire an environment with a recorded reason</li><li>Promotion is the one action no other action undoes, and it says so first</li><li>Refresh is the only action in the platform that removes rows physically</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Migration Cockpit</span></div><p class="sub-d">Where an institution&#x27;s legacy data actually arrives. A catalogue of loadable objects in dependency order, a pipeline per file, and a permanent record of what every legacy id became. Run by the implementation team, not by the institution&#x27;s own administrators — several of its actions are destructive.</p><ul class="fn-list"><li>Catalogue of loadable objects, delivered in code rather than authored per tenant</li><li>Objects ordered by dependency, grouped the same way as the rollout milestones</li><li>One active migration run per institution</li><li>Milestone → step → object tree showing staged, valid, errored and loaded state</li><li>A \u2018blocked by\u2019 column naming exactly what an object is waiting for</li><li>Blocked rows dimmed rather than hidden — the screen exists to answer what is blocking you</li><li>Cutover profiles: before the year opens, at a term or exam boundary, or an arbitrary date</li><li>The cutover date stamps every migrated row\u2019s creation timestamp</li><li>A term-boundary migration asks separately which day the term closed</li><li>Payroll already paid this financial year comes across under every profile</li><li>Download a template per object, or a whole milestone as one workbook</li><li>Every workbook opens on a read-me sheet written for the person filling it in</li><li>Objects left out of a workbook are listed by name, never merely counted</li><li>Upload a legacy extract instead, through the same pipeline</li><li>Parse, map, convert, validate, migrate — the five steps per file</li><li>Column-to-field mapping proposed automatically, then corrected by hand</li><li>Reusable column mappings, per object per source system</li><li>Value mapping raised from the error that reported it, not a screen filled in beforehand</li><li>Value maps keyed per entity and field, so one legacy code can mean different things</li><li>Delivered value maps seeded per tenant; an institution overrides by authoring its own, never by editing yours</li><li>Export and import value maps between environments</li><li>Validation runs through the real service handlers, inside a transaction that always rolls back</li><li>Sample validation, or full validation including the cross-object checks</li><li>Row worklist with findings as inline chips</li><li>Filter by errors, warnings, or already migrated</li><li>Skip rows with a recorded reason</li><li>Waive an object with a recorded reason</li><li>Every load reversible through unmigrate</li><li>Preview an unmigrate before running it</li><li>Delta runs that change an already-loaded row — and take the change back</li><li>A superseded row restores its prior image rather than being deleted</li><li>Permanent key map answering which platform record a legacy id became, years later</li><li>Reconcile a run at any point</li><li>Export a batch result, or the key map alone</li><li>Complete or abort a run, with a report</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Rehearsal &amp; Promotion</span></div><p class="sub-d">The environment half of the same cockpit: rehearse the whole load somewhere safe, then promote it. Two of these actions are the only ones in the platform that are not undoable — and both say so before they run.</p><ul class="fn-list"><li>Trusts marked as production, migration or test environments</li><li>Create a rehearsal environment with a purpose and an expiry date</li><li>Clone a record into a test environment</li><li>Preview a promotion before running it</li><li>Promote a rehearsed trust into production</li><li>Promotion recorded permanently in a log</li><li>Preview a refresh before running it</li><li>Refresh a rehearsal — emptying it so it can be loaded again</li><li>Retire an environment with a recorded reason</li><li>Promotion is the one action no other action undoes, and it says so first</li><li>Refresh is the only action in the platform that removes rows physically</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Platform Administration</span><span class="m-meta">Platform Setup  ·  User Administration  ·  Field &amp; Custom Configuration  ·  Tenant Branding  ·  Control Tower</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Platform Setup</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The reference catalogues every other module reads.</p><ul class="fn-list"><li>Evaluation types — self, internal, external, exchange</li><li>Category, status and classification catalogues</li><li>Geography tree — country, state, district, city</li><li>Boards and universities for affiliation</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">User Administration</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Three gates before anyone can act: a role collection, an app grant, and a scope.</p><ul class="fn-list"><li>Access register of who holds what</li><li>Login blocks and unblocking</li><li>Login email change with verification</li><li>Access handover to a new user</li><li>Role bundles (presets) and their roles</li><li>Pending role grants, themselves approved</li><li>An application role template behind every app</li><li>Campus and department scope assignment</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Field &amp; Custom Configuration</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Fit the product to an institution without a code change.</p><ul class="fn-list"><li>Per-field label override, as data</li><li>Per-field visible, mandatory and editable control</li><li>Typed custom-field slots on the entities that carry them</li><li>Custom fields inert until enabled</li><li>Disabled custom fields stripped from every read, write and export</li><li>Institution-wide multilingual name columns</li><li>Entity assignment — which branches and departments a user may act on</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Tenant Branding</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">The institution&#x27;s own identity across web, mobile and print.</p><ul class="fn-list"><li>Logo and mark</li><li>Colour palette</li><li>Document and report headers</li><li>Applied across web apps, the mobile client and printed output</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">Control Tower</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">Provider-side administration of subscribing institutions.</p><ul class="fn-list"><li>Tenant register</li><li>Subscription state per tenant</li><li>Module entitlement per tenant</li><li>Tenant health and daily checks</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Platform Setup</span></div><p class="sub-d">The reference catalogues every other module reads.</p><ul class="fn-list"><li>Evaluation types — self, internal, external, exchange</li><li>Category, status and classification catalogues</li><li>Geography tree — country, state, district, city</li><li>Boards and universities for affiliation</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">User Administration</span></div><p class="sub-d">Three gates before anyone can act: a role collection, an app grant, and a scope.</p><ul class="fn-list"><li>Access register of who holds what</li><li>Login blocks and unblocking</li><li>Login email change with verification</li><li>Access handover to a new user</li><li>Role bundles (presets) and their roles</li><li>Pending role grants, themselves approved</li><li>An application role template behind every app</li><li>Campus and department scope assignment</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Field &amp; Custom Configuration</span></div><p class="sub-d">Fit the product to an institution without a code change.</p><ul class="fn-list"><li>Per-field label override, as data</li><li>Per-field visible, mandatory and editable control</li><li>Typed custom-field slots on the entities that carry them</li><li>Custom fields inert until enabled</li><li>Disabled custom fields stripped from every read, write and export</li><li>Institution-wide multilingual name columns</li><li>Entity assignment — which branches and departments a user may act on</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Tenant Branding</span></div><p class="sub-d">The institution&#x27;s own identity across web, mobile and print.</p><ul class="fn-list"><li>Logo and mark</li><li>Colour palette</li><li>Document and report headers</li><li>Applied across web apps, the mobile client and printed output</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Control Tower</span></div><p class="sub-d">Provider-side administration of subscribing institutions.</p><ul class="fn-list"><li>Tenant register</li><li>Subscription state per tenant</li><li>Module entitlement per tenant</li><li>Tenant health and daily checks</li></ul></div>
 </div></div>
 <div class="mcard open">
 <div class="mcard-head"><span class="m-idx" aria-hidden="true">◆</span><span class="m-body"><span class="m-name">Access &amp; Experience</span><span class="m-meta">Home  ·  UniverseIT Mobile</span></span></div>
 <div class="mcard-subs">
-<div class="sub"><div class="sub-head"><span class="sub-name">Home</span><span class="sub-flags"><span class="flag-txt ready">Demo-ready</span></span></div><p class="sub-d">One landing screen aggregating across every module.</p><ul class="fn-list"><li>My Day — what is scheduled for you today, across modules</li><li>My Approvals — what is routed to you</li><li>My Tasks — what is assigned to you</li><li>My Apps — quick-launch tiles you pin</li><li>My Settings</li></ul></div>
-<div class="sub"><div class="sub-head"><span class="sub-name">UniverseIT Mobile</span><span class="sub-flags"><span class="flag-txt partial">Demo-ready</span></span></div><p class="sub-d">A React Native client over a dedicated mobile back end. Not shippable until production authentication replaces the development sign-in.</p><ul class="fn-list"><li>Personas on one binary, several of them held by one login</li><li>Individually switchable features across every area of the app</li><li>Action, information and notification features</li><li>Global and campus switch scope, most-specific-wins, off when neither is set</li><li>Sensitive features flagged for the administrator</li><li>User notifications fanned out from every module</li><li>Student leave requests raised by student or guardian</li><li>Service tickets and their message threads</li><li>Parent morning notes to a class teacher</li><li>Sub-roles including driver, warden, nurse and security</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">Home</span></div><p class="sub-d">One landing screen aggregating across every module.</p><ul class="fn-list"><li>My Day — what is scheduled for you today, across modules</li><li>My Approvals — what is routed to you</li><li>My Tasks — what is assigned to you</li><li>My Apps — quick-launch tiles you pin</li><li>My Settings</li></ul></div>
+<div class="sub"><div class="sub-head"><span class="sub-name">UniverseIT Mobile</span></div><p class="sub-d">A React Native client over a dedicated mobile back end. Not shippable until production authentication replaces the development sign-in.</p><ul class="fn-list"><li>Personas on one binary, several of them held by one login</li><li>Individually switchable features across every area of the app</li><li>Action, information and notification features</li><li>Global and campus switch scope, most-specific-wins, off when neither is set</li><li>Sensitive features flagged for the administrator</li><li>User notifications fanned out from every module</li><li>Student leave requests raised by student or guardian</li><li>Service tickets and their message threads</li><li>Parent morning notes to a class teacher</li><li>Sub-roles including driver, warden, nurse and security</li></ul></div>
 </div></div>
 </div>
   </div>
 </section>
+
+<!-- ============================ WORKFLOWS ============================ -->
+<section id="workflows">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Workflows</div>
+      <h2>Fourteen process flows, drawn end to end the way the institution actually works them.</h2>
+      <p class="lede">
+        A module list tells you what exists. These tell you what <em>happens</em> — a seat travelling
+        from a counselling allotment to an active student, a rejected approval reopening as the same
+        request at step one, a vendor payment carrying its own TDS line. Pick any flow from the rail
+        and it stays on screen for as long as you want it: <strong>nothing here rotates on its own</strong>.
+        Step forward and back with the arrows, or the ← and → keys.
+      </p>
+    </div>
+
+    <div class="wf-rail rv" id="wfRail" role="tablist" aria-label="Process flows"></div>
+
+    <div class="wf rv">
+      <div class="wf-bar">
+        <button class="wf-nav" type="button" id="wfPrev" aria-label="Previous flow" title="Previous flow">&#8249;</button>
+        <div class="wf-count" id="wfCount"></div>
+        <div class="wf-gap"></div>
+        <div class="wf-zoom" role="group" aria-label="Diagram size">
+          <button type="button" id="wfOut" aria-label="Smaller">&minus;</button>
+          <button type="button" id="wfFit">FIT</button>
+          <button type="button" id="wfIn" aria-label="Larger">+</button>
+        </div>
+        <button class="wf-nav" type="button" id="wfNext" aria-label="Next flow" title="Next flow">&#8250;</button>
+      </div>
+
+      <div class="wf-body wf-deck" id="wfDeck">
+
+        <article class="wf-slide" data-n="01" data-t="Admission Process" data-d="Admissions">
+          <div class="wf-kicker">01 <span>&middot;</span> Admissions</div>
+          <h3>Admission Process</h3>
+          <p class="wf-lede">Two intakes against one seat matrix. Board and national entrance counselling reserves convener-quota seats round by round; walk-in and direct admission fills management, NRI and reverted seats through the institute's own test, merit or a spot drive. The waitlist is worked once, after counselling concludes.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  SM["Seat matrix per program (sanctioned intake)<br/>Convener / counselling quota · Management quota · NRI / Category-C"]
+  SM --> A1
+  SM --> B1
+  subgraph TRA["BOARD / NATIONAL ENTRANCE COUNSELLING — EAMCET · JEE · NEET (convener quota)"]
+    direction TB
+    A1["Student writes board / national entrance exam → rank"] --> A2["Counselling round n (by board)<br/>student fills institute choices → allotment"]
+    A2 --> A3["Institute receives round allotment list<br/>→ imports it · seats RESERVED for allotted students"]
+    A3 --> A4{"Student reports with<br/>allotment order by deadline?"}
+    A4 -- "No" --> A5["Seat falls vacant → carried to next round"]
+    A5 --> A2
+    A4 -- "Yes" --> A6["Document verification · govt-fixed fee (AFRC) recorded"]
+    A6 --> A9["Fee-reimbursement eligibility →<br/>claim on state scholarship portal"]
+    A6 --> A7["Admitted — convener quota"]
+    A2 -- "after final round" --> A8["Consolidated allotment list → confirm seats ·<br/>unfilled convener seats REVERT to institute (spot / mop-up)"]
+  end
+  subgraph TRB["WALK-IN / DIRECT ADMISSION — MANAGEMENT · NRI · REVERTED SEATS (institute quota)"]
+    direction TB
+    B1["Walk-in / online / referral enquiry → counselling by the institute<br/>program fit · eligibility · fee expectation · seat category"] --> B2["Institute's own entrance test or merit criteria applied<br/>prior marks · rank card · interview (where applicable)"]
+    B1 --> B8["Spot / mop-up admission drive<br/>for reverted convener seats (after final round)"]
+    B8 --> B3
+    B1 --> B9["NRI / Category-C quota route"]
+    B9 --> B3
+    B2 --> B3{"Seat available in management / NRI quota<br/>or in the reverted convener pool?"}
+    B3 -- "No" --> B4["Waitlist"]
+    B4 --> WL["Waitlist worked ONCE, after counselling concludes<br/>(final round done · reverted seats known)"]
+    WL --> B5
+    B3 -- "Yes" --> B5["Offer made (dated, with validity) → application form + document verification<br/>(prior marks · IDs · transfer certificate)"]
+    B5 --> B7["Management / NRI fee recorded → seat confirmed against quota"]
+    B7 --> B6["Admitted — management / NRI quota"]
+  end
+  A8 -. "reverted seats become available" .-> B8
+  A8 -. "counselling concluded" .-> WL
+  A7 --> C["Student master + Guardians + Contacts (quota tagged)"]
+  B6 --> C
+  C --> D["Fee plan by quota: convener (AFRC) · management · NRI"]
+  D --> E["Section / roll allocated"]
+  E --> F(["Student ACTIVE"])
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="02" data-t="Employee Lifecycle &amp; Leave" data-d="People / HR">
+          <div class="wf-kicker">02 <span>&middot;</span> People / HR</div>
+          <h3>Employee Lifecycle &amp; Leave</h3>
+          <p class="wf-lede">Offer letter to onboarding — master, contacts, bank, salary structure, role — then statutory enrolment (PF, ESI, professional tax, TDS) and university ratification. Live service carries attendance, leave with class-session swap, and appraisal; separation ends in full-and-final and the certificates that go with it.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  AO["Offer letter issued: designation · pay scale · probation"]
+  AO --> ON["Onboarding: Employee master + contacts + bank<br/>+ salary structure + role"]
+  ON --> ST["Statutory enrolment: PF / UAN · ESI (if eligible) ·<br/>Professional tax · PAN for TDS"]
+  ST --> RT["Faculty ratification by affiliating university /<br/>board (teaching staff)"]
+  RT --> ACT(["ACTIVE — on rolls"])
+  ACT --> ATT["Daily attendance (biometric / register)<br/>late · shift · regularisation"]
+  ACT --> LV["Leave applied: CL · EL · ML · maternity · OD"]
+  LV --> LD{"Manager decides leave?"}
+  LD -- Approve --> LA["Approved → attendance and payroll updated<br/>→ class sessions swapped / substitute faculty assigned"]
+  LD -- Reject --> LR["Rejected"]
+  ACT --> INC["Annual appraisal → increment · promotion · transfer"]
+  ACT --> SEP["Resignation / retirement / termination<br/>→ notice period (EmployeeSeparation)"]
+  SEP --> FF["Full-and-final: salary dues · leave encashment ·<br/>gratuity · PF settlement / transfer"]
+  FF --> REL["Relieving + experience letters<br/>(issued via the generic certificate mechanism)"]
+  REL --> IN(["INACTIVE — off rolls"])
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="03" data-t="Fee Collection &amp; Receipt" data-d="Finance">
+          <div class="wf-kicker">03 <span>&middot;</span> Finance</div>
+          <h3>Fee Collection &amp; Receipt</h3>
+          <p class="wf-lede">Fee structure by quota with the regulator's order number behind a convener fee; demand by head and term; payment through any mode in the admin-configured registry — each carrying its own GL account — or through a state reimbursement claim. Receipt, automatic GL, the dues and late-fee cycle, and refund by policy.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  FS["Fee structure by quota and course:<br/>convener fee fixed by AFRC / TAFRC · management · NRI"] --> FH["Fee heads: tuition · university · exam ·<br/>hostel · transport · misc — per term / semester"]
+  FH --> DM["Demand raised per student<br/>(installments · due dates)"]
+  DM --> CH{"Who pays?"}
+  CH -- "Student / parent" --> PAY["Payment — mode from the configured registry<br/>(each mode carries its own GL account; admin-added, no code change)"]
+  CH -- "Govt (eligible convener quota)" --> RB["Reimbursement claim on state scholarship portal<br/>(e.g. ePASS / Jnanabhumi)"]
+  RB --> SAN["Sanction credited → applied against student's tuition"]
+  PAY --> VAL{"Amount valid?"}
+  VAL -- "≤ 0 / over demand" --> X["Rejected 400"]
+  VAL -- valid --> RC["Receipt issued (201)<br/>tuition GST-exempt · taxable heads taxed"]
+  SAN --> RC
+  RC --> GL["Auto GL: Dr Cash / Bank · Cr Fee income (by head)"]
+  GL --> BAL["Student ledger balance updated"]
+  BAL --> DUE{"Dues remain?"}
+  DUE -- Yes --> REM["Reminders → late fee → defaulter list<br/>→ hall-ticket / exam hold"]
+  DUE -- No --> CL(["Cleared"])
+  REM --> RF["Refund on withdrawal per refund policy<br/>(free-text rule per fee head)"]
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="04" data-t="General Ledger &amp; Voucher Posting" data-d="Finance">
+          <div class="wf-kicker">04 <span>&middot;</span> Finance</div>
+          <h3>General Ledger &amp; Voucher Posting</h3>
+          <p class="wf-lede">Trust and society books: receipt, payment, journal and contra vouchers behind a double-entry guard, with a TDS deduction line on vendor payments and GST recorded as input credit only. Statutory payables, bank reconciliation and period close. Audit, ITR and the FCRA return happen outside the system, on its exports.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  COA["Chart of accounts per trust / branch<br/>(society or trust books · 12A / 80G exempt)"] --> VT{"Voucher type"}
+  VT -- Receipt --> V1["Receipt voucher"]
+  VT -- Payment --> V2["Payment voucher<br/>vendor: TDS deduction line · GST input credit recorded"]
+  VT -- Journal --> V3["Journal voucher"]
+  VT -- Contra --> V4["Contra (cash ↔ bank)"]
+  V1 & V2 & V3 & V4 --> LN["Ledger lines (each Dr or Cr)"]
+  LN --> CHK{"Σ debit = Σ credit?"}
+  CHK -- No --> X["Rejected 400<br/>(unbalanced · negative · both sides)"]
+  CHK -- Yes --> PST["Posted → running balances"]
+  PST --> STAT["Statutory ledgers: TDS payable · PF / ESI / PT payable<br/>GST input-credit REGISTER only (no output ledger, no return)"]
+  PST --> BRS["Bank reconciliation (BRS)"]
+  BRS --> CLS["Period close (month / FY) → lock"]
+  CLS --> EXP(["Exports for the period"])
+  EXP -.-> AUD["OUTSIDE THE SYSTEM — done on exported outputs:<br/>statutory audit · ITR (trust) · FCRA return"]
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="05" data-t="Payroll Run" data-d="Finance">
+          <div class="wf-kicker">05 <span>&middot;</span> Finance</div>
+          <h3>Payroll Run</h3>
+          <p class="wf-lede">Attendance and LOP inputs to gross, then statutory deductions — PF at 12%, ESI on the wage limit, professional tax on the state slab, TDS on the income-tax slab. Approval gates disbursement; the NEFT file and payslips go out, the GL is posted, and the PF ECR, ESI, PT, 24Q and Form 16 filings follow.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  P0["Select period (month)"] --> IN["Inputs: attendance / LOP · approved leave ·<br/>arrears · increments · joins / exits"]
+  IN --> PR["Process payroll per employee:<br/>Basic · DA · HRA · allowances = GROSS"]
+  PR --> DED["Statutory deductions: PF 12% · ESI (if wage ≤ limit) ·<br/>Professional tax (state slab) · TDS (IT slab) · LOP · loans"]
+  DED --> NET["NET pay + employer PF / ESI contribution"]
+  NET --> REV["Review payroll register"]
+  REV --> AP{"Approve payroll?"}
+  AP -- Reject --> IN
+  AP -- Approve --> DIS["Bank disbursement (NEFT file) · payslips"]
+  DIS --> GL["GL: Dr Salary expense · Cr Bank · Cr statutory payables"]
+  GL --> FIL["Statutory filings: PF ECR · ESI · PT return ·<br/>TDS 24Q quarterly · Form 16 annual"]
+  FIL --> END(["Period closed"])
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="06" data-t="Approvals Engine" data-d="Governance">
+          <div class="wf-kicker">06 <span>&middot;</span> Governance</div>
+          <h3>Approvals Engine</h3>
+          <p class="wf-lede">One engine behind leave, purchase, fee concession, admission and circulars. A request routes by matrix — HOD to Principal to Correspondent to Chairman — and the approver, or the configured super approver, decides. Reject, revise and resubmit reopens the <em>same</em> request at step one with a revision count; an SLA breach only surfaces the stalled request, it never decides for anyone.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  RQ["Request raised for an action:<br/>leave · purchase · fee concession · admission · circular · …"] --> PD(["PENDING"])
+  PD --> RT["Route by approval matrix:<br/>HOD → Principal → Correspondent / Secretary → Chairman (trust)"]
+  RT --> DC{"Approver decides<br/>(or the configured super approver, when the assigned approver cannot)"}
+  DC -- Approve --> AP(["APPROVED → action executed"])
+  DC -- Reject --> RJ(["REJECTED"])
+  RJ -- "Revise and resubmit — SAME request reopened<br/>at step 1, revision count +1" --> RQ
+  RT -- "SLA breached" --> ESC["Stalled request SURFACED to the super approver<br/>(notification only — nothing is auto-decided or skipped)"]
+  PD -. "recall (while pending)" .-> RC(["RECALLED"])
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="07" data-t="Communications &amp; Circulars" data-d="Communications">
+          <div class="wf-kicker">07 <span>&middot;</span> Communications</div>
+          <h3>Communications &amp; Circulars</h3>
+          <p class="wf-lede">Compose, approve, then choose a channel: app notification, SMS, WhatsApp or email. The DLT gate is conditional — an SMS is blocked only where a DLT entity is configured for the provider and the registered template or sender header is missing. Regional language is supported throughout, and every send is logged.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  CP["Compose circular / notice<br/>audience: class · section · staff · parents"] --> SB["Submit circular for approval"]
+  SB --> AP{"approve / reject?"}
+  AP -- Reject --> CP
+  AP -- Approve --> CH["Channel: app notification · SMS · WhatsApp · email"]
+  CH -- "SMS" --> DLT{"DLT entity configured<br/>for the SMS provider?"}
+  DLT -- "No — sends unblocked" --> DS["Dispatch (regional language supported)"]
+  DLT -- Yes --> TPL{"Registered template +<br/>sender header present?"}
+  TPL -- No --> BLK["Blocked — register the template first<br/>(TRAI DLT compliance)"]
+  TPL -- Yes --> DS
+  CH -- "other channels" --> DS
+  DS --> LOG(["Delivery log: sent · delivered · read"])
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="08" data-t="Exams &amp; Hall Tickets" data-d="Academics">
+          <div class="wf-kicker">08 <span>&middot;</span> Academics</div>
+          <h3>Exams &amp; Hall Tickets</h3>
+          <p class="wf-lede">Two paths from one exam-type decision. Board and university exams — SSC, Intermediate, B.Tech — run through eligibility, board hall tickets, marks exchanged with the board, revaluation and supplementary. Internal exams for the non-board classes run quarterly, half-yearly and annually, and end in a report card on the parent portal.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  SC["Exam type by course / class"] --> T{"Board / university exam<br/>or internal exam?"}
+  T -- "Board · University<br/>SSC · Intermediate · B.Tech" --> BA["Board exam schedule received ·<br/>eligibility check (attendance ≥ 75% · fees clear)"]
+  BA --> BE{"Eligible?"}
+  BE -- Yes --> BH["Hall tickets issued by board / university"]
+  BE -- No --> DT["Detained / condonation<br/>(with fee, per board rules)"]
+  BH --> BC["Board conducts exam at centre ·<br/>invigilation · malpractice log"]
+  BC --> BM["Internal assessment / practical marks<br/>uploaded to board portal"]
+  BC --> BRr["Board results received → imported"]
+  BM & BRr --> BP["Results published · board marks memo"]
+  BP --> RV{"Revaluation / recounting?"}
+  RV -- Yes --> RV2["Apply with fee → revised result"]
+  RV2 --> PR
+  RV -- No --> PR{"Passed all subjects?"}
+  PR -- No --> SUP["Supplementary exam (board)<br/>→ hall tickets re-issued · cycle repeats"]
+  PR -- Yes --> PM(["Promoted · credits earned"])
+  T -- "Internal<br/>classes 1–9 (non-board)" --> IA["Exam timetable: quarterly ·<br/>half-yearly · annual exams"]
+  IA --> IB["School conducts exam ·<br/>internal hall tickets"]
+  IB --> IC["Marks entered per subject ·<br/>grading per marks structure"]
+  IC --> ID["Report card generated → parent portal"]
+  ID --> IE{"Annual exam:<br/>promoted?"}
+  IE -- Yes --> PM
+  IE -- No --> IR["Retained / re-test"]
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="09" data-t="Data Migration Cockpit" data-d="Operations">
+          <div class="wf-kicker">09 <span>&middot;</span> Operations</div>
+          <h3>Data Migration Cockpit</h3>
+          <p class="wf-lede">Legacy data enters a rehearsal trust, is staged and parsed, gets a proposed field mapping a reviewer confirms, converts to canonical records and is validated in that converted form. Each batch loads to live inside the rehearsal; only when the trial balance ties does the whole environment get promoted into the target trust. Stages run in order — skipping one is blocked.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  CD["Collect data in legacy format or UniverseIT template<br/>(Excel · Tally · legacy ERP exports)"] --> SR["Start migration run<br/>(in a rehearsal / migration trust)"]
+  SR --> ST["Stage and parse the batch"]
+  ST --> MP["Propose field mapping<br/>(source columns → UniverseIT fields; reviewer confirms)"]
+  MP --> CV["Convert batch into UniverseIT canonical records"]
+  CV --> VA["Validate the converted records:<br/>mandatory · FK · duplicates · Aadhaar / PII masked"]
+  VA --> ER{"Errors?"}
+  ER -- No --> RV["Review converted data · trial balance ties"]
+  ER -- Yes --> FX["Fix rows in the template"]
+  FX -.-> ST
+  RV --> LD["Load the batch to live<br/>(per batch, within the rehearsal trust)"]
+  LD --> MORE{"More batches?"}
+  MORE -- Yes --> ST
+  MORE -- No --> PR["Promote the rehearsal environment (migration trust)<br/>into the target trust — whole-environment move"]
+  PR --> DONE(["Cutover complete<br/>(stages run in order — stage-skip is blocked)"])
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="10" data-t="Transportation &amp; Trip Tracking" data-d="Operations">
+          <div class="wf-kicker">10 <span>&middot;</span> Operations</div>
+          <h3>Transportation &amp; Trip Tracking</h3>
+          <p class="wf-lede">Vehicles registered with their permit, fitness, insurance and GPS; routes, stops and a fee per stop; a driver with licence and police verification, and an attendant on school buses. Students allocated to a stop have transport added to the fee demand, and every daily trip carries live tracking, parent alerts and board-and-alight attendance.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  VC["Register vehicles with documents<br/>(permit · fitness · insurance · GPS)"] --> RT["Define route + stops + fee per stop"]
+  RT --> DR["Driver (licence · police verification) +<br/>attendant (school buses)"]
+  DR --> SA["Assign students to route / stop →<br/>transport fee added to fee demand"]
+  SA --> TR["Start trip (daily)"]
+  TR --> GPS["Live GPS tracking · geo-fence ·<br/>parent alerts: arriving · boarded · dropped"]
+  GPS --> AT["Trip attendance (board / alight)"]
+  AT --> ET["End trip · logs retained"]
+  ET --> RN{"Compliance renewal due?<br/>permit · FC · insurance"}
+  RN -- Yes --> VC
+  RN -- No --> OK(["Operational"])
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="11" data-t="PII Reveal with Audit" data-d="Governance / Security">
+          <div class="wf-kicker">11 <span>&middot;</span> Governance / Security</div>
+          <h3>PII Reveal with Audit</h3>
+          <p class="wf-lede">Aadhaar, mobile, email and bank are masked by default and the raw fields are not filterable. Reveal for staff is deliberately unrestricted but audited on every single occurrence. The minor guardian-consent gate and the justification requirement are per-institution settings, both off unless switched on; the re-mask timer is a client display lease, not a server promise.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  MS["Masked by default: Aadhaar (last 4 only) · mobile ·<br/>email · bank — DPDP Act 2023 · Aadhaar Act"] --> RQ["Request to reveal the information"]
+  RQ --> MG{"Institution has switched ON the<br/>minor guardian-consent gate? (opt-in, OFF by default)"}
+  MG -- "Yes, and the person is a minor" --> GC{"Verifiable guardian<br/>consent on file?"}
+  GC -- No --> DN["Denied"]
+  GC -- Yes --> JR
+  MG -- "No / not a minor" --> JR{"Justification required?<br/>(per-institution setting)"}
+  JR -- Yes --> J["Caller enters a reason<br/>(stored on the audit entry)"]
+  J --> RV
+  JR -- No --> RV["Unmasked value shown<br/>(display lease: client re-masks after N seconds — not server-enforced)"]
+  RV --> AU(["Audit entry on EVERY reveal: who · what · when · reason"])
+  AU -.-> OOS["Consent capture and withdrawal — exists<br/>Access / correction / deletion requests — OUT OF SCOPE"]
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="12" data-t="Academic Year Lifecycle" data-d="Academics">
+          <div class="wf-kicker">12 <span>&middot;</span> Academics &middot; capstone</div>
+          <h3>Academic Year Lifecycle</h3>
+          <p class="wf-lede">The capstone flow: a calendar built per affiliating university or board, counselling-driven admissions, a semester of attendance, fees, transport, circulars and leave, then internal and board exams, promotion or detention, year-end payroll and financial close — and a rollover that carries masters and balances into the next year.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TD
+  P0["Setup: academic calendar per affiliating university / board<br/>(odd + even semesters · CBSE / state board year) ·<br/>fee structure (AFRC) · timetable · staff"] --> P1["Admissions: board counselling rounds → seat confirmation ·<br/>management quota → class commencement"]
+  P1 --> P2["Semester / term operations: attendance (≥ 75% tracked) ·<br/>fees + reimbursement · transport · circulars · leave"]
+  P2 --> P3["Internal exams → eligibility → university / board exams<br/>→ results · revaluation · supplementary"]
+  P3 --> P4["Promotion / detention (attendance and credit rules) ·<br/>year-end payroll · financial close · statutory returns"]
+  P4 --> P5(["Rollover: next year / semester ·<br/>carry-forward masters and balances"])
+  P5 -. "AICTE / university academic calendar" .-> P0
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="13" data-t="Branch Blueprint" data-d="Master map">
+          <div class="wf-kicker">13 <span>&middot;</span> Master map</div>
+          <h3>Branch Blueprint &mdash; Set Up &amp; Operate</h3>
+          <p class="wf-lede">The dependency order for standing a campus up, once: trust, branch, affiliation and approvals, courses, departments, spaces, staff, academic year and timetable — and only then students. Everything after the go-live checklist runs in parallel, for good.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TB
+  subgraph S["PHASE A - SET UP THE BRANCH (one-time, in order)"]
+    direction TB
+    T["1 - Trust ●"] --> BR["2 - Branch ◆"]
+    T --> STF["7 - Onboard staff ◆<br/>(trust level)"]
+    BR --> REG["3 - Affiliation and approvals ◆<br/>AICTE / university / CBSE-state board ·<br/>sanctioned intake · AFRC fee · statutory regns"]
+    BR --> BS["5 - Building spaces ◆"]
+    STF --> ASG["8 - Assign staff to branch ●"]
+    REG --> CO["6 - Courses ◆"]
+    REG --> AY["9 - Academic year ◆"]
+    CO --> DEP["4 - Departments ●"]
+    DEP --> TT["10 - Timetable ◆"]
+    AY --> TT
+    BS --> TT
+    ASG --> TT
+    TT --> ADM["11 - Admit students ▣<br/>counselling + management quota"]
+  end
+  ADM --> GATE{{"GO-LIVE<br/>readiness checklist"}}
+  GATE --> OPS["AFTER GO-LIVE — ongoing operations, run in parallel<br/><br/>▣ Academic operations · attendance<br/>▣ Exams and results<br/>▣ Fee management<br/>▣ Finance / GL<br/>▣ Payroll<br/>▣ Transportation<br/>◆ Hostel · Library · Clubs<br/>◆ Communications and circulars"]
+</script>
+        </article>
+
+        <article class="wf-slide" data-n="14" data-t="Tenant Onboarding" data-d="Onboarding">
+          <div class="wf-kicker">14 <span>&middot;</span> Onboarding</div>
+          <h3>Tenant Onboarding &rarr; Ready to Start the Academic Year</h3>
+          <p class="wf-lede">Six phases from an isolated tenant to a running year, each step with an owner and an hour estimate — about twenty hours in total. Go-live is two parallel acts, not one: commence each planned course or course step, and open the admissions intake, which has its own states from not started through open and on hold to closed.</p>
+          <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
+<script type="text/plain" class="wf-src">
+flowchart TB
+  subgraph P0["PHASE 0 - PLATFORM PROVISIONING   |   SAPTECHS Ops   |   ~2 hrs"]
+    direction LR
+    TN["1 - Isolated subscriber tenant created<br/>dedicated schema / container<br/><i>~1 hr</i>"] --> GC["2 - Global configuration<br/>license + modules, locale, currency, timezone,<br/>numbering, PII masking + security policy, integrations<br/><i>~1 hr</i>"]
+    GC --> AD["2b - Tenant-admin account + role templates<br/><i>~1 hr</i>"]
+    GC -.-> BRD["2c - Branding: logo, theme (optional)<br/><i>~1 hr</i>"]
+  end
+  subgraph P1["PHASE 1 - INSTITUTION STRUCTURE   |   Tenant Admin   |   ~3 hrs"]
+    direction LR
+    TR["3 - Trust set up<br/>legal entity, statutory details<br/><i>~1 hr</i>"] --> BR["4 - Branch set up<br/>campus, address, affiliation<br/><i>~1 hr per branch</i>"]
+    BR --> RG["4b - Affiliation + statutory registrations<br/>AICTE / university / board · sanctioned intake · AFRC fee ·<br/>PF / ESI / PT / TAN / GST<br/><i>~1 hr</i>"]
+    RG --> DP["5 - Departments<br/><i>~1 hr</i>"]
+    DP --> PG["5b - Programs / grades / classes<br/><i>~1 hr</i>"]
+  end
+  subgraph P2["PHASE 2 - ACADEMIC + PHYSICAL FOUNDATION   |   Branch Admin   |   ~6 hrs   (items run in parallel)"]
+    direction LR
+    CC["6 - Course catalogue<br/>courses, subjects, credits, syllabus<br/><i>~2 hrs</i>"]
+    BS["7 - Building spaces<br/>buildings, rooms, labs, capacity<br/><i>~1 hr</i>"]
+    CAL["8 - Calendar<br/>working days, holidays, terms<br/><i>~1 hr</i>"]
+    TTS["9 - Timetable structure<br/>periods, bells, day templates<br/><i>~1 hr</i>"]
+    GR["10 - Grading scheme +<br/>assessment templates<br/><i>~1 hr</i>"]
+    FS["11 - Fee structure / fee plans<br/>+ fee heads<br/><i>~1 hr</i>"]
+    CAL --> TTS
+    CC --> GR
+  end
+  subgraph P3["PHASE 3 - PEOPLE ONBOARDING   |   HR / Admissions   |   ~4 hrs   (bulk import)"]
+    direction LR
+    EMP["12 - Onboard employees<br/>teaching + non-teaching: contacts, bank, salary<br/><i>bulk ~1 hr</i>"] --> ASG["13 - Assign staff to branch / dept + roles<br/><i>~1 hr</i>"]
+    STU["14 - Admit students<br/>enquiry, application, approval, student master, fee plan<br/><i>bulk ~2 hrs</i>"]
+    ASG --> CRED["15 - Issue credentials + welcome comms<br/>staff and parents<br/><i>~1 hr</i>"]
+    STU --> CRED
+  end
+  subgraph P4["PHASE 4 - ACADEMIC YEAR BUILD   |   Branch Admin   |   ~5 hrs   (strict order)"]
+    direction LR
+    AY["16 - Academic Year create<br/>name, start / end, linked calendar<br/><i>~1 hr</i>"] --> AC["17 - Assign courses to AY<br/><i>~1 hr</i>"]
+    AC --> EX["18 - Assign exams planned per course<br/><i>~1 hr</i>"]
+    EX --> SEC["19 - Create sections<br/><i>~1 hr</i>"]
+    SEC --> RM["20 - Assign classroom per section<br/><i>~1 hr</i>"]
+    RM --> TT["21 - Assign timetable per section<br/>auto-generate + review<br/><i>~1 hr</i>"]
+    TT --> ST["22 - Assign subject teachers<br/>per subject per section<br/><i>~1 hr</i>"]
+    ST --> CT["22b - Assign class teacher per section<br/><i>~1 hr</i>"]
+    CT --> SS["23 - Assign students to sections<br/>+ roll numbers<br/><i>~1 hr</i>"]
+  end
+  subgraph P5["PHASE 5 - GO-LIVE   |   Branch Admin   |   ~3 hrs"]
+    direction LR
+    VAL["24 - Pre-commence validation / dry-run<br/>every section has room, timetable, teachers, students; fees mapped<br/><i>~1 hr</i>"] --> C1{{"25a - Commence each planned course /<br/>course group / course step<br/><i>~1 hr</i>"}}
+    VAL --> C2{{"25b - Open the admissions intake<br/>states: not started → open → on hold → closed<br/><i>~1 hr</i>"}}
+    C1 --> RDY(["READY TO START THE ACADEMIC YEAR<br/>total effort ~20 hrs"])
+    C2 --> RDY
+  end
+  P0 --> P1 --> P2 --> P3 --> P4 --> P5
+</script>
+        </article>
+
+      </div>
+    </div>
+
+    <p class="wf-note rv">
+      Drawn from the UniverseIT process-flow pack, v3.0 (India edition). The wide maps &mdash; the branch
+      blueprint and tenant onboarding &mdash; are best read enlarged; use <b>+</b> and scroll sideways.
+    </p>
+  </div>
+</section>
+
+<hr class="seal-rule">
 
 <!-- ============================ TIMETABLE ============================ -->
 <section id="timetable">
@@ -1690,6 +2199,45 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
   </div>
 </section>
 
+<!-- ============================ MOBILE ============================ -->
+<section id="mobile" class="band-ink">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow on-ink">Mobile</div>
+      <h2>Every mobile feature ships switched off.</h2>
+      <p class="lede">
+        A new capability is never live because we shipped it. An administrator turns it on — globally,
+        or for one campus, with the campus row winning. <strong>With neither row, the feature is
+        off.</strong> Personas share one binary, and a login can hold several: a teacher is very
+        often also a parent.
+      </p>
+    </div>
+    <div class="persona-row rv" id="personaRow" role="group" aria-label="Choose a persona"></div>
+    <div class="mob-grid">
+      <div class="rv">
+        <div class="mphone">
+          <div class="mscreen">
+            <div class="mstatus"><span>9:41</span><span class="dots">▮▮▮ ▰</span></div>
+            <div class="mhead"><div class="mh-k" id="mhKind"></div><div class="mh-t" id="mhTitle"></div></div>
+            <div class="mbody" id="mBody"></div>
+            <div class="mtabs" id="mTabs"></div>
+          </div>
+        </div>
+        <button class="btn btn-gold proto-cta" type="button" id="protoOpen">Open the full prototype</button>
+        <div class="mob-cap">This is a preview. The full prototype runs<br>every screen, for all eight personas.</div>
+      </div>
+      <div class="switchboard" id="switchboard"></div>
+    </div>
+    <p class="hero-note rv" style="max-width:70ch">
+      Toggle any switch to see how an institution actually configures the app — these are
+      representative, not the whole catalogue. Features are actions, information or notifications, and
+      some carry a <em>recommended</em> flag: a suggested starting set, never a pre-enabled one.
+      The phone beside them is a preview; the full prototype opens in place, carrying every screen,
+      the sub-roles, the live trip and the branding switch. It runs entirely inside this page.
+    </p>
+  </div>
+</section>
+
 <hr class="seal-rule">
 
 <!-- ============================ IDENTITY ============================ -->
@@ -1782,45 +2330,6 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 </section>
 
 <hr class="seal-rule">
-
-<!-- ============================ MOBILE ============================ -->
-<section id="mobile" class="band-ink">
-  <div class="wrap">
-    <div class="sec-head rv">
-      <div class="eyebrow on-ink">Mobile</div>
-      <h2>Every mobile feature ships switched off.</h2>
-      <p class="lede">
-        A new capability is never live because we shipped it. An administrator turns it on — globally,
-        or for one campus, with the campus row winning. <strong>With neither row, the feature is
-        off.</strong> Personas share one binary, and a login can hold several: a teacher is very
-        often also a parent.
-      </p>
-    </div>
-    <div class="persona-row rv" id="personaRow" role="group" aria-label="Choose a persona"></div>
-    <div class="mob-grid">
-      <div class="rv">
-        <div class="mphone">
-          <div class="mscreen">
-            <div class="mstatus"><span>9:41</span><span class="dots">▮▮▮ ▰</span></div>
-            <div class="mhead"><div class="mh-k" id="mhKind"></div><div class="mh-t" id="mhTitle"></div></div>
-            <div class="mbody" id="mBody"></div>
-            <div class="mtabs" id="mTabs"></div>
-          </div>
-        </div>
-        <button class="btn btn-gold proto-cta" type="button" id="protoOpen">Open the full prototype</button>
-        <div class="mob-cap">This is a preview. The full prototype runs<br>every screen, for all eight personas.</div>
-      </div>
-      <div class="switchboard" id="switchboard"></div>
-    </div>
-    <p class="hero-note rv" style="max-width:70ch">
-      Toggle any switch to see how an institution actually configures the app — these are
-      representative, not the whole catalogue. Features are actions, information or notifications, and
-      some carry a <em>recommended</em> flag: a suggested starting set, never a pre-enabled one.
-      The phone beside them is a preview; the full prototype opens in place, carrying every screen,
-      the sub-roles, the live trip and the branding switch. It runs entirely inside this page.
-    </p>
-  </div>
-</section>
 
 <!-- ============================ EVERYDAY ============================ -->
 <section class="band-sunken" id="everyday">
@@ -4231,18 +4740,11 @@ var MOD25 = [
           var el = document.createElement("div");
           el.className = "sub";
           el.innerHTML =
-            '<div class="sub-head"><span class="sub-name"></span>' +
-            '<span class="sub-flags"></span></div>' +
+            '<div class="sub-head"><span class="sub-name"></span></div>' +
             '<p class="sub-d"></p>' +
             '<div class="sub-inst"></div>' +
             '<ul class="fn-list"></ul>';
           el.querySelector(".sub-name").textContent = s.n;
-
-          var flags = el.querySelector(".sub-flags");
-          var st = document.createElement("span");
-          st.className = "flag-txt " + s.s;
-          st.textContent = "Demo-ready";
-          flags.appendChild(st);
 
           el.querySelector(".sub-d").textContent = s.d;
 
@@ -5813,6 +6315,219 @@ var WANTS = [
     sent.hidden = true; form.hidden = false;
     document.getElementById("d-name").focus();
   });
+})();
+
+/* ================= WORKFLOWS — THE PROCESS-FLOW CAROUSEL =================
+   Fourteen mermaid diagrams, one on screen at a time. Deliberately without an
+   autoplay timer: a process flow is read, not glanced at, and a slide that
+   moves under the reader is the one thing a carousel must not do here. The
+   only movers are the arrows, the rail and the ← → keys.
+
+   The mermaid runtime is ~1 MB, so it is not fetched until the section is
+   within a screen of the viewport, and a diagram is drawn the first time it is
+   actually shown. If the CDN is unreachable the slide falls back to its own
+   source text, which is readable on its own and is what a crawler sees anyway:
+   every slide's prose and diagram source is in the document, not in this file. */
+(function () {
+  var deck = document.getElementById("wfDeck");
+  if (!deck) return;
+  var slides = [].slice.call(deck.querySelectorAll(".wf-slide"));
+  if (!slides.length) return;
+
+  var MERMAID = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js";
+  var ZOOMS = [70, 85, 100, 125, 160, 210, 280];
+  var rail = document.getElementById("wfRail");
+  var countEl = document.getElementById("wfCount");
+  var cur = 0, zi = 2, uid = 0, state = "idle";   // idle | loading | ready | failed
+  var armed = false;
+  var waiting = [];
+
+  deck.classList.add("live");
+
+  /* ---- the rail: every flow reachable in one click, not n clicks away ---- */
+  var chips = slides.map(function (s, i) {
+    var b = document.createElement("button");
+    b.className = "filt"; b.type = "button"; b.setAttribute("role", "tab");
+    b.id = "wf-tab-" + s.getAttribute("data-n");
+    b.innerHTML = "<b></b><span></span>";
+    b.querySelector("b").textContent = s.getAttribute("data-n");
+    b.querySelector("span").textContent = s.getAttribute("data-t");
+    s.id = "wf-panel-" + s.getAttribute("data-n");
+    s.setAttribute("role", "tabpanel");
+    s.setAttribute("aria-labelledby", b.id);
+    b.setAttribute("aria-controls", s.id);
+    b.addEventListener("click", function () { show(i); });
+    rail.appendChild(b);
+    return b;
+  });
+
+  function isDark() {
+    var t = document.documentElement.getAttribute("data-theme");
+    if (t === "dark") return true;
+    if (t === "light") return false;
+    return window.matchMedia("(prefers-color-scheme: dark)").matches;
+  }
+  function cssv(n) {
+    return getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+  }
+  function themeKey() { return isDark() ? "d" : "l"; }
+
+  /* The diagram borrows the page's own palette rather than shipping a second
+     one, so a theme switch moves both together and there is nothing to keep
+     in sync by hand. */
+  function configure() {
+    window.mermaid.initialize({
+      startOnLoad: false,
+      theme: "base",
+      fontFamily: "'Public Sans', ui-sans-serif, system-ui, sans-serif",
+      flowchart: { htmlLabels: true, useMaxWidth: true, curve: "basis", padding: 14, nodeSpacing: 44, rankSpacing: 52 },
+      themeVariables: {
+        background:          cssv("--bg"),
+        primaryColor:        cssv("--surface"),
+        primaryTextColor:    cssv("--text"),
+        primaryBorderColor:  cssv("--rule"),
+        secondaryColor:      cssv("--sunken"),
+        tertiaryColor:       cssv("--bg"),
+        mainBkg:             cssv("--surface"),
+        nodeBorder:          cssv("--rule"),
+        nodeTextColor:       cssv("--text"),
+        textColor:           cssv("--text"),
+        lineColor:           cssv("--muted"),
+        titleColor:          cssv("--brand"),
+        clusterBkg:          cssv("--sunken"),
+        clusterBorder:       cssv("--border"),
+        edgeLabelBackground: cssv("--surface"),
+        fontSize: "13px"
+      }
+    });
+  }
+
+  function load() {
+    if (state !== "idle") return;
+    state = "loading";
+    var s = document.createElement("script");
+    s.src = MERMAID; s.async = true;
+    s.onload = function () {
+      if (!window.mermaid) { fail(); return; }
+      try { configure(); } catch (e) { fail(); return; }
+      state = "ready";
+      var q = waiting; waiting = [];
+      q.forEach(function (fn) { fn(); });
+    };
+    s.onerror = fail;
+    document.head.appendChild(s);
+
+    function fail() {
+      state = "failed";
+      var q = waiting; waiting = [];
+      q.forEach(function (fn) { fn(); });
+    }
+  }
+
+  function ready(fn) {
+    if (state === "ready" || state === "failed") { fn(); return; }
+    waiting.push(fn);
+    load();
+  }
+
+  function fallback(fig, src) {
+    var d = document.createElement("div");
+    d.className = "wf-fail";
+    d.textContent = "The diagram renderer could not be reached. The flow, as written:";
+    var p = document.createElement("pre");
+    p.textContent = src;
+    d.appendChild(p);
+    fig.innerHTML = ""; fig.appendChild(d);
+  }
+
+  function draw(i) {
+    var slide = slides[i];
+    var fig = slide.querySelector(".wf-fig");
+    var src = slide.querySelector(".wf-src").textContent;
+    if (!armed) return;                                   // the runtime is not wanted yet
+    if (fig.getAttribute("data-drawn") === themeKey()) return;
+
+    ready(function () {
+      if (state === "failed") { fallback(fig, src); return; }
+      var id = "wf-mm-" + (++uid);
+      var key = themeKey();
+      try {
+        var out = window.mermaid.render(id, src);
+        Promise.resolve(out).then(function (r) {
+          fig.innerHTML = r.svg || r;
+          fig.setAttribute("data-drawn", key);
+          if (r && r.bindFunctions) r.bindFunctions(fig);
+          size();
+        }, function () { fallback(fig, src); });
+      } catch (e) {
+        fallback(fig, src);
+      }
+    });
+  }
+
+  /* Zoom is a width on the figure, not a transform: the scroll box then gets a
+     real scrollWidth to scroll, which a scaled element would not give it. */
+  function size() {
+    slides[cur].querySelector(".wf-fig").style.width = ZOOMS[zi] + "%";
+  }
+
+  function show(i) {
+    cur = (i + slides.length) % slides.length;
+    slides.forEach(function (s, k) { s.classList.toggle("on", k === cur); });
+    chips.forEach(function (c, k) {
+      c.setAttribute("aria-selected", k === cur ? "true" : "false");
+      c.setAttribute("tabindex", k === cur ? "0" : "-1");
+    });
+    countEl.innerHTML = "";
+    var b = document.createElement("b");
+    b.textContent = slides[cur].getAttribute("data-n");
+    countEl.appendChild(b);
+    countEl.appendChild(document.createTextNode(" / " + slides.length));
+    size();
+    draw(cur);
+  }
+
+  document.getElementById("wfPrev").addEventListener("click", function () { show(cur - 1); });
+  document.getElementById("wfNext").addEventListener("click", function () { show(cur + 1); });
+  document.getElementById("wfIn").addEventListener("click", function () {
+    zi = Math.min(zi + 1, ZOOMS.length - 1); size();
+  });
+  document.getElementById("wfOut").addEventListener("click", function () {
+    zi = Math.max(zi - 1, 0); size();
+  });
+  document.getElementById("wfFit").addEventListener("click", function () { zi = 2; size(); });
+
+  document.getElementById("workflows").addEventListener("keydown", function (e) {
+    if (e.key === "ArrowLeft") { show(cur - 1); e.preventDefault(); }
+    else if (e.key === "ArrowRight") { show(cur + 1); e.preventDefault(); }
+    else return;
+    chips[cur].focus();
+  });
+
+  /* Redraw on a theme change — both the button and the OS switch. */
+  function repaint() {
+    if (state !== "ready") return;
+    try { configure(); } catch (e) { return; }
+    slides.forEach(function (s) { s.querySelector(".wf-fig").removeAttribute("data-drawn"); });
+    draw(cur);
+  }
+  new MutationObserver(repaint).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  var mq = window.matchMedia("(prefers-color-scheme: dark)");
+  (mq.addEventListener ? mq.addEventListener.bind(mq, "change") : mq.addListener.bind(mq))(repaint);
+
+  show(0);
+
+  /* Fetch the runtime a screen early, so the first diagram is usually already
+     drawn by the time the section is read. */
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (en) {
+      if (en[0].isIntersecting) { io.disconnect(); armed = true; draw(cur); }
+    }, { rootMargin: "600px 0px" });
+    io.observe(document.getElementById("workflows"));
+  } else {
+    armed = true;
+    draw(cur);
+  }
 })();
 
 /* ================= SCROLL REVEAL ================= */
