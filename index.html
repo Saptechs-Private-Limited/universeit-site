@@ -157,6 +157,9 @@ p { margin: 0; }
 a { color: inherit; }
 
 .wrap { max-width: var(--wide); margin: 0 auto; padding: 0 28px; }
+/* A diagram is a wide artefact and earns a wider band than the prose does.
+   The reading widths inside it are capped separately, so only the figures grow. */
+.wrap-wide { max-width: 1440px; }
 
 /* --- the seal rule: a double hairline, the certificate-border motif --- */
 .seal-rule { border: 0; height: 3px; background:
@@ -1269,6 +1272,46 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
   margin: 12px 0 0; white-space: pre; overflow-x: auto; color: var(--muted);
   font-family: var(--mono); font-size: 11px; line-height: 1.65;
 }
+.wf-full {
+  flex: none; cursor: pointer; border: 1px solid var(--border); background: var(--surface);
+  color: var(--muted); border-radius: 9px; padding: 8px 11px;
+  font-family: var(--mono); font-size: 10.5px; letter-spacing: .06em; white-space: nowrap;
+}
+.wf-full:hover { border-color: var(--brand-lift); color: var(--brand); }
+
+/* Full screen buys both dimensions. The wide maps are several times the column
+   even in the wider band, and the tall ones are held by the scroll box's 76vh
+   inside a page that also carries the prose and the checks. */
+.wfd { position: fixed; inset: 0; z-index: 200; display: grid; place-items: center; padding: 18px; }
+.wfd-backdrop { position: absolute; inset: 0; background: rgba(6,14,28,.72); backdrop-filter: blur(6px); }
+.wfd-panel {
+  position: relative; width: 97vw; height: 95vh;
+  background: var(--bg); border: 1px solid var(--border); border-radius: 16px;
+  box-shadow: 0 40px 90px -30px rgba(0,0,0,.8); overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.wfd-head {
+  flex: none; display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 11px 13px; border-bottom: 1px solid var(--border); background: var(--sunken);
+}
+.wfd-title { font-size: 16px; font-weight: 700; letter-spacing: -.01em; }
+.wfd-title b {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: .07em; color: var(--brand); margin-right: 8px;
+}
+.wfd-close {
+  width: 34px; height: 34px; flex: none; border-radius: 9px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--surface); color: var(--text);
+  font-size: 20px; line-height: 1; padding: 0;
+}
+.wfd-close:hover { border-color: var(--danger); color: var(--danger); }
+.wfd-body { flex: 1; min-height: 0; overflow: auto; padding: 18px; }
+body.wf-open { overflow: hidden; }
+@media (max-width: 620px) {
+  .wfd { padding: 0; }
+  .wfd-panel { width: 100vw; height: 100vh; border-radius: 0; border: 0; }
+}
+
 .wf-check { margin-top: 22px; border-top: 1px solid var(--border); padding-top: 17px; }
 .wf-check h4 {
   font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .11em;
@@ -1301,7 +1344,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 .wf-cross > p { font-size: 14px; color: var(--muted); margin: 8px 0 17px; max-width: var(--read); }
 @media (max-width: 620px) { .wf-cross { padding: 16px 14px 18px; } }
 
-.wf-note { margin-top: 13px; font-size: 12.5px; color: var(--faint); line-height: 1.6; }
+.wf-note { margin-top: 13px; font-size: 12.5px; color: var(--faint); line-height: 1.6; max-width: var(--read); }
 @media (max-width: 620px) {
   .wf-body { padding: 16px 13px 18px; }
   .wf-scroll { padding: 10px; }
@@ -1636,7 +1679,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 
 <!-- ============================ WORKFLOWS ============================ -->
 <section id="workflows">
-  <div class="wrap">
+  <div class="wrap wrap-wide">
     <div class="sec-head rv">
       <div class="eyebrow">Workflows</div>
       <h2>Fourteen process flows, drawn end to end the way the institution actually works them.</h2>
@@ -1661,6 +1704,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
           <button type="button" id="wfFit">FIT</button>
           <button type="button" id="wfIn" aria-label="Larger">+</button>
         </div>
+        <button class="wf-full" type="button" id="wfFull" title="Open this flow full screen">&#10530; Full screen</button>
         <button class="wf-nav" type="button" id="wfNext" aria-label="Next flow" title="Next flow">&#8250;</button>
       </div>
 
@@ -2200,6 +2244,25 @@ flowchart TB
     </p>
   </div>
 </section>
+
+<div class="wfd" id="wfDlg" hidden role="dialog" aria-modal="true" aria-labelledby="wfDlgName">
+  <div class="wfd-backdrop" id="wfDlgBackdrop"></div>
+  <div class="wfd-panel">
+    <div class="wfd-head">
+      <button class="wf-nav" type="button" id="wfDlgPrev" aria-label="Previous flow" title="Previous flow">&#8249;</button>
+      <div class="wfd-title"><b id="wfDlgNum"></b><span id="wfDlgName"></span></div>
+      <div class="wf-gap"></div>
+      <div class="wf-zoom" role="group" aria-label="Diagram size">
+        <button type="button" id="wfDlgOut" aria-label="Smaller">&minus;</button>
+        <button type="button" id="wfDlgFit">FIT</button>
+        <button type="button" id="wfDlgIn" aria-label="Larger">+</button>
+      </div>
+      <button class="wf-nav" type="button" id="wfDlgNext" aria-label="Next flow" title="Next flow">&#8250;</button>
+      <button class="wfd-close" type="button" id="wfDlgClose" aria-label="Close full screen">&times;</button>
+    </div>
+    <div class="wfd-body" id="wfDlgBody"></div>
+  </div>
+</div>
 
 <hr class="seal-rule">
 
@@ -6514,12 +6577,25 @@ var WANTS = [
   var countEl = document.getElementById("wfCount");
   var cur = 0, zi = 3, uid = 0, state = "idle";   // idle | loading | ready | failed
   var fit = false;                                // FIT shrinks to the container instead
+  var lastFocus = null;
+  var dlg = document.getElementById("wfDlg");
+  var dlgBody = document.getElementById("wfDlgBody");
+  var dlgNum = document.getElementById("wfDlgNum");
+  var dlgName = document.getElementById("wfDlgName");
   var armed = false;
   var waiting = [];
 
   deck.classList.add("live");
 
   /* ---- the rail: every flow reachable in one click, not n clicks away ---- */
+  /* A rendered figure is MOVED into the dialog, never cloned: a mermaid SVG
+     carries internal ids that its arrowhead markers reference, and a second
+     copy in the document breaks those references in one copy or both. So the
+     node is looked up through these arrays rather than through its slide,
+     which it is not always inside. */
+  var figs  = slides.map(function (s) { return s.querySelector(".wf-fig"); });
+  var homes = figs.map(function (f) { return f.parentNode; });
+
   var chips = slides.map(function (s, i) {
     var b = document.createElement("button");
     b.className = "filt"; b.type = "button"; b.setAttribute("role", "tab");
@@ -6617,7 +6693,7 @@ var WANTS = [
 
   function draw(i) {
     var slide = slides[i];
-    var fig = slide.querySelector(".wf-fig");
+    var fig = figs[i];
     var src = slide.querySelector(".wf-src").textContent;
     if (!armed) return;                                   // the runtime is not wanted yet
     if (fig.getAttribute("data-drawn") === themeKey()) return;
@@ -6655,9 +6731,18 @@ var WANTS = [
     return vb ? parseFloat(vb.split(/[\s,]+/)[2]) || 0 : 0;
   }
   function size() {
-    var fig = slides[cur].querySelector(".wf-fig");
+    var fig = figs[cur];
     var w = fit ? 0 : natural(fig) * SCALES[zi];
     fig.style.width = w ? Math.round(w) + "px" : "100%";
+  }
+
+  /* Idempotent: each figure belongs in the dialog if it is the current one and
+     the dialog is open, and in its own slide otherwise. */
+  function place() {
+    figs.forEach(function (f, i) {
+      var want = (!dlg.hidden && i === cur) ? dlgBody : homes[i];
+      if (f.parentNode !== want) want.appendChild(f);
+    });
   }
 
   function show(i) {
@@ -6672,9 +6757,45 @@ var WANTS = [
     b.textContent = slides[cur].getAttribute("data-n");
     countEl.appendChild(b);
     countEl.appendChild(document.createTextNode(" / " + slides.length));
+    dlgNum.textContent = slides[cur].getAttribute("data-n");
+    dlgName.textContent = slides[cur].getAttribute("data-t");
+    place();
     size();
     draw(cur);
   }
+
+  /* ---- full screen ---- */
+  function openDlg() {
+    lastFocus = document.activeElement;
+    dlg.hidden = false;
+    document.body.classList.add("wf-open");
+    place(); size(); draw(cur);
+    document.getElementById("wfDlgClose").focus();
+  }
+  function closeDlg() {
+    dlg.hidden = true;
+    document.body.classList.remove("wf-open");
+    place(); size();
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.getElementById("wfFull").addEventListener("click", openDlg);
+  document.getElementById("wfDlgClose").addEventListener("click", closeDlg);
+  document.getElementById("wfDlgBackdrop").addEventListener("click", closeDlg);
+  document.getElementById("wfDlgPrev").addEventListener("click", function () { show(cur - 1); });
+  document.getElementById("wfDlgNext").addEventListener("click", function () { show(cur + 1); });
+  document.getElementById("wfDlgIn").addEventListener("click", function () {
+    fit = false; zi = Math.min(zi + 1, SCALES.length - 1); size();
+  });
+  document.getElementById("wfDlgOut").addEventListener("click", function () {
+    fit = false; zi = Math.max(zi - 1, 0); size();
+  });
+  document.getElementById("wfDlgFit").addEventListener("click", function () { fit = true; size(); });
+  document.addEventListener("keydown", function (e) {
+    if (dlg.hidden) return;
+    if (e.key === "Escape") { closeDlg(); e.preventDefault(); }
+    else if (e.key === "ArrowLeft") { show(cur - 1); e.preventDefault(); }
+    else if (e.key === "ArrowRight") { show(cur + 1); e.preventDefault(); }
+  });
 
   document.getElementById("wfPrev").addEventListener("click", function () { show(cur - 1); });
   document.getElementById("wfNext").addEventListener("click", function () { show(cur + 1); });
@@ -6697,7 +6818,7 @@ var WANTS = [
   function repaint() {
     if (state !== "ready") return;
     try { configure(); } catch (e) { return; }
-    slides.forEach(function (s) { s.querySelector(".wf-fig").removeAttribute("data-drawn"); });
+    figs.forEach(function (f) { f.removeAttribute("data-drawn"); });
     draw(cur);
   }
   new MutationObserver(repaint).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
