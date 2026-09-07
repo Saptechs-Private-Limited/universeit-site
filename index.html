@@ -185,8 +185,8 @@ a { color: inherit; }
 }
 .nav-in { max-width: var(--wide); margin: 0 auto; padding: 0 28px;
   height: 62px; display: flex; align-items: center; gap: 28px; }
-.logo { display: flex; align-items: center; text-decoration: none; }
-.logo .lockup { height: 22px; width: auto; flex: none; display: block; }
+.logo { display: flex; align-items: center; text-decoration: none; flex: none; }
+.logo .lockup { height: 22px; width: auto; flex: none; display: block; overflow: visible; }
 /* Fourteen links in a row that does not wrap: the tighter gap and padding buy
    back more width than the fourteenth costs, so the bar is no wider than it
    was at thirteen. */
@@ -1298,7 +1298,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
            and the three brand fills swapped for the page's own logo tokens so the
            mark follows the theme instead of carrying a second palette. The wordmark
            is now the pack's own letterforms, not type set to look like them. -->
-      <svg class="lockup" viewBox="80 161.69 1638.75 199.92" role="img" aria-hidden="true">
+      <svg class="lockup" viewBox="80 161.69 1638.75 199.92" width="180.34" height="22" role="img" aria-hidden="true">
         <path d="M80 188.46L146.38 188.46L146.38 202.12L80 202.12Z" fill="var(--logo-ink)"></path/>
         <path d="M97.57 188.46L128.81 188.46L128.81 219.7L97.57 219.7Z" fill="var(--logo-ink)"></path/>
         <path d="M97.57 223.6C97.57 209.93 85.86 202.12 80 202.12L80 201.15L98.55 201.15L98.55 223.6Z" fill="var(--logo-ink)"></path/>
@@ -2021,8 +2021,10 @@ flowchart TB
     </div>
 
     <p class="wf-note rv">
-      Drawn from the UniverseIT process-flow pack, v3.0 (India edition). The wide maps &mdash; the branch
-      blueprint and tenant onboarding &mdash; are best read enlarged; use <b>+</b> and scroll sideways.
+      Drawn from the UniverseIT process-flow pack, v3.0 (India edition). Each flow opens at the size it
+      was drawn, so the labels are legible; the wide maps &mdash; the branch blueprint and tenant
+      onboarding &mdash; scroll sideways at that size. <b>FIT</b> shrinks one to the column when the
+      shape matters more than the words.
     </p>
   </div>
 </section>
@@ -6335,10 +6337,11 @@ var WANTS = [
   if (!slides.length) return;
 
   var MERMAID = "https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js";
-  var ZOOMS = [70, 85, 100, 125, 160, 210, 280];
+  var SCALES = [0.5, 0.65, 0.8, 1, 1.3, 1.7, 2.2];   // 1 = the size it was drawn at
   var rail = document.getElementById("wfRail");
   var countEl = document.getElementById("wfCount");
-  var cur = 0, zi = 2, uid = 0, state = "idle";   // idle | loading | ready | failed
+  var cur = 0, zi = 3, uid = 0, state = "idle";   // idle | loading | ready | failed
+  var fit = false;                                // FIT shrinks to the container instead
   var armed = false;
   var waiting = [];
 
@@ -6397,7 +6400,7 @@ var WANTS = [
         clusterBkg:          cssv("--sunken"),
         clusterBorder:       cssv("--border"),
         edgeLabelBackground: cssv("--surface"),
-        fontSize: "13px"
+        fontSize: "17px"
       }
     });
   }
@@ -6466,9 +6469,23 @@ var WANTS = [
   }
 
   /* Zoom is a width on the figure, not a transform: the scroll box then gets a
-     real scrollWidth to scroll, which a scaled element would not give it. */
+     real scrollWidth to scroll, which a scaled element would not give it.
+
+     The width is taken from the diagram's own viewBox rather than from the
+     container. Sizing a flow to the container is what made the labels
+     unreadable — the wide maps are three times the column, so fitting them to
+     it shrank 17px type to about five. Natural size is legible by
+     construction; FIT is still one click away when the whole shape matters
+     more than the words. */
+  function natural(fig) {
+    var svg = fig.querySelector("svg");
+    var vb = svg && svg.getAttribute("viewBox");
+    return vb ? parseFloat(vb.split(/[\s,]+/)[2]) || 0 : 0;
+  }
   function size() {
-    slides[cur].querySelector(".wf-fig").style.width = ZOOMS[zi] + "%";
+    var fig = slides[cur].querySelector(".wf-fig");
+    var w = fit ? 0 : natural(fig) * SCALES[zi];
+    fig.style.width = w ? Math.round(w) + "px" : "100%";
   }
 
   function show(i) {
@@ -6490,12 +6507,12 @@ var WANTS = [
   document.getElementById("wfPrev").addEventListener("click", function () { show(cur - 1); });
   document.getElementById("wfNext").addEventListener("click", function () { show(cur + 1); });
   document.getElementById("wfIn").addEventListener("click", function () {
-    zi = Math.min(zi + 1, ZOOMS.length - 1); size();
+    fit = false; zi = Math.min(zi + 1, SCALES.length - 1); size();
   });
   document.getElementById("wfOut").addEventListener("click", function () {
-    zi = Math.max(zi - 1, 0); size();
+    fit = false; zi = Math.max(zi - 1, 0); size();
   });
-  document.getElementById("wfFit").addEventListener("click", function () { zi = 2; size(); });
+  document.getElementById("wfFit").addEventListener("click", function () { fit = true; size(); });
 
   document.getElementById("workflows").addEventListener("keydown", function (e) {
     if (e.key === "ArrowLeft") { show(cur - 1); e.preventDefault(); }
