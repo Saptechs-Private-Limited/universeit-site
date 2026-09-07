@@ -1269,6 +1269,38 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
   margin: 12px 0 0; white-space: pre; overflow-x: auto; color: var(--muted);
   font-family: var(--mono); font-size: 11px; line-height: 1.65;
 }
+.wf-check { margin-top: 22px; border-top: 1px solid var(--border); padding-top: 17px; }
+.wf-check h4 {
+  font-family: var(--mono); font-size: 10px; font-weight: 600; letter-spacing: .11em;
+  text-transform: uppercase; color: var(--faint); margin: 0 0 13px;
+}
+.wf-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 11px; }
+.wf-list li {
+  position: relative; padding-left: 25px; max-width: var(--read);
+  font-size: 13.5px; line-height: 1.62; color: var(--muted);
+}
+/* A diamond for a statement of behaviour, a tick for one already validated —
+   the two are different claims and should not look like the same claim. */
+.wf-list li::before {
+  content: "\25C6"; position: absolute; left: 4px; top: 1px;
+  font-size: 9px; line-height: 1.95; color: var(--rule);
+}
+.wf-list li.ok { color: var(--text); }
+.wf-list li.ok::before { content: "\2713"; font-size: 12px; font-weight: 700; line-height: 1.45; color: var(--ok); }
+.wf-vfd {
+  font-family: var(--mono); font-size: 9px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--ok); border: 1px solid color-mix(in srgb, var(--ok) 34%, transparent);
+  background: color-mix(in srgb, var(--ok) 10%, transparent);
+  border-radius: 4px; padding: 1px 5px; margin-left: 8px; white-space: nowrap;
+}
+.wf-cross {
+  margin-top: 26px; background: var(--surface); border: 1px solid var(--border);
+  border-radius: 14px; box-shadow: var(--shadow); padding: 22px 22px 24px;
+}
+.wf-cross h3 { font-size: 18px; letter-spacing: -.012em; margin: 0; }
+.wf-cross > p { font-size: 14px; color: var(--muted); margin: 8px 0 17px; max-width: var(--read); }
+@media (max-width: 620px) { .wf-cross { padding: 16px 14px 18px; } }
+
 .wf-note { margin-top: 13px; font-size: 12.5px; color: var(--faint); line-height: 1.6; }
 @media (max-width: 620px) {
   .wf-body { padding: 16px 13px 18px; }
@@ -1637,7 +1669,7 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
         <article class="wf-slide" data-n="01" data-t="Admission Process" data-d="Admissions">
           <div class="wf-kicker">01 <span>&middot;</span> Admissions</div>
           <h3>Admission Process</h3>
-          <p class="wf-lede">Two intakes against one seat matrix. Board and national entrance counselling reserves convener-quota seats round by round; walk-in and direct admission fills management, NRI and reverted seats through the institute's own test, merit or a spot drive. The waitlist is worked once, after counselling concludes.</p>
+          <p class="wf-lede">Seat quota model: Board / National Entrance Counselling (EAMCET · JEE · NEET) reserves convener-quota seats round by round; Walk-in / Direct Admission fills management, NRI and reverted seats via own test/merit, NRI route or spot / mop-up drive. The waitlist is worked once, after counselling concludes.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1679,12 +1711,24 @@ flowchart TD
   D --> E["Section / roll allocated"]
   E --> F(["Student ACTIVE"])
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li class="ok">A seat matrix per programme, split by quota — convener, management, and NRI or Category-C. The quota is carried on the student's own record rather than inferred from how they arrived.<span class="wf-vfd">Verified</span></li>
+              <li class="ok">Importing a counselling allotment list creates provisional records and locks the allotted seats: they cannot be offered to a walk-in until they lapse or revert. Total admissions cannot exceed the sanctioned intake.<span class="wf-vfd">Verified</span></li>
+              <li class="ok">Seats not reported against lapse to the next round, and after the final round the unfilled convener seats revert to the institute for the spot or mop-up drive.<span class="wf-vfd">Verified</span></li>
+              <li class="ok">Fee-reimbursement eligibility and the claim are both recorded, and the fee plan follows the quota — the AFRC convener fee, or management, or NRI.<span class="wf-vfd">Verified</span></li>
+              <li>The waitlist is worked once, after counselling concludes and the reverted seats are known — a single downstream step, not a re-check at every round.</li>
+              <li>NRI and Category-C quotas are real and sized in the matrix, with no separate sponsor-document gate. An offer carries a date and a validity, but no offer letter is generated, and there is no university enrolment number beyond the section and roll.</li>
+              <li>Required fields and references are enforced on both the application and the student. Status moves only through the approval flow, never by direct edit. Personal identifiers are masked, and records are retired rather than deleted.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="02" data-t="Employee Lifecycle &amp; Leave" data-d="People / HR">
           <div class="wf-kicker">02 <span>&middot;</span> People / HR</div>
           <h3>Employee Lifecycle &amp; Leave</h3>
-          <p class="wf-lede">Offer letter to onboarding — master, contacts, bank, salary structure, role — then statutory enrolment (PF, ESI, professional tax, TDS) and university ratification. Live service carries attendance, leave with class-session swap, and appraisal; separation ends in full-and-final and the certificates that go with it.</p>
+          <p class="wf-lede">Offer letter → onboarding (master, contacts, bank, salary, role) → statutory enrolment (PF · ESI · PT · TDS) → university ratification → active → leave (with class-session swap / substitute) · appraisal → separation with full-and-final.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1704,12 +1748,23 @@ flowchart TD
   FF --> REL["Relieving + experience letters<br/>(issued via the generic certificate mechanism)"]
   REL --> IN(["INACTIVE — off rolls"])
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>The flow starts at the offer letter: there is no requisition or interview stage. Onboarding carries the employee master, contacts, bank details, salary structure and role, then the statutory enrolments — provident fund and UAN, ESI where eligible, professional tax, and PAN for TDS — and a ratification flag for the affiliating university or board.</li>
+              <li>The attendance register takes biometric or manual entry and carries late marks, shifts and regularisation. Leave runs as casual, earned, medical, maternity and on-duty, and a decision sets the status — it cannot be edited around.</li>
+              <li>Approving leave updates attendance and payroll, and swaps the class sessions or assigns a substitute — the link into the timetable is part of the same act.</li>
+              <li>Appraisal leads to an increment, a promotion or a transfer. A separation needs the employee, the date and the type before it will record, and full-and-final covers leave encashment, gratuity and provident-fund settlement.</li>
+              <li>Relieving and experience letters are issued through the general certificate mechanism, not a template that exists only for separations.</li>
+              <li>Employee records are written under optimistic concurrency, so two people editing at once cannot silently overwrite each other.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="03" data-t="Fee Collection &amp; Receipt" data-d="Finance">
           <div class="wf-kicker">03 <span>&middot;</span> Finance</div>
           <h3>Fee Collection &amp; Receipt</h3>
-          <p class="wf-lede">Fee structure by quota with the regulator's order number behind a convener fee; demand by head and term; payment through any mode in the admin-configured registry — each carrying its own GL account — or through a state reimbursement claim. Receipt, automatic GL, the dues and late-fee cycle, and refund by policy.</p>
+          <p class="wf-lede">Fee structure by quota with regulated-fee provenance; demand by head and term; payment by any mode from the admin-configured registry (each with its own GL account) or govt fee-reimbursement; receipt, auto GL, dues &amp; late-fee cycle; refund per policy.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1730,12 +1785,24 @@ flowchart TD
   DUE -- No --> CL(["Cleared"])
   REM --> RF["Refund on withdrawal per refund policy<br/>(free-text rule per fee head)"]
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li class="ok">A fee structure per quota and course, with the regulator's own order number stored behind a convener fee — the provenance travels with the amount.<span class="wf-vfd">Verified</span></li>
+              <li class="ok">The government reimbursement claim is recorded and credited against the student's tuition.<span class="wf-vfd">Verified</span></li>
+              <li class="ok">Payment modes are an administrator-configurable registry, each carrying its own ledger account. A new mode is added without a code change; there is no fixed list.<span class="wf-vfd">Verified</span></li>
+              <li>Fee heads — tuition, university, exam, hostel, transport and miscellaneous — run per term or semester, and the demand carries instalments and due dates. A receipt is issued on payment, with GST treated per head.</li>
+              <li>The receipt posts its own ledger entries by head, the student's balance updates, and outstanding dues drive reminders, the late fee, the defaulter list and a hall-ticket or exam hold.</li>
+              <li>A refund on withdrawal follows a refund policy written as a free-text rule per fee head. No AICTE slab is codified.</li>
+              <li>A payment of zero or less, or one exceeding the demand, is refused. No payment-instrument data is stored.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="04" data-t="General Ledger &amp; Voucher Posting" data-d="Finance">
           <div class="wf-kicker">04 <span>&middot;</span> Finance</div>
           <h3>General Ledger &amp; Voucher Posting</h3>
-          <p class="wf-lede">Trust and society books: receipt, payment, journal and contra vouchers behind a double-entry guard, with a TDS deduction line on vendor payments and GST recorded as input credit only. Statutory payables, bank reconciliation and period close. Audit, ITR and the FCRA return happen outside the system, on its exports.</p>
+          <p class="wf-lede">Trust / society books: receipt · payment · journal · contra vouchers, double-entry guard, TDS deduction line on vendor payments, GST input-credit register, statutory payables, BRS, period close. Audit / ITR / FCRA are done outside the system on its exports.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1754,12 +1821,23 @@ flowchart TD
   CLS --> EXP(["Exports for the period"])
   EXP -.-> AUD["OUTSIDE THE SYSTEM — done on exported outputs:<br/>statutory audit · ITR (trust) · FCRA return"]
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li class="ok">A vendor payment deducts TDS as a real line on the voucher, and that line is the source of the quarterly non-salary return.<span class="wf-vfd">Verified</span></li>
+              <li>A chart of accounts per trust and branch, kept on society or trust books with 12A and 80G exemption, across four voucher types: receipt, payment, journal and contra.</li>
+              <li>GST is input credit only. A purchase's input tax goes into a register; there is no output or payable ledger, no return generation, and no portal reconciliation.</li>
+              <li>Debits must equal credits before a voucher will post, and an unbalanced, negative or both-sided line is refused. Once posted, a voucher cannot be deleted or altered by any route.</li>
+              <li>Statutory payable ledgers for TDS and for provident fund, ESI and professional tax; bank reconciliation; a month and financial-year close that locks the period; and exports for that period.</li>
+              <li>The statutory audit, the trust's income-tax return and the FCRA return are done outside the system, on the exports it produces.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="05" data-t="Payroll Run" data-d="Finance">
           <div class="wf-kicker">05 <span>&middot;</span> Finance</div>
           <h3>Payroll Run</h3>
-          <p class="wf-lede">Attendance and LOP inputs to gross, then statutory deductions — PF at 12%, ESI on the wage limit, professional tax on the state slab, TDS on the income-tax slab. Approval gates disbursement; the NEFT file and payslips go out, the GL is posted, and the PF ECR, ESI, PT, 24Q and Form 16 filings follow.</p>
+          <p class="wf-lede">Attendance / LOP inputs → gross → statutory deductions (PF 12% · ESI · professional tax · TDS) → approval → NEFT disbursement → GL → PF ECR / ESI / PT / TDS 24Q filings.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1775,12 +1853,20 @@ flowchart TD
   GL --> FIL["Statutory filings: PF ECR · ESI · PT return ·<br/>TDS 24Q quarterly · Form 16 annual"]
   FIL --> END(["Period closed"])
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>Gross is computed per employee from basic, DA, HRA and allowances, drawing on attendance and loss of pay, approved leave, arrears, increments, and joiners and leavers.</li>
+              <li>Statutory deductions run as provident fund at 12%, ESI where the wage falls within the limit, professional tax on the state slab and TDS on the income-tax slab, alongside loss of pay and loans. Employer provident-fund and ESI contributions are carried with them.</li>
+              <li>Approval gates the run. Disbursement produces the NEFT file and the payslips, the ledger takes salary expense against bank and statutory payables, and the filings follow: PF ECR, ESI, the professional-tax return, the quarterly TDS return and the annual Form 16.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="06" data-t="Approvals Engine" data-d="Governance">
           <div class="wf-kicker">06 <span>&middot;</span> Governance</div>
           <h3>Approvals Engine</h3>
-          <p class="wf-lede">One engine behind leave, purchase, fee concession, admission and circulars. A request routes by matrix — HOD to Principal to Correspondent to Chairman — and the approver, or the configured super approver, decides. Reject, revise and resubmit reopens the <em>same</em> request at step one with a revision count; an SLA breach only surfaces the stalled request, it never decides for anyone.</p>
+          <p class="wf-lede">A request for an action routed by matrix (HOD → Principal → Correspondent → Chairman); the approver — or the configured super approver — decides. Reject → revise → resubmit reopens the same request with a revision count; an SLA breach only surfaces the stalled request to the super approver.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1793,12 +1879,22 @@ flowchart TD
   RT -- "SLA breached" --> ESC["Stalled request SURFACED to the super approver<br/>(notification only — nothing is auto-decided or skipped)"]
   PD -. "recall (while pending)" .-> RC(["RECALLED"])
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li class="ok">A configured super approver may decide when the assigned approver cannot. There is no delegation.<span class="wf-vfd">Verified</span></li>
+              <li class="ok">An SLA breach surfaces the stalled request to the super approver — a notification and nothing more. Escalation never approves, rejects, skips or advances anything on its own.<span class="wf-vfd">Verified</span></li>
+              <li class="ok">Reject, revise and resubmit is a real transition: the rejected request reopens as the same request at step one, carrying a revision count. It does not become a new request.<span class="wf-vfd">Verified</span></li>
+              <li>A request is raised for an action — leave, a purchase, a fee concession, an admission, a circular — and routes by the approval matrix from head of department to principal, to correspondent or secretary, to chairman. Approval executes the action, and a request still pending can be recalled.</li>
+              <li>Status is never editable as a field, the approver and the author are set by the system rather than by the caller, and every action is guarded against being run out of turn.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="07" data-t="Communications &amp; Circulars" data-d="Communications">
           <div class="wf-kicker">07 <span>&middot;</span> Communications</div>
           <h3>Communications &amp; Circulars</h3>
-          <p class="wf-lede">Compose, approve, then choose a channel: app notification, SMS, WhatsApp or email. The DLT gate is conditional — an SMS is blocked only where a DLT entity is configured for the provider and the registered template or sender header is missing. Regional language is supported throughout, and every send is logged.</p>
+          <p class="wf-lede">Compose → approve → channel (app notification · SMS · WhatsApp · email). SMS is gated by DLT only when a DLT entity is configured for the provider; then a registered template + sender header is required. Dispatch with delivery log.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1814,12 +1910,21 @@ flowchart TD
   CH -- "other channels" --> DS
   DS --> LOG(["Delivery log: sent · delivered · read"])
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>A circular is submitted, then approved or rejected, and is aimed at a class, a section, staff or parents.</li>
+              <li>The channels are app notification, SMS, WhatsApp and email. The notice board is not one of them.</li>
+              <li>The DLT gate is conditional. An SMS is blocked only where a DLT entity is configured for the provider and the registered template or sender header is missing; an institution with no DLT entity sends unblocked.</li>
+              <li>Regional languages are supported, every send is logged as sent, delivered or read, nothing leaves a development tenant, and channel credentials are write-only.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="08" data-t="Exams &amp; Hall Tickets" data-d="Academics">
           <div class="wf-kicker">08 <span>&middot;</span> Academics</div>
           <h3>Exams &amp; Hall Tickets</h3>
-          <p class="wf-lede">Two paths from one exam-type decision. Board and university exams — SSC, Intermediate, B.Tech — run through eligibility, board hall tickets, marks exchanged with the board, revaluation and supplementary. Internal exams for the non-board classes run quarterly, half-yearly and annually, and end in a report card on the parent portal.</p>
+          <p class="wf-lede">Two paths: Board / University exams (SSC · Intermediate · B.Tech) — eligibility, board hall tickets, marks exchanged with the board, revaluation, supplementary; and Internal exams (quarterly · half-yearly · annual) for non-board classes 1–9 with report cards.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1846,12 +1951,21 @@ flowchart TD
   IE -- Yes --> PM
   IE -- No --> IR["Retained / re-test"]
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>The exam type is set per course or class: board and university exams — SSC, Intermediate, B.Tech — against internal exams for the non-board classes, quarterly, half-yearly and annual.</li>
+              <li>On the board path the schedule is received and eligibility needs attendance of at least 75% with fees clear, failing which the student is detained or condoned with a fee. Hall tickets come from the board, internal-assessment and practical marks go up to the board portal, results come back and are imported, revaluation carries a fee, and a supplementary re-issues hall tickets.</li>
+              <li>On the internal path a timetable is generated, the school conducts the exam, marks are entered per subject and graded against the marks structure, and the report card reaches the parent portal — with promotion or retention decided at the annual exam.</li>
+              <li>This flow is held for separate discussion, and is unchanged from v2.5 of the pack.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="09" data-t="Data Migration Cockpit" data-d="Operations">
           <div class="wf-kicker">09 <span>&middot;</span> Operations</div>
           <h3>Data Migration Cockpit</h3>
-          <p class="wf-lede">Legacy data enters a rehearsal trust, is staged and parsed, gets a proposed field mapping a reviewer confirms, converts to canonical records and is validated in that converted form. Each batch loads to live inside the rehearsal; only when the trial balance ties does the whole environment get promoted into the target trust. Stages run in order — skipping one is blocked.</p>
+          <p class="wf-lede">Collect data → start run in a rehearsal (migration) trust → stage / parse → propose field mapping → convert to canonical records → validate → review (trial balance ties) → load each batch to live; then promote the whole rehearsal environment into the target trust.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1870,12 +1984,20 @@ flowchart TD
   MORE -- No --> PR["Promote the rehearsal environment (migration trust)<br/>into the target trust — whole-environment move"]
   PR --> DONE(["Cutover complete<br/>(stages run in order — stage-skip is blocked)"])
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>The order is fixed: collect the data in a legacy format or the UniverseIT template, start a run inside a rehearsal trust, stage and parse the batch, propose a field mapping for a reviewer to confirm, convert to canonical records, validate the converted form, review that the trial balance ties, and load the batch. Conversion comes before validation, and the mapping proposal is a stage in its own right.</li>
+              <li>Loading to live happens per batch and inside the rehearsal trust. Promotion is a separate, later step that moves the whole rehearsal environment into the target trust.</li>
+              <li>Validation runs on the converted records — required fields, references, duplicates, and personal identifiers masked on import. Errors send rows back to the template to be fixed and re-staged, and no stage can be skipped.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="10" data-t="Transportation &amp; Trip Tracking" data-d="Operations">
           <div class="wf-kicker">10 <span>&middot;</span> Operations</div>
           <h3>Transportation &amp; Trip Tracking</h3>
-          <p class="wf-lede">Vehicles registered with their permit, fitness, insurance and GPS; routes, stops and a fee per stop; a driver with licence and police verification, and an attendant on school buses. Students allocated to a stop have transport added to the fee demand, and every daily trip carries live tracking, parent alerts and board-and-alight attendance.</p>
+          <p class="wf-lede">Register vehicles with documents → routes, stops &amp; fee → driver + attendant → student allocation → daily trips with live GPS, parent alerts, trip attendance → compliance renewals.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1890,12 +2012,19 @@ flowchart TD
   RN -- Yes --> VC
   RN -- No --> OK(["Operational"])
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>Vehicles are registered with their permit, fitness certificate, insurance and GPS unit. A route carries its stops and a fee per stop, a driver carries a licence and police verification with an attendant on school buses, and a student assigned to a stop has the transport fee added to their demand.</li>
+              <li>A daily trip carries live tracking and a geo-fence, parent alerts on arrival, boarding and drop, board-and-alight attendance, and retained logs — with renewal reminders for the permit, the fitness certificate and the insurance.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="11" data-t="PII Reveal with Audit" data-d="Governance / Security">
           <div class="wf-kicker">11 <span>&middot;</span> Governance / Security</div>
           <h3>PII Reveal with Audit</h3>
-          <p class="wf-lede">Aadhaar, mobile, email and bank are masked by default and the raw fields are not filterable. Reveal for staff is deliberately unrestricted but audited on every single occurrence. The minor guardian-consent gate and the justification requirement are per-institution settings, both off unless switched on; the re-mask timer is a client display lease, not a server promise.</p>
+          <p class="wf-lede">Masked by default; raw fields not filterable. Reveal for staff is unrestricted but audited on every occurrence; an opt-in (off by default) guardian-consent gate for minors and an optional justification requirement are per-institution settings; the re-mask timer is a client display lease only.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1911,12 +2040,22 @@ flowchart TD
   RV --> AU(["Audit entry on EVERY reveal: who · what · when · reason"])
   AU -.-> OOS["Consent capture and withdrawal — exists<br/>Access / correction / deletion requests — OUT OF SCOPE"]
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li class="ok">Aadhaar — last four digits only — along with mobile, email and bank details are masked by default, the underlying values cannot be searched on, and every reveal writes an audit entry.<span class="wf-vfd">Verified</span></li>
+              <li>The guardian-consent gate for minors is opt-in per institution and off unless an institution switches it on.</li>
+              <li>There is no role-and-purpose authorisation. Revealing is deliberately unrestricted for staff and audited instead. What an institution may add is a justification requirement: the caller types a reason, and it is stored on the audit entry.</li>
+              <li>The re-mask timer is a display lease only. The screen re-masks after a few seconds, but nothing is enforced once the value has been handed over.</li>
+              <li>Consent capture and withdrawal exist. Access, correction and deletion requests are out of scope and are not handled as a workflow.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="12" data-t="Academic Year Lifecycle" data-d="Academics">
           <div class="wf-kicker">12 <span>&middot;</span> Academics &middot; capstone</div>
           <h3>Academic Year Lifecycle</h3>
-          <p class="wf-lede">The capstone flow: a calendar built per affiliating university or board, counselling-driven admissions, a semester of attendance, fees, transport, circulars and leave, then internal and board exams, promotion or detention, year-end payroll and financial close — and a rollover that carries masters and balances into the next year.</p>
+          <p class="wf-lede">Calendar per affiliating university / board → counselling-driven admissions → semester operations → university exams → promotion / detention → close → rollover.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TD
@@ -1927,12 +2066,18 @@ flowchart TD
   P4 --> P5(["Rollover: next year / semester ·<br/>carry-forward masters and balances"])
   P5 -. "AICTE / university academic calendar" .-> P0
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>An academic calendar per affiliating university or board, with odd and even semesters or a CBSE or state-board year; counselling-driven admissions through to class commencement; a term of attendance tracked against the 75% rule, fees and reimbursement, transport, circulars and leave; internal then board exams and their results; promotion or detention on attendance and credit rules; year-end payroll, financial close and statutory returns; and a rollover that carries the masters and the balances forward.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="13" data-t="Branch Blueprint" data-d="Master map">
           <div class="wf-kicker">13 <span>&middot;</span> Master map</div>
           <h3>Branch Blueprint &mdash; Set Up &amp; Operate</h3>
-          <p class="wf-lede">The dependency order for standing a campus up, once: trust, branch, affiliation and approvals, courses, departments, spaces, staff, academic year and timetable — and only then students. Everything after the go-live checklist runs in parallel, for good.</p>
+          <p class="wf-lede">Setup chain: Trust → Branch → Affiliation &amp; approvals → Courses → Departments; Branch → Building spaces; Trust → Onboard staff (trust level) → Assign; Academic year; Timetable → Admit students → Go-Live checklist → one block listing all ongoing operations.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TB
@@ -1955,12 +2100,18 @@ flowchart TB
   ADM --> GATE{{"GO-LIVE<br/>readiness checklist"}}
   GATE --> OPS["AFTER GO-LIVE — ongoing operations, run in parallel<br/><br/>▣ Academic operations · attendance<br/>▣ Exams and results<br/>▣ Fee management<br/>▣ Finance / GL<br/>▣ Payroll<br/>▣ Transportation<br/>◆ Hostel · Library · Clubs<br/>◆ Communications and circulars"]
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>The dependency order runs: trust, then branch, with staff onboarded at trust level. A branch carries its affiliation and approvals — AICTE, university or board, the sanctioned intake, the AFRC fee and the statutory registrations — and its building spaces. Affiliation opens the courses, which open the departments, and also opens the academic year. Onboarded staff are assigned to a branch. Departments, academic year, building spaces and assigned staff together make the timetable possible; then students are admitted, the go-live checklist is cleared, and the ongoing operations begin together.</li>
+            </ul>
+          </div>
         </article>
 
         <article class="wf-slide" data-n="14" data-t="Tenant Onboarding" data-d="Onboarding">
           <div class="wf-kicker">14 <span>&middot;</span> Onboarding</div>
           <h3>Tenant Onboarding &rarr; Ready to Start the Academic Year</h3>
-          <p class="wf-lede">Six phases from an isolated tenant to a running year, each step with an owner and an hour estimate — about twenty hours in total. Go-live is two parallel acts, not one: commence each planned course or course step, and open the admissions intake, which has its own states from not started through open and on hold to closed.</p>
+          <p class="wf-lede">Six phases from isolated tenant creation to go-live, with owner and hour estimate on every step. Go-live is two parallel acts: commence each planned course / course step, and open the admissions intake (not started → open → on hold → closed). Total ~20 hrs.</p>
           <div class="wf-scroll"><div class="wf-fig"><div class="wf-wait">Drawing the flow&hellip;</div></div></div>
 <script type="text/plain" class="wf-src">
 flowchart TB
@@ -2015,9 +2166,30 @@ flowchart TB
   end
   P0 --> P1 --> P2 --> P3 --> P4 --> P5
 </script>
+          <div class="wf-check">
+            <h4>What the system does about it</h4>
+            <ul class="wf-list">
+              <li>Go-live is two parallel acts, not one commencement: each planned course, course group or course step is commenced; and the admissions intake is opened, which is a separate switch with its own states — not started, open, on hold, closed.</li>
+              <li>Six phases, each with an owner and an hour estimate and around twenty hours in total: platform provisioning, institution structure including affiliation and statutory registrations, the academic and physical foundation, people onboarding by bulk import, the academic-year build in strict order, and go-live — the validation, then the two acts above.</li>
+            </ul>
+          </div>
         </article>
 
       </div>
+    </div>
+
+    <div class="wf-cross rv">
+      <h3>And these hold across every flow</h3>
+      <p>Seven rules the whole product is built to, not fourteen separate promises.</p>
+      <ul class="wf-list">
+        <li>Status is set by the workflow that owns it. A status field cannot be edited directly, by any route.</li>
+        <li>Author, approver and timestamps are set by the system. Values supplied by the caller are ignored.</li>
+        <li>Required fields and references are enforced on every create — nothing empty, nothing dangling.</li>
+        <li>Records are retired, never deleted. Deletion is refused however it is attempted.</li>
+        <li>Personal identifiers — Aadhaar, PAN, passport, bank account, mobile and email — cannot be searched on. Masked companions are returned in their place.</li>
+        <li>Every business action is bound to its own record and guarded by its parameters and its state. None can be run on an empty call.</li>
+        <li>Employee and student masters are written under optimistic concurrency, so a stale edit is refused rather than silently applied.</li>
+      </ul>
     </div>
 
     <p class="wf-note rv">
