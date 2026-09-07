@@ -1262,8 +1262,9 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
 .wf-scroll {
   margin-top: 17px; overflow: auto; background: var(--bg);
   border: 1px solid var(--border); border-radius: 10px; padding: 16px; max-height: 76vh;
+  display: flex; justify-content: safe center; align-items: safe center;
 }
-.wf-fig { width: 100%; margin: 0 auto; }
+.wf-fig { width: 100%; flex: none; }
 .wf-fig svg { display: block; width: 100%; max-width: none; height: auto; }
 .wf-wait, .wf-fail {
   font-family: var(--mono); font-size: 11.5px; letter-spacing: .04em; color: var(--faint); padding: 26px 2px;
@@ -1305,7 +1306,10 @@ footer { background: var(--ink-2); color: var(--ink-faint); border-top: 1px soli
   font-size: 20px; line-height: 1; padding: 0;
 }
 .wfd-close:hover { border-color: var(--danger); color: var(--danger); }
-.wfd-body { flex: 1; min-height: 0; overflow: auto; padding: 18px; }
+.wfd-body {
+  flex: 1; min-height: 0; overflow: auto; padding: 18px;
+  display: flex; justify-content: safe center; align-items: safe center;
+}
 body.wf-open { overflow: hidden; }
 @media (max-width: 620px) {
   .wfd { padding: 0; }
