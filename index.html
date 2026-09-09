@@ -1355,6 +1355,205 @@ body.wf-open { overflow: hidden; }
   .wf-gap { display: none; }
 }
 
+/* ================= PRODUCT DECK (top carousel) =================
+   The eight-slide product deck, drawn as live markup rather than
+   dropped in as eight exported PNGs: the type stays crisp at any
+   width, it is selectable, translatable and indexable (a crawler
+   reading the page sees the eight propositions, not eight images
+   with alt text), and the band costs a few kB instead of several
+   megabytes above the fold.
+
+   The deck is the same committed blue in BOTH themes, like the
+   .band-ink sections further down, so it carries its own palette
+   rather than the page tokens. Everything is laid out against
+   --u, one unit of the deck's own width, so the composition holds
+   its proportions the way the slide does; the tier queries below
+   re-scale --u because a 1920-wide slide's type ratios are too
+   small to read once the same artwork is 900 px wide.
+   ================================================================ */
+.deck-band { background: var(--sunken); border-bottom: 1px solid var(--border); padding: 24px 0 26px; }
+.deck {
+  position: relative;
+  max-width: var(--wide);
+  /* 28px of gutter each side — the same as .wrap, so the deck lines
+     up with every section heading below it */
+  width: calc(100% - 56px);
+  margin: 0 auto;
+  container: deck / inline-size;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+}
+.deck:focus-visible { outline: 2px solid var(--brand-lift); outline-offset: 3px; }
+
+.deck-frame {
+  --u: 1.28cqw;                 /* one layout unit = 1.28% of the deck's width */
+  --dk-orange:  #EE7623;
+  --dk-text:    #FFFFFF;
+  --dk-soft:    #CFDFEF;
+  --dk-faint:   rgba(255,255,255,.58);
+  --dk-ghost:   rgba(255,255,255,.075);
+
+  aspect-ratio: 16 / 9;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  color: var(--dk-text);
+  background: #12508C;
+  background-image:
+    radial-gradient(115% 85% at 10% -12%, rgba(255,255,255,.075), transparent 62%),
+    radial-gradient(85% 75% at 104% 118%, rgba(0,0,0,.18), transparent 64%);
+  font-family: var(--sans);
+}
+
+/* the orange spine down the left edge */
+.deck-bar {
+  position: absolute; left: calc(var(--u) * 3.75); top: 0; bottom: 0;
+  width: calc(var(--u) * .38); background: var(--dk-orange);
+}
+
+/* the lockup, top right — one copy for the whole deck, since it does
+   not change from slide to slide */
+.deck-logo {
+  position: absolute; right: calc(var(--u) * 5.2); top: calc(var(--u) * 3.6);
+  --logo-ink: #FFFFFF; --logo-gold: var(--dk-orange); --logo-rule: rgba(255,255,255,.45);
+}
+.deck-lockup { display: block; height: calc(var(--u) * 2.4); width: auto; overflow: visible; }
+
+/* ---- the stage: every slide sits in the same grid cell and cross-fades ---- */
+.deck-stage {
+  position: relative; z-index: 2;
+  flex: 1; display: grid;
+  padding: calc(var(--u) * 7) calc(var(--u) * 5) 0 calc(var(--u) * 10.5);
+}
+.dslide {
+  grid-area: 1 / 1;
+  position: relative; min-width: 0;
+  opacity: 0; visibility: hidden;
+  transform: translateY(calc(var(--u) * .7));
+  transition: opacity .55s ease, transform .55s cubic-bezier(.22,.8,.3,1), visibility 0s linear .55s;
+}
+.dslide.on {
+  opacity: 1; visibility: visible; transform: none;
+  transition: opacity .55s ease, transform .55s cubic-bezier(.22,.8,.3,1), visibility 0s;
+}
+
+/* the ghost numeral behind the text */
+.dnum {
+  position: absolute; right: calc(var(--u) * .3); top: calc(var(--u) * 1.6);
+  font-size: calc(var(--u) * 20); line-height: .86; font-weight: 800;
+  color: var(--dk-ghost); letter-spacing: -.02em; pointer-events: none; user-select: none;
+  z-index: 0;
+}
+/* the numeral is positioned, so the copy has to be lifted over it */
+.deyebrow, .dtitle, .drule, .dbullets { position: relative; z-index: 1; }
+
+.deyebrow {
+  margin: 0; display: flex; align-items: center; gap: calc(var(--u) * .75);
+  font-size: calc(var(--u) * .78); font-weight: 700; letter-spacing: .19em;
+  text-transform: uppercase; color: var(--dk-soft);
+}
+.deyebrow b { color: var(--dk-orange); font-weight: 700; letter-spacing: .19em; }
+.deyebrow i { display: block; width: calc(var(--u) * 1.5); height: calc(var(--u) * .1);
+  background: var(--dk-soft); opacity: .8; flex: none; }
+
+.dtitle {
+  margin: calc(var(--u) * 1.9) 0 0;
+  font-family: var(--sans);
+  font-size: calc(var(--u) * 4.06); font-weight: 800; line-height: 1.2;
+  letter-spacing: -.015em; color: var(--dk-text); text-wrap: balance;
+}
+.drule {
+  display: block; margin-top: calc(var(--u) * 2.3);
+  width: calc(var(--u) * 5.1); height: calc(var(--u) * .17); background: var(--dk-orange);
+}
+.dbullets { list-style: none; margin: calc(var(--u) * 2.2) 0 0; padding: 0; }
+.dbullets li {
+  position: relative; padding-left: calc(var(--u) * 1.5);
+  font-size: calc(var(--u) * 1.09); line-height: 1.45; color: #EEF4FA;
+}
+.dbullets li + li { margin-top: calc(var(--u) * 1.2); }
+.dbullets li::before {
+  content: ""; position: absolute; left: 0; top: .58em;
+  width: calc(var(--u) * .34); height: calc(var(--u) * .34);
+  background: var(--dk-orange); transform: rotate(45deg);
+}
+
+/* ---- pagination, in the position the slide itself gives it ---- */
+.deck-dots {
+  position: relative; z-index: 3;
+  display: flex; gap: calc(var(--u) * 1.3);
+  padding: 0 calc(var(--u) * 5) 0 calc(var(--u) * 10.5);
+  margin-bottom: calc(var(--u) * 2.4);
+}
+.deck-dots button {
+  width: calc(var(--u) * .95); height: calc(var(--u) * .95); padding: 0;
+  border-radius: 50%; border: calc(var(--u) * .1) solid rgba(255,255,255,.45);
+  background: transparent; cursor: pointer; flex: none;
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+.deck-dots button:hover { border-color: #fff; transform: scale(1.25); }
+.deck-dots button[aria-selected="true"] {
+  background: var(--dk-orange); border-color: var(--dk-orange); transform: scale(1.1);
+}
+.deck-dots button:focus-visible { outline: 2px solid #fff; outline-offset: 3px; }
+
+.deck-foot {
+  position: relative; z-index: 3; text-align: center;
+  padding: 0 calc(var(--u) * 5) calc(var(--u) * 2.4);
+}
+.dprod {
+  margin: 0; display: flex; align-items: center; justify-content: center;
+  gap: calc(var(--u) * .5); font-size: calc(var(--u) * .89); font-weight: 600; color: #fff;
+}
+.dmark { width: calc(var(--u) * .95); height: calc(var(--u) * .95); display: block; flex: none; }
+.dlegal {
+  margin: calc(var(--u) * .95) 0 0;
+  font-size: calc(var(--u) * .58); line-height: 1.4; color: var(--dk-faint);
+}
+
+/* ---- tiers: the slide's own type ratios are built for 1920 px, so the
+        unit grows as the deck narrows, and the box gets taller to pay for it ---- */
+@container deck (max-width: 1000px) {
+  .deck-frame { --u: 1.75cqw; aspect-ratio: 3 / 2; }
+  .deck-stage { padding-top: calc(var(--u) * 5); }
+}
+@container deck (max-width: 700px) {
+  .deck-frame { --u: 2.9cqw; aspect-ratio: auto; }
+  .deck-stage { padding: calc(var(--u) * 9) calc(var(--u) * 4) calc(var(--u) * 3) calc(var(--u) * 5.5); }
+  .deck-logo  { right: calc(var(--u) * 4); top: calc(var(--u) * 3.2); }
+  .deck-lockup{ height: calc(var(--u) * 2.6); }
+  .deck-bar   { left: calc(var(--u) * 2); width: calc(var(--u) * .5); }
+  /* below this width the artwork's own headline:body ratio stops being
+     readable, so the two are re-proportioned rather than just scaled */
+  .dtitle     { font-size: calc(var(--u) * 2.9); margin-top: calc(var(--u) * 1.4); }
+  .deyebrow   { font-size: calc(var(--u) * 1.12); }
+  .dbullets   { margin-top: calc(var(--u) * 1.8); }
+  .dbullets li { font-size: calc(var(--u) * 1.5); padding-left: calc(var(--u) * 2); }
+  .dbullets li + li { margin-top: calc(var(--u) * 1.1); }
+  .dbullets li::before { width: calc(var(--u) * .5); height: calc(var(--u) * .5); }
+  .dnum       { font-size: calc(var(--u) * 12); right: calc(var(--u) * .5); top: calc(var(--u) * -2);
+                color: rgba(255,255,255,.055); }
+  .drule      { margin-top: calc(var(--u) * 1.7); width: calc(var(--u) * 7); height: calc(var(--u) * .25); }
+  .deck-dots  { padding-left: calc(var(--u) * 5.5); gap: calc(var(--u) * 1.6);
+                margin-bottom: calc(var(--u) * 2.6); }
+  .deck-dots button { width: calc(var(--u) * 1.3); height: calc(var(--u) * 1.3); }
+  .dprod      { font-size: calc(var(--u) * 1.25); }
+  .dmark      { width: calc(var(--u) * 1.3); height: calc(var(--u) * 1.3); }
+  .dlegal     { font-size: calc(var(--u) * .95); }
+  /* the headline's authored line breaks are set for a wide slide; the space
+     authored in front of each one carries the word gap once it is dropped */
+  .dtitle br  { display: none; }
+}
+@media (max-width: 560px) {
+  .deck-band { padding: 14px 0 16px; }
+  .deck { width: calc(100% - 32px); border-radius: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .dslide { transition: none; }
+}
+
 /* ================= REVEAL ================= */
 .rv { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s cubic-bezier(.22,.8,.3,1); }
 .rv.in { opacity: 1; transform: none; }
@@ -1410,6 +1609,158 @@ body.wf-open { overflow: hidden; }
     <button class="theme-btn" id="themeBtn" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
   </div>
 </nav>
+
+<!-- ============================ PRODUCT DECK ============================
+     Eight slides of the product deck, kept as markup so the type is crisp,
+     selectable and readable by a crawler. Behaviour lives in the DECK
+     CAROUSEL block at the foot of the page. -->
+<div class="deck-band">
+  <div class="deck" id="deck" role="region" aria-roledescription="carousel"
+       aria-label="UniverseIT at a glance" tabindex="0">
+    <div class="deck-frame">
+      <span class="deck-bar" aria-hidden="true"></span>
+      <div class="deck-logo" aria-hidden="true">
+        <!-- the nav lockup again, on the deck's own committed blue -->
+        <svg class="deck-lockup" viewBox="80 161.69 1638.75 199.92" role="img" aria-hidden="true">
+          <path d="M80 188.46L146.38 188.46L146.38 202.12L80 202.12Z" fill="var(--logo-ink)"></path/>
+          <path d="M97.57 188.46L128.81 188.46L128.81 219.7L97.57 219.7Z" fill="var(--logo-ink)"></path/>
+          <path d="M97.57 223.6C97.57 209.93 85.86 202.12 80 202.12L80 201.15L98.55 201.15L98.55 223.6Z" fill="var(--logo-ink)"></path/>
+          <path d="M128.81 223.6C128.81 209.93 140.52 202.12 146.38 202.12L146.38 201.15L127.83 201.15L127.83 223.6Z" fill="var(--logo-ink)"></path/>
+          <path d="M97.57 218.72L97.57 293.88C97.57 336.83 124.9 358.31 158.09 358.31C191.28 358.31 218.61 336.83 218.61 293.88L218.61 278.26L197.14 289.98C197.14 323.17 181.52 336.83 158.09 336.83C134.66 336.83 128.81 323.17 128.81 293.88L128.81 218.72Z" fill="var(--logo-ink)"></path/>
+          <path d="M222.52 188.46C222.52 197.08 215.52 204.08 206.9 204.08C198.27 204.08 191.28 197.08 191.28 188.46C191.28 179.83 198.27 172.84 206.9 172.84C215.52 172.84 222.52 179.83 222.52 188.46Z" fill="var(--logo-gold)"></path/>
+          <path d="M207.77 161.69L227.27 172.12L227.4 172.2L227.39 172.45L207.8 161.95L184.89 172.19L184.54 172.35L184.42 172.36L184.46 172.16L184.72 172ZM207.74 162.35L208.15 162.53L227.4 172.86L227.4 173.15L227.15 173.3L226.97 173.48L226.8 173.83L226.76 174.31L226.89 174.79L226.78 175.1L226.56 175.51L226 176.32L225.78 176.46L222.59 177.91L222.6 177L223.36 176.58L223.94 176.16L224.38 175.66L224.59 175.18L224.61 174.7L224.51 174.33L224.26 173.88L223.77 173.37L223.07 172.87L222.2 172.41L220.94 171.88L219.66 171.46L217.92 171L216.61 170.71L213.3 170.17L210.78 169.89L208.07 169.72L206.08 169.66L202.62 169.7L200.2 169.86L197.64 170.15L195.48 170.53L193.66 171L192.19 171.54L191.18 172.08L190.77 172.39L190.46 172.71L190.26 172.98L190.11 173.32L190.07 173.96L190.16 174.31L190.38 174.68L190.99 175.29L191.91 175.89L191.88 176.79L184.44 172.78ZM221.88 168.2L222.74 168.19L223.23 168.25L223.98 168.41L224.64 168.62L225.84 169.18L226.48 169.57L227.02 169.97L227.53 170.5L227.8 170.99L227.9 171.26L228.01 171.88L228.01 173.13L227.71 173.13L227.69 171.95L227.61 171.45L227.47 171.04L227.2 170.62L226.69 170.13L225.63 169.43L224.83 169.04L224.19 168.81L223.63 168.66L222.82 168.52L222.16 168.5L221.45 168.58L221.08 168.37L221.1 168.33ZM203.46 170.04L207.44 170.05L210.74 170.24L212.89 170.47L214.81 170.74L217.85 171.34L219.59 171.81L220.77 172.19L221.74 172.58L222.84 173.14L223.48 173.59L223.95 174.06L224.22 174.56L224.26 175.02L224.11 175.43L223.65 175.94L223.23 176.25L222.63 176.58L222.69 174.77L222.64 174.52L222.48 174.25L222.12 173.89L221.45 173.47L220.63 173.1L219.49 172.72L217.85 172.29L216.2 171.96L214.25 171.65L212.29 171.42L208.4 171.13L205.91 171.05L203.49 171.05L200.04 171.21L197.43 171.48L195.17 171.88L193.5 172.39L192.94 172.64L192.52 172.91L192.12 173.32L192.02 173.54L191.98 173.79L191.92 175.5L191.14 174.96L190.71 174.52L190.46 174.08L190.4 173.67L190.46 173.4L190.59 173.13L191.03 172.64L191.51 172.29L192.25 171.9L193.37 171.46L194.28 171.19L195.63 170.86L197.1 170.59L200.47 170.18ZM203.69 171.41L205.79 171.4L209.06 171.52L212.21 171.77L214.32 172.02L216.86 172.45L218.74 172.87L220.4 173.39L221.56 173.93L221.95 174.2L222.19 174.45L222.35 174.79L222.05 182.56L221.46 182.18L220.92 181.95L219.59 181.66L218.76 181.58L217.59 181.57L215.5 181.72L213.96 181.95L212.68 182.2L210.28 182.82L208.36 183.54L207.61 183.94L206.95 184.43L206.53 184.02L205.98 183.63L204.94 183.07L204.13 182.72L202.66 182.18L201.55 181.84L200.1 181.45L198.61 181.12L196.44 180.81L195.52 180.75L194.45 180.77L193.68 180.87L193.08 181.01L192.65 181.16L192.09 181.49L192.33 173.73L192.41 173.52L192.69 173.22L193.41 172.81L194.12 172.54L195.59 172.16L196.85 171.92L199.87 171.58L201.77 171.46ZM228.31 172.71L230.31 173.76L230.32 174L230.15 173.95L228.33 172.97ZM227.72 173.42L228.04 173.43L228.24 173.53L228.46 173.77L228.56 174.02L228.56 174.33L228.48 174.56L228.31 174.76L228.04 174.88L227.66 174.86L227.39 174.76L227.24 174.64L227.12 174.41L227.11 174.04L227.22 173.75L227.46 173.51ZM228.77 173.63L229.13 173.78L230.28 174.43L228.53 175.23L228.52 175.04L228.77 174.75L228.9 174.37L228.9 173.96ZM227.18 175.01L227.81 175.15L228.17 175.18L228.19 175.72L228.31 176.44L228.32 176.94L228.27 177.38L227.8 178.73L227.67 179.31L227.65 180.07L227.74 180.51L227.71 180.58L227.17 180.54L226.82 180.44L226.78 180.32L226.86 179.92L226.38 180.33L226.15 180.25L226.04 180.09L226.07 179.54L225.63 179.92L225.57 179.69L225.35 179.83L225.27 179.72L225.29 179.16L225.06 179.32L225.02 179.2L225.02 178.89L225.09 178.5L225.42 177.73L226.7 175.93L227.01 175.41ZM194.62 181.4L195.81 181.39L197.49 181.57L199.33 181.91L201.61 182.51L203.37 183.11L204.59 183.61L205.91 184.33L206.35 184.68L206.62 184.97L206.89 185.1L207.22 185.04L207.73 184.62L208.62 184.12L209.66 183.69L210.88 183.3L212.29 182.94L213.96 182.59L215.54 182.36L216.82 182.24L217.73 182.2L219.05 182.24L219.84 182.34L220.81 182.59L221.43 182.9L221.9 183.33L222.02 183.53L222 184.22L221.43 183.81L221.02 183.59L220.48 183.4L219.68 183.23L218.52 183.11L217.17 183.11L215.52 183.25L214.03 183.46L212.52 183.75L210.24 184.35L208.75 184.89L207.94 185.28L207.36 185.64L206.91 186.03L206.6 185.68L205.83 185.12L205.21 184.77L204.17 184.29L202.79 183.77L201.4 183.32L200.1 182.98L198.69 182.67L196.41 182.34L195.84 182.3L194.47 182.32L193.62 182.43L192.9 182.65L192.32 182.94L192.01 183.15L192.04 182.46L192.14 182.29L192.5 181.97L192.96 181.72L193.29 181.6L194.04 181.45Z" fill="var(--logo-ink)" fill-rule="evenodd"></path/>
+          <path d="M179.57 207.98L193.23 225.55C195.19 241.17 197.14 256.79 197.14 268.5L197.14 282.17L218.61 270.45L218.61 268.5C218.61 256.79 220.56 241.17 222.52 225.55L236.18 207.98L229.35 203.1C220.56 208.96 214.71 209.93 206.9 209.93C199.09 209.93 193.23 208.96 186.4 203.1Z" fill="var(--logo-gold)"></path/>
+          <path d="M275.51 188.46L278.65 188.46L278.65 358.31L275.51 358.31Z" fill="var(--logo-rule)"></path/>
+          <path d="M339.36 188.46L383.16 188.46L383.16 290.28Q383.16 311.32 390.04 320.37Q396.93 329.41 412.51 329.41Q428.21 329.41 435.1 320.37Q441.98 311.32 441.98 290.28L441.98 188.46L485.78 188.46L485.78 290.28Q485.78 326.34 467.69 343.97Q449.6 361.61 412.51 361.61Q375.54 361.61 357.45 343.97Q339.36 326.34 339.36 290.28L339.36 188.46ZM654.83 280.72L654.83 358.31L613.88 358.31L613.88 345.68L613.88 298.92Q613.88 282.43 613.14 276.17Q612.4 269.91 610.58 266.96Q608.19 262.97 604.09 260.76Q600 258.54 594.76 258.54Q582.02 258.54 574.74 268.38Q567.46 278.22 567.46 295.62L567.46 358.31L526.73 358.31L526.73 230.89L567.46 230.89L567.46 249.55Q576.67 238.4 587.03 233.11Q597.38 227.82 609.89 227.82Q631.96 227.82 643.4 241.36Q654.83 254.9 654.83 280.72ZM692.6 230.89L733.33 230.89L733.33 358.31L692.6 358.31L692.6 230.89ZM692.6 181.29L733.33 181.29L733.33 214.51L692.6 214.51L692.6 181.29ZM756.42 230.89L797.15 230.89L828.89 318.95L860.51 230.89L901.36 230.89L851.19 358.31L806.48 358.31L756.42 230.89ZM1051.52 294.26L1051.52 305.86L956.3 305.86Q957.78 320.2 966.66 327.36Q975.53 334.53 991.46 334.53Q1004.31 334.53 1017.79 330.72Q1031.27 326.91 1045.49 319.17L1045.49 350.57Q1031.05 356.03 1016.6 358.82Q1002.15 361.61 987.7 361.61Q953.12 361.61 933.95 344.03Q914.78 326.45 914.78 294.71Q914.78 263.54 933.61 245.68Q952.44 227.82 985.43 227.82Q1015.46 227.82 1033.49 245.91Q1051.52 264 1051.52 294.26ZM1009.66 280.72Q1009.66 269.12 1002.89 262.01Q996.12 254.9 985.2 254.9Q973.37 254.9 965.97 261.55Q958.58 268.21 956.76 280.72L1009.66 280.72ZM1177.01 265.59Q1171.66 263.09 1166.37 261.89Q1161.08 260.7 1155.73 260.7Q1140.03 260.7 1131.56 270.77Q1123.08 280.83 1123.08 299.61L1123.08 358.31L1082.35 358.31L1082.35 230.89L1123.08 230.89L1123.08 251.83Q1130.93 239.31 1141.11 233.57Q1151.29 227.82 1165.52 227.82Q1167.56 227.82 1169.95 227.99Q1172.34 228.16 1176.89 228.73L1177.01 265.59ZM1296.8 234.87L1296.8 265.82Q1283.72 260.36 1271.54 257.63Q1259.37 254.9 1248.56 254.9Q1236.96 254.9 1231.33 257.8Q1225.7 260.7 1225.7 266.73Q1225.7 271.62 1229.96 274.24Q1234.23 276.85 1245.26 278.1L1252.43 279.13Q1283.72 283.11 1294.52 292.21Q1305.33 301.31 1305.33 320.77Q1305.33 341.13 1290.31 351.37Q1275.3 361.61 1245.49 361.61Q1232.86 361.61 1219.38 359.62Q1205.9 357.63 1191.68 353.64L1191.68 322.7Q1203.85 328.62 1216.65 331.57Q1229.45 334.53 1242.65 334.53Q1254.59 334.53 1260.62 331.23Q1266.65 327.93 1266.65 321.45Q1266.65 315.99 1262.5 313.31Q1258.35 310.64 1245.95 309.16L1238.78 308.25Q1211.59 304.84 1200.67 295.62Q1189.75 286.41 1189.75 267.64Q1189.75 247.39 1203.63 237.6Q1217.51 227.82 1246.17 227.82Q1257.44 227.82 1269.84 229.53Q1282.24 231.23 1296.8 234.87ZM1463.12 294.26L1463.12 305.86L1367.9 305.86Q1369.38 320.2 1378.25 327.36Q1387.13 334.53 1403.05 334.53Q1415.91 334.53 1429.39 330.72Q1442.87 326.91 1457.09 319.17L1457.09 350.57Q1442.64 356.03 1428.2 358.82Q1413.75 361.61 1399.3 361.61Q1364.72 361.61 1345.55 344.03Q1326.38 326.45 1326.38 294.71Q1326.38 263.54 1345.21 245.68Q1364.03 227.82 1397.02 227.82Q1427.06 227.82 1445.09 245.91Q1463.12 264 1463.12 294.26ZM1421.26 280.72Q1421.26 269.12 1414.49 262.01Q1407.72 254.9 1396.8 254.9Q1384.97 254.9 1377.57 261.55Q1370.18 268.21 1368.36 280.72L1421.26 280.72Z" fill="var(--logo-ink)"></path/>
+          <path d="M1495.77 188.46L1539.57 188.46L1539.57 358.31L1495.77 358.31L1495.77 188.46ZM1562.21 188.46L1718.75 188.46L1718.75 221.56L1662.44 221.56L1662.44 358.31L1618.64 358.31L1618.64 221.56L1562.21 221.56L1562.21 188.46Z" fill="var(--logo-gold)"></path/>
+        </svg>
+      </div>
+
+      <div class="deck-stage" id="deckStage">
+        <article class="dslide on" role="tabpanel" id="dslide-1"
+                 aria-roledescription="slide" aria-label="1 of 8 — Admissions">
+          <span class="dnum" aria-hidden="true">1</span>
+          <p class="deyebrow"><b>01</b> / 08 <i></i> Admissions</p>
+          <h2 class="dtitle">Admission to enrolled <br>in one flow</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Enquiry to application to admitted student, with no re-keying</li>
+            <li>Guardians, contacts, documents and fee variant captured on the way</li>
+            <li>Pre-school through B.Tech, each branch on its own admission rules</li>
+          </ul>
+        </article>
+        <article class="dslide" role="tabpanel" id="dslide-2"
+                 aria-roledescription="slide" aria-label="2 of 8 — Student 360">
+          <span class="dnum" aria-hidden="true">2</span>
+          <p class="deyebrow"><b>02</b> / 08 <i></i> Student 360</p>
+          <h2 class="dtitle">Every student, <br>one complete record</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Profile, guardians, section and attendance on a single screen</li>
+            <li>Exams, fee position, transport, hostel and library in the same view</li>
+            <li>Sensitive identifiers masked by default, unmasked only by role</li>
+          </ul>
+        </article>
+        <article class="dslide" role="tabpanel" id="dslide-3"
+                 aria-roledescription="slide" aria-label="3 of 8 — Fees & finance">
+          <span class="dnum" aria-hidden="true">3</span>
+          <p class="deyebrow"><b>03</b> / 08 <i></i> Fees &amp; finance</p>
+          <h2 class="dtitle">Fees that post <br>straight to the ledger</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Fee structures, variants, demands, receipts and dues by student</li>
+            <li>Every receipt raises a balanced double-entry voucher automatically</li>
+            <li>Unbalanced, negative and zero postings are rejected at source</li>
+          </ul>
+        </article>
+        <article class="dslide" role="tabpanel" id="dslide-4"
+                 aria-roledescription="slide" aria-label="4 of 8 — Academics">
+          <span class="dnum" aria-hidden="true">4</span>
+          <p class="deyebrow"><b>04</b> / 08 <i></i> Academics</p>
+          <h2 class="dtitle">Sections, timetable, <br>attendance, exams</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Courses, streams and sections mapped to teachers and rooms</li>
+            <li>Daily attendance feeding straight into reports and parent alerts</li>
+            <li>Exam schedules, marks entry, results and certificate generation</li>
+          </ul>
+        </article>
+        <article class="dslide" role="tabpanel" id="dslide-5"
+                 aria-roledescription="slide" aria-label="5 of 8 — Dynamic by design">
+          <span class="dnum" aria-hidden="true">5</span>
+          <p class="deyebrow"><b>05</b> / 08 <i></i> Dynamic by design</p>
+          <h2 class="dtitle">Sections, tables and <br>calendars that adapt</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Dynamic sections: create, split or re-map sections as intake changes</li>
+            <li>Dynamic tables: pick columns, filter, sort, group and save your own view</li>
+            <li>Dynamic calendar: timetable, exams, holidays and trips on one live view</li>
+          </ul>
+        </article>
+        <article class="dslide" role="tabpanel" id="dslide-6"
+                 aria-roledescription="slide" aria-label="6 of 8 — HR & payroll">
+          <span class="dnum" aria-hidden="true">6</span>
+          <p class="deyebrow"><b>06</b> / 08 <i></i> HR &amp; payroll</p>
+          <h2 class="dtitle">Your people, from <br>onboarding to payslip</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Employee master with contacts, bank, designation and separation</li>
+            <li>Leave applied, approved or rejected through a controlled workflow</li>
+            <li>Payroll runs, salary structures and payslips with automatic proration</li>
+          </ul>
+        </article>
+        <article class="dslide" role="tabpanel" id="dslide-7"
+                 aria-roledescription="slide" aria-label="7 of 8 — Campus operations">
+          <span class="dnum" aria-hidden="true">7</span>
+          <p class="deyebrow"><b>07</b> / 08 <i></i> Campus operations</p>
+          <h2 class="dtitle">The whole campus, <br>not just the classroom</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Transport routes, trips, drivers, helpers and vehicle records</li>
+            <li>Hostel, library, gate, health room and visitor management</li>
+            <li>Circulars, notifications and alerts reaching parents and staff</li>
+          </ul>
+        </article>
+        <article class="dslide" role="tabpanel" id="dslide-8"
+                 aria-roledescription="slide" aria-label="8 of 8 — The platform">
+          <span class="dnum" aria-hidden="true">8</span>
+          <p class="deyebrow"><b>08</b> / 08 <i></i> The platform</p>
+          <h2 class="dtitle">Built on SAP BTP, <br>SAP Cloud</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Multitenant SaaS: every institution isolated in its own tenant</li>
+            <li>120+ Fiori apps on one launchpad, OData V4 end to end</li>
+            <li>Role-based access, audit trail and soft-delete on every record</li>
+          </ul>
+        </article>
+      </div>
+
+      <div class="deck-dots" id="deckDots" role="tablist" aria-label="Choose a slide">
+        <button type="button" role="tab" id="ddot-1" aria-controls="dslide-1" aria-selected="true" tabindex="0" aria-label="Admissions — slide 1 of 8"></button>
+        <button type="button" role="tab" id="ddot-2" aria-controls="dslide-2" aria-selected="false" tabindex="-1" aria-label="Student 360 — slide 2 of 8"></button>
+        <button type="button" role="tab" id="ddot-3" aria-controls="dslide-3" aria-selected="false" tabindex="-1" aria-label="Fees & finance — slide 3 of 8"></button>
+        <button type="button" role="tab" id="ddot-4" aria-controls="dslide-4" aria-selected="false" tabindex="-1" aria-label="Academics — slide 4 of 8"></button>
+        <button type="button" role="tab" id="ddot-5" aria-controls="dslide-5" aria-selected="false" tabindex="-1" aria-label="Dynamic by design — slide 5 of 8"></button>
+        <button type="button" role="tab" id="ddot-6" aria-controls="dslide-6" aria-selected="false" tabindex="-1" aria-label="HR & payroll — slide 6 of 8"></button>
+        <button type="button" role="tab" id="ddot-7" aria-controls="dslide-7" aria-selected="false" tabindex="-1" aria-label="Campus operations — slide 7 of 8"></button>
+        <button type="button" role="tab" id="ddot-8" aria-controls="dslide-8" aria-selected="false" tabindex="-1" aria-label="The platform — slide 8 of 8"></button>
+      </div>
+
+      <div class="deck-foot">
+        <p class="dprod">A
+          <svg class="dmark" viewBox="0 0 12 12" aria-hidden="true">
+            <rect x="0" y="0" width="5" height="5" fill="#EE7623"></rect>
+            <rect x="7" y="0" width="5" height="5" fill="#fff"></rect>
+            <rect x="0" y="7" width="5" height="5" fill="#fff"></rect>
+            <rect x="7" y="7" width="5" height="5" fill="#EE7623"></rect>
+          </svg>
+          <b>SAPTECHS</b> Product</p>
+        <p class="dlegal">SAP and SAP BTP are trademarks of SAP SE. UniverseIT is a
+          SAPTECHS product, not affiliated with or endorsed by SAP SE.</p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ============================ HERO ============================ -->
 <header class="hero" id="top">
@@ -6842,6 +7193,94 @@ var WANTS = [
     armed = true;
     draw(cur);
   }
+})();
+
+/* ================= DECK CAROUSEL =================
+   Auto-advancing product deck at the top of the page. The timer is
+   deliberately easy to stop: it never runs while the pointer is over
+   the deck, while focus is inside it, while the tab is in the
+   background, or while the deck is scrolled out of view — an unread
+   slide advancing behind someone's back is the whole failure mode of
+   an auto-carousel. prefers-reduced-motion turns the advance off
+   entirely and leaves the dots as the only way through. */
+(function () {
+  var deck  = document.getElementById("deck");
+  if (!deck) return;
+  var slides = [].slice.call(document.querySelectorAll("#deckStage .dslide"));
+  var dots   = [].slice.call(document.querySelectorAll("#deckDots button"));
+  if (slides.length < 2 || dots.length !== slides.length) return;
+
+  var DWELL = 6000;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var cur = 0, timer = null;
+  var held = { hover: false, focus: false, hidden: false, offscreen: false };
+
+  function show(next) {
+    next = (next + slides.length) % slides.length;
+    if (next === cur) return;
+    slides[cur].classList.remove("on");
+    dots[cur].setAttribute("aria-selected", "false");
+    dots[cur].tabIndex = -1;
+    cur = next;
+    slides[cur].classList.add("on");
+    dots[cur].setAttribute("aria-selected", "true");
+    dots[cur].tabIndex = 0;
+  }
+
+  function stopped() {
+    return reduce || held.hover || held.focus || held.hidden || held.offscreen;
+  }
+  function tick() { show(cur + 1); }
+  function sync() {
+    if (timer) { clearInterval(timer); timer = null; }
+    if (!stopped()) timer = setInterval(tick, DWELL);
+  }
+  function hold(key, value) { held[key] = value; sync(); }
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () { show(i); dot.focus(); sync(); });
+  });
+
+  deck.addEventListener("mouseenter", function () { hold("hover", true); });
+  deck.addEventListener("mouseleave", function () { hold("hover", false); });
+  deck.addEventListener("focusin",    function () { hold("focus", true); });
+  deck.addEventListener("focusout",   function () {
+    if (!deck.contains(document.activeElement)) hold("focus", false);
+  });
+  document.addEventListener("visibilitychange", function () {
+    hold("hidden", document.hidden);
+  });
+
+  /* Left/right walk the deck; the roving tabindex on the dots means a
+     keyboard reaches exactly one of them, as a tablist should. */
+  deck.addEventListener("keydown", function (e) {
+    var back = e.key === "ArrowLeft", fwd = e.key === "ArrowRight";
+    if (!back && !fwd) return;
+    e.preventDefault();
+    show(cur + (fwd ? 1 : -1));
+    if (deck.contains(document.activeElement) && document.activeElement !== deck) dots[cur].focus();
+    sync();
+  });
+
+  /* swipe */
+  var x0 = null, y0 = null;
+  deck.addEventListener("touchstart", function (e) {
+    x0 = e.changedTouches[0].clientX; y0 = e.changedTouches[0].clientY;
+  }, { passive: true });
+  deck.addEventListener("touchend", function (e) {
+    if (x0 === null) return;
+    var dx = e.changedTouches[0].clientX - x0, dy = e.changedTouches[0].clientY - y0;
+    x0 = null;
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) { show(cur + (dx < 0 ? 1 : -1)); sync(); }
+  }, { passive: true });
+
+  if ("IntersectionObserver" in window) {
+    new IntersectionObserver(function (entries) {
+      hold("offscreen", !entries[0].isIntersecting);
+    }, { threshold: .25 }).observe(deck);
+  }
+
+  sync();
 })();
 
 /* ================= SCROLL REVEAL ================= */
