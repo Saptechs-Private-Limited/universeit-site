@@ -1512,7 +1512,7 @@ body.wf-open { overflow: hidden; }
   margin: 0; display: flex; align-items: center; justify-content: center;
   gap: calc(var(--u) * .5); font-size: calc(var(--u) * .89); font-weight: 600; color: #fff;
 }
-.dmark { width: calc(var(--u) * .95); height: calc(var(--u) * .95); display: block; flex: none; }
+.dmark { width: calc(var(--u) * 1.2); height: calc(var(--u) * 1.2); display: block; flex: none; }
 .dlegal {
   margin: calc(var(--u) * .95) 0 0;
   font-size: calc(var(--u) * .58); line-height: 1.4; color: var(--dk-faint);
@@ -1545,7 +1545,7 @@ body.wf-open { overflow: hidden; }
                 margin-bottom: calc(var(--u) * 2.6); }
   .deck-dots button { width: calc(var(--u) * 1.3); height: calc(var(--u) * 1.3); }
   .dprod      { font-size: calc(var(--u) * 1.25); }
-  .dmark      { width: calc(var(--u) * 1.3); height: calc(var(--u) * 1.3); }
+  .dmark      { width: calc(var(--u) * 1.6); height: calc(var(--u) * 1.6); }
   .dlegal     { font-size: calc(var(--u) * .95); }
   /* the headline's authored line breaks are set for a wide slide; the space
      authored in front of each one carries the word gap once it is dropped */
@@ -1701,11 +1701,29 @@ body.wf-open { overflow: hidden; }
 
       <div class="deck-foot">
         <p class="dprod">A
-          <svg class="dmark" viewBox="0 0 12 12" aria-hidden="true">
-            <rect x="0" y="0" width="5" height="5" fill="#EE7623"></rect>
-            <rect x="7" y="0" width="5" height="5" fill="#fff"></rect>
-            <rect x="0" y="7" width="5" height="5" fill="#fff"></rect>
-            <rect x="7" y="7" width="5" height="5" fill="#EE7623"></rect>
+          <!-- Brand pack v3 (mark H) — the SAPTECHS BlueField favicon artwork, taken
+               byte-for-byte from docs/logos/SAPTECHS_Favicon_BlueField_512x512.svg
+               with the <metadata> block stripped and the master's full-bleed #0C447C
+               field panel dropped. That is the pack's own *_OnBlue treatment
+               (docs/logos/README.md): the deck already carries a committed blue, and
+               the master's field would lay a second, darker blue rectangle over it.
+               The viewBox is tightened to the artwork (67..445 on both axes) for the
+               same reason the titlebar lockups are, so the mark fills the box it is
+               given instead of sitting in the master's padding.
+
+               What stood here was an invented two-by-two checkerboard — not the
+               SAPTECHS mark, which is a three-by-three grid whose orange tiles form
+               a T. aria-hidden stays: the wordmark is read from the text beside it. -->
+          <svg class="dmark" viewBox="67 67 378 378" aria-hidden="true">
+            <path d="M91.17 67L152.71 67C166.06 67 176.88 77.82 176.88 91.17L176.88 152.71C176.88 166.06 166.06 176.88 152.71 176.88L91.17 176.88C77.82 176.88 67 166.06 67 152.71L67 91.17C67 77.82 77.82 67 91.17 67Z" fill="#EE7623"></path>
+            <path d="M225.23 67L286.77 67C300.12 67 310.94 77.82 310.94 91.17L310.94 152.71C310.94 166.06 300.12 176.88 286.77 176.88L225.23 176.88C211.88 176.88 201.06 166.06 201.06 152.71L201.06 91.17C201.06 77.82 211.88 67 225.23 67Z" fill="#EE7623"></path>
+            <path d="M359.29 67L420.83 67C434.18 67 445 77.82 445 91.17L445 152.71C445 166.06 434.18 176.88 420.83 176.88L359.29 176.88C345.94 176.88 335.12 166.06 335.12 152.71L335.12 91.17C335.12 77.82 345.94 67 359.29 67Z" fill="#EE7623"></path>
+            <path d="M91.17 201.06L152.71 201.06C166.06 201.06 176.88 211.88 176.88 225.23L176.88 286.77C176.88 300.12 166.06 310.94 152.71 310.94L91.17 310.94C77.82 310.94 67 300.12 67 286.77L67 225.23C67 211.88 77.82 201.06 91.17 201.06Z" fill="#5C86AE"></path>
+            <path d="M225.23 201.06L286.77 201.06C300.12 201.06 310.94 211.88 310.94 225.23L310.94 286.77C310.94 300.12 300.12 310.94 286.77 310.94L225.23 310.94C211.88 310.94 201.06 300.12 201.06 286.77L201.06 225.23C201.06 211.88 211.88 201.06 225.23 201.06Z" fill="#EE7623"></path>
+            <path d="M359.29 201.06L420.83 201.06C434.18 201.06 445 211.88 445 225.23L445 286.77C445 300.12 434.18 310.94 420.83 310.94L359.29 310.94C345.94 310.94 335.12 300.12 335.12 286.77L335.12 225.23C335.12 211.88 345.94 201.06 359.29 201.06Z" fill="#5C86AE"></path>
+            <path d="M91.17 335.12L152.71 335.12C166.06 335.12 176.88 345.94 176.88 359.29L176.88 420.83C176.88 434.18 166.06 445 152.71 445L91.17 445C77.82 445 67 434.18 67 420.83L67 359.29C67 345.94 77.82 335.12 91.17 335.12Z" fill="#5C86AE"></path>
+            <path d="M225.23 335.12L286.77 335.12C300.12 335.12 310.94 345.94 310.94 359.29L310.94 420.83C310.94 434.18 300.12 445 286.77 445L225.23 445C211.88 445 201.06 434.18 201.06 420.83L201.06 359.29C201.06 345.94 211.88 335.12 225.23 335.12Z" fill="#EE7623"></path>
+            <path d="M359.29 335.12L420.83 335.12C434.18 335.12 445 345.94 445 359.29L445 420.83C445 434.18 434.18 445 420.83 445L359.29 445C345.94 445 335.12 434.18 335.12 420.83L335.12 359.29C335.12 345.94 345.94 335.12 359.29 335.12Z" fill="#5C86AE"></path>
           </svg>
           <b>SAPTECHS</b> Product</p>
         <p class="dlegal">SAP and SAP BTP are trademarks of SAP SE. UniverseIT is a
