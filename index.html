@@ -1356,14 +1356,14 @@ body.wf-open { overflow: hidden; }
 }
 
 /* ================= PRODUCT DECK (top carousel) =================
-   The five-slide product deck, drawn as live markup rather than
-   dropped in as five exported PNGs: the type stays crisp at any
+   The six-slide product deck, drawn as live markup rather than
+   dropped in as six exported PNGs: the type stays crisp at any
    width, it is selectable, translatable and indexable (a crawler
-   reading the page sees the five propositions, not five images
+   reading the page sees the six propositions, not six images
    with alt text), and the band costs a few kB instead of several
    megabytes above the fold.
 
-   The five slides are the five governance questions a principal or a
+   The six slides are the six governance questions a principal or a
    correspondent actually asks — put as questions, because each answer
    is something the platform REFUSES to do, and a refusal only lands
    once the question has been asked out loud.
@@ -1616,12 +1616,12 @@ body.wf-open { overflow: hidden; }
 </nav>
 
 <!-- ============================ PRODUCT DECK ============================
-     Five slides of the product deck, kept as markup so the type is crisp,
+     Six slides of the product deck, kept as markup so the type is crisp,
      selectable and readable by a crawler. Behaviour lives in the DECK
      CAROUSEL block at the foot of the page. -->
 <div class="deck-band">
   <div class="deck" id="deck" role="region" aria-roledescription="carousel"
-       aria-label="Five questions UniverseIT answers" tabindex="0">
+       aria-label="Six questions UniverseIT answers" tabindex="0">
     <div class="deck-frame">
       <span class="deck-bar" aria-hidden="true"></span>
       <div class="deck-logo" aria-hidden="true">
@@ -1643,9 +1643,9 @@ body.wf-open { overflow: hidden; }
 
       <div class="deck-stage" id="deckStage">
         <article class="dslide on" role="tabpanel" id="dslide-1"
-                 aria-roledescription="slide" aria-label="1 of 5 — Deletion">
+                 aria-roledescription="slide" aria-label="1 of 6 — Deletion">
           <span class="dnum" aria-hidden="true">1</span>
-          <p class="deyebrow"><b>01</b> / 05 <i></i> Deletion</p>
+          <p class="deyebrow"><b>01</b> / 06 <i></i> Deletion</p>
           <h2 class="dtitle">Can anyone delete <br>a valid record?</h2>
           <span class="drule" aria-hidden="true"></span>
           <ul class="dbullets">
@@ -1655,9 +1655,9 @@ body.wf-open { overflow: hidden; }
           </ul>
         </article>
         <article class="dslide" role="tabpanel" id="dslide-2"
-                 aria-roledescription="slide" aria-label="2 of 5 — Application access">
+                 aria-roledescription="slide" aria-label="2 of 6 — Application access">
           <span class="dnum" aria-hidden="true">2</span>
-          <p class="deyebrow"><b>02</b> / 05 <i></i> Application access</p>
+          <p class="deyebrow"><b>02</b> / 06 <i></i> Application access</p>
           <h2 class="dtitle">Who is using which <br>application?</h2>
           <span class="drule" aria-hidden="true"></span>
           <ul class="dbullets">
@@ -1667,9 +1667,9 @@ body.wf-open { overflow: hidden; }
           </ul>
         </article>
         <article class="dslide" role="tabpanel" id="dslide-3"
-                 aria-roledescription="slide" aria-label="3 of 5 — Change history">
+                 aria-roledescription="slide" aria-label="3 of 6 — Change history">
           <span class="dnum" aria-hidden="true">3</span>
-          <p class="deyebrow"><b>03</b> / 05 <i></i> Change history</p>
+          <p class="deyebrow"><b>03</b> / 06 <i></i> Change history</p>
           <h2 class="dtitle">Who modified this, <br>and when?</h2>
           <span class="drule" aria-hidden="true"></span>
           <ul class="dbullets">
@@ -1679,9 +1679,9 @@ body.wf-open { overflow: hidden; }
           </ul>
         </article>
         <article class="dslide" role="tabpanel" id="dslide-4"
-                 aria-roledescription="slide" aria-label="4 of 5 — Personal data">
+                 aria-roledescription="slide" aria-label="4 of 6 — Personal data">
           <span class="dnum" aria-hidden="true">4</span>
-          <p class="deyebrow"><b>04</b> / 05 <i></i> Personal data</p>
+          <p class="deyebrow"><b>04</b> / 06 <i></i> Personal data</p>
           <h2 class="dtitle">Who looked at that <br>Aadhaar or bank account?</h2>
           <span class="drule" aria-hidden="true"></span>
           <ul class="dbullets">
@@ -1691,9 +1691,9 @@ body.wf-open { overflow: hidden; }
           </ul>
         </article>
         <article class="dslide" role="tabpanel" id="dslide-5"
-                 aria-roledescription="slide" aria-label="5 of 5 — Approvals">
+                 aria-roledescription="slide" aria-label="5 of 6 — Approvals">
           <span class="dnum" aria-hidden="true">5</span>
-          <p class="deyebrow"><b>05</b> / 05 <i></i> Approvals</p>
+          <p class="deyebrow"><b>05</b> / 06 <i></i> Approvals</p>
           <h2 class="dtitle">Do different actions <br>need different approvals?</h2>
           <span class="drule" aria-hidden="true"></span>
           <ul class="dbullets">
@@ -1702,14 +1702,27 @@ body.wf-open { overflow: hidden; }
             <li>A missed deadline escalates to a person; nothing is ever auto-approved</li>
           </ul>
         </article>
+        <article class="dslide" role="tabpanel" id="dslide-6"
+                 aria-roledescription="slide" aria-label="6 of 6 — Configuration">
+          <span class="dnum" aria-hidden="true">6</span>
+          <p class="deyebrow"><b>06</b> / 06 <i></i> Configuration</p>
+          <h2 class="dtitle">Make a field mandatory <br>without a release?</h2>
+          <span class="drule" aria-hidden="true"></span>
+          <ul class="dbullets">
+            <li>Visible, editable or mandatory — set per field, per institution, at runtime</li>
+            <li>Rename any field in your own words, and in each language you teach in</li>
+            <li>Enforced by the server, not the screen, and live within thirty seconds</li>
+          </ul>
+        </article>
       </div>
 
       <div class="deck-dots" id="deckDots" role="tablist" aria-label="Choose a slide">
-        <button type="button" role="tab" id="ddot-1" aria-controls="dslide-1" aria-selected="true" tabindex="0" aria-label="Deletion — slide 1 of 5"></button>
-        <button type="button" role="tab" id="ddot-2" aria-controls="dslide-2" aria-selected="false" tabindex="-1" aria-label="Application access — slide 2 of 5"></button>
-        <button type="button" role="tab" id="ddot-3" aria-controls="dslide-3" aria-selected="false" tabindex="-1" aria-label="Change history — slide 3 of 5"></button>
-        <button type="button" role="tab" id="ddot-4" aria-controls="dslide-4" aria-selected="false" tabindex="-1" aria-label="Personal data — slide 4 of 5"></button>
-        <button type="button" role="tab" id="ddot-5" aria-controls="dslide-5" aria-selected="false" tabindex="-1" aria-label="Approvals — slide 5 of 5"></button>
+        <button type="button" role="tab" id="ddot-1" aria-controls="dslide-1" aria-selected="true" tabindex="0" aria-label="Deletion — slide 1 of 6"></button>
+        <button type="button" role="tab" id="ddot-2" aria-controls="dslide-2" aria-selected="false" tabindex="-1" aria-label="Application access — slide 2 of 6"></button>
+        <button type="button" role="tab" id="ddot-3" aria-controls="dslide-3" aria-selected="false" tabindex="-1" aria-label="Change history — slide 3 of 6"></button>
+        <button type="button" role="tab" id="ddot-4" aria-controls="dslide-4" aria-selected="false" tabindex="-1" aria-label="Personal data — slide 4 of 6"></button>
+        <button type="button" role="tab" id="ddot-5" aria-controls="dslide-5" aria-selected="false" tabindex="-1" aria-label="Approvals — slide 5 of 6"></button>
+        <button type="button" role="tab" id="ddot-6" aria-controls="dslide-6" aria-selected="false" tabindex="-1" aria-label="Configuration — slide 6 of 6"></button>
       </div>
 
       <div class="deck-foot">
