@@ -1469,6 +1469,13 @@ body.wf-open { overflow: hidden; }
   font-size: calc(var(--u) * 4.06); font-weight: 800; line-height: 1.2;
   letter-spacing: -.015em; color: var(--dk-text); text-wrap: balance;
 }
+/* A headline that will not say what it means in two lines. The widest tier is
+   the only one that has to pay for a third: it is the fixed 16/9 frame, and at
+   4.06u a 28-character line already overruns the text column. One step down
+   buys the line AND the row — three lines at 3.5u are shorter than two at
+   4.06u were tall. Below 700px `.dtitle br` is dropped and the frame is
+   auto-height, so the step is cancelled there and the headline just wraps. */
+.dtitle.long { font-size: calc(var(--u) * 3.5); }
 .drule {
   display: block; margin-top: calc(var(--u) * 2.3);
   width: calc(var(--u) * 5.1); height: calc(var(--u) * .17); background: var(--dk-orange);
@@ -1533,6 +1540,9 @@ body.wf-open { overflow: hidden; }
   /* below this width the artwork's own headline:body ratio stops being
      readable, so the two are re-proportioned rather than just scaled */
   .dtitle     { font-size: calc(var(--u) * 2.9); margin-top: calc(var(--u) * 1.4); }
+  /* the wide-tier step down would be a step UP here — 3.5u beats this rule's
+     2.9u on specificity, so it is restated rather than left to win */
+  .dtitle.long { font-size: calc(var(--u) * 2.9); }
   .deyebrow   { font-size: calc(var(--u) * 1.12); }
   .dbullets   { margin-top: calc(var(--u) * 1.8); }
   .dbullets li { font-size: calc(var(--u) * 1.5); padding-left: calc(var(--u) * 2); }
@@ -1718,7 +1728,7 @@ body.wf-open { overflow: hidden; }
                  aria-roledescription="slide" aria-label="7 of 7 — Migration">
           <span class="dnum" aria-hidden="true">7</span>
           <p class="deyebrow"><b>07</b> / 07 <i></i> Migration</p>
-          <h2 class="dtitle">Can you bring our <br>transactions across too?</h2>
+          <h2 class="dtitle long">Can you migrate <br>transaction data from <br>legacy system to UniverseIT?</h2>
           <span class="drule" aria-hidden="true"></span>
           <ul class="dbullets">
             <li>121 load objects in dependency order — masters, transactions and balances</li>
