@@ -1570,6 +1570,57 @@ body.wf-open { overflow: hidden; }
 }
 
 /* ================= REVEAL ================= */
+/* ---------- Curriculum: subject baskets ---------- */
+.bk-cats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 34px; }
+.bk-cat {
+  background: var(--surface); border: 1px solid var(--border); border-top: 3px solid var(--bk-hue);
+  border-radius: 6px; padding: 18px 18px 16px; box-shadow: var(--shadow);
+}
+.bk-cat.is-elective   { --bk-hue: var(--brand); }
+.bk-cat.is-validation { --bk-hue: var(--gold); }
+.bk-cat.is-evaluation { --bk-hue: var(--ok); }
+.bk-cat b {
+  display: block; font-family: var(--mono); font-size: 12px; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--bk-hue); margin-bottom: 8px;
+}
+.bk-cat p { font-size: 15px; color: var(--muted); line-height: 1.6; }
+.bk-cat p strong { color: var(--text); font-weight: 600; }
+.bk-cat .bk-eg { display: block; margin-top: 10px; font-size: 13.5px; color: var(--faint); }
+
+.bk-scroll { overflow-x: auto; border: 1px solid var(--border); border-radius: 6px; background: var(--surface); }
+.bk-tbl { border-collapse: collapse; width: 100%; font-size: 15px; min-width: 620px; }
+.bk-tbl caption { text-align: left; padding: 16px 20px 0; font-size: 13.5px; color: var(--faint); }
+.bk-tbl th, .bk-tbl td { text-align: left; vertical-align: top; padding: 13px 20px; border-bottom: 1px solid var(--border); }
+.bk-tbl thead th {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--faint); font-weight: 500; white-space: nowrap; border-bottom: 1px solid var(--rule);
+}
+.bk-tbl tbody tr:last-child td { border-bottom: 0; }
+.bk-tbl td:first-child { color: var(--text); font-weight: 600; min-width: 200px; }
+.bk-why { display: block; font-weight: 400; color: var(--muted); font-size: 13.5px; margin-top: 5px; line-height: 1.55; }
+.bk-board {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .08em; color: var(--faint);
+  border: 1px solid var(--border); border-radius: 3px; padding: 2px 6px; white-space: nowrap;
+}
+.bk-cfg { display: flex; flex-direction: column; gap: 8px; min-width: 260px; }
+.bk-chip { border-left: 3px solid var(--bk-hue); padding-left: 10px; line-height: 1.5; }
+.bk-chip.is-elective   { --bk-hue: var(--brand); }
+.bk-chip.is-validation { --bk-hue: var(--gold); }
+.bk-chip.is-evaluation { --bk-hue: var(--ok); }
+.bk-chip b { font-family: var(--mono); font-size: 12.5px; font-weight: 500; color: var(--bk-hue); letter-spacing: .02em; }
+.bk-chip span { display: block; font-size: 14px; color: var(--muted); }
+
+.bk-foot { margin-top: 26px; max-width: var(--read); font-size: 16px; color: var(--muted); line-height: 1.62; }
+.bk-foot strong { color: var(--text); font-weight: 600; }
+.bk-quote {
+  display: block; margin-top: 12px; padding: 12px 14px; border-radius: 5px;
+  background: var(--bg); border: 1px solid var(--border);
+  font-family: var(--mono); font-size: 13px; line-height: 1.5; color: var(--text);
+}
+@media (max-width: 860px) {
+  .bk-cats { grid-template-columns: 1fr; gap: 12px; }
+}
+
 .rv { opacity: 0; transform: translateY(14px); transition: opacity .6s ease, transform .6s cubic-bezier(.22,.8,.3,1); }
 .rv.in { opacity: 1; transform: none; }
 @media (prefers-reduced-motion: reduce) {
@@ -1608,6 +1659,7 @@ body.wf-open { overflow: hidden; }
       <a href="#hierarchy">Hierarchy</a>
       <a href="#modules">Modules</a>
       <a href="#workflows">Workflows</a>
+      <a href="#curriculum">Curriculum</a>
       <a href="#timetable">Timetable</a>
       <a href="#calendar">Calendar</a>
       <a href="#enrolment">Enrolment</a>
@@ -2640,6 +2692,142 @@ flowchart TB
 </div>
 
 <hr class="seal-rule">
+
+<!-- ============================ CURRICULUM ============================ -->
+<section id="curriculum" class="band-sunken">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow">Curriculum</div>
+      <h2>Every board writes its subject rules differently. One structure holds all of them.</h2>
+      <p class="lede">
+        A <strong>basket</strong> is a group of a class&rsquo;s subjects with a rule attached: what it decides, how
+        many, and a label. ICSE groups, the CBSE language quota, a state&rsquo;s compulsory language, &ldquo;either
+        this or that&rdquo; &mdash; each one is a basket somebody sets up on screen.
+        <strong>No code, and no separate build per school.</strong>
+      </p>
+    </div>
+
+    <div class="bk-cats rv">
+      <div class="bk-cat is-elective">
+        <b>Elective</b>
+        <p>The student <strong>picks</strong> subjects here when they are enrolled.
+          <span class="bk-eg">Second Language &mdash; choose 1 of Hindi, Kannada, Sanskrit, French.</span></p>
+      </div>
+      <div class="bk-cat is-validation">
+        <b>Validation</b>
+        <p>Nothing is picked. A rule read across <strong>everything the student takes</strong>, whichever box it came from.
+          <span class="bk-eg">At least two of the three languages must be Indian.</span></p>
+      </div>
+      <div class="bk-cat is-evaluation">
+        <b>Evaluation</b>
+        <p>What must <strong>pass</strong> &mdash; all of them, or a number of them, with one subject able to stand in for another.
+          <span class="bk-eg">English, and five subjects in all.</span></p>
+      </div>
+    </div>
+
+    <div class="bk-scroll rv">
+      <table class="bk-tbl">
+        <caption>The rules schools actually gave us, and the basket each one becomes.</caption>
+        <thead>
+          <tr>
+            <th scope="col">The rule a school gives us</th>
+            <th scope="col">Board</th>
+            <th scope="col">How it is set up</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Both Indian languages are compulsory</td>
+            <td><span class="bk-board">STATE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-elective"><b>Elective &middot; All of them</b><span>&ldquo;Languages&rdquo;: Hindi, Kannada</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Second language: pick one<span class="bk-why">The everyday case &mdash; one box, four options.</span></td>
+            <td><span class="bk-board">ANY</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-elective"><b>Elective &middot; Choose 1</b><span>Hindi, Kannada, Sanskrit, French</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>At least two of the three languages must be Indian<span class="bk-why">Which third language is allowed depends on the first two picks, so it cannot be a fixed list.</span></td>
+            <td><span class="bk-board">CBSE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-elective"><b>Elective &middot; Choose 1</b><span>Three language baskets, R1 &middot; R2 &middot; R3</span></div>
+              <div class="bk-chip is-validation"><b>Validation &middot; At least 2</b><span>&ldquo;Indian languages&rdquo;: every Indian language the class offers</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Group II: choose two or three</td>
+            <td><span class="bk-board">ICSE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-elective"><b>Elective &middot; Choose 2&ndash;3</b><span>&ldquo;Group II&rdquo;</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Group III: one from Section A or B, or one from each</td>
+            <td><span class="bk-board">ICSE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-elective"><b>Elective &middot; Choose 1&ndash;2</b><span>&ldquo;Group III&rdquo;: the subjects of both sections</span></div>
+              <div class="bk-chip is-validation"><b>Validation &middot; Either of them</b><span>&ldquo;Section A&rdquo;, and the same for Section B</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Economics <em>or</em> Economic Applications<span class="bk-why">The two sit in different groups, so the rule has to reach across both.</span></td>
+            <td><span class="bk-board">ICSE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-validation"><b>Validation &middot; Either of them</b><span>Refuses the second of the two, wherever it was picked</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Computer Applications, IT or AI &mdash; one only</td>
+            <td><span class="bk-board">CBSE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-validation"><b>Validation &middot; Either of them</b><span>165, 402, 417</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>The same language offered as two subjects<span class="bk-why">Sanskrit as a second language and as a third: two rows, one language.</span></td>
+            <td><span class="bk-board">ANY</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-validation"><b>Validation &middot; Either of them</b><span>Sanskrit (R2), Sanskrit (R3)</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>Pass English, and five subjects in all</td>
+            <td><span class="bk-board">ICSE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-evaluation"><b>Evaluation &middot; All must pass</b><span>&ldquo;English&rdquo;</span></div>
+              <div class="bk-chip is-evaluation"><b>Evaluation &middot; At least 5 must pass</b><span>Every subject that counts</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>A failed main subject replaced by a passed skill subject<span class="bk-why">One replacement clears one failure &mdash; the lowest mark, unless the office says otherwise.</span></td>
+            <td><span class="bk-board">CBSE</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-evaluation"><b>Evaluation &middot; All must pass</b><span>Maths, Science, Social Science &mdash; replaced by the Skill basket</span></div>
+            </div></td>
+          </tr>
+          <tr>
+            <td>A subject that is printed but never fails anyone<span class="bk-why">An additional subject, or an advanced paper.</span></td>
+            <td><span class="bk-board">ANY</span></td>
+            <td><div class="bk-cfg">
+              <div class="bk-chip is-evaluation"><b>On the subject</b><span>Counts for result: no</span></div>
+            </div></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="bk-foot rv">
+      The rules are checked twice, and never one box at a time. <strong>Publishing the class</strong> refuses a basket
+      that contradicts itself, naming the class. <strong>Enrolling a student</strong> reads the whole set of choices
+      together &mdash; and a student promoted into the next class keeps the choices that still fit.
+      <span class="bk-quote">At least 2 of Asha&rsquo;s subjects must be from Indian languages; only Hindi is. Change a choice.</span>
+    </p>
+  </div>
+</section>
 
 <!-- ============================ TIMETABLE ============================ -->
 <section id="timetable">
