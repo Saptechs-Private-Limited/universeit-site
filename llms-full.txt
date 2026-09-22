@@ -39,8 +39,8 @@ Generated 2026-09-22 from https://universeit.co.in/. Every capability here is ch
 - Biometric or RFID attendance devices — **Ready to connect**. Wired to the institution's own device at onboarding
 - Facial-recognition attendance — **Not yet**. Not built, by choice: children's face data is a DPDP risk
 - Syllabus and syllabus progress — **Yes**. Chapters, sections, topics; progress per section from sessions taught
-- Teacher's session diary — **Yes**. What was taught, homework given, tests announced, closed per session
-- Lesson plans — **Not yet**. Planned; the session diary exists
+- Teacher's work diary — **Yes**. What was taught, homework given, tests announced, closed per session; exported for any date range
+- Lesson plans — **Yes**. Laid out from the syllabus and the timetable per class and subject; planned versus covered report; the plan line shows on each class, desk and phone
 - Homework and assignments — **Yes**. Assignments with submissions; homework on the mobile app
 - Learning content library — **Yes**. Course content per subject
 - Online classes (Zoom, Teams, Meet) — **Yes**. Meeting link and recording on the scheduled class

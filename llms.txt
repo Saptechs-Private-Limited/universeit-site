@@ -2,7 +2,7 @@
 
 > UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.
 
-UniverseIT is an education ERP for Indian schools, colleges, universities and groups of institutions, by SAPTECHS Private Limited, Bengaluru. Coverage today: 89 capabilities built, 13 ready to connect, 14 not yet built, out of 116 checked.
+UniverseIT is an education ERP for Indian schools, colleges, universities and groups of institutions, by SAPTECHS Private Limited, Bengaluru. Coverage today: 90 capabilities built, 13 ready to connect, 13 not yet built, out of 116 checked.
 
 ## Read more
 
