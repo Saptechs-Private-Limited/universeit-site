@@ -1,0 +1,1054 @@
+# UniverseIT — full capability inventory
+
+> UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.
+
+Generated 2026-09-22 from https://universeit.co.in/. Every capability here is checked against the product's source code, not a roadmap.
+
+## Coverage checklist
+
+### Admissions & enrolment
+
+- Enquiry, application and admission desk — **Yes**. Enquiry to application to admitted student, with follow-ups and an activity trail
+- Document checklist and verification — **Yes**. Per-document receipt and verification state on each application
+- Entrance test and interview scheduling — **Yes**. Rosters for tests and interviews on one mechanism
+- Seat matrix and quotas (convener, management, NRI) — **Yes**. Sanctioned intake enforced; the quota is carried on the student
+- Counselling rounds (EAMCET, JEE, NEET allotments) — **Yes**. Allotment import locks seats; unreported seats lapse and revert
+- Stream or branch change before the year starts — **Yes**. Vacancy or mutual swap, with approval
+- Public online admission form for parents — **Not yet**. Admissions are run by the front office today
+- Admission conversion funnel report — **Not yet**. Enquiry source is free text, so the funnel cannot yet be reported
+
+### Student records
+
+- Student 360 profile with guardians and documents — **Yes**. One screen across enrolment, attendance, marks, fees, transport, hostel
+- Academic record and transcript data — **Yes**. Every exam, subject by subject, with credits and a credit-weighted average
+- Student and staff ID cards — **Yes**. Designed, printed and tracked per campus
+- Certificates (transfer, bonafide, conduct) with serials — **Yes**. Templates and serially numbered issue
+- DigiLocker issuance — **Ready to connect**. Built; live once the institution registers as an issuer
+- Behaviour log (good conduct and concerns) — **Yes**. Parent notices are vetted before release; nothing is scored
+- Mentoring, counselling and infirmary records — **Yes**. One mentor per student; counselling sessions; infirmary visits
+- Alumni directory and events — **Yes**. Register, events and registrations
+- Placements and internships — **Yes**. Company register, drives, applications, internships
+
+### Academics
+
+- Course catalogue for schools and colleges — **Yes**. Flat for schools, stream and semester for colleges
+- Board subject rules (CBSE, ICSE, State) and electives — **Yes**. Subject baskets hold each board's choice and pass rules
+- Timetable generation — **Yes**. Every section at once, no teacher double-booked; reviewed before commit
+- Substitution and cover for absent teachers — **Yes**. Uncovered periods first, with the teachers free to take them
+- Student attendance (daily, twice a day, hourly) — **Yes**. Three capture modes per course
+- Biometric or RFID attendance devices — **Ready to connect**. Wired to the institution's own device at onboarding
+- Facial-recognition attendance — **Not yet**. Not built, by choice: children's face data is a DPDP risk
+- Syllabus and syllabus progress — **Yes**. Chapters, sections, topics; progress per section from sessions taught
+- Teacher's session diary — **Yes**. What was taught, homework given, tests announced, closed per session
+- Lesson plans — **Not yet**. Planned; the session diary exists
+- Homework and assignments — **Yes**. Assignments with submissions; homework on the mobile app
+- Learning content library — **Yes**. Course content per subject
+- Online classes (Zoom, Teams, Meet) — **Yes**. Meeting link and recording on the scheduled class
+- Quizzes and question bank — **Yes**. Timed class quizzes and printed papers from one bank
+- LTI 1.3 / SCORM interoperability with an external LMS — **Not yet**. Not built
+- Promotion and detention — **Yes**. Decided on attendance %, arrears and marks %
+
+### Examinations
+
+- Exam scheduling, hall tickets and seating — **Yes**. Normal or jumbled seating; hall ticket issue and reprint
+- Invigilation and exam duty — **Yes**. Includes external invigilators, observers and flying squads
+- Marks entry and grading scales — **Yes**. One grade scale master; grade-only tests with remarks
+- Report cards and marksheets — **Yes**. Templates, generation runs, approval, publication
+- NEP Holistic Progress Card — **Yes**. Competency levels with teacher observations; no pass or fail
+- Re-evaluation and supplementary exams — **Yes**. Requests, outcomes and supplementary windows
+- Outcome-based education (CO-PO attainment) — **Yes**. Computed from question-level marks; feeds NAAC and NBA evidence
+- AI-assisted answer-script evaluation — **Ready to connect**. Built; live once an evaluation provider is connected
+- Assessment rubrics — **Not yet**. Not built
+- Hosting external exams on campus — **Yes**. Multi-shift sessions with a separate candidate register
+
+### Fees
+
+- Fee structures, instalments and concessions — **Yes**. Per course, step and year, in every concession combination
+- Online fee payment — **Ready to connect**. Razorpay adapted; live on the institution's own gateway account
+- Receipts with GST on fees — **Yes**. GST per fee head, with an output register
+- e-Invoice (IRN) — **Ready to connect**. Built; live once the institution's GSP account is connected
+- Late fees, defaulters and reminders — **Yes**. Fine modes on overdue instalments and a defaulters list
+- Refunds — **Yes**. Per refund policy
+- Government scholarship reimbursement (ePASS, NSP) — **Yes**. Claims tracked to sanction and credited as a payment
+- Virtual bank account per student — **Ready to connect**. Built on Razorpay Smart Collect; live with the institution's account
+- Post-dated cheques — **Not yet**. Planned
+- eNACH / auto-debit mandates — **Not yet**. Not built
+- Private sponsor-funded fees — **Not yet**. Planned
+
+### Finance
+
+- Double-entry accounting with cost and profit centres — **Yes**. Every fee, payroll run, donation and supplier bill posts a voucher
+- Trial balance, balance sheet, income & expenditure, receipts & payments — **Yes**. From posted vouchers, per campus
+- Tally export — **Yes**. Tally XML
+- Bank reconciliation — **Yes**. Statement import with automatic line matching
+- Budgets and budget vs actual — **Yes**. Enforced on every posting
+- Budget forecasting — **Not yet**. Planned
+- Consolidated statement across campuses — **Not yet**. Planned
+- Donations and donor register — **Yes**. Receipts and a voucher per donation
+
+### HR & payroll
+
+- Employee master and service record — **Yes**. Qualifications, history, transfers, documents
+- Recruitment, interviews and offer letters — **Yes**. Approved vacancy, selection committee, scored panel, offer
+- Public careers page — **Yes**. Posts you choose to advertise; people apply online
+- Background verification — **Yes**. A checklist that gates the offer
+- Leave, comp-off and holidays — **Yes**. Comp-off credits that expire; working-day overrides
+- Staff attendance and shift roster — **Yes**. Biometric or manual, late marks, regularisation
+- Payroll with PF, ESI, PT and TDS — **Yes**. Both income-tax regimes, bank file, one voucher per run
+- Form 16, Form 24Q and PF ECR — **Yes**. Statutory formats authored as data
+- Performance appraisal — **Yes**. Self review, reviewer scores, NAAC 6.3.5 summary
+- Staff training and FDPs — **Yes**. Nomination and attendance, evidence for NAAC criterion 6
+- Travel and expense claims — **Yes**. Advances, policy checks, posting and settlement
+- Separation, full and final, relieving letters — **Yes**. Gratuity, encashment and a no-dues sheet
+
+### Campus operations
+
+- Transport routes, trips and boarding — **Yes**. Per-student boarding at a named stop
+- Live bus GPS tracking — **Ready to connect**. Built; needs the vehicle's GPS unit connected
+- Parents mark "not on the bus today" — **Yes**. From the app, before a cut-off learned from past arrivals
+- Hostel allocation by bed, mess and gate — **Yes**. Applications, bed-level allocation, mess plans, gate logs
+- Canteen with prepaid wallets — **Yes**. Counter billing and top-ups
+- Library circulation, reservations and fines — **Yes**. Multiple libraries per campus
+- Library OPAC / MARC import — **Not yet**. Not built
+- Inventory and stores — **Yes**. Stock with a value that reaches the books
+- Purchasing: quotation, PO, goods receipt, bill match — **Yes**. Per-campus purchase orders
+- Vendor onboarding portal — **Yes**. Vendors complete their own profile by invitation
+- Asset register, depreciation and verification — **Yes**. Verification rounds with photographs
+- Preventive maintenance, MTBF and MTTR — **Yes**. By calendar or meter; breakdown and downtime history
+- Visitors and gate passes — **Yes**. Check-in, check-out and an authorisation trail
+- CCTV register and security roster — **Yes**. Coverage gaps listed; staffing gap weighted by criticality
+- Events, clubs and room booking — **Yes**. Registrations, fees, attendance; clash-checked spaces
+- Surveys and feedback — **Yes**. Anonymity enforced by the server
+- Grievances, anti-ragging, POSH and RTI registers — **Yes**. Each with its own investigation lifecycle
+- Helpdesk with SLA — **Yes**. Tickets raised from inside the app
+- Projects and tasks — **Yes**. Milestones, nested subtasks, checklists, recurrence
+
+### Communication
+
+- SMS with DLT templates — **Ready to connect**. Live on the institution's own gateway account
+- WhatsApp Business messages — **Ready to connect**. Live on the institution's own WhatsApp account
+- Email with attachments — **Ready to connect**. SendGrid, SES or the institution's own SMTP
+- Voice calls — **Ready to connect**. Outbound calls that read the message aloud (Exotel)
+- Circulars with approval — **Yes**. Targeted by class, section, staff or parents
+- In-app notifications — **Yes**. Fanned out from every module
+- Push notifications — **Ready to connect**. Live with the mobile app
+- Parent, student and staff mobile app — **Ready to connect**. Built for eight personas; not yet published to the app stores
+
+### Governance & platform
+
+- Multi-campus and group of institutions — **Yes**. Trust, group and campus modelled, with isolation per campus
+- Role-based access and single sign-on — **Yes**. SAP identity service; three gates before anyone can act
+- Approval workflows — **Yes**. 35 approval points; auto approve, manual or auto deny
+- Field-level audit trail — **Yes**. Old value to new, by whom and when
+- Personal data masking and access log — **Yes**. Aadhaar, PAN, bank, mobile, email masked; every reveal logged
+- DPDP consent, erasure and breach register — **Yes**. Consent kept as evidence; erasure reviewed
+- Custom fields and field rules without code — **Yes**. Label, visible, mandatory, editable — as data
+- Multilingual — **Yes**. Names and templates in the languages the institution teaches in
+- Government portal files (UDISE+, AISHE, APAAR) — **Yes**. Portal files and reconciliation
+- NAAC data points — **Yes**. Fed by outcome attainment, appraisal and training
+- Data migration from a legacy system — **Yes**. 123 load objects, dry run, reversible loads
+- Open APIs (OData) — **Yes**. Every entity is a service with the same access rules as a person
+- Data hosted in India — **Yes**. SAP BTP India region, one database per institution
+- Plugin marketplace for third-party modules — **Not yet**. Not built
+- AI assistant / chatbot — **Not yet**. Not built, deliberately
+
+
+## Modules and functions
+
+### Institution & Trust — The trust, its groups and its campuses — modelled, not configured
+
+**Institution Setup** — The legal owner, its campuses, its departments and its physical estate — the spine every other module hangs from.
+
+- Trust or society record with settlors named on the deed
+- Trustee and office-bearer register with trustee roles
+- Statutory identity — registration numbers, PAN, TAN
+- Deed amendments, recorded and dated
+- Documents filed against the trust
+- Campus (branch) master — the data-isolation unit
+- Groups of institutions between the trust and its campuses — a university, an autonomous college, a school chain
+- Masters shared across a group, approvals kept per campus
+- Board and university affiliations held per campus
+- Mediums of instruction permitted under each affiliation
+- Self-nesting department tree inside a campus
+- Space types and physical spaces with measured dimensions
+- Area derived in metres or feet, by unit switch
+- Reusable off-campus external venues
+- Space reservation with clash detection across clubs, meetings and exams
+- Academic year lifecycle: planning → active → in review → concluded
+
+### Academic Operations — The whole week's timetable, proposed for every section at once
+
+**Curriculum & Timetable** — The widest module in the product: catalogue, year plan, sections, timetable, attendance and promotion.
+
+- Course catalogue flat (school) or stepped (stream → step)
+- Streams chosen at enrolment, spanning the whole programme
+- Steps — the year or semester rung inside a stream
+- Subjects, labs and projects under a course or step
+- Per-campus, per-year take-up of a catalogue course
+- Planned streams and steps with the numbers the planner edits
+- Year commencement checklist, gating what the year may do
+- Year closure checklist
+- Reusable section names and section creation
+- Weekly period and break blocks laid on a section's day
+- Reusable timetable templates applied per section
+- Assigned slots by day, period and subject
+- Teacher assigned to subject and section with periods per week
+- Whole-week timetable proposed for every section at once, reviewed before it is committed
+- Teacher unavailability respected when the week is generated
+- Attendance capture per day, twice a day or per hour
+- Session and per-student attendance records
+- Promotion runs with per-student lines
+- Promotion decided on attendance %, arrears count and marks %
+- Academic calendar with targeted audiences
+- Recurring holiday and weekly-off rules
+- A holiday turned into a working day, or a special class added, with comp-off earned by the teachers who take it
+- A warning when one section holds students on two different subject combinations
+- Subject baskets — each board's subject-choice rules held in one structure (rare)
+
+**Substitutions** — The morning desk: somebody has not come in, and a class is about to sit without a teacher.
+
+- Every class of the day, uncovered ones first
+- The teachers actually free to take each one
+- The covering teacher sees the class on their phone and marks its attendance
+
+**Subject Syllabus** — The syllabus authored against a subject so teacher, student and parent read the same document.
+
+- Chapters under a subject
+- Sections within a chapter
+- Topics within a section
+- Reference resources attached per topic
+- Published to the teacher and parent view
+- Syllabus progress per class section, driven by the sessions actually taught
+
+### Student Records — One student's whole history on one page
+
+**Student Master & 360°** — One record per student and one screen that pulls the whole history together.
+
+- Student master with admission number allocation
+- Admission record and category
+- Previous school or institution history
+- Attachments and scanned documents
+- Addresses, phones and emails through shared contact data
+- Guardian records shared with the staff model
+- Bank details for refunds and scholarships
+- 360° view — enrolment, attendance, marks, fees, transport, hostel, documents
+- Filter value lists scoped to the viewer's campus
+
+**Academic Record** — One student's whole history on one page — the question a transcript, a migration certificate and a parent all ask.
+
+- Every examination sat, subject by subject
+- Marks, grade and credits earned
+- Credit-weighted average
+- Read-only: nothing on the page can be changed
+
+### Admissions & Prospects — A counselling allotment holds the seat until it lapses
+
+**Admissions** — Enquiry to application to admitted student, operated by your front office across a five-view flow.
+
+- Enquiry capture with source and follow-up
+- Application against a named document checklist
+- Per-document receipt and verification state
+- Application payment recording
+- Entrance exam definition and applicant roster
+- Interview roster on the same shared mechanism
+- Follow-up log and activity trail per applicant
+- Per-year admission settings and quotas
+- Convert an application into a student record
+
+**Stream Switch** — A student admitted into one stream moves to another before the year starts.
+
+- Switch onto a vacant seat, or join a waitlist when there is none
+- Mutual swap between two students, using no seat
+- Draft, approval, then the switch
+
+**Prospects** — A lightweight prospect register for enquiries not yet became applications.
+
+- Prospect register with contact and source
+- Assignment to a counsellor
+- Status tracking
+
+### Examinations — NEP progress cards that never say a child failed
+
+**Exam Cycle** — Configuration, scheduling, conduct, marks and results — defaults set once, overridden per grade level.
+
+- Exam type masters, assigned per grade level
+- Per-subject exam configuration
+- Exam splits — components within one exam
+- Exam headers and per-subject items
+- Tests within a split
+- Exam timetable with date, slot and venue
+- Hall ticket issue and reprint
+- Seating in normal or jumbled mode
+- Per-student exam attendance
+- Marks capture per student per subject
+- Named grading schemes with percentage bands and grade points
+- Percentage → band → grade → grade points
+- One grade scale master, set on the exam type and overridden per exam or test
+- Grade-only tests, with remarks
+- A fixed legend and colour for every grade
+- Re-evaluation requests and outcomes
+- Supplementary exam windows and applications
+- Exam content scope — what is examinable
+
+**Exam Duty** — Invigilation, observers and flying squads — including people who are not your employees.
+
+- Invigilation allocation per slot and hall
+- External invigilators modelled outside the HR tree
+- Deputed observers
+- Flying-squad definition and members
+- Inspection visits recorded per squad
+- Malpractice inspection trail
+
+**Hosted Exams** — Letting your campus to an external examining body as a revenue line.
+
+- Hosted exam sessions with multiple shifts
+- Hall allocation per session
+- Candidate register kept structurally separate from your students
+- Session-level conduct records
+
+**Report Cards** — Generation, approval and publication of the term report card.
+
+- Academic terms
+- Report card templates
+- Components on a template
+- Generation runs across a section or cohort
+- Per-subject lines with grade points
+- Approval before publication
+- Publish to student and parent
+
+**Holistic Progress Card** — The NEP holistic progress card: what a child can do, never that they failed.
+
+- Each competency at Beginner, Progressing or Proficient, with the teacher's own words
+- Attendance month by month, height and weight, and the Part A and Part D answers
+- No percentage, no grade, no pass or fail
+- Generated, approved and published per class
+
+**Question Bank, Papers & Quizzes** — A question is written once, then used in printed papers and online quizzes alike.
+
+- Question bank by subject, academic or general knowledge
+- Printed question papers built from the bank
+- Multiple-choice quizzes scheduled for a class, watched while they run
+- Quiz results per student
+
+**AI-Assisted Script Evaluation** — Hard-copy answer scripts evaluated with an AI provider's help — ready to connect to the provider the institution chooses.
+
+- Tests marked for AI-assisted evaluation on the exam type, the exam or the test
+- Scripts sent to the provider in handover batches
+- The AI's score and the teacher's score side by side, per question
+
+### Outcomes & Accreditation — CO–PO attainment computed per question, straight into NAAC
+
+**Outcome Attainment** — Attainment computed at question grain, not assumed from a subject average.
+
+- Programme outcomes and programme-specific outcomes
+- Course outcomes with Bloom's level
+- CO to PO/PSO mapping
+- Questions defined per test, with Bloom's level
+- Per-student, per-question marks
+- Assessment map — which questions assess which outcome
+- Attainment configuration and thresholds
+- Attainment runs
+- Computed CO attainment
+- Computed PO and PSO attainment
+- Action taken against a shortfall
+- Publish attainment into NAAC data points
+
+**Compliance & Accreditation** — Regulatory obligations tracked as a calendar, and statutory registers modelled by the statute that requires them.
+
+- Regulatory body register
+- Compliance requirements per body
+- Submissions against a requirement
+- Compliance calendar with due dates
+- Supporting documents per submission
+- NAAC data points, fed by outcome attainment
+- Anti-ragging register with investigation lifecycle
+- POSH register with investigation lifecycle
+- RTI register with investigation lifecycle
+
+### Teaching & Learning — Online classes on the Zoom, Teams or Meet you already use
+
+**Learning** — Content, assignments, online classes and the session record — phase one of the LMS.
+
+- Course content library per subject
+- Assignment definition with due date
+- Student submissions against an assignment
+- Coaching sessions and their attendance
+- Online class scheduling and joining
+- Session summary closed by the teacher
+
+**Lab Management** — The laboratory as a scheduled, staffed, consumable-consuming place.
+
+- Lab staff assignment
+- Experiment catalogue per lab
+- Item requirements per experiment
+- Lab sessions scheduled against a section
+- Per-student lab session attendance
+
+### Human Resources & Payroll — From an approved vacancy to Form 16, under either tax regime
+
+**Human Resources** — Employee master, service record, leave and the salary structure behind payroll.
+
+- Employee master with service history
+- Qualifications and prior experience
+- Attachments and verified documents
+- Campus and role assignment per employee
+- Department staff mapping
+- Employment history and transfers
+- Employee salary with component detail
+- Salary templates and their components
+- Salary revisions, dated
+- Employee separation and exit
+- Leave balance per leave type
+- Leave applications and decisions
+- Staff attendance capture
+- Comp-off credits that expire, with minimum notice set per campus
+- Staff shift roster per campus, with each person told of a change
+
+**Staff Roles & Hierarchy** — Who reports to whom, and what each designation is allowed to open.
+
+- Access role catalogue
+- Designation master
+- Designation to role mapping
+- Reports-to hierarchy feeding HR, exam approval and the approval matrix
+- Support-role flag that excludes staff from internal chat
+- Per-campus role map
+
+**Payroll & Statutory** — The full chain from dated rate tables to Form 16 Part B — sharing the payroll desk with HR.
+
+- Statutory schemes with dated rates and slabs
+- Employee statutory profile
+- Payroll components and their calculation
+- Payroll runs with per-employee detail
+- Run exceptions surfaced before posting
+- Ad-hoc payroll adjustments
+- Employee advances and recovery
+- Final settlement with per-line detail
+- Bank file formats authored as data — delimited or fixed-width
+- Per-column source and alignment on a bank file
+- Statutory return formats, likewise authored as data
+- Old and new income-tax regimes, each with its own slabs
+- Surcharge bands per regime
+- Tax deduction types and employee declarations
+- Tax computation per employee
+- TDS deductor, challans and challan-deductee lines
+- PF ECR return
+- ESI return
+- Form 24Q
+- Form 16 Part B
+- Statutory gratuity
+- One compound GL voucher per run, not a document per credit
+
+**Recruitment & Offers** — Fill a post the way a selection committee does, and hire the person it chose.
+
+- Vacancy raised per campus and approved
+- Applicants, selection committee and interviews
+- Offer released, answered and turned into an employee
+- Background verification before joining
+- A public careers page listing the posts you choose to advertise, where people apply online
+
+**Performance Appraisal** — Appraisal of a campus's teaching and non-teaching staff.
+
+- Cycles and the criteria staff are scored against
+- Employee's self review, then the reviewer's scores
+- Finalisation and acknowledgement
+- Completion and rating summary for NAAC metric 6.3.5
+
+**Staff Training** — The record of how staff are trained.
+
+- Training programmes and faculty development programmes
+- Nomination and attendance
+- Evidence for NAAC criterion 6
+
+**Travel & Expense Claims** — Staff travel and expense claims, from the request to the settlement.
+
+- Trips and claims raised by the employee
+- Advances released before travel
+- Claims checked against policy and the original bills
+- Expense posted to the ledger, the advance cleared
+- Settled by bank file or through payroll
+
+### Finance & Accounting — A real double-entry ledger, with a Tally export for your auditor
+
+**Finance** — A real double-entry ledger with cost and profit centres. Fees are recognised on collection; supplier bills are booked when they arrive and cleared when paid.
+
+- Chart of accounts, auto-creating accounts by code on first posting
+- Payment mode to account mapping
+- Cost centres
+- Profit centres
+- Financial periods with an open/closed gate
+- Budgets and budget lines
+- Vouchers with multiple lines
+- General ledger entries
+- Institution bank accounts
+- Bank reconciliation against a statement
+- Financial reports — trial balance, ledger, day book
+- Balance sheet, income & expenditure, and receipts & payments
+- Tally export (rare)
+- A financial year kept separate from the academic year
+- Budget against actual
+- Bank statement import with automatic line matching (rare)
+- A virtual account per student, so a bank transfer finds its payer
+- Payment-gateway settlements matched to receipts
+
+### Fees & Dues — GST on fees, and one clearance sheet instead of five signatures
+
+**Fee Management** — Heads, assignment, collection, concession and refund — with GST treatment and four concession combinations.
+
+- Fee variants per course, step and year
+- Fee particulars (heads) within a variant
+- Profit-centre split per particular, validated to account for the whole amount
+- Variant terms and instalment shape
+- Concession and scholarship definitions
+- Tax and GST configuration per particular
+- Student assigned to a fee variant
+- Instalment schedule per student
+- Student concessions applied, in every combination
+- Fee payments across payment modes
+- Fee refunds
+- Course-step-year fee override
+- Fine modes on overdue instalments
+- Defaulters list and collection follow-up
+- Output GST register on fees (rare)
+- e-invoice IRN once the institution's GSP account is connected
+- Government scholarship schemes
+
+**Dues Register** — One clearance sheet instead of five signatures.
+
+- No-dues certificate per student or employee
+- Per-department clearance lines — library, hostel, transport, lab, finance
+- Department-wise hold and release
+- Dues reminder log
+- Certificate issue on full clearance
+
+### Fundraising & Entitlements — Every donation posts its own voucher
+
+**Trust Donations** — Donors, what they gave, and the voucher it posted.
+
+- Donation item catalogue — cash and in-kind
+- Donor register with contact and history
+- Donations recorded against a donor
+- Receipt generation
+- Double-entry voucher posted per donation
+
+**Entitlements** — What a fee actually buys, so a package is one configured object.
+
+- Entitlement categories
+- Subscription offerings across library, transport, hostel and food
+- Entitlement attached to a fee variant
+- Issued entitlement per person
+- Asset entitlements, free or on rental
+- Inventory item entitlements
+- Serves students and staff through one polymorphic owner
+
+### Transport — Parents say “not on the bus today” from their phone
+
+**Fleet & Routes** — Vehicles, routes, trips and per-student boarding at a named stop.
+
+- Vehicle master
+- Vehicle documents with expiry tracking
+- Vehicle expenses
+- Vehicle incidents
+- Transport routes
+- Route points (stops) in sequence
+- Transport calendar — which days run
+- Trips per route per day
+- Driver allocation per trip
+- Attendant and staff allocation per trip
+- Student transport registration at a named stop
+- Daily transport pass for ad-hoc travel
+- Trip logs and per-point logs
+- Per-student boarding capture
+- Vehicle GPS log records
+- Transport reports
+- A parent marks "not on the bus today" from the app, before a cut-off learned from the bus's own past arrivals
+
+### Hostel, Mess & Canteen — Allocated by the bed, paid from a prepaid wallet
+
+**Residential Operations** — Allocation down to the bed, and the mess plan attached to it.
+
+- Hostel master
+- Hostel space types
+- Hostel spaces and rooms
+- Individual beds
+- Hostel applications
+- Bed-level allocation, not room-level
+- Mess definition
+- Mess menus by day
+- Mess subscription across the plans you define
+- Mess attendance
+- Hostel gate and visitor logs
+
+**Canteen** — The canteen counter, and the prepaid wallets that pay for it.
+
+- Menu and counter billing
+- Prepaid wallets for students and staff, with top-ups
+- Daily canteen reports
+
+### Library — Several libraries per campus, each with its own racks
+
+**Library** — Catalogue, copies, circulation and fines across multiple libraries and locations.
+
+- Library master — more than one per campus
+- Location types and physical locations (racks, sections)
+- Book categories
+- Book catalogue
+- Individual copies with accession numbers
+- Library membership for students and staff
+- Book issue and return
+- Reservation and renewal
+- Fines on overdue returns
+
+### Inventory & Procurement — Quotation, purchase order, receipt and bill, matched
+
+**Inventory** — Both halves — the supply side and the demand side that most systems leave out.
+
+- Vendor master
+- Vendor modification requests with approval
+- Inventory items and their variants
+- Stock locations
+- Stock on hand per item per location
+- Inventory documents and lines (receipt, transfer, issue)
+- Inventory transactions
+- Issue to a person or a department
+- Requests raised by a student or staff member
+- Request lines, individually approvable
+- Part-approval, closing a request as partially fulfilled
+- Exam inventory needs, drawn from the exam plan
+- Stock carries a value, and the value reaches the books
+- Units of measure with explicit conversions — a missing conversion is an error, never assumed one-to-one
+- Purchase price history per item
+
+**Quotations & Purchasing** — Ask vendors for prices before buying, and buy against what was agreed.
+
+- Requests for quotation, with a campus on every line
+- Quotations compared and awarded
+- Purchase order per campus
+- Goods received against the order; over-receipt refused
+- Vendor's bill matched to the order and the receipt
+- Vendor onboarding checklist that blocks activation until complete
+- Vendor bank-detail changes approved before they apply
+
+**Inventory Sales** — A sales counter for what the institution sells to its own students and staff.
+
+- Chargeable items sold from a store to a student or staff member
+- Items a vendor supplies directly, sold at a commission
+- Vendor report of what was sold on their behalf
+
+### Assets & Maintenance — Preventive work by calendar or meter, whichever falls due first
+
+**Asset Management** — The fixed-asset register and the physical verification round that proves it.
+
+- Asset categories
+- Asset register with acquisition detail
+- The depreciation methods your auditor expects
+- Assignment of an asset to a person or a space
+- Verification rounds
+- Per-asset verification lines
+- Photographic attachments on verification
+- Exam asset requirements, drawn from the exam plan
+
+**Maintenance** — Breakdowns raised and closed, and preventive work that schedules itself.
+
+- Maintenance task raised against a space or an asset
+- Assignment to a person
+- Priority and due date
+- Resolution and closure
+- Preventive plans by calendar, by meter reading, or whichever falls due first
+- Breakdown and downtime history per asset (rare)
+- Mean time between failures, mean time to repair and availability per asset
+
+### Front Office & Security — Camera blind spots listed, security gaps counted
+
+**Front Office** — Who came in, who let them, and who is allowed out.
+
+- Visitor register with purpose and host
+- Visitor check-in and check-out
+- Gate pass for students and staff
+- Gate pass authorisation trail
+
+**Security Management** — Required coverage declared separately from the roster, so the gap is a number.
+
+- Security points with a criticality weight
+- Security shifts
+- Security personnel register
+- Required coverage per point per shift
+- Actual assignment against a shift
+- Computable staffing gap, weighted by criticality
+
+**CCTV Register** — Where the cameras are, what they cover, and where they do not.
+
+- Cameras by code, with where each one points
+- Coverage and recorders per campus
+- Gaps named, so a blind spot is a list rather than a surprise
+- Which feeds parents may see
+
+### Communications — Your own WhatsApp, SMS and email accounts, with failover
+
+**Communication Platform** — A layered platform — channels, providers, templates, audiences and runs — with a log per recipient.
+
+- Channel types and message channels
+- Channel providers with credentials held separately
+- Provider failover by validity window and priority
+- Placeholder catalogue — what a template may reference
+- Alert events and their variables
+- Alert templates, bound to an event
+- Paragraphs composing a template
+- Per-channel template registration with DLT and WhatsApp ids
+- Templates that cannot reference an unresolvable token
+- Recipient groups by dynamic criteria
+- Static recipient lists
+- Composite groups where include unions and exclude subtracts
+- Communications and their per-channel dispatch
+- Communication runs
+- Delivery log per recipient, per channel, per run
+- Sensitivity classification on a communication
+- Voice calls that read the message aloud, for parents who do not read (Exotel)
+
+**Notifications, Circulars & Grievances** — The day-to-day traffic: in-app notices, circulars, grievances and sellable alert streams.
+
+- Notification templates
+- In-app notifications
+- Circulars with a circular type
+- Circular targeting by audience
+- Circular dispatch per channel
+- Circular attachments
+- Grievance desk with lifecycle
+- Alert rules and generated instances
+- Alert subscriptions carrying pending-payment, active and expired
+
+### Collaboration — Projects with milestones and nested subtasks
+
+**Projects, Tasks & Chat** — Projects with milestones and a tree of tasks, and internal chat.
+
+- Staff tasks with due date and priority
+- Projects with a team and dated milestones
+- Subtasks nested under tasks, and checklists inside them
+- Repeating tasks on a calendar rule — weekdays, month end
+- Multiple assignees per task
+- Task activity log
+- Files attached to a task
+- Conversations, direct and group
+- Conversation participants
+- Messages with reactions
+- Files shared in a conversation
+- Support-role staff excluded by designation flag
+
+**Meetings** — Meetings that book a real room and clash against everything else using it.
+
+- Meeting definition with agenda
+- Attendee list and responses
+- Space booking for the meeting
+- Clash detection against clubs, exams and reservations
+- Minutes recorded against the meeting
+
+### Engagement & Student Life — Survey anonymity enforced by the server, not the form
+
+**Clubs** — Clubs with real logistics and real money.
+
+- Club definition and category
+- Club membership
+- Club events
+- Event organisers
+- Event space booking
+- Event transport arrangement
+- Club expenses posting a voucher to the club's cost centre
+
+**Events** — Everything the institution runs — a cultural night, a workshop, a club outing, an alumni reunion.
+
+- Plan the event and say who may come
+- Registrations, and a fee at the door when there is one
+- A task list to run it
+- Attendance on the day
+- Write-up, photos and a feedback form afterwards
+
+**Blogs** — Institutional writing, with authoring and moderation.
+
+- Blog posts with author and publication state
+- Comments
+- Likes
+
+**Surveys & Feedback** — Anonymity enforced by the service, not promised by the form.
+
+- Survey definition with a window
+- Survey audience selection
+- Questions of several types
+- Options on a choice question
+- Responses
+- Individual answers and selected options
+- Service-enforced anonymity
+
+### Welfare & Records — A behaviour log that records the good, not only the concerns
+
+**Student Welfare** — The behaviour register, counselling and the infirmary.
+
+- Behaviour log — good conduct and concerns, logged by any member of staff (rare)
+- Parent notices vetted before release
+- Categories that describe, never score
+- Counselling sessions
+- Infirmary visits, serving students and staff alike
+
+**Mentorship** — Every student has one teacher who looks after how they are doing.
+
+- A mentor assigned to each student
+- The mentor follows the student's attendance and marks
+- Students with nobody looking after them, counted per class
+
+**Certificates & Documents** — What you issue, and what you hold.
+
+- Certificate types and their templates
+- Certificate issuance with a serial
+- Document vault records
+- Serves students and staff through one polymorphic owner
+- Identity cards for students and staff, designed, printed and tracked per campus
+- Certificates pushed to the student's DigiLocker once the institution is registered as an issuer
+
+### Careers & Alumni — Placement drives, internships and alumni in one register
+
+**Placements & Internships** — A register of who came, who applied and who was placed.
+
+- Company register
+- Placement drives
+- Job applications per drive
+- Internships
+
+**Alumni** — The directory and the events that keep it current.
+
+- Alumnus register
+- Alumni events
+- Event registration
+
+### Analytics & Controls — Every approval, change and personal-data read is on the record
+
+**Analytics** — Reports and KPI dashboards, configured rather than coded.
+
+- Report configurations
+- Analytics snapshots
+- Dashboard configurations
+- Report schedules
+- Report execution log
+- KPI targets
+
+**Approval Matrix** — One engine behind every approval in the product.
+
+- A catalogued approval point for every decision that needs one (rare)
+- Each point set to approve automatically, go to an approver, or refuse automatically
+- Trust-level points approved once for the whole trust — vendors, quotations, role changes
+- Approval steps in sequence
+- AND/OR gates within a step
+- Approvers named by person
+- Approvers named by role
+- Two reject policies
+- Approval requests and routed tasks
+- Recall of a submitted request
+
+**Audit & Change Documents** — An audit posture rather than an audit log.
+
+- Action log across services
+- Field-level change log — from what, to what, by whom (rare)
+- Application session records
+- Status change log
+- Personal-data access log with a stated reason
+- Daily record-count snapshots
+- Data-loss watchdog on a shrinking table
+- Hard deletes impossible platform-wide
+
+**Privacy Requests & Breaches** — The DPDP desk: what a person asks for, and what the institution must report.
+
+- Consent withdrawal recorded as a request
+- Erasure requests reviewed, then carried out
+- Retention sweep for data no longer needed
+- Personal-data breach register
+- Consent kept as evidence: a withdrawal ends it, nothing edits or deletes it (rare)
+
+### Data Migration — Rehearse the whole load, then promote it — every load reversible
+
+**Migration Cockpit** — Where an institution's legacy data actually arrives. A catalogue of loadable objects in dependency order, a pipeline per file, and a permanent record of what every legacy id became. Run by the implementation team, not by the institution's own administrators — several of its actions are destructive.
+
+- Catalogue of loadable objects, delivered in code rather than authored per tenant
+- Objects ordered by dependency, grouped the same way as the rollout milestones
+- One active migration run per institution
+- Milestone → step → object tree showing staged, valid, errored and loaded state
+- A \u2018blocked by\u2019 column naming exactly what an object is waiting for
+- Blocked rows dimmed rather than hidden — the screen exists to answer what is blocking you
+- Cutover profiles: before the year opens, at a term or exam boundary, or an arbitrary date
+- The cutover date stamps every migrated row\u2019s creation timestamp
+- A term-boundary migration asks separately which day the term closed
+- Payroll already paid this financial year comes across under every profile
+- Download a template per object, or a whole milestone as one workbook
+- Every workbook opens on a read-me sheet written for the person filling it in
+- Objects left out of a workbook are listed by name, never merely counted
+- Upload a legacy extract instead, through the same pipeline
+- Parse, map, convert, validate, migrate — the five steps per file
+- Column-to-field mapping proposed automatically, then corrected by hand
+- Reusable column mappings, per object per source system
+- Master-data packages loaded in dependency order
+- Steps and a log for every run
+- A mapping editor for columns and values
+- Correct rows in a grid, or in Excel, before they load
+- Value mapping raised from the error that reported it, not a screen filled in beforehand
+- Value maps keyed per entity and field, so one legacy code can mean different things
+- Delivered value maps seeded per tenant; an institution overrides by authoring its own, never by editing yours
+- Export and import value maps between environments
+- Validation runs through the real service handlers, inside a transaction that always rolls back
+- Sample validation, or full validation including the cross-object checks
+- Row worklist with findings as inline chips
+- Filter by errors, warnings, or already migrated
+- Skip rows with a recorded reason
+- Waive an object with a recorded reason
+- Every load reversible through unmigrate
+- Preview an unmigrate before running it
+- Delta runs that change an already-loaded row — and take the change back
+- A superseded row restores its prior image rather than being deleted
+- Permanent key map answering which platform record a legacy id became, years later
+- Reconcile a run at any point
+- Export a batch result, or the key map alone
+- Complete or abort a run, with a report
+
+**Rehearsal & Promotion** — The environment half of the same cockpit: rehearse the whole load somewhere safe, then promote it. Two of these actions are the only ones in the platform that are not undoable — and both say so before they run.
+
+- Trusts marked as production, migration or test environments
+- Create a rehearsal environment with a purpose and an expiry date
+- Clone a record into a test environment
+- Preview a promotion before running it
+- Promote a rehearsed trust into production
+- Promotion recorded permanently in a log
+- Preview a refresh before running it
+- Refresh a rehearsal — emptying it so it can be loaded again
+- Retire an environment with a recorded reason
+- Promotion is the one action no other action undoes, and it says so first
+- Refresh is the only action in the platform that removes rows physically
+
+### Platform Administration — Rename, hide or require any field, without a release
+
+**Platform Setup** — The reference catalogues every other module reads.
+
+- Evaluation types — self, internal, external, exchange
+- Category, status and classification catalogues
+- Geography tree — country, state, district, city
+- Boards and universities for affiliation
+
+**User Administration** — Three gates before anyone can act: a role collection, an app grant, and a scope.
+
+- Access register of who holds what
+- Login blocks and unblocking
+- Login email change with verification
+- Access handover to a new user
+- Role bundles (presets) and their roles
+- Pending role grants, themselves approved
+- An application role template behind every app
+- Campus and department scope assignment
+
+**Field & Custom Configuration** — Fit the product to an institution without a code change.
+
+- Per-field label override, as data
+- Per-field visible, mandatory and editable control
+- Typed custom-field slots on the entities that carry them
+- Custom fields inert until enabled
+- Disabled custom fields stripped from every read, write and export
+- Institution-wide multilingual name columns
+- Entity assignment — which branches and departments a user may act on
+
+**Tenant Branding** — The institution's own identity across web, mobile and print.
+
+- Logo and mark
+- Colour palette
+- Document and report headers
+- Applied across web apps, the mobile client and printed output
+
+**Control Tower** — Provider-side administration of subscribing institutions.
+
+- Tenant register
+- Subscription state per tenant
+- Module entitlement per tenant
+- Tenant health and daily checks
+
+**Scheduled Jobs** — The jobs the platform runs on a timetable for the institution.
+
+- Fee reminders, approval digests and the other scheduled jobs, in one list
+- Alerts to the people who subscribe when a job fails
+
+### Access & Experience — One login for the teacher who is also a parent
+
+**Home** — One landing screen aggregating across every module.
+
+- My Day — what is scheduled for you today, across modules
+- My Approvals — what is routed to you
+- My Tasks — what is assigned to you
+- My Apps — quick-launch tiles you pin
+- My Settings
+- My Day calendar across modules
+- Waiting-for-you tiles, grouped by app
+- Class-teacher attendance charts
+
+**UniverseIT Mobile** — A React Native client over a dedicated mobile back end. Signs in against production; not yet published to the app stores.
+
+- Personas on one binary, several of them held by one login
+- Individually switchable features across every area of the app
+- Action, information and notification features
+- Global and campus switch scope, most-specific-wins, off when neither is set
+- Sensitive features flagged for the administrator
+- User notifications fanned out from every module
+- Student leave requests raised by student or guardian
+- Service tickets and their message threads
+- Parent morning notes to a class teacher
+- Sub-roles including driver, warden, nurse and security
+- Alerts filed under the child or staff member they are about (rare)
+
+
+## What sets it apart
+
+- **Communication platform** — Audiences built with set algebra — dynamic criteria, static lists, composite groups where include unions and exclude subtracts. Provider failover by validity window and priority. Government-approved template ids per channel. A delivery log per recipient, per channel, per run.
+- **Migration is a product, not a services engagement** — An object catalogue in dependency order, a pipeline per file, and validation that runs through the real service handlers inside a transaction that always rolls back — so a dry run exercises the same rules the live load will. Value mappings are raised from the error that reported them. Every load is reversible, and a permanent crosswalk answers what each legacy id became years afterwards.
+- **Question-grain outcome attainment** — Tests split into questions, questions mapped to course outcomes, and CO to PO/PSO attainment computed from real question marks — with Bloom's level on both the outcome and the question, published straight into NAAC data points.
+- **Payroll to the statutory file** — Both income-tax regimes with their own slabs and surcharge bands. Bank and statutory return layouts authored as data, delimited or fixed-width. PF ECR, ESI, Form 24Q, Form 16 Part B, gratuity — and one compound voucher per run.
+- **One approval engine behind every approval** — Every approval in the product runs through one matrix: a catalogued point for each, set to approve automatically, go to an approver or refuse automatically, AND/OR gates per step, approvers by named person or by role, two reject policies, recall.
+- **The mobile switchboard** — Individually switchable features across every area of the app, global and campus scope with most-specific-wins, everything shipping off by default, personas on one binary and instant switching between the personas one login holds.
+- **Government portal reconciliation** — Reconciles against UDISE+, AISHE, SATS and UUCMS with versioned field-mapping profiles and a blocking / warning / cosmetic severity model, keeping the source file as evidence. Variances are never applied automatically. Back end only today.
+- **DPDP consent that reads the Act** — Legitimate uses sit alongside consent, so a fee demand rests on contract and a statutory return on legal obligation. Who may consent is derived per subject per day from date of birth — a student turning eighteen becomes their own data principal.
+- **Entitlements** — Models what a fee actually buys: an inventory item, an asset free or on rental, or a subscription across library, transport, hostel and food — so a package is one configured object.
+- **Hosted exams as a revenue line** — Letting the campus to an external examining body: multi-shift sessions, hall allocation, and a candidate register kept structurally separate from the student body.
+- **Invigilators outside the HR tree** — External invigilators, deputed observers and flying-squad members modelled as exam persons rather than employees, so they never reach payroll, leave or the auth model — with a malpractice inspection trail.
+- **Extending without a fork** — Per-field runtime configuration as data; typed custom-field slots, inert until enabled and stripped from every read, write and export while disabled; institution-wide multilingual name columns.
+- **An audit posture, not an audit log** — Personal-data reads are logged with a stated reason, not just writes. Record-count snapshots drive a data-loss watchdog. Hard deletes are impossible platform-wide.
+- **Statutory registers by statute** — Anti-ragging, POSH and RTI are first-class register types with their own investigation lifecycle — not categories on a generic ticket queue.
+- **Inventory has a demand half** — A student can raise a request, an approver can part-approve it, and a request can honestly end as partially fulfilled — rather than being forced to pass or fail whole.
+- **Clubs with logistics and money** — A club event carries its own space booking, its transport and its organisers, and its expense posts a double-entry voucher to the club's own cost centre.
+- **Security coverage as a computation** — Required coverage per point per shift is declared separately from the roster staffed, so the gap is computable — and weighted by how critical each point is.
+- **Two curriculum shapes, one model** — Flat for schools and stepped — stream, then year or semester — for colleges, carried end to end through sections, timetables, exams and enrolment, plus three attendance capture modes per course.
+- **Alert streams you can sell** — Parent alert subscriptions carry pending-payment, active and expired states, so an institution can charge for the stream rather than absorbing the SMS bill.
+- **One mechanism for every owner** — Certificates, assets, entitlements, dues clearance, infirmary visits, donations and inventory requests all serve students and staff through a single polymorphic ownership aspect, not eight duplicated models.
+
+## The institutional hierarchy
+
+- **Trust / Society** (the legal owner) — The society, trust or company named on the deed. Settlors, trustees and office-bearers, statutory registration, PAN and TAN, every recorded amendment and every filed document.
+- **Group of Institutions** (a university, a college, a school chain) — Sits between the trust and its campuses. Masters marked GLOBAL are shared across the group's campuses; approvals still run per campus. One trust can hold several groups.
+- **Branch** (one campus · the isolation unit) — A campus, and the unit of data isolation for the entire platform. Holds its own affiliations to boards and universities, the mediums of instruction each affiliation permits, and its physical spaces.
+- **Department** (self-nesting) — A department inside one campus, able to nest under a parent department to any depth. Carries its head of department from HR and its cost and profit centres from Finance.
+- **Academic Year** (PLANNING → CONCLUDED) — A named year with a real lifecycle — planning, active, in review, concluded — plus its own commencement and closure checklists that gate what the year can do next.
+- **Course** (flat or stepped) — A programme, in one of two shapes carried end to end. Flat for schools: course straight to subjects. Stepped for colleges: stream, then year or semester, then subjects — and both shapes work through sections, timetables, exams and enrolment.
+- **Section** (the timetable grain) — A section of a step or of a course, with its weekly block layout, its assigned period slots and the teacher assigned to each subject with periods per week.
+- **Student** (enrolled, repeatably) — A student's enrolment into a course, step and stream for one year — repeats allowed, because students do repeat. Electives chosen at enrolment are the source of truth for who sits which paper.
+
+## Rollout sequence
+
+1. **Platform** — Reference catalogues and the geography tree first, because every master below reads them.
+2. **Trust** — The society or trust, its settlors, trustees and statutory registrations. Nothing can exist without an owner.
+3. **Branch & Org** — Campuses, their affiliations and mediums, the department tree, and the physical spaces each campus holds.
+4. **Academic Catalogue** — Courses, streams, steps and subjects — authored once at catalogue level, then taken up per campus per year.
+5. **People** — Designations and the reporting hierarchy, then employees, then the users and role collections that let them in.
+6. **Finance** — Chart of accounts, financial periods, cost and profit centres. Until a period is open, money records but does not post.
+7. **Fees** — Fee heads and their GST treatment, assignment rules, concessions, then the collection and refund desks.
+8. **Operations** — The heaviest milestone: transport, hostel, library, inventory, assets, maintenance, front office and security, all at once.
+9. **Admissions & Teaching** — The admission funnel, then sections and timetables, then attendance, learning content and examinations.
+10. **Lifecycle Outputs** — What the year produces: results, report cards, certificates, dues clearance and promotion.
+11. **Comms & Analytics** — Channels and their secrets, audiences, templates, circulars and alerts — then the reports and dashboards that read all of it.
+12. **Platform Admin & Audit** — Field configuration, custom fields, branding, the approval matrix and the audit trail — tuned last, once there is something to tune.
+
+## Security and compliance
+
+UniverseIT runs on SAP Business Technology Platform. The platform services it runs on hold ISO/IEC 27001, ISO/IEC 27017, ISO/IEC 27018, ISO 22301, SOC 1 Type II, SOC 2 Type II and C5, as published on the SAP Trust Center. Data is encrypted in transit and at rest, each institution has its own database container, and production runs in SAP BTP's India (Mumbai) region. These certifications are SAP's: UniverseIT is an independent SAPTECHS product, is not itself certified, and is not affiliated with or endorsed by SAP SE.
+
+## Limits
+
+Limits, stated by the vendor: the mobile app is built but not yet in the app stores, and messaging (SMS, WhatsApp, email, voice) goes live on each institution's own provider account. Rows marked Not yet are not built.
+

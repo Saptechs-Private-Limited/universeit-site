@@ -1,0 +1,22 @@
+# UniverseIT
+
+> UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.
+
+UniverseIT is an education ERP for Indian schools, colleges, universities and groups of institutions, by SAPTECHS Private Limited, Bengaluru. Coverage today: 89 capabilities built, 13 ready to connect, 14 not yet built, out of 116 checked.
+
+## Read more
+
+- [Full capability inventory](https://universeit.co.in/llms-full.txt): every module, function and checklist row in plain text
+- [Coverage checklist](https://universeit.co.in/#coverage): Yes / Ready to connect / Not yet, in RFP wording
+- [Modules](https://universeit.co.in/#modules): every function, grouped by module
+- [Security and compliance](https://universeit.co.in/#security): the platform, its certifications, data residency
+- [Contact](https://universeit.co.in/#contact): just.universe.it@saptechs.co.in
+
+## Security and compliance
+
+UniverseIT runs on SAP Business Technology Platform. The platform services it runs on hold ISO/IEC 27001, ISO/IEC 27017, ISO/IEC 27018, ISO 22301, SOC 1 Type II, SOC 2 Type II and C5, as published on the SAP Trust Center. Data is encrypted in transit and at rest, each institution has its own database container, and production runs in SAP BTP's India (Mumbai) region. These certifications are SAP's: UniverseIT is an independent SAPTECHS product, is not itself certified, and is not affiliated with or endorsed by SAP SE.
+
+## Limits
+
+Limits, stated by the vendor: the mobile app is built but not yet in the app stores, and messaging (SMS, WhatsApp, email, voice) goes live on each institution's own provider account. Rows marked Not yet are not built.
+
