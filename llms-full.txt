@@ -2,7 +2,7 @@
 
 > UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.
 
-Generated 2026-09-22 from https://universeit.co.in/. Every capability here is checked against the product's source code, not a roadmap.
+Generated 2026-10-02 from https://universeit.co.in/. Every capability here is checked against the product's source code, not a roadmap.
 
 ## Coverage checklist
 
@@ -138,7 +138,7 @@ Generated 2026-09-22 from https://universeit.co.in/. Every capability here is ch
 
 - Multi-campus and group of institutions — **Yes**. Trust, group and campus modelled, with isolation per campus
 - Role-based access and single sign-on — **Yes**. SAP identity service; three gates before anyone can act
-- Approval workflows — **Yes**. 35 approval points; auto approve, manual or auto deny
+- Approval workflows — **Yes**. 39 approval points; auto approve, manual or auto deny
 - Field-level audit trail — **Yes**. Old value to new, by whom and when
 - Personal data masking and access log — **Yes**. Aadhaar, PAN, bank, mobile, email masked; every reveal logged
 - DPDP consent, erasure and breach register — **Yes**. Consent kept as evidence; erasure reviewed
