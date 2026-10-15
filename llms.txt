@@ -1,22 +1,17 @@
 # UniverseIT
 
-> UniverseIT is a multi-tenant ERP for Indian educational institutions: admissions, fees, examinations, payroll and statutory returns, transport, hostel, accreditation and data migration — built around the society or trust that owns the campus.
+> Admissions, academics, exams, fees, finance, HR and operations in one connected system. Entered once, used everywhere, with no exports, no reconciling and no second version of a student's record.
 
-UniverseIT is an education ERP for Indian schools, colleges, universities and groups of institutions, by SAPTECHS Private Limited, Bengaluru. Coverage today: 90 capabilities built, 13 ready to connect, 13 not yet built, out of 116 checked.
+UniverseIT is an ERP for schools, colleges and universities. A SAPTECHS Product.
 
 ## Read more
 
-- [Full capability inventory](https://universeit.co.in/llms-full.txt): every module, function and checklist row in plain text
-- [Coverage checklist](https://universeit.co.in/#coverage): Yes / Ready to connect / Not yet, in RFP wording
-- [Modules](https://universeit.co.in/#modules): every function, grouped by module
-- [Security and compliance](https://universeit.co.in/#security): the platform, its certifications, data residency
-- [Contact](https://universeit.co.in/#contact): just.universe.it@saptechs.co.in
+- [Everything on the page, as text](https://universeit.co.in/llms-full.txt)
+- [The 20 modules](https://universeit.co.in/#modules)
+- [Built for the DPDP Act](https://universeit.co.in/#governance)
+- [What it stands on](https://universeit.co.in/#platform)
+- [Contact](https://universeit.co.in/#contact): hello@universeit.co.in
 
-## Security and compliance
+## Trademarks
 
-UniverseIT runs on SAP Business Technology Platform. The platform services it runs on hold ISO/IEC 27001, ISO/IEC 27017, ISO/IEC 27018, ISO 22301, SOC 1 Type II, SOC 2 Type II and C5, as published on the SAP Trust Center. Data is encrypted in transit and at rest, each institution has its own database container, and production runs in SAP BTP's India (Mumbai) region. These certifications are SAP's: UniverseIT is an independent SAPTECHS product, is not itself certified, and is not affiliated with or endorsed by SAP SE.
-
-## Limits
-
-Limits, stated by the vendor: the mobile app is built but not yet in the app stores, and messaging (SMS, WhatsApp, email, voice) goes live on each institution's own provider account. Rows marked Not yet are not built.
-
+SAP and SAP BTP are trademarks of SAP SE. UniverseIT is a SAPTECHS product, not an SAP product. Certifications named belong to the SAP platform, not to UniverseIT or SAPTECHS.
