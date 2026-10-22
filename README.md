@@ -1,7 +1,8 @@
 # UniverseIT — product site
 
-One self-contained HTML page. No build step, no dependencies to install, no
-backend. `index.html` **is** the site.
+The product page and an interactive mobile prototype. No dependencies to install
+and no backend. `index.html` is the product page; `prototype/index.html` previews
+the mobile app with demonstration data.
 
 Served by GitHub Pages from the default branch, root folder.
 
@@ -17,6 +18,14 @@ at `docs/site/`:
 
 After editing the source, run `python3 build-standalone.py` and copy
 `dist/index.html` over this repository's `index.html`.
+
+Copy the complete `dist/` directory, including `prototype/`, when publishing.
+The prototype's editable source lives at `mobile/prototype/` in `UniverseIt`;
+`docs/site/build-standalone.py` includes it automatically. Do not edit its
+deployed copy here. The 22 October 2026 design sync includes phone and iPad
+layouts, linked student/staff profiles, scoped alerts, calendars, fees and
+sample PDFs, Digital ID, teacher sessions, approvals and mobile branding.
+It never connects to live accounts or submits payments or messages.
 
 ## What is in the page
 

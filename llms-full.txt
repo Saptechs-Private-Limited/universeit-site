@@ -2,7 +2,7 @@
 
 > Admissions, academics, exams, fees, finance, HR and operations in one connected system. Entered once, used everywhere, with no exports, no reconciling and no second version of a student's record.
 
-Generated 2026-10-15 from https://universeit.co.in/.
+Generated 2026-10-22 from https://universeit.co.in/.
 
 UniverseIT™ · A SAPTECHS Product
 
@@ -431,6 +431,10 @@ Start and end trips, scan ID cards at boarding, hand over only to an authorised 
 ### Office & support staff
 
 Visitors, gate passes, helpdesk, punch-in, daily tasks
+
+Explore the mobile app prototype
+
+Try the phone and tablet layouts with sample data. No live sign-in or payments.
 
 What it stands on
 
