@@ -3591,13 +3591,58 @@ if(window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEvent
 </script>
 <script src="latest.js"></script>
 <script>
+/* Embedded app mode: keep the real phone beside the existing control deck. */
 (function () {
   if (!new URLSearchParams(location.search).has('embed')) return;
-  document.body.classList.add('nodeck');
-  addEventListener('message', function (event) {
-    if (event.source !== parent || event.origin !== location.origin || !event.data || event.data.type !== 'universeit-device') return;
-    if (['iphone','android','ipad','landscape'].includes(event.data.device)) setDevice(event.data.device);
-  });
+  document.body.classList.add('embed-mode');
+  const style = document.createElement('style');
+  style.textContent = `
+    html, body { width:100%; height:100%; min-height:0; margin:0; overflow:hidden; }
+    body.embed-mode .wrap { width:100%; height:100%; min-height:0; max-width:none; margin:0; padding:14px; display:grid; grid-template-columns:minmax(260px,.78fr) minmax(0,1.22fr); gap:16px; align-items:stretch; overflow:hidden; }
+    body.embed-mode .stage { width:auto; min-width:0; max-width:none!important; height:100%; min-height:0; justify-content:center; }
+    body.embed-mode .lede { display:none; }
+    body.embed-mode .phone-fit { flex:none; }
+    body.embed-mode .deck { position:relative; top:auto; width:100%; min-width:0; max-width:none; height:100%; max-height:none; margin:0; overflow:auto; align-content:start; }
+    body.embed-mode .deck .dsec { align-self:start; }
+    body.embed-mode.nodeck .wrap { grid-template-columns:1fr; justify-items:center; }
+    body.embed-mode.nodeck .stage { width:100%; }
+    body.embed-mode .deckbtn { display:none!important; }
+    body.embed-mode .embed-controls { display:none; position:fixed; z-index:100; top:12px; right:12px; align-items:center; gap:7px; padding:9px 14px; border:1px solid var(--page-line); border-radius:999px; background:var(--page-card); color:var(--page-fg); font:700 12px var(--font); cursor:pointer; box-shadow:0 12px 28px -16px rgba(6,14,28,.65); }
+    body.embed-mode.nodeck .embed-controls { display:inline-flex; }
+    body.embed-mode .device-picker { grid-column:1/-1; justify-content:flex-start; margin:0; }
+    body.embed-mode .sample-label { display:none; }
+    @media(max-width:700px) {
+      body.embed-mode .wrap { grid-template-columns:minmax(210px,.8fr) minmax(280px,1.2fr); gap:8px; padding:8px; }
+      body.embed-mode .deck { padding:9px; gap:8px; }
+      body.embed-mode .deck .dsec { padding:8px; }
+      body.embed-mode .dpill, body.embed-mode .device-picker button { padding:5px 7px; font-size:10px; }
+    }
+    @media(max-width:520px) {
+      body.embed-mode .wrap { grid-template-columns:1fr; overflow:auto; }
+      body.embed-mode .stage { height:auto; min-height:100%; }
+      body.embed-mode:not(.nodeck) .deck { height:auto; max-height:60vh; }
+      body.embed-mode.nodeck .deck { display:none; }
+    }
+  `;
+  document.head.appendChild(style);
+  const deck = document.querySelector('.deck');
+  const picker = document.querySelector('.device-picker');
+  const opener = document.createElement('button');
+  opener.className = 'embed-controls';
+  opener.type = 'button';
+  opener.textContent = 'Controls';
+  opener.addEventListener('click', function () { setDeck(true); });
+  document.body.appendChild(opener);
+  if (deck && picker) {
+    const deviceSection = document.createElement('section');
+    deviceSection.className = 'dsec wide';
+    deviceSection.innerHTML = '<h4>Device</h4>';
+    deviceSection.appendChild(picker);
+    const previewSection = deck.querySelector('.dsec.wide');
+    deck.insertBefore(deviceSection, previewSection ? previewSection.nextSibling : deck.firstChild);
+  }
+  setDeck(true);
+  requestAnimationFrame(function () { fitDevice(); });
 })();
 </script>
 </body>
