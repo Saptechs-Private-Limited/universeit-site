@@ -255,7 +255,7 @@ section { padding: 96px 0; }
 .nav-in { max-width: var(--wide); margin: 0 auto; padding: 0 28px; height: 62px; display: flex; align-items: center; gap: 20px; }
 @media (max-width: 600px) { .nav-in { padding: 0 16px; } }
 .logo { display: flex; align-items: center; text-decoration: none; flex: none; }
-.logo .lockup { height: 22px; width: auto; display: block; overflow: visible; }
+.logo .lockup { height: 26px; width: auto; display: block; overflow: visible; }
 .nav-links { display: flex; gap: 2px; margin-left: auto; align-items: center; }
 .nav-links a {
   font-size: 13.5px; font-weight: 500; color: var(--muted); text-decoration: none;
@@ -265,7 +265,8 @@ section { padding: 96px 0; }
 .nav-links a.on { color: var(--orange-ink); background: color-mix(in srgb, var(--orange) 12%, transparent); }
 .nav-links a.cta { background: var(--orange); color: var(--on-orange); font-weight: 600; margin-left: 6px; }
 .nav-links a.cta:hover { background: color-mix(in srgb, var(--orange) 88%, #fff); }
-@media (max-width: 1060px) { .nav-links a:not(.cta) { display: none; } }
+@media (max-width: 900px) { .nav-links a:not(.cta) { display: none; } }
+.nav-links a:not(.cta):nth-child(5), .nav-links a:not(.cta):nth-child(6) { display: none; }
 .theme-btn {
   border: 1px solid var(--border); background: transparent; color: var(--muted);
   width: 34px; height: 34px; border-radius: 8px; cursor: pointer; font-size: 15px; flex: none;
@@ -280,6 +281,7 @@ section { padding: 96px 0; }
               radial-gradient(700px 420px at 0% 110%, rgba(255,255,255,.08), transparent 60%);
 }
 .hero .wrap { position: relative; }
+.hero { padding-top: 76px; }
 .hero .eyebrow { color: var(--orange); }
 .hero .eyebrow::after { background: var(--ink-rule); }
 .hero h1 { font-size: clamp(40px, 6.4vw, 76px); line-height: 1.02; margin-top: 22px; max-width: 15ch; letter-spacing: -0.02em; }
@@ -296,7 +298,7 @@ section { padding: 96px 0; }
 .btn-ghost:hover { background: rgba(255,255,255,.08); }
 
 /* the key numbers, sitting on the foot of the hero */
-.numbers { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 80px; border-top: 1px solid var(--ink-rule); }
+.numbers { display: grid; grid-template-columns: repeat(6, 1fr); margin-top: 58px; border-top: 1px solid var(--ink-rule); }
 @media (max-width: 1000px) { .numbers { grid-template-columns: repeat(3, 1fr); } }
 @media (max-width: 560px)  { .numbers { grid-template-columns: repeat(2, 1fr); } }
 .num { padding: 28px 18px 34px 0; }
@@ -312,6 +314,49 @@ section { padding: 96px 0; }
 .num .v { font-family: var(--serif); font-size: clamp(38px, 4.2vw, 52px); line-height: 1; color: #fff; font-weight: 500; }
 .num .k { font-family: var(--mono); font-size: 11.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin-top: 10px; }
 .num .d { font-size: 13.5px; color: var(--ink-muted); margin-top: 8px; line-height: 1.5; }
+
+/* Cleaner rhythm and a guided feature carousel for the detailed workflows. */
+section { padding: 76px 0; }
+.sec-head { max-width: 760px; margin-bottom: 32px; }
+.sec-head h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.08; margin-top: 14px; }
+.sec-head .lede { max-width: 62ch; margin-top: 14px; }
+.mods { grid-template-columns: repeat(auto-fit, minmax(225px, 1fr)); gap: 12px; }
+.mods li { min-height: 64px; border-radius: 14px; padding: 17px 18px; box-shadow: var(--shadow); }
+.feature-carousel { position: relative; margin-top: 30px; }
+.feature-viewport { overflow: hidden; border-radius: 20px; }
+.feature-track { display: flex; transition: transform .55s cubic-bezier(.2,.75,.25,1); will-change: transform; }
+.feature-slide { flex: 0 0 100%; min-width: 0; padding: 36px; background: var(--surface); border: 1px solid var(--border); border-radius: 20px; box-shadow: var(--shadow); }
+.feature-slide:nth-child(even) { background: color-mix(in srgb, var(--blue) 3%, var(--surface)); }
+.feature-slide .eyebrow { margin-bottom: 10px; }
+.feature-slide h3 { font-size: clamp(26px, 3.5vw, 38px); line-height: 1.1; max-width: 26ch; }
+.feature-slide .intro { color: var(--muted); max-width: 64ch; margin-top: 10px; }
+.feature-slide .points { margin-top: 25px; }
+.carousel-controls { display: flex; align-items: center; justify-content: space-between; gap: 18px; margin-top: 18px; }
+.carousel-arrows { display: flex; gap: 8px; }
+.carousel-btn { width: 42px; height: 42px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: var(--surface); cursor: pointer; font-size: 20px; transition: .2s ease; }
+.carousel-btn:hover { border-color: var(--blue); color: var(--blue); transform: translateY(-1px); }
+.carousel-dots { display: flex; gap: 8px; align-items: center; }
+.carousel-dot { width: 8px; height: 8px; padding: 0; border: 0; border-radius: 99px; background: var(--rule); cursor: pointer; transition: .25s ease; }
+.carousel-dot[aria-current="true"] { width: 26px; background: var(--orange); }
+.carousel-count { color: var(--muted); font-family: var(--mono); font-size: 12px; }
+.feature-slide .points { grid-template-columns: repeat(2, minmax(0,1fr)); }
+.feature-slide .point { padding: 19px 20px; }
+.feature-slide .path { flex-wrap: wrap; gap: 10px; }
+.feature-slide .path li { flex: 1 1 120px; }
+.feature-slide .path li + li::after { display: none; }
+.band-ink .feature-slide { --text: #22282E; --muted: #5A6570; --border: #DDE3EA; --surface: #FFFFFF; --sunken: #EDF1F6; --blue: #0C447C; color: #22282E; }
+.band-ink .feature-slide .point { background: #fff; border-color: #DDE3EA; }
+.band-ink .feature-slide .point h3 { color: #0C447C; }
+.band-ink .feature-slide .point p { color: #5A6570; }
+@media (max-width: 700px) {
+  section { padding: 58px 0; }
+  .hero { padding-top: 62px; }
+  .feature-slide { padding: 25px 21px; }
+  .feature-slide .points { grid-template-columns: 1fr; }
+  .carousel-controls { margin-top: 13px; }
+}
+[data-carousel] .feature-slide[aria-hidden="true"] { visibility: hidden; }
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 
 /* ================= PROBLEM / SOLUTION FIGURES ================= */
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
@@ -416,6 +461,25 @@ section { padding: 96px 0; }
 .about-sap .src { font-size: 13px; color: var(--ink-faint); margin-top: 18px; }
 .tm-line { font-size: 12.5px; line-height: 1.65; color: var(--ink-faint); margin-top: 26px; max-width: 90ch; font-style: italic; }
 
+/* App preview dialog */
+.app-dialog { width: min(1040px, calc(100vw - 32px)); max-width: none; height: min(850px, calc(100dvh - 32px)); max-height: none; padding: 0; border: 1px solid rgba(255,255,255,.24); border-radius: 24px; color: var(--text); background: var(--bg); box-shadow: 0 30px 100px rgba(0,0,0,.42); overflow: hidden; }
+.app-dialog::backdrop { background: rgba(5,16,30,.74); backdrop-filter: blur(8px); }
+.app-dialog[open] { display: grid; grid-template-rows: auto 1fr; animation: dialog-in .22s ease-out; }
+@keyframes dialog-in { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
+.app-dialog-head { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 18px; background: var(--surface); border-bottom: 1px solid var(--border); }
+.app-dialog-title { font-family: var(--sans); font-size: 14px; font-weight: 700; }
+.app-dialog-title small { display: block; font-size: 12px; font-weight: 400; color: var(--muted); margin-top: 2px; }
+.app-dialog-close { display: grid; place-items: center; flex: none; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 50%; color: var(--text); background: var(--surface); cursor: pointer; font-size: 24px; line-height: 1; }
+.app-dialog-close:hover { border-color: var(--blue); color: var(--blue); }
+.app-dialog-body { min-height: 0; display: grid; grid-template-rows: auto minmax(0,1fr); padding: 12px 18px 16px; background: radial-gradient(ellipse at center, color-mix(in srgb, var(--blue) 9%, var(--bg)), var(--bg) 68%); }
+.app-device-picker { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 7px; padding: 0 0 8px; }
+.app-device-picker button { border: 1px solid var(--border); border-radius: 999px; padding: 7px 13px; color: var(--muted); background: var(--surface); cursor: pointer; font: 600 12px var(--sans); }
+.app-device-picker button[aria-pressed="true"] { border-color: var(--blue); color: #fff; background: var(--blue); }
+.app-frame { min-height: 0; overflow: auto; border-radius: 18px; background: transparent; }
+.app-frame iframe { display: block; width: 100%; height: 100%; min-height: 600px; border: 0; background: transparent; }
+@media (max-width: 640px) { .app-dialog { width: 100vw; height: 100dvh; border: 0; border-radius: 0; } .app-dialog-head { padding: 10px 14px; } .app-dialog-body { padding: 8px 8px max(8px, env(safe-area-inset-bottom)); } .app-frame { border-radius: 12px; } .app-frame iframe { min-height: 500px; } }
+@media (prefers-reduced-motion: reduce) { .app-dialog[open] { animation: none; } }
+
 /* ================= STAGE ================= */
 .commit {
   margin-top: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
@@ -455,13 +519,8 @@ footer .tm-line { margin-top: 14px; }
 <nav class="nav" aria-label="Sections">
   <div class="nav-in">
     <a class="logo" href="#top" aria-label="UniverseIT — home">
-      <!-- The horizontal lockup, inlined as a derivative per docs/logos/README.md:
-           metadata stripped, viewBox tightened to the artwork, the three brand fills
-           swapped for the page's logo tokens so the mark follows the theme.
-           TODO(brand v4): this is still the v3 master — no ™ after the wordmark.
-           Replace with UniverseIT_Logo_Horizontal_NoTagline_OnWhite from
-           UniverseIT_Logos_v4_TM once the pack is in docs/logos. -->
-      <svg class="lockup" viewBox="80 161.69 1638.75 199.92" width="180.34" height="22" role="img" aria-hidden="true">
+      <!-- Vector geometry from the supplied v4 ™ master; original artwork retained. -->
+      <svg class="lockup" viewBox="0 120 1800 400" role="img" aria-hidden="true">
         <path d="M80 188.46L146.38 188.46L146.38 202.12L80 202.12Z" fill="var(--logo-ink)"></path>
         <path d="M97.57 188.46L128.81 188.46L128.81 219.7L97.57 219.7Z" fill="var(--logo-ink)"></path>
         <path d="M97.57 223.6C97.57 209.93 85.86 202.12 80 202.12L80 201.15L98.55 201.15L98.55 223.6Z" fill="var(--logo-ink)"></path>
@@ -473,18 +532,15 @@ footer .tm-line { margin-top: 14px; }
         <path d="M275.51 188.46L278.65 188.46L278.65 358.31L275.51 358.31Z" fill="var(--logo-rule)"></path>
         <path d="M339.36 188.46L383.16 188.46L383.16 290.28Q383.16 311.32 390.04 320.37Q396.93 329.41 412.51 329.41Q428.21 329.41 435.1 320.37Q441.98 311.32 441.98 290.28L441.98 188.46L485.78 188.46L485.78 290.28Q485.78 326.34 467.69 343.97Q449.6 361.61 412.51 361.61Q375.54 361.61 357.45 343.97Q339.36 326.34 339.36 290.28L339.36 188.46ZM654.83 280.72L654.83 358.31L613.88 358.31L613.88 345.68L613.88 298.92Q613.88 282.43 613.14 276.17Q612.4 269.91 610.58 266.96Q608.19 262.97 604.09 260.76Q600 258.54 594.76 258.54Q582.02 258.54 574.74 268.38Q567.46 278.22 567.46 295.62L567.46 358.31L526.73 358.31L526.73 230.89L567.46 230.89L567.46 249.55Q576.67 238.4 587.03 233.11Q597.38 227.82 609.89 227.82Q631.96 227.82 643.4 241.36Q654.83 254.9 654.83 280.72ZM692.6 230.89L733.33 230.89L733.33 358.31L692.6 358.31L692.6 230.89ZM692.6 181.29L733.33 181.29L733.33 214.51L692.6 214.51L692.6 181.29ZM756.42 230.89L797.15 230.89L828.89 318.95L860.51 230.89L901.36 230.89L851.19 358.31L806.48 358.31L756.42 230.89ZM1051.52 294.26L1051.52 305.86L956.3 305.86Q957.78 320.2 966.66 327.36Q975.53 334.53 991.46 334.53Q1004.31 334.53 1017.79 330.72Q1031.27 326.91 1045.49 319.17L1045.49 350.57Q1031.05 356.03 1016.6 358.82Q1002.15 361.61 987.7 361.61Q953.12 361.61 933.95 344.03Q914.78 326.45 914.78 294.71Q914.78 263.54 933.61 245.68Q952.44 227.82 985.43 227.82Q1015.46 227.82 1033.49 245.91Q1051.52 264 1051.52 294.26ZM1009.66 280.72Q1009.66 269.12 1002.89 262.01Q996.12 254.9 985.2 254.9Q973.37 254.9 965.97 261.55Q958.58 268.21 956.76 280.72L1009.66 280.72ZM1177.01 265.59Q1171.66 263.09 1166.37 261.89Q1161.08 260.7 1155.73 260.7Q1140.03 260.7 1131.56 270.77Q1123.08 280.83 1123.08 299.61L1123.08 358.31L1082.35 358.31L1082.35 230.89L1123.08 230.89L1123.08 251.83Q1130.93 239.31 1141.11 233.57Q1151.29 227.82 1165.52 227.82Q1167.56 227.82 1169.95 227.99Q1172.34 228.16 1176.89 228.73L1177.01 265.59ZM1296.8 234.87L1296.8 265.82Q1283.72 260.36 1271.54 257.63Q1259.37 254.9 1248.56 254.9Q1236.96 254.9 1231.33 257.8Q1225.7 260.7 1225.7 266.73Q1225.7 271.62 1229.96 274.24Q1234.23 276.85 1245.26 278.1L1252.43 279.13Q1283.72 283.11 1294.52 292.21Q1305.33 301.31 1305.33 320.77Q1305.33 341.13 1290.31 351.37Q1275.3 361.61 1245.49 361.61Q1232.86 361.61 1219.38 359.62Q1205.9 357.63 1191.68 353.64L1191.68 322.7Q1203.85 328.62 1216.65 331.57Q1229.45 334.53 1242.65 334.53Q1254.59 334.53 1260.62 331.23Q1266.65 327.93 1266.65 321.45Q1266.65 315.99 1262.5 313.31Q1258.35 310.64 1245.95 309.16L1238.78 308.25Q1211.59 304.84 1200.67 295.62Q1189.75 286.41 1189.75 267.64Q1189.75 247.39 1203.63 237.6Q1217.51 227.82 1246.17 227.82Q1257.44 227.82 1269.84 229.53Q1282.24 231.23 1296.8 234.87ZM1463.12 294.26L1463.12 305.86L1367.9 305.86Q1369.38 320.2 1378.25 327.36Q1387.13 334.53 1403.05 334.53Q1415.91 334.53 1429.39 330.72Q1442.87 326.91 1457.09 319.17L1457.09 350.57Q1442.64 356.03 1428.2 358.82Q1413.75 361.61 1399.3 361.61Q1364.72 361.61 1345.55 344.03Q1326.38 326.45 1326.38 294.71Q1326.38 263.54 1345.21 245.68Q1364.03 227.82 1397.02 227.82Q1427.06 227.82 1445.09 245.91Q1463.12 264 1463.12 294.26ZM1421.26 280.72Q1421.26 269.12 1414.49 262.01Q1407.72 254.9 1396.8 254.9Q1384.97 254.9 1377.57 261.55Q1370.18 268.21 1368.36 280.72L1421.26 280.72Z" fill="var(--logo-ink)"></path>
         <path d="M1495.77 188.46L1539.57 188.46L1539.57 358.31L1495.77 358.31L1495.77 188.46ZM1562.21 188.46L1718.75 188.46L1718.75 221.56L1662.44 221.56L1662.44 358.31L1618.64 358.31L1618.64 221.56L1562.21 221.56L1562.21 188.46Z" fill="var(--logo-gold)"></path>
+        <text x="1744" y="220" fill="var(--logo-ink)" font-family="DejaVu Sans, Arial, sans-serif" font-size="55" font-weight="700">™</text>
       </svg>
     </a>
     <div class="nav-links">
-      <a href="#modules">Modules</a>
-      <a href="#levels">Who it is for</a>
-      <a href="#admissions">Admissions</a>
-      <a href="#fees">Fees</a>
-      <a href="#governance">Governance</a>
-      <a href="#ai">AI</a>
+      <a href="#modules">Product</a>
+      <a href="#features">Features</a>
+      <a href="#mobile">Mobile</a>
       <a href="#migration">Switching over</a>
       <a href="#platform">Platform</a>
-      <a href="#stage">Where we are</a>
       <a class="cta" href="#contact">Contact</a>
     </div>
     <button class="theme-btn" id="themeBtn" type="button" aria-label="Switch colour theme" title="Switch colour theme">◐</button>
@@ -552,6 +608,78 @@ footer .tm-line { margin-top: 14px; }
       <div class="hub-core">Entered once<small>at admission</small></div>
       <div class="hub-line"></div>
       <ul class="hub-spokes"><li>Academics</li><li>Exams</li><li>Fees</li><li>Hostel</li><li>Transport</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- Detailed product stories are grouped in one user-controlled carousel. -->
+<section id="features" class="band-sunken">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">A closer look</div>
+      <h2>One connected system, across the work that matters.</h2>
+      <p class="lede">Choose a story to explore. Move through the details at your own pace.</p>
+    </div>
+    <div class="feature-carousel" data-carousel aria-roledescription="carousel" aria-label="UniverseIT product features">
+      <div class="feature-viewport">
+        <div class="feature-track">
+          <article class="feature-slide" aria-label="Admissions and academics">
+            <div class="eyebrow">Admissions &amp; academics</div><h3>From the first enquiry to the first day.</h3>
+            <p class="intro">A connected path from family enquiry through verified documents, course setup and the academic year.</p>
+            <div class="points">
+              <div class="point"><h3>Admissions with follow-through.</h3><p>Enquiries have a source, an owner and a next step. Families complete secure, OTP-verified forms and upload documents from their phones.</p></div>
+              <div class="point"><h3>Ready for the institution.</h3><p>Check documents against your own list, track seats live, and manage counselling rounds and allotments for colleges.</p></div>
+              <div class="point"><h3>Courses follow your structure.</h3><p>Subjects, eligibility and pass rules are set for each board, programme and semester.</p></div>
+              <div class="point"><h3>Assessment follows the board.</h3><p>Set grade schemes, exam weights and evaluation methods. Support curricula from pre-school through postgraduate study.</p></div>
+            </div>
+          </article>
+          <article class="feature-slide" aria-label="Fees and finance">
+            <div class="eyebrow">Fees &amp; finance</div><h3>One dues register. One set of books.</h3>
+            <p class="intro">Tuition, hostel, mess, transport and other charges meet in the same ledger as payroll and purchases.</p>
+            <div class="points">
+              <div class="point"><h3>Reminders in the family’s language.</h3><p>Send notices before and after the due date through SMS, WhatsApp, email or app notification.</p></div>
+              <div class="point"><h3>Your fee rules apply automatically.</h3><p>Calculate late fines, manage defaulters and set course-level hall-ticket rules.</p></div>
+              <div class="point"><h3>Receipts and accounts connect.</h3><p>Each receipt, expense and purchase posts to a voucher and general ledger entry.</p></div>
+              <div class="point"><h3>Keep a clear record.</h3><p>Posted entries are locked. Corrections are reversed, never overwritten.</p></div>
+            </div>
+          </article>
+          <article class="feature-slide" aria-label="Attendance and mobility">
+            <div class="eyebrow">Attendance &amp; daily operations</div><h3>Know where the day stands.</h3>
+            <p class="intro">Attendance follows students across the places where learning and campus life happen.</p>
+            <div class="points">
+              <div class="point"><h3>On the move.</h3><p>Record boarding and drop-off, track the live bus location and hand over students only to authorised pickups.</p></div>
+              <div class="point"><h3>In class and lab.</h3><p>Teachers mark attendance and keep their timetables and mentees in view.</p></div>
+              <div class="point"><h3>At the hostel.</h3><p>Keep hostel in and out activity alongside the student's wider record.</p></div>
+              <div class="point"><h3>During exams.</h3><p>Record attempts and no-shows as part of the same institutional picture.</p></div>
+            </div>
+          </article>
+          <article class="feature-slide" aria-label="Governance and privacy">
+            <div class="eyebrow">Governance &amp; privacy</div><h3>Every approval, change and access on the record.</h3>
+            <p class="intro">Built for the DPDP Act, with controls and a traceable history woven into everyday work.</p>
+            <div class="points">
+              <div class="point"><h3>39 approval points.</h3><p>The right person approves before an action proceeds.</p></div>
+              <div class="point"><h3>Changes stay visible.</h3><p>Record who changed a mark, fee or receipt, and what changed.</p></div>
+              <div class="point"><h3>Personal details are protected.</h3><p>Reveal events for phone, email and bank details record who, when and why.</p></div>
+              <div class="point"><h3>Privacy requests have a home.</h3><p>Manage consent, erase-or-export requests and a breach register with its 72-hour clock.</p></div>
+            </div>
+          </article>
+          <article class="feature-slide" aria-label="AI and customisation">
+            <div class="eyebrow">AI &amp; customisation</div><h3>Your institution sets the terms.</h3>
+            <p class="intro">AI is optional. Your language, forms, fields and rules can fit how your institution works.</p>
+            <div class="points">
+              <div class="point"><h3>Off by default.</h3><p>Core work does not depend on AI. When enabled, your institution connects its own provider and account.</p></div>
+              <div class="point"><h3>A person confirms marks.</h3><p>Assessment can draft marks and feedback; an evaluator reviews and confirms them before posting.</p></div>
+              <div class="point"><h3>Use familiar words.</h3><p>Adjust screen text and field labels per institution and language.</p></div>
+              <div class="point"><h3>Set your own workflow.</h3><p>Shape forms, define local categories and choose approval chains without changing how your institute works.</p></div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="carousel-controls">
+        <div class="carousel-arrows"><button class="carousel-btn" type="button" data-prev aria-label="Previous feature">‹</button><button class="carousel-btn" type="button" data-next aria-label="Next feature">›</button></div>
+        <div class="carousel-dots" role="group" aria-label="Choose a feature"></div>
+        <span class="carousel-count" aria-live="polite"></span>
+      </div>
     </div>
   </div>
 </section>
@@ -815,10 +943,26 @@ footer .tm-line { margin-top: 14px; }
       <div class="role"><h3>Drivers &amp; helpers</h3><p>Start and end trips, scan ID cards at boarding, hand over only to an authorised pickup, SOS</p></div>
       <div class="role"><h3>Office &amp; support staff</h3><p>Visitors, gate passes, helpdesk, punch-in, daily tasks</p></div>
     </div>
-    <p style="margin-top:28px"><a class="btn btn-orange" href="prototype/">Explore the mobile app prototype</a></p>
-    <p style="margin-top:12px;font-size:14px;color:var(--muted)">Try the phone and tablet layouts with sample data. No live sign-in or payments.</p>
+    <p style="margin-top:28px"><button class="btn btn-orange" id="openAppPreview" type="button" aria-haspopup="dialog" aria-controls="appPreview">Try the mobile app</button></p>
+    <p style="margin-top:12px;font-size:14px;color:var(--muted)">Explore the app with sample data. No live sign-in or payments.</p>
   </div>
 </section>
+
+<dialog class="app-dialog" id="appPreview" aria-labelledby="appPreviewTitle">
+  <div class="app-dialog-head">
+    <div class="app-dialog-title" id="appPreviewTitle">UniverseIT mobile app <small>Interactive prototype · Sample data</small></div>
+    <button class="app-dialog-close" id="closeAppPreview" type="button" aria-label="Close mobile app preview">×</button>
+  </div>
+  <div class="app-dialog-body">
+    <div class="app-device-picker" role="group" aria-label="Choose prototype device">
+      <button type="button" data-device="iphone" aria-pressed="true">iPhone</button>
+      <button type="button" data-device="android" aria-pressed="false">Android</button>
+      <button type="button" data-device="ipad" aria-pressed="false">iPad</button>
+      <button type="button" data-device="landscape" aria-pressed="false">iPad landscape</button>
+    </div>
+    <div class="app-frame"><iframe id="appPreviewFrame" title="Interactive UniverseIT mobile app prototype" data-src="./prototype/?embed=1" loading="lazy" allow="clipboard-read; clipboard-write"></iframe></div>
+  </div>
+</dialog>
 
 <!-- ============================ WHAT IT STANDS ON ============================
      No SAP logo — the platform is described in words only. The certifications
@@ -921,7 +1065,6 @@ footer .tm-line { margin-top: 14px; }
     </figure>
   </div>
 </section>
-
 <footer>
   <div class="wrap">
     <div class="foot-in">
@@ -935,6 +1078,78 @@ footer .tm-line { margin-top: 14px; }
 
 <script>
 "use strict";
+/* ================= MOBILE APP PREVIEW ================= */
+(function () {
+  var dialog = document.getElementById("appPreview");
+  var openButton = document.getElementById("openAppPreview");
+  var closeButton = document.getElementById("closeAppPreview");
+  var frame = document.getElementById("appPreviewFrame");
+  if (!dialog || !openButton || !closeButton || !frame) return;
+  var frameReady = false, pendingDevice = "iphone";
+  frame.addEventListener("load", function () {
+    frameReady = true;
+    frame.contentWindow.postMessage({ type: "universeit-device", device: pendingDevice }, window.location.origin);
+  });
+  function close() { dialog.close(); openButton.focus(); }
+  openButton.addEventListener("click", function () {
+    dialog.showModal();
+    if (!frame.src) frame.src = new URL(frame.getAttribute("data-src"), window.location.href).href;
+    closeButton.focus();
+  });
+  dialog.querySelectorAll("[data-device]").forEach(function (button) {
+    button.addEventListener("click", function () {
+      pendingDevice = button.getAttribute("data-device");
+      dialog.querySelectorAll("[data-device]").forEach(function (item) { item.setAttribute("aria-pressed", item === button ? "true" : "false"); });
+      if (frameReady) frame.contentWindow.postMessage({ type: "universeit-device", device: pendingDevice }, window.location.origin);
+    });
+  });
+  closeButton.addEventListener("click", close);
+  dialog.addEventListener("click", function (event) { if (event.target === dialog) close(); });
+  dialog.addEventListener("cancel", function (event) { event.preventDefault(); close(); });
+})();
+
+/* ================= FEATURE CAROUSEL ================= */
+(function () {
+  document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
+    var track = carousel.querySelector(".feature-track");
+    var slides = Array.prototype.slice.call(track.children);
+    var dots = carousel.querySelector(".carousel-dots");
+    var count = carousel.querySelector(".carousel-count");
+    var index = 0, startX = 0, pointerDown = false;
+    slides.forEach(function (slide, i) {
+      var dot = document.createElement("button");
+      dot.type = "button"; dot.className = "carousel-dot";
+      dot.setAttribute("aria-label", "Show feature " + (i + 1) + ": " + slide.getAttribute("aria-label"));
+      dot.addEventListener("click", function () { show(i); });
+      dots.appendChild(dot);
+    });
+    var allDots = Array.prototype.slice.call(dots.children);
+    function show(next) {
+      index = (next + slides.length) % slides.length;
+      track.style.transform = "translateX(-" + (index * 100) + "%)";
+      slides.forEach(function (slide, i) { slide.setAttribute("aria-hidden", i === index ? "false" : "true"); });
+      allDots.forEach(function (dot, i) { dot.setAttribute("aria-current", i === index ? "true" : "false"); });
+      count.textContent = String(index + 1).padStart(2, "0") + " / " + String(slides.length).padStart(2, "0");
+    }
+    carousel.querySelector("[data-prev]").addEventListener("click", function () { show(index - 1); });
+    carousel.querySelector("[data-next]").addEventListener("click", function () { show(index + 1); });
+    carousel.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowLeft") { event.preventDefault(); show(index - 1); }
+      if (event.key === "ArrowRight") { event.preventDefault(); show(index + 1); }
+    });
+    var viewport = carousel.querySelector(".feature-viewport");
+    viewport.addEventListener("pointerdown", function (event) { startX = event.clientX; pointerDown = true; });
+    viewport.addEventListener("pointerup", function (event) {
+      if (!pointerDown) return;
+      var delta = event.clientX - startX;
+      if (Math.abs(delta) > 55) show(index + (delta < 0 ? 1 : -1));
+      pointerDown = false;
+    });
+    viewport.addEventListener("pointercancel", function () { pointerDown = false; });
+    show(0);
+  });
+})();
+
 /* ================= THEME ================= */
 (function () {
   var root = document.documentElement, btn = document.getElementById("themeBtn");
@@ -970,3 +1185,4 @@ footer .tm-line { margin-top: 14px; }
 </script>
 </body>
 </html>
+
