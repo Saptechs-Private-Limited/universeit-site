@@ -3590,5 +3590,15 @@ if(window.ResizeObserver) new ResizeObserver(fitDevice).observe(document.querySe
 if(window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{ if(state.theme==='system') render(); });
 </script>
 <script src="latest.js"></script>
+<script>
+(function () {
+  if (!new URLSearchParams(location.search).has('embed')) return;
+  document.body.classList.add('nodeck');
+  addEventListener('message', function (event) {
+    if (event.source !== parent || event.origin !== location.origin || !event.data || event.data.type !== 'universeit-device') return;
+    if (['iphone','android','ipad','landscape'].includes(event.data.device)) setDevice(event.data.device);
+  });
+})();
+</script>
 </body>
 </html>
