@@ -442,13 +442,17 @@ section { padding: 76px 0; }
 .role p { font-size: 14.5px; color: var(--muted); margin-top: 8px; }
 
 /* ================= PLATFORM ================= */
-.stack { display: grid; gap: 8px; max-width: 520px; }
-.layer { border-radius: 12px; padding: 18px 22px; display: flex; justify-content: space-between; align-items: baseline; gap: 14px; }
-.layer b { font-size: 16px; }
-.layer span { font-family: var(--mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; opacity: .85; }
-.layer.l3 { background: var(--orange); color: var(--on-orange); }
-.layer.l2 { background: #fff; color: var(--blue); border: 1px solid var(--ink-rule); }
-.layer.l1 { background: var(--ink-2); color: #fff; border: 1px solid var(--ink-rule); }
+.pyramid-figure { width: min(100%, 540px); margin: 0 auto; }
+.pyramid-svg { display: block; width: 100%; height: auto; overflow: visible; }
+.pyramid-svg .tier { stroke: rgba(255,255,255,.24); stroke-width: 1.5; }
+.pyramid-svg .tier-top { fill: var(--orange); stroke: var(--orange); }
+.pyramid-svg .tier-middle { fill: #fff; stroke: #fff; }
+.pyramid-svg .tier-base { fill: var(--ink-2); }
+.pyramid-svg .tier-title { font-family: var(--sans); font-size: 18px; font-weight: 700; text-anchor: middle; }
+.pyramid-svg .tier-kicker { font-family: var(--mono); font-size: 10px; letter-spacing: 1.5px; text-anchor: middle; }
+.pyramid-svg .top-ink { fill: var(--on-orange); }
+.pyramid-svg .middle-ink { fill: var(--blue); }
+.pyramid-svg .base-ink { fill: #fff; }
 .layer-note { font-size: 15px; color: var(--ink-muted); margin-top: 14px; }
 .techs { display: flex; flex-wrap: wrap; gap: 8px; margin: 36px 0; }
 .techs li { font-family: var(--mono); font-size: 12.5px; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--ink-rule); color: var(--ink-text); background: rgba(255,255,255,.05); }
@@ -967,11 +971,22 @@ footer .tm-line { margin-top: 14px; }
     </div>
     <div class="split" style="align-items:start">
       <div>
-        <div class="stack" aria-label="Three layers">
-          <div class="layer l3"><b>Your institution</b><span>On top</span></div>
-          <div class="layer l2"><b>UniverseIT</b><span>Above it</span></div>
-          <div class="layer l1"><b>SAP Business Technology Platform</b><span>At the base</span></div>
-        </div>
+        <figure class="pyramid-figure">
+          <svg class="pyramid-svg" viewBox="0 0 520 360" role="img" aria-labelledby="platformPyramidTitle platformPyramidDesc">
+            <title id="platformPyramidTitle">The UniverseIT platform pyramid</title>
+            <desc id="platformPyramidDesc">Your institution is at the top, UniverseIT is the middle layer, and SAP Business Technology Platform forms the foundation.</desc>
+            <polygon class="tier tier-top" points="180,24 340,24 400,112 120,112"></polygon>
+            <polygon class="tier tier-middle" points="120,122 400,122 455,210 65,210"></polygon>
+            <polygon class="tier tier-base" points="65,220 455,220 510,308 10,308"></polygon>
+            <text class="tier-kicker top-ink" x="260" y="58">ON TOP</text>
+            <text class="tier-title top-ink" x="260" y="88">Your institution</text>
+            <text class="tier-kicker middle-ink" x="260" y="157">THE PRODUCT</text>
+            <text class="tier-title middle-ink" x="260" y="187">UniverseIT™</text>
+            <text class="tier-kicker base-ink" x="260" y="254">THE FOUNDATION</text>
+            <text class="tier-title base-ink" x="260" y="284">SAP Business Technology Platform</text>
+            <path d="M260 318v20m-7-7 7 7 7-7" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </figure>
         <p class="layer-note">Your data in SAP HANA Cloud, hosted in India.</p>
       </div>
       <div class="points" style="grid-template-columns:1fr">
