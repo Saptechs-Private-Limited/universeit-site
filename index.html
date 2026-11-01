@@ -191,25 +191,19 @@ section { padding: 96px 0; }
 /* A restrained moving light field gives the platform section depth without competing with its pyramid. */
 #platform.band-ink {
   position: relative; isolation: isolate; overflow: hidden;
-  background: linear-gradient(135deg, #0C447C 0%, #104D86 52%, #0C447C 100%);
+  background: linear-gradient(135deg, #0C447C 0%, #104D86 54%, #0C447C 100%);
 }
 #platform.band-ink > .wrap { position: relative; z-index: 1; }
+.platform-graphic { position: absolute; z-index: 0; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: .88; }
+.platform-graphic .signal { stroke-dasharray: 2 17; animation: platform-signal-flow 24s linear infinite; }
 #platform.band-ink::before {
-  content: ""; position: absolute; z-index: 0; inset: -28%; pointer-events: none;
-  background:
-    radial-gradient(ellipse at 18% 35%, rgba(238,118,35,.22), transparent 29%),
-    radial-gradient(ellipse at 78% 68%, rgba(109,177,225,.26), transparent 34%),
-    radial-gradient(ellipse at 54% 12%, rgba(255,255,255,.09), transparent 30%);
-  background-size: 140% 140%;
-  animation: platform-glow-drift 22s ease-in-out infinite alternate;
+  content: ""; position: absolute; z-index: 0; inset: -22%; pointer-events: none;
+  background: radial-gradient(ellipse at 18% 40%, rgba(238,118,35,.21), transparent 27%), radial-gradient(ellipse at 76% 63%, rgba(109,177,225,.30), transparent 35%), radial-gradient(ellipse at 55% 14%, rgba(255,255,255,.11), transparent 31%);
+  background-size: 140% 140%; animation: platform-glow-drift 24s ease-in-out infinite alternate;
 }
-@keyframes platform-glow-drift {
-  from { transform: translate3d(-2%, -1%, 0) scale(1); background-position: 0% 20%; }
-  to   { transform: translate3d(2%, 1%, 0) scale(1.06); background-position: 100% 80%; }
-}
-@media (prefers-reduced-motion: reduce) {
-  #platform.band-ink::before { animation: none; }
-}
+@keyframes platform-glow-drift { from { transform: translate3d(-2%, -1%, 0) scale(1); background-position: 0% 20%; } to { transform: translate3d(2%, 1%, 0) scale(1.06); background-position: 100% 80%; } }
+@keyframes platform-signal-flow { to { stroke-dashoffset: -190; } }
+@media (prefers-reduced-motion: reduce) { #platform.band-ink::before, .platform-graphic .signal { animation: none; } }
 
 /* --- section heads --- */
 .eyebrow {
@@ -987,6 +981,13 @@ footer .tm-line { margin-top: 14px; }
      are the SAP platform's, never UniverseIT's or SAPTECHS's. The About SAP
      figures are from sap.com; re-check that page before changing any of them. -->
 <section id="platform" class="band-ink">
+  <svg class="platform-graphic" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <defs><pattern id="platformGrid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M56 0H0V56" fill="none" stroke="#BFD3E9" stroke-opacity=".12" stroke-width="1"></path></pattern><radialGradient id="platformHalo"><stop offset="0" stop-color="#6DB1E1" stop-opacity=".17"></stop><stop offset="1" stop-color="#6DB1E1" stop-opacity="0"></stop></radialGradient></defs>
+    <rect width="1440" height="900" fill="url(#platformGrid)"></rect><ellipse cx="1130" cy="390" rx="410" ry="330" fill="url(#platformHalo)"></ellipse>
+    <g fill="none" stroke="#8DBBEA" stroke-opacity=".22" stroke-width="1.4"><path d="M-30 700 150 600 315 652 470 520 628 572 770 430 930 475 1085 338 1250 395 1470 250"></path><path d="M110 120 260 240 402 190 550 320 710 260 870 355 1040 285 1190 170 1400 220"></path><path d="M82 840 270 740 410 792 590 680 740 735 910 620 1090 680 1270 570 1450 630"></path><circle cx="1085" cy="338" r="208" stroke-opacity=".14"></circle><circle cx="1085" cy="338" r="278" stroke-opacity=".09"></circle></g>
+    <path class="signal" d="M-30 700 150 600 315 652 470 520 628 572 770 430 930 475 1085 338 1250 395 1470 250" fill="none" stroke="#EE7623" stroke-opacity=".58" stroke-width="2"></path>
+    <g fill="#0C447C" stroke="#EE7623" stroke-width="2"><circle cx="150" cy="600" r="5"></circle><circle cx="470" cy="520" r="5"></circle><circle cx="770" cy="430" r="5"></circle><circle cx="1085" cy="338" r="6"></circle><circle cx="1250" cy="395" r="5"></circle><circle cx="910" cy="620" r="5"></circle></g>
+  </svg>
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">What it stands on</div>
