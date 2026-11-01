@@ -188,6 +188,29 @@ section { padding: 96px 0; }
 .band-sunken { background: var(--sunken); border-block: 1px solid var(--border); }
 .band-ink { background: var(--ink); color: var(--ink-text); }
 
+/* A restrained moving light field gives the platform section depth without competing with its pyramid. */
+#platform.band-ink {
+  position: relative; isolation: isolate; overflow: hidden;
+  background: linear-gradient(135deg, #0C447C 0%, #104D86 52%, #0C447C 100%);
+}
+#platform.band-ink > .wrap { position: relative; z-index: 1; }
+#platform.band-ink::before {
+  content: ""; position: absolute; z-index: 0; inset: -28%; pointer-events: none;
+  background:
+    radial-gradient(ellipse at 18% 35%, rgba(238,118,35,.22), transparent 29%),
+    radial-gradient(ellipse at 78% 68%, rgba(109,177,225,.26), transparent 34%),
+    radial-gradient(ellipse at 54% 12%, rgba(255,255,255,.09), transparent 30%);
+  background-size: 140% 140%;
+  animation: platform-glow-drift 22s ease-in-out infinite alternate;
+}
+@keyframes platform-glow-drift {
+  from { transform: translate3d(-2%, -1%, 0) scale(1); background-position: 0% 20%; }
+  to   { transform: translate3d(2%, 1%, 0) scale(1.06); background-position: 100% 80%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #platform.band-ink::before { animation: none; }
+}
+
 /* --- section heads --- */
 .eyebrow {
   font-family: var(--mono); font-size: 11px; font-weight: 500;
