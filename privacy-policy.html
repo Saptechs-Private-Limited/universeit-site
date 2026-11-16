@@ -39,7 +39,7 @@
 <p class="sub">UniverseIT mobile app and platform · Last updated 16 November 2026</p>
 
 <p>UniverseIT is campus management software operated by <strong>SAPTECHS Private Limited</strong>. Schools,
-colleges and trusts subscribe to it. The app is intended for parents, staff, and students aged 18 or older.
+colleges and trusts subscribe to it. The app is intended for parents, staff, and students aged 6 and older.
 Available features and records depend on the account and permissions provided by the institution.</p>
 
 <h2>Who is responsible for your data</h2>
@@ -107,9 +107,8 @@ applicable requirements, and are accessible to authorized personnel according to
       separate database container.</li>
 </ul>
 
-<h2>Adult users and children's records</h2>
-<p>The app is intended for parents, staff, and students aged 18 or older, rather than direct use by children.
-Parents and authorized staff may access records concerning children enrolled at their institution.</p>
+<h2>Student users and children's records</h2>
+<p>Children aged 6 and older may use student accounts provided by their institution. Parents and authorized staff may also access children’s institutional records. Account permissions determine the available features. Parents or guardians can contact the institution or our privacy contact about access, corrections, account closure or deletion requests concerning a child.</p>
 <ul>
   <li>The institution is responsible for authorizing access and obtaining required permissions or consent
       for children's records. Contact the institution or our privacy contact about improper access.</li>
@@ -125,8 +124,10 @@ Parents and authorized staff may access records concerning children enrolled at 
       OpenStreetMap and unpkg. Requests disclose normal connection information such as IP address;
       tile requests identify the geographic area displayed.</li>
   <li><strong>SAP</strong> — the app runs on SAP Business Technology Platform and SAP HANA Cloud, hosted in India.</li>
-  <li><strong>Notification delivery</strong> — Expo, Google (FCM) and Apple (APNs) carry push messages to your
-      device. A push carries only the alert text needed to make it useful.</li>
+  <li><strong>Notification delivery</strong> — Expo, Google (FCM) and Apple (APNs) process push tokens and
+      notification payloads to deliver alerts to your device. These providers may process data outside India;
+      institutional database hosting in India does not mean all delivery processing stays in India.
+      See <a href="https://expo.dev/privacy">Expo's privacy policy</a> for its processing practices.</li>
   <li><strong>Message and payment providers</strong> engaged by your institution, where it has switched those on —
       for example an SMS, email or WhatsApp gateway, or a payment gateway that handles a fee payment. Card and
       bank details are handled by that payment provider and are not stored by us.</li>
