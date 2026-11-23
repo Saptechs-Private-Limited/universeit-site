@@ -504,8 +504,43 @@ h2 { color: var(--blue); font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.1
 .page-saptechs .product-family-panel { margin-top: .9rem; padding: 1rem 1.2rem; border: 1px solid var(--line); border-radius: 20px; background: white; box-shadow: var(--shadow); }
 .page-saptechs .product-family-panel .product-browser { margin: .5rem 0 0; }
 .page-saptechs .product-family-panel .product-detail { min-height: 320px; }
+.page-role-journey { width: min(100% - 2rem, 1280px); padding: clamp(.65rem, 1.2vh, 1rem) 0 .45rem; }
+.page-role-journey .eyebrow { margin-bottom: .3rem; }
+.role-journey-intro { display: flex; align-items: end; justify-content: space-between; gap: 1.5rem; margin-bottom: .7rem; }
+.role-journey-intro h1 { max-width: 820px; margin-bottom: 0; font-size: clamp(1.9rem, 3.6vw, 3.2rem); }
+.role-journey-intro > p { max-width: 400px; margin: 0 0 .2rem; color: var(--muted); font-size: 1rem; line-height: 1.45; }
+.role-journey-layout { display: grid; grid-template-columns: minmax(230px, .34fr) minmax(0, .66fr); gap: .8rem; align-items: stretch; }
+.role-options { display: grid; align-content: start; gap: .4rem; }
+.role-option { display: flex; min-height: 48px; flex-direction: column; justify-content: center; gap: .12rem; padding: .45rem .75rem; border: 1px solid var(--line); border-radius: 11px; background: white; color: var(--blue); text-align: left; transition: border-color .16s ease, background .16s ease, transform .16s ease; }
+.role-option:hover { transform: translateX(2px); border-color: var(--blue-mid); }
+.role-option.is-selected { border-color: #b9ccdc; background: #fff4eb; box-shadow: inset 3px 0 var(--orange); }
+.role-option strong { font-size: .91rem; line-height: 1.2; }
+.role-option span { color: var(--muted); font-size: .75rem; line-height: 1.2; }
+.role-detail { display: flex; min-width: 0; flex-direction: column; padding: .9rem 1.05rem; border: 1px solid var(--line); border-radius: 17px; background: white; box-shadow: var(--shadow); }
+.role-detail-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: .55rem; }
+.role-detail-head .small-label { margin: 0 0 .2rem; }
+.role-detail-head h2 { margin: 0; font-size: clamp(1.35rem, 2.2vw, 1.85rem); }
+.role-subtitle { padding: .4rem .65rem; border: 1px solid var(--line); border-radius: 999px; background: var(--mist); color: var(--muted); font-size: .78rem; font-weight: 700; white-space: nowrap; }
+.role-daily { margin: 0 0 .6rem; }
+.role-daily .small-label { margin-bottom: .2rem; }
+.role-daily p:last-child, .role-peaceful p:last-child { margin: 0; color: var(--muted); font-size: .91rem; line-height: 1.45; }
+.role-peaceful { margin-bottom: .7rem; padding: .65rem .8rem; border-left: 3px solid var(--orange); border-radius: 0 11px 11px 0; background: var(--mist); }
+.role-peaceful .small-label { margin-bottom: .2rem; }
+.role-helps > .small-label { margin-bottom: .25rem; }
+.role-help-list { display: grid; gap: .28rem; }
+.role-help-item { display: grid; grid-template-columns: minmax(115px, .27fr) minmax(0, .73fr); gap: .55rem; padding: .35rem 0; border-top: 1px solid var(--line); }
+.role-help-item strong { color: var(--blue); font-size: .83rem; line-height: 1.35; }
+.role-help-item p { margin: 0; color: var(--muted); font-size: .82rem; line-height: 1.4; }
+.role-timeback { display: flex; gap: .5rem; align-items: baseline; margin: auto 0 0; padding-top: .55rem; border-top: 1px solid var(--line); color: var(--blue); font-size: .82rem; line-height: 1.4; }
+.role-timeback strong { flex: 0 0 auto; color: var(--orange); }
+.page-role-journey .button-row { margin-top: .55rem; }
 
 @media (max-width: 760px) {
+  .role-journey-intro { display: block; }
+  .role-journey-intro > p { margin-top: .45rem; }
+  .role-journey-layout { grid-template-columns: 1fr; }
+  .role-options { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .role-option { min-height: 56px; }
   .global-work-browser { grid-template-columns: 1fr; }
   .company-options { max-height: 200px; grid-template-columns: repeat(2, minmax(0, 1fr)); overflow-y: auto; }
   .global-work-panel { padding: .85rem; }

@@ -8,6 +8,58 @@
   var backButton = document.getElementById("back-button");
   var stack = [];
   var current = { id: "welcome", storySection: "connected", menuTopic: "admissions", tourTopic: "mobile", flowChoice: "menu" };
+  var selectedRoleId = "founder";
+  var instituteRoles = [
+    {
+      id: "founder", title: "Founder / Director", subtitle: "Institute-wide view",
+      dayToDay: "Review money in and out, branch performance, approvals, attendance, curriculum coverage, exam outcomes and family feedback.",
+      peacefulDay: "Open one current snapshot for the branch you choose. See receipts and payments, what needs your approval, staff and student attendance, lesson coverage, results and parent feedback—without waiting for someone to assemble a report.",
+      helps: [["Branch pulse", "Compare branches and review student and staff attendance, academic coverage, exam results and family feedback."], ["Financial control", "Track fee collections, vendor payments, budgets and classroom cost or profit centres."], ["Approvals that fit", "Keep major decisions under your approval rules while routine work keeps moving."]],
+      timeBack: "Spend less time gathering updates; focus on exceptions and decisions."
+    },
+    {
+      id: "teacher", title: "Teacher", subtitle: "More time for teaching",
+      dayToDay: "Prepare lessons, teach, mark attendance, assign work, share updates and assess learning.",
+      peacefulDay: "See the plan before class, teach the session, mark attendance once, set homework and close the class. No duplicate system entry or class time lost to passing papers around.",
+      helps: [["Plan and teach", "Use lesson plans, materials, daily diary and curriculum coverage in the teaching flow."], ["Prepare exams", "Build from question banks, check prior use and coverage, choose marks and create paper versions."], ["Evaluate with choice", "Enter marks manually or use scanned answer sheets and AI-assisted scoring with teacher review."], ["Close the loop", "Record question-level outcomes and feedback, handle recheck requests, then publish papers and progress cards for families to view."]],
+      timeBack: "Reduce repetitive entry and paper hand-offs so class time stays focused on learning."
+    },
+    {
+      id: "transport", title: "Transport administrator", subtitle: "Trips, people and vehicles",
+      dayToDay: "Maintain routes and stops, schedule trips, assign vehicles and crews, and watch for delays or changes.",
+      peacefulDay: "Routes, trips and rosters are ready before departure. A replacement bus or new driver can pick up the route guidance, while alerts bring only delayed or problematic trips to your attention.",
+      helps: [["Routes and rosters", "Register buses, link GPS, set routes and stops, create trips, and assign fleet, driver and helper."], ["Smooth substitutions", "A changed bus or new driver can see the trip roster, planned stops and usual route guidance."], ["Exception alerts", "Set delay thresholds and focus on trips that need attention; recorded absences can update the stop plan."], ["Family and vehicle records", "Record pickup changes, call parents, capture boarding and alighting, and track maintenance, renewals, insurance and driver credentials."]],
+      timeBack: "Coordinate by exception rather than chasing every trip manually."
+    },
+    {
+      id: "admissions", title: "Admissions coordinator", subtitle: "One view of every route",
+      dayToDay: "Respond to enquiries, follow up with families, schedule tests and counselling, and complete application records.",
+      peacefulDay: "See each prospect and next step in one admissions view, whether they came by walk-in, an institute entrance test or board-level exam counselling.",
+      helps: [["Capture prospects", "Bring walk-ins and CRM channel enquiries into an admissions pipeline."], ["Run institute entrance exams", "Plan candidate lists, exams, results and follow-up."], ["Manage board counselling", "Track ranks, counselling choices, offers, documents and admission confirmation."]],
+      timeBack: "Keep follow-up visible so the team can focus on families who need a response."
+    },
+    {
+      id: "finance", title: "Finance / Accounts", subtitle: "Money in, money out",
+      dayToDay: "Collect fees, follow up on dues, record expenses, pay vendors and prepare reports.",
+      peacefulDay: "Start with current balances and exceptions. Collections, outflows, vendor payments and classroom-level budgets reconcile into reports when you need them.",
+      helps: [["Collect and follow up", "Track dues and send reminders through the institute’s chosen communication channels."], ["Control spending", "Use approval flows, vendor payments and cost or profit centres for clear accountability."], ["Plan ahead", "Review consolidated reports, budget forecasts and academic-year budgets by classroom."]],
+      timeBack: "Spend less time consolidating figures across branches and spreadsheets."
+    },
+    {
+      id: "admin", title: "Campus / HR administrator", subtitle: "People and campus operations",
+      dayToDay: "Manage employee records, attendance, leave, monthly payroll, campus assets and operational requests.",
+      peacefulDay: "See what is due, what needs a decision and what is already complete—from monthly payroll preparation to asset maintenance.",
+      helps: [["Monthly payroll", "Prepare consolidated earnings, deductions and statutory reports, with payslips emailed to employees."], ["People operations", "Connect staff records, leave, attendance, roles and salary details."], ["Campus readiness", "Track assets, inventory, maintenance schedules and supporting documents."]],
+      timeBack: "Keep recurring work and pending exceptions visible in one place."
+    },
+    {
+      id: "other", title: "Another role", subtitle: "Make it your day",
+      dayToDay: "Every institute role has its own priorities, hand-offs and pressure points.",
+      peacefulDay: "Tell me what you do in a typical day. We can follow that workflow together and shape the demo around the steps that matter to you.",
+      helps: [["Start with your work", "Choose the processes you own or hand off to another team."], ["Explore the relevant flows", "Open admissions, learning, finance, people, campus or another module."], ["Adapt as we learn", "Use BuildDyn for institute-specific workflows and discuss gaps as they come up."]],
+      timeBack: "We will focus the conversation on your role, not make you sit through every module."
+    }
+  ];
 
   var topicGroups = [
     {
@@ -276,6 +328,7 @@
 
   function restart() {
     stack = [];
+    selectedRoleId = "founder";
     current = { id: "welcome" };
     render();
   }
@@ -402,11 +455,28 @@
     var options = sections.map(function (section, index) {
       return '<button class="sap-overview-option' + (section.id === selected.id ? ' is-selected' : '') + '" type="button" data-action="selectSapSection" data-value="' + section.id + '" aria-pressed="' + (section.id === selected.id) + '"><span class="sap-option-index">0' + (index + 1) + '</span><span><strong>' + section.title + '</strong><small>' + section.hint + '</small></span></button>';
     }).join("");
-    return '<section class="page page-about-sap"><p class="eyebrow">About SAP</p><h1>Enterprise technology with a broad foundation.</h1><p class="lead">SAP develops enterprise applications that connect business operations such as finance, procurement, HR, supply chain and customer experience.</p><div class="sap-scale-stats" aria-label="SAP at a glance"><div><strong>320,000+</strong><span>businesses</span></div><div><strong>180+</strong><span>countries</span></div><div><strong>90%+</strong><span>of the Fortune 500 use SAP</span></div></div><div class="sap-overview-browser"><div class="sap-overview-options" role="group" aria-label="About SAP topics">' + options + '</div><article class="sap-overview-detail" id="sap-overview-detail" aria-live="polite">' + renderSapOverviewDetail(selected) + '</article></div><p class="disclaimer">UniverseIT is developed by SAPTECHS. It is not an SAP product. SAP and SAP BTP are trademarks of SAP SE. <a href="https://www.sap.com/about/company.html" target="_blank" rel="noreferrer">About SAP</a> · <a href="https://help.sap.com/docs/btp/sap-business-technology-platform" target="_blank" rel="noreferrer">SAP BTP</a> · <a href="https://www.sap.com/about/customer-stories.html" target="_blank" rel="noreferrer">SAP customer figures</a></p><div class="button-row">' + button("firstQuestion", "Next", "", true) + '</div></section>';
+    return '<section class="page page-about-sap"><p class="eyebrow">About SAP</p><h1>Enterprise technology with a broad foundation.</h1><p class="lead">SAP develops enterprise applications that connect business operations such as finance, procurement, HR, supply chain and customer experience.</p><div class="sap-scale-stats" aria-label="SAP at a glance"><div><strong>320,000+</strong><span>businesses</span></div><div><strong>180+</strong><span>countries</span></div><div><strong>90%+</strong><span>of the Fortune 500 use SAP</span></div></div><div class="sap-overview-browser"><div class="sap-overview-options" role="group" aria-label="About SAP topics">' + options + '</div><article class="sap-overview-detail" id="sap-overview-detail" aria-live="polite">' + renderSapOverviewDetail(selected) + '</article></div><p class="disclaimer">UniverseIT is developed by SAPTECHS. It is not an SAP product. SAP and SAP BTP are trademarks of SAP SE. <a href="https://www.sap.com/about/company.html" target="_blank" rel="noreferrer">About SAP</a> · <a href="https://help.sap.com/docs/btp/sap-business-technology-platform" target="_blank" rel="noreferrer">SAP BTP</a> · <a href="https://www.sap.com/about/customer-stories.html" target="_blank" rel="noreferrer">SAP customer figures</a></p><div class="button-row">' + button("roleJourney", "Next", "", true) + '</div></section>';
+  }
+
+  function renderRoleJourneyDetail(role) {
+    var supportItems = role.helps.map(function (item) {
+      return '<div class="role-help-item"><strong>' + escapeHTML(item[0]) + '</strong><p>' + escapeHTML(item[1]) + '</p></div>';
+    }).join("");
+    return '<article class="role-detail" id="role-detail" aria-live="polite"><div class="role-detail-head"><div><p class="small-label">YOUR ROLE</p><h2>' + escapeHTML(role.title) + '</h2></div><span class="role-subtitle">' + escapeHTML(role.subtitle) + '</span></div><section class="role-daily"><p class="small-label">DAY TO DAY</p><p>' + escapeHTML(role.dayToDay) + '</p></section><section class="role-peaceful"><p class="small-label">AN IDEAL, PEACEFUL DAY</p><p>' + escapeHTML(role.peacefulDay) + '</p></section><section class="role-helps"><p class="small-label">WHERE UNIVERSEIT HELPS</p><div class="role-help-list">' + supportItems + '</div></section><p class="role-timeback"><strong>Time back</strong><span>' + escapeHTML(role.timeBack) + '</span></p></article>';
+  }
+
+  function renderRoleJourney() {
+    var selected = instituteRoles.find(function (role) { return role.id === selectedRoleId; }) || instituteRoles[0];
+    var options = instituteRoles.map(function (role) {
+      var active = role.id === selected.id;
+      return '<button class="role-option' + (active ? ' is-selected' : '') + '" type="button" data-action="selectRole" data-value="' + role.id + '" aria-pressed="' + active + '"><strong>' + escapeHTML(role.title) + '</strong><span>' + escapeHTML(role.subtitle) + '</span></button>';
+    }).join("");
+    return '<section class="page page-role-journey"><div class="role-journey-intro"><div><p class="eyebrow">Before we explore</p><h1>What does a good day look like in your role?</h1></div><p>Choose the perspective closest to yours. We’ll start with the work that matters to you.</p></div><div class="role-journey-layout"><div class="role-options" role="group" aria-label="Institute roles">' + options + '</div>' + renderRoleJourneyDetail(selected) + '</div><div class="button-row">' + button("firstQuestion", "Continue to your priorities", "", true) + '</div></section>';
   }
 
   function renderFirstQuestion() {
-    return '<section class="page page-narrow page-question"><div class="question-panel"><p class="eyebrow">First, your priorities</p><h1>Is there anything you’d like to explore first, apart from pricing?</h1><p class="lead">Tell me what’s on your mind and we’ll talk it through together.</p><div class="choice-list">' + choice("askGaps", "Nothing", null, true) + '</div></div></section>';
+    var selected = instituteRoles.find(function (role) { return role.id === selectedRoleId; }) || instituteRoles[0];
+    return '<section class="page page-narrow page-question"><div class="question-panel"><p class="eyebrow">First, your priorities · ' + escapeHTML(selected.title) + '</p><h1>Is there anything you’d like to explore first, apart from pricing?</h1><p class="lead">Tell me what’s on your mind and we’ll talk it through together.</p><div class="choice-list">' + choice("askGaps", "Nothing", null, true) + '</div></div></section>';
   }
 
   function renderPointForm() {
@@ -517,6 +587,7 @@
     else if (id === "universeStory") stage.innerHTML = renderUniverseStory();
     else if (id === "techStackPage") stage.innerHTML = renderTechStackPage();
     else if (id === "aboutSap") stage.innerHTML = renderAboutSap();
+    else if (id === "roleJourney") stage.innerHTML = renderRoleJourney();
     else if (id === "firstQuestion") stage.innerHTML = renderFirstQuestion();
     else if (id === "pointForm") stage.innerHTML = renderPointForm();
     else if (id === "pointResult") stage.innerHTML = renderPointResult();
@@ -541,6 +612,17 @@
     var value = target.getAttribute("data-value");
     if (action === "intro") push({ id: "intro" });
     else if (action === "saptechsIntro") push({ id: "saptechsIntro" });
+    else if (action === "selectRole") {
+      selectedRoleId = value;
+      stage.querySelectorAll(".role-option").forEach(function (option) {
+        var selected = option.getAttribute("data-value") === value;
+        option.classList.toggle("is-selected", selected);
+        option.setAttribute("aria-pressed", String(selected));
+      });
+      var role = instituteRoles.find(function (item) { return item.id === value; });
+      var roleDetail = document.getElementById("role-detail");
+      if (role && roleDetail) roleDetail.outerHTML = renderRoleJourneyDetail(role);
+    }
     else if (action === "selectSapSection") {
       current.sapSection = value;
       document.querySelectorAll(".sap-overview-option").forEach(function (option) {
@@ -610,6 +692,7 @@
     else if (action === "universeStory") push({ id: "universeStory" });
     else if (action === "techStackPage") push({ id: "techStackPage" });
     else if (action === "aboutSap") push({ id: "aboutSap" });
+    else if (action === "roleJourney") push({ id: "roleJourney" });
     else if (action === "firstQuestion") push({ id: "firstQuestion" });
     else if (action === "specificPoint") push({ id: "pointForm" });
     else if (action === "askGaps") push({ id: "gapQuestion" });
