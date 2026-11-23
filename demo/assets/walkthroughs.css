@@ -1,0 +1,51 @@
+.walkthrough-button, #walkthroughs select {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  color: var(--ink);
+  padding: .55em .8em;
+  font: inherit;
+}
+.walkthrough-button { cursor: pointer; font-weight: 650; }
+.walkthrough-button:disabled { opacity: .45; cursor: default; }
+#walkthroughs {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(1080px, calc(100% - 24px));
+  max-height: calc(100% - 24px);
+  overflow: auto;
+  padding: clamp(12px, 3vw, 28px);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  line-height: 1.5;
+}
+#walkthroughs::backdrop { background: rgb(8 20 35 / 72%); }
+.walkthrough-header, .walkthrough-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.walkthrough-select { display: block; margin-top: 14px; }
+#walkthroughs select { max-width: 100%; }
+#walkthrough-outcome { margin-block: 8px 14px; color: var(--muted); }
+.walkthrough-controls { justify-content: flex-start; }
+#walkthroughs figcaption { margin-block: 12px; }
+#walkthrough-original { display: block; }
+#walkthrough-image {
+  display: block;
+  width: 100%;
+  max-height: 66vh;
+  object-fit: contain;
+  object-position: top;
+  background: var(--mist);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+#walkthrough-title, #walkthroughs figcaption h3 { margin-bottom: .35rem; }
+#walkthroughs figure { margin: 0; }
+#walkthroughs select:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }

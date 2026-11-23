@@ -476,7 +476,7 @@
 
   function renderFirstQuestion() {
     var selected = instituteRoles.find(function (role) { return role.id === selectedRoleId; }) || instituteRoles[0];
-    return '<section class="page page-narrow page-question"><div class="question-panel"><p class="eyebrow">First, your priorities · ' + escapeHTML(selected.title) + '</p><h1>Is there anything you’d like to explore first, apart from pricing?</h1><p class="lead">Tell me what’s on your mind and we’ll talk it through together.</p><div class="choice-list">' + choice("askGaps", "Nothing", null, true) + '</div></div></section>';
+    return '<section class="page page-narrow page-question"><div class="question-panel"><p class="eyebrow">First, your priorities · ' + escapeHTML(selected.title) + '</p><h1>Is there anything you’d like to explore first, apart from pricing?</h1><p class="lead">Tell me what’s on your mind and we’ll talk it through together.</p><div class="choice-list">' + choice("specificPoint", "I have a question", null, true) + choice("askGaps", "Continue", null, true) + '</div></div></section>';
   }
 
   function renderPointForm() {
@@ -488,7 +488,7 @@
   }
 
   function renderGapQuestion() {
-    return '<section class="page page-narrow page-question"><div class="question-panel"><p class="eyebrow">Your experience with institute systems</p><h1>Have you found gaps in your institute’s digital systems?</h1><p class="lead">If so, tell me about it and we’ll talk through the process. If not, choose a flow or feature to explore.</p><div class="choice-list">' + choice("allGood", "Nothing", null, true) + '</div></div></section>';
+    return '<section class="page page-narrow page-question"><div class="question-panel"><p class="eyebrow">Your experience with institute systems</p><h1>Have you found gaps in your institute’s digital systems?</h1><p class="lead">If so, tell me about it and we’ll talk through the process. If not, choose a flow or feature to explore.</p><div class="choice-list">' + choice("gapForm", "I’d like to describe a gap", null, true) + choice("allGood", "Browse flows", null, true) + '</div></div></section>';
   }
 
   function renderGapForm() {
@@ -521,7 +521,7 @@
       var searchText = escapeHTML((topic.title + " " + topic.hint).toLowerCase());
       return '<button class="topic-pill" type="button" data-action="topic" data-value="' + topic.id + '" data-search="' + searchText + '"><strong>' + topic.title + '</strong><span>' + topic.hint + '</span></button>';
     }).join("");
-    return '<section class="page page-topic-menu"><div class="topic-intro"><div><p class="eyebrow">Institute operations</p><h1>What would you like to explore?</h1></div><p>Search for a flow or choose any topic.</p></div><label class="topic-search"><span class="sr-only">Search flows and features</span><span class="topic-search-icon" aria-hidden="true">⌕</span><input id="topic-search" type="search" placeholder="Search admissions, LMS, payroll…" autocomplete="off" /></label><div class="topic-pill-list" id="topic-pill-list">' + pills + '</div><p class="topic-empty" id="topic-empty" hidden>No matching topics. Try another search.</p></section>';
+    return '<section class="page page-topic-menu"><div class="topic-intro"><div><p class="eyebrow">Institute operations</p><h1>What would you like to explore?</h1></div><p>Search for a flow or choose any topic.</p></div><label class="topic-search"><span class="sr-only">Search flows and features</span><span class="topic-search-icon" aria-hidden="true">⌕</span><input id="topic-search" type="search" placeholder="Search admissions, LMS, payroll…" autocomplete="off" /></label><div class="topic-pill-list" id="topic-pill-list"><button class="topic-pill" type="button" data-walkthroughs aria-haspopup="dialog" data-search="workflow presentations real screens screenshots academic year timetable fees id cards finance institution groups campus sections teachers calendar"><strong>Workflow presentations</strong><span>Follow real screens step by step</span></button>' + pills + '</div><p class="topic-empty" id="topic-empty" hidden>No matching topics. Try another search.</p></section>';
   }
 
   function renderStackDiagram(selectedIndex) {

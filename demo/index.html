@@ -8,7 +8,9 @@
     <title>UniverseIT Institute Demo</title>
     <link rel="icon" href="assets/universeit-lockup.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="assets/app.css" />
+    <link rel="stylesheet" href="assets/walkthroughs.css" />
     <script defer src="assets/app.js"></script>
+    <script defer src="assets/walkthroughs.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#stage">Skip to demo</a>
@@ -25,5 +27,28 @@
       </div>
       <div class="page-actions" id="page-actions" aria-label="Current page actions"></div>
     </nav>
+    <dialog id="walkthroughs" aria-labelledby="walkthrough-title">
+      <header class="walkthrough-header">
+        <h2 id="walkthrough-title">Workflow presentations</h2>
+        <form method="dialog"><button class="walkthrough-button" type="submit">Close</button></form>
+      </header>
+      <p>Real UniverseIT screens from the Education Seva rehearsal and Sree Chaitanya QA.</p>
+      <label class="walkthrough-select">Workflow <select id="walkthrough-flow" autofocus></select></label>
+      <p id="walkthrough-outcome"></p>
+      <nav class="walkthrough-controls" aria-label="Presentation steps">
+        <button class="walkthrough-button" id="walkthrough-previous" type="button">Previous</button>
+        <label>Step <select id="walkthrough-step"></select></label>
+        <button class="walkthrough-button" id="walkthrough-next" type="button">Next</button>
+      </nav>
+      <figure>
+        <figcaption aria-live="polite">
+          <h3 id="walkthrough-heading"></h3>
+          <p id="walkthrough-instruction"></p>
+        </figcaption>
+        <a id="walkthrough-original" target="_blank" rel="noopener">
+          <img id="walkthrough-image" alt="">
+        </a>
+      </figure>
+    </dialog>
   </body>
 </html>
