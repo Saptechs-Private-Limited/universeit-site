@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>UniverseIT LinkedIn draft</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #edf4fb; color: #172a40; font: 1rem/1.55 system-ui, sans-serif; padding: clamp(1rem, 5vw, 4rem); }
+main { max-width: 38rem; margin: auto; padding: clamp(1.2rem, 5vw, 2.5rem); background: white; border: 1px solid #cddceb; border-radius: 1rem; }
+h1 { line-height: 1.15; margin: 0 0 1rem; }
+label { display: block; margin-bottom: .5rem; font-weight: 600; }
+textarea { display: block; width: 100%; min-height: 13rem; resize: vertical; padding: .9rem; border: 1px solid #6f8298; border-radius: .5rem; color: inherit; font: inherit; }
+button { margin-top: 1rem; padding: .8rem 1.15rem; border: 0; border-radius: .5rem; background: #075aab; color: white; font: inherit; font-weight: 650; cursor: pointer; }
+:focus-visible { outline: 3px solid #1479db; outline-offset: 3px; }
+p { margin-bottom: 0; }
+a { color: #075aab; }
+</style>
+<main>
+  <h1>Draft your LinkedIn post</h1>
+  <label for="draft">Write your message above the hashtags</label>
+  <textarea id="draft" aria-describedby="instructions"></textarea>
+  <button id="copy" type="button">Copy draft and open LinkedIn</button>
+  <p id="instructions">In LinkedIn, tap <strong>Post</strong> and paste your draft.</p>
+  <p id="status" role="status" hidden></p>
+  <a id="fallback" href="https://www.linkedin.com/feed/" hidden>Open LinkedIn</a>
+</main>
+<script>
+const draft = document.querySelector('#draft');
+const status = document.querySelector('#status');
+const fallback = document.querySelector('#fallback');
+const button = document.querySelector('#copy');
+draft.value = '\n\n\n#UniverseIT #DigitalAssistant #IExperiencedUniverseIT #CompeteWithYesterday #Saptex #EdTech #DidacIndia2026 #EduBhava';
+draft.setSelectionRange(0, 0);
+
+button.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(draft.value);
+  } catch {
+    draft.focus();
+    draft.select();
+    status.textContent = 'Automatic copying is unavailable. Copy the selected text, then open LinkedIn.';
+    status.hidden = false;
+    fallback.hidden = false;
+    return;
+  }
+  window.location.assign(fallback.href);
+});
+</script>
+</html>
