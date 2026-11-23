@@ -521,7 +521,7 @@
       var searchText = escapeHTML((topic.title + " " + topic.hint).toLowerCase());
       return '<button class="topic-pill" type="button" data-action="topic" data-value="' + topic.id + '" data-search="' + searchText + '"><strong>' + topic.title + '</strong><span>' + topic.hint + '</span></button>';
     }).join("");
-    return '<section class="page page-topic-menu"><div class="topic-intro"><div><p class="eyebrow">Institute operations</p><h1>What would you like to explore?</h1></div><p>Search for a flow or choose any topic.</p></div><label class="topic-search"><span class="sr-only">Search flows and features</span><span class="topic-search-icon" aria-hidden="true">⌕</span><input id="topic-search" type="search" placeholder="Search admissions, LMS, payroll…" autocomplete="off" /></label><div class="topic-pill-list" id="topic-pill-list"><button class="topic-pill" type="button" data-walkthroughs aria-haspopup="dialog" data-search="workflow presentations real screens screenshots academic year timetable fees id cards finance institution groups campus sections teachers calendar"><strong>Workflow presentations</strong><span>Follow real screens step by step</span></button>' + pills + '</div><p class="topic-empty" id="topic-empty" hidden>No matching topics. Try another search.</p></section>';
+    return '<section class="page page-topic-menu"><div class="topic-intro"><div><p class="eyebrow">Institute operations</p><h1>What would you like to explore?</h1></div><p>Search for a flow or choose any topic.</p></div><label class="topic-search"><span class="sr-only">Search flows and features</span><span class="topic-search-icon" aria-hidden="true">⌕</span><input id="topic-search" type="search" placeholder="Search admissions, LMS, payroll…" autocomplete="off" /></label><div class="topic-pill-list" id="topic-pill-list"><button class="topic-pill" type="button" data-walkthroughs aria-haspopup="dialog" data-search="workflow presentations real screens screenshots admissions attendance diary learning course content academic year timetable fees id cards finance institution groups campus sections teachers calendar"><strong>Workflow presentations</strong><span>Follow real screens step by step</span></button>' + pills + '</div><p class="topic-empty" id="topic-empty" hidden>No matching topics. Try another search.</p></section>';
   }
 
   function renderStackDiagram(selectedIndex) {
@@ -559,7 +559,9 @@
   function renderTopic(id) {
     var topic = topicDetails[id];
     if (!topic) return renderTopicMenu();
-    var body = renderTopicFeatureBrowser(id, topic);
+    var hasWalkthrough = walkthroughFlows.some(function (flow) { return flow.topic === id || flow.alsoFor === id; });
+    var screenshots = hasWalkthrough ? '<div class="button-row"><button class="action-button action-secondary" type="button" data-walkthroughs="' + id + '" aria-haspopup="dialog">View real screens</button></div>' : "";
+    var body = screenshots + renderTopicFeatureBrowser(id, topic);
     return '<section class="page"><p class="eyebrow">' + topic.group + '</p><h1>' + topic.question + '</h1><p class="topic-ask">' + topic.summary + '</p>' + body + '</section>';
   }
 

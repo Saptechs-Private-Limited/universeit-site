@@ -1,5 +1,6 @@
 const walkthroughFlows = [
   {
+    topic: "branches",
     title: 'Set up an institution group and its branches',
     outcome: 'The group’s Branches tab shows two active campuses.',
     steps: [
@@ -10,6 +11,7 @@ const walkthroughFlows = [
     ],
   },
   {
+    topic: "finance",
     title: 'Open a financial year and verify its periods',
     outcome: 'Financial year 2026–27 is Open and has 12 periods.',
     steps: [
@@ -18,6 +20,7 @@ const walkthroughFlows = [
     ],
   },
   {
+    topic: "teaching",
     title: 'Create Class 9 Section A and assign teachers',
     outcome: 'Section A has a classroom, capacity, class teacher, leave approver and five subject teachers.',
     steps: [
@@ -29,6 +32,7 @@ const walkthroughFlows = [
     ],
   },
   {
+    topic: "finance",
     title: 'Verify the Class 9 and Class 10 fee assignments',
     outcome: 'Fee Assignment shows the day scholar template as Complete for both classes.',
     steps: [
@@ -38,6 +42,7 @@ const walkthroughFlows = [
     ],
   },
   {
+    topic: "teaching",
     title: 'Configure the academic calendar',
     outcome: 'The teaching term and weekend rules appear in the campus calendar.',
     steps: [
@@ -47,6 +52,7 @@ const walkthroughFlows = [
     ],
   },
   {
+    topic: "timetables",
     title: 'Prepare and verify section timetables',
     outcome: 'Both sections read back as Ready after a publication timeout. Session rebuild completeness remained unverified.',
     steps: [
@@ -57,6 +63,7 @@ const walkthroughFlows = [
     ],
   },
   {
+    topic: "teaching",
     title: 'Commence the academic year',
     outcome: 'The course is Commenced and the academic year reads back as Active.',
     steps: [
@@ -66,6 +73,7 @@ const walkthroughFlows = [
     ],
   },
   {
+    topic: "certificates",
     title: 'Create, preview and version a student ID card template',
     outcome: 'The Education Seva template was saved as a draft. The separate Sree Chaitanya QA run verified layout preview, completion and versioning.',
     steps: [
@@ -76,6 +84,84 @@ const walkthroughFlows = [
       ['qa-id-card-layout-preview.png', 'Verify the rendered card in the QA campus', 'After adding a layout and mapping the student name placeholder, preview the card and check that Print Preview is available.'],
       ['qa-id-card-complete-layout-locked.png', 'Complete version 1', 'Complete the QA template and verify the original layout can no longer be edited.'],
       ['qa-id-card-version-coexistence.png', 'Verify version 2 is a separate draft', 'Create a new version and reopen Templates to verify that v1 remains Complete and v2 is In Progress.'],
+    ],
+  },
+  {
+    topic: "admissions",
+    title: "Check direct student admission requirements",
+    outcome: "The rehearsal reached required-field validation. Student creation, enrolment and parent verification still need screenshots.",
+    steps: [
+      ["studentadmission-required-fixtures.jpg","Review the Create Student form","Open Student Admission and choose Create Student. Review the required identity and parent-contact fields before saving. The form also describes the enrolment and parent privacy verification handoff."],
+    ],
+  },
+  {
+    topic: "fees",
+    alsoFor: "mobile",
+    title: "Review outstanding fees in the family app",
+    outcome: "The family can see the outstanding balance and which item is overdue. The capture ends before payment.",
+    steps: [
+      ["ipad-home-original.png","Open Fees from Home","Select the Fees shortcut for the current learner."],
+      ["ipad-fees-original.png","Check the balance and due item","Review the amount due, the overdue item and the available Pay Now action."],
+    ],
+  },
+  {
+    topic: "attendance",
+    title: "Review attendance in the family app",
+    outcome: "The app shows attendance percentages and recorded attendance for the learner.",
+    steps: [
+      ["samsung-home-raw.png","Go to the learner’s Home","From Home, use the bottom navigation to open Academics."],
+      ["samsung-academics-raw.png","Open Attendance","Select Attendance from the Academics screen."],
+      ["samsung-attendance-raw.png","Read the attendance summary","Check the current and overall percentages, then read the status on the listed date."],
+    ],
+  },
+  {
+    topic: "attendance",
+    title: "Read the class diary in the family app",
+    outcome: "The diary shows class updates organized under the selected date.",
+    steps: [
+      ["ipad-academics-original.png","Open Class Diary from Academics","Select Class Diary for the current learner."],
+      ["ipad-class-diary-original.png","Read the entries for the day","Check the date and read the entries by subject."],
+    ],
+  },
+  {
+    topic: "lms",
+    title: "Find subject course content in the family app",
+    outcome: "The published app captures show subject navigation through to the course-content list.",
+    steps: [
+      ["ipad-academics-original.png","Find Course content under Academics","Open the learning area for the current learner."],
+      ["ipad-course-content-original.png","Choose the subject to explore","Use the subject list to locate the course whose materials you want to see."],
+    ],
+  },
+  {
+    topic: "timetables",
+    title: "Check the learner’s timetable in the family app",
+    outcome: "The learner can see the scheduled lessons, times and breaks for the selected day.",
+    steps: [
+      ["iphone-academics-original.png","Open Timetable from Academics","Select Timetable for the current learner."],
+      ["iphone-timetable-original.png","Read the day’s schedule","Choose the date and review the lessons, start times and breaks."],
+    ],
+  },
+  {
+    topic: "branches",
+    title: "Configure a campus, classroom and departments",
+    outcome: "The rehearsal verified the campus hours, Classroom 201 and two departments under Secondary Academics.",
+    steps: [
+      ["branchmaster-haasket-list.jpg","Find the branch in Branch Master","Filter the list for the institute and open the exact campus."],
+      ["branchmaster-banashankari-hours.jpg","Set the operating hours","In branch details, enter the opening and closing times and save."],
+      ["branchmaster-classroom-201.jpg","Verify the classroom","Open Spaces and check the saved room code, category and capacity."],
+      ["departmentmaster-secondary-academics.jpg","Verify the top-level department","In Department Master, open Secondary Academics and confirm the campus."],
+      ["departmentmaster-stem-child.jpg","Verify the Mathematics and Science department","Read back the parent department and campus on the child record."],
+      ["departmentmaster-language-child.jpg","Verify the Languages and Social Studies department","Confirm that the second child also belongs to Secondary Academics."],
+    ],
+  },
+  {
+    topic: "certificates",
+    title: "Issue and replace a staff ID card",
+    outcome: "The QA register recorded the first card as Replaced and the new copy as Generated. Physical printing was outside this run.",
+    steps: [
+      ["qa-id-card-staff-register.jpg","Find the generated card","In ID Card Manager, open Issue Register → To Receive. Select the generated card and mark it received before moving to the issuance queue."],
+      ["qa-id-card-staff-issued.jpg","Verify the card is issued","After marking the card issued, open the Issued queue and check its status."],
+      ["qa-id-card-staff-replacement.jpg","Replace the lost card and verify both copies","Use Replace, select Lost and save. Open the All view to check that the prior copy is Replaced and the new copy is Generated."],
     ],
   },
 ];
@@ -126,7 +212,12 @@ nextStep.addEventListener('click', () => {
   if (nextStep.disabled) previousStep.focus();
 });
 document.querySelector('#stage').addEventListener('click', event => {
-  if (!event.target.closest('[data-walkthroughs]')) return;
-  if (stepPicker.options.length === 0) showWalkthroughFlow();
+  const opener = event.target.closest('[data-walkthroughs]');
+  if (!opener) return;
+  if (opener.dataset.walkthroughs) {
+    const index = walkthroughFlows.findIndex(flow => flow.topic === opener.dataset.walkthroughs || flow.alsoFor === opener.dataset.walkthroughs);
+    if (index !== -1) flowPicker.selectedIndex = index;
+  }
+  showWalkthroughFlow();
   walkthrough.showModal();
 });
