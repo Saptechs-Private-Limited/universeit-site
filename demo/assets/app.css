@@ -482,10 +482,16 @@ h2 { color: var(--blue); font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.1
 .company-prompt { margin-bottom: .7rem; color: var(--muted); font-size: .82rem; }
 .global-work-browser { display: grid; grid-template-columns: minmax(130px, .58fr) minmax(0, 1.42fr); gap: .55rem; align-items: stretch; }
 .company-options { display: grid; align-content: start; gap: .35rem; }
-.company-option { min-height: 37px; padding: .45rem .65rem; border: 1px solid var(--line); border-radius: 9px; background: white; color: var(--blue); font-weight: 700; text-align: left; transition: border-color .16s ease, background .16s ease; }
+.company-group-label { margin: .35rem 0 .05rem; color: var(--muted); font-size: .65rem; font-weight: 800; letter-spacing: .12em; line-height: 1.2; text-transform: uppercase; }
+.company-option { display: flex; min-height: 43px; align-items: center; gap: .6rem; padding: .4rem .6rem; border: 1px solid var(--line); border-radius: 9px; background: white; color: var(--blue); font-weight: 700; text-align: left; transition: border-color .16s ease, background .16s ease; }
+.company-option-logo { display: block; width: 72px; height: 25px; flex: 0 0 72px; object-fit: contain; }
+.company-option-wordmark { display: block; width: 72px; flex: 0 0 72px; color: var(--blue); font-size: .78rem; font-weight: 800; letter-spacing: -.03em; }
+.company-option-label { overflow: hidden; color: var(--blue); font-size: .8rem; font-weight: 700; text-overflow: ellipsis; white-space: nowrap; }
 .company-option:hover { border-color: var(--orange); background: #fffaf6; }
 .company-option.is-selected { border-color: var(--orange); background: #fff4eb; }
 .company-detail { padding: 1rem; border-radius: 13px; background: var(--mist); }
+.company-detail-logo { display: flex; min-height: 55px; align-items: center; margin: 0 0 .35rem; }
+.company-detail-logo img { display: block; max-width: min(100%, 220px); max-height: 54px; object-fit: contain; object-position: left center; }
 .company-detail .small-label { margin: 0 0 .5rem; }
 .company-detail h3 { margin: 0 0 .55rem; color: var(--blue); font-size: 1.3rem; }
 .company-detail p:last-child { margin: 0; color: var(--muted); font-size: .92rem; line-height: 1.5; }
@@ -525,3 +531,4 @@ h2 { color: var(--blue); font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.1
   .universe-story-grid article { min-height: 0; padding: 1rem; }
   .story-team { align-items: flex-start; flex-direction: column; gap: .25rem; }
 }
+
