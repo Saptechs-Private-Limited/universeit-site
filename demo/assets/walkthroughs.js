@@ -88,10 +88,33 @@ const walkthroughFlows = [
   },
   {
     topic: "admissions",
+    title: "Complete direct admission in a test trust",
+    outcome: "The synthetic student became Active and received an admission number after enrolment. The test trust recorded consent without sending an SMS.",
+    steps: [
+      ["qa-admission-01-create-form.png","Create the student record","From Student Admission, choose New Admission. Enter the synthetic student and guardian details, then select Create."],
+      ["qa-admission-02-enrolment.png","Choose the academic year and class","In Enrol Student, choose the campus course for the academic year and select Enrol to continue to the privacy notices."],
+      ["qa-admission-03-sandbox-consent.png","Record consent in the test trust","Review the required privacy notices. This isolated QA run used the built-in test confirmation with a placeholder mobile. No SMS was sent."],
+      ["qa-admission-04-student.png","Verify the active student record","Check that the student profile shows Active and has an admission number."],
+    ],
+  },
+  {
+    topic: "admissions",
     title: "Check direct student admission requirements",
     outcome: "The rehearsal reached required-field validation. Student creation, enrolment and parent verification still need screenshots.",
     steps: [
       ["studentadmission-required-fixtures.jpg","Review the Create Student form","Open Student Admission and choose Create Student. Review the required identity and parent-contact fields before saving. The form also describes the enrolment and parent privacy verification handoff."],
+    ],
+  },
+  {
+    topic: "fees",
+    title: "Record a fee payment and verify its receipt",
+    outcome: "A test cash collection in the isolated local QA instance reduced the test balance to zero. The receipt remained in Recent Receipts after reopening the app.",
+    steps: [
+      ["qa-fee-01-outstanding.png","Find the learner and review the outstanding fee","Search by the synthetic admission number. Check the fee item, outstanding balance and payment mode."],
+      ["qa-fee-02-amount.png","Enter the amount to collect","Enter the amount against the due item and verify the total before choosing Collect & Issue Receipt."],
+      ["qa-fee-03-issued.png","Verify the payment confirmation","Check the amount collected and the receipt number shown in Payment recorded."],
+      ["qa-fee-04-register.png","Reopen Recent Receipts","Expand Recent Receipts and match the persisted receipt number, amount and mode."],
+      ["qa-fee-05-preview.png","Preview the fee receipt","Open Print on the matching receipt and review the receipt number, amount received and remaining balance."],
     ],
   },
   {
@@ -102,6 +125,17 @@ const walkthroughFlows = [
     steps: [
       ["ipad-home-original.png","Open Fees from Home","Select the Fees shortcut for the current learner."],
       ["ipad-fees-original.png","Check the balance and due item","Review the amount due, the overdue item and the available Pay Now action."],
+    ],
+  },
+  {
+    topic: "attendance",
+    title: "Mark and verify class attendance",
+    outcome: "The local QA instance, using an administrator test login, saved one Present, one Late and one Absent mark. Reloading the same register displayed all three saved marks.",
+    steps: [
+      ["qa-teacher-attendance-01-filters.png","Select the class, date and attendance slot","Choose the section, date and slot, then select Load Students."],
+      ["qa-teacher-attendance-02-marked.png","Mark the roster","Review each synthetic learner and choose Present, Late or Absent."],
+      ["qa-teacher-attendance-03-submit.png","Submit the register","Open Submit Attendance. Add a comment or attachment if required, then select Submit."],
+      ["qa-teacher-attendance-04-verified.png","Reload and verify the saved marks","Load the same section, date and slot again. Check that all three selections persisted."],
     ],
   },
   {
