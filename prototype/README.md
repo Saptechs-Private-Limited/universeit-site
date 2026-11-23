@@ -2,7 +2,11 @@
 
 Open `index.html` with its sibling files, or serve this directory with any static
 web server. No install, app build, account or backend is required. All records
-are demonstration fixtures; do not enter real credentials.
+in the interactive app are demonstration fixtures. **View workflow
+presentations** opens a separate viewer inside the page with screenshots from
+the Education Seva rehearsal. Choose a workflow and use Previous, Next or the
+step selector to follow the sequence. Select a screenshot to open it at full
+size. The workflow description records the observed outcome.
 
 The 22 October 2026 sync reads the app's `src/navigation`, `src/screens`,
 `src/theme/layout.ts`, `src/theme/colors.ts` and current mobile branding assets.

@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,follow">
 <title>UniverseIT — Mobile Prototype</title>
+<link rel="stylesheet" href="walkthroughs.css">
+<script src="walkthroughs.js" defer></script>
 <!--
   Interactive prototype of the UniverseIT React Native / Expo mobile app.
   Current design sync: 2026-10-22 in latest.js / latest.css, including phone/tablet
@@ -397,6 +399,7 @@
       <h1>Multi-persona operations app</h1>
       <p>One binary, role-driven. Sign in, or use the control deck to jump between all eight persona experiences. Everything mirrors the React&nbsp;Native build.</p>
     </div>
+    <button class="walkthrough-button" id="open-walkthroughs" type="button" aria-haspopup="dialog">View workflow presentations</button>
     <div class="phone-fit" id="phoneFit">
     <div class="phone">
       <div class="screen" id="screen">
@@ -3659,6 +3662,28 @@ if(window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEvent
   requestAnimationFrame(function () { fitDevice(); });
 })();
 </script>
-
+<dialog id="walkthroughs" aria-labelledby="walkthrough-title">
+  <header class="walkthrough-header">
+    <h2 id="walkthrough-title">Workflow presentations</h2>
+    <form method="dialog"><button class="walkthrough-button" type="submit">Close</button></form>
+  </header>
+  <p>Real UniverseIT screens captured during the Education Seva rehearsal.</p>
+  <label class="walkthrough-select">Workflow <select id="walkthrough-flow" autofocus></select></label>
+  <p id="walkthrough-outcome"></p>
+  <nav class="walkthrough-controls" aria-label="Presentation steps">
+    <button class="walkthrough-button" id="walkthrough-previous" type="button">Previous</button>
+    <label>Step <select id="walkthrough-step"></select></label>
+    <button class="walkthrough-button" id="walkthrough-next" type="button">Next</button>
+  </nav>
+  <figure>
+    <figcaption aria-live="polite">
+      <h3 id="walkthrough-heading"></h3>
+      <p id="walkthrough-instruction"></p>
+    </figcaption>
+    <a id="walkthrough-original" target="_blank" rel="noopener">
+      <img id="walkthrough-image" alt="">
+    </a>
+  </figure>
+</dialog>
 </body>
 </html>
