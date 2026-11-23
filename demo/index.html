@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0C447C" />
+    <meta name="description" content="A conversation-led, interactive UniverseIT demo for schools and colleges." />
+    <title>UniverseIT Institute Demo</title>
+    <link rel="icon" href="assets/universeit-lockup.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/app.css" />
+    <script defer src="assets/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#stage">Skip to demo</a>
+    <header id="topbar" class="topbar" hidden>
+      <a class="brand" href="#" data-action="restart" aria-label="Restart the UniverseIT demo">
+        <img src="assets/universeit-lockup.svg" alt="UniverseIT, a product by SAPTECHS" />
+      </a>
+    </header>
+    <main id="stage" tabindex="-1" aria-live="polite" aria-atomic="true"></main>
+    <nav class="bottom-dock" id="bottom-dock" aria-label="Demo navigation" hidden>
+      <button class="nav-button nav-quiet restart-control" type="button" data-action="restart">Restart</button>
+      <div class="dock-standard">
+        <button class="nav-button" id="back-button" type="button" data-action="back">← Previous</button>
+      </div>
+      <div class="page-actions" id="page-actions" aria-label="Current page actions"></div>
+    </nav>
+  </body>
+</html>
